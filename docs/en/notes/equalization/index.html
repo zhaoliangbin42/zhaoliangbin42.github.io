@@ -1,0 +1,2346 @@
+<!doctype html>
+<html
+  itemscope
+  class=""
+  lang="en-us"
+  itemtype="http://schema.org/WebPage">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8" />
+
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, maximum-scale=5" />
+
+
+<meta name="theme-name" content="hugoplate" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="shortcut icon" href="/images/favicon_hu_f7de9c17dbcc61b2.png" type="image/x-icon">
+<link rel="icon" href="/images/favicon_hu_f7de9c17dbcc61b2.png" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="48x48" href="/images/favicon_hu_6ecf37be797dc02a.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/images/favicon_hu_f7de9c17dbcc61b2.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/favicon_hu_356f711d531fa433.png">
+
+
+
+
+
+
+
+
+<link rel="manifest" href="/manifest.webmanifest" />
+<meta
+  name="msapplication-TileColor"
+  content="#ddd" />
+<meta
+  name="theme-color"
+  content="#ffffff" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<title>信道均衡算法</title>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <link rel="alternate" hreflang="zh" href="http://localhost:1313/zh/notes/equalization/" />
+  
+    <link rel="alternate" hreflang="en" href="http://localhost:1313/en/notes/equalization/" />
+  
+  <link rel="alternate" hreflang="x-default" href="http://localhost:1313/en/notes/equalization/" />
+
+
+
+
+
+  <meta
+    name="keywords"
+    content="Liangbin" />
+
+
+
+
+<meta
+  name="description"
+  content="Liangbin&#39;s Notes" />
+
+
+
+  <meta name="author" content="Liangbin" />
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+
+
+  
+  
+    
+    
+      
+    
+
+    
+
+
+    
+    
+
+
+    
+    
+      
+      
+      
+        <meta property="og:image" content="http://localhost:1313/en/notes/equalization/index.assets/banner.png" />
+        <meta name="twitter:image" content="http://localhost:1313/en/notes/equalization/index.assets/banner.png" />
+        <meta
+          name="twitter:card"
+          content="summary_large_image" />
+      
+      
+      <meta property="og:image:width" content="1536" />
+      <meta property="og:image:height" content="1024" />
+    
+
+
+    
+    <meta
+      property="og:image:type"
+      content="image/.png" />
+  
+
+
+  
+
+
+
+
+
+<meta property="og:title" content="信道均衡算法" />
+<meta property="og:description" content="Liangbin&#39;s Notes" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/en/notes/equalization/" />
+
+
+<meta name="twitter:title" content="信道均衡算法" />
+<meta name="twitter:description" content="Liangbin&#39;s Notes" />
+
+
+
+  <meta name="twitter:creator" content="@Liangbin" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  let indexURL = "http://localhost:1313/en/searchindex.json";
+  let includeSectionsInSearch = ["notes"];
+  let search_no_results = "No results for";
+  let search_initial_message = "Type something to search..";
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="preconnect" href="https://use.fontawesome.com" crossorigin />
+<link rel="preconnect" href="//cdnjs.cloudflare.com" />
+<link rel="preconnect" href="//www.googletagmanager.com" />
+<link rel="preconnect" href="//www.google-analytics.com" />
+<link rel="dns-prefetch" href="https://use.fontawesome.com" />
+<link rel="dns-prefetch" href="//ajax.googleapis.com" />
+<link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+<link rel="dns-prefetch" href="//www.googletagmanager.com" />
+<link rel="dns-prefetch" href="//www.google-analytics.com" />
+<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+<link rel="dns-prefetch" href="//connect.facebook.net" />
+<link rel="dns-prefetch" href="//platform.linkedin.com" />
+<link rel="dns-prefetch" href="//platform.twitter.com" />
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script>
+  (function () {
+    const googleFont = document.createElement("link");
+    googleFont.href = "https://fonts.googleapis.com/css2?family=Heebo:wght@400;600&family=Signika:wght@500;700&display=swap";
+    googleFont.type = "text/css";
+    googleFont.rel = "stylesheet";
+    document.head.appendChild(googleFont);
+  })();
+</script>
+
+
+
+
+
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link
+  href="/css/style.css"
+  integrity=""
+  rel="stylesheet" />
+
+
+<link
+  defer
+  async
+  rel="stylesheet"
+  href="/css/style-lazy.css"
+  integrity=""
+  media="print"
+  onload="this.media='all'; this.onload=null;" />
+
+
+  </head>
+
+  <body>
+    
+    
+      
+
+
+  <div class="preloader">
+    
+    
+    
+
+      
+      
+    
+    
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+      window.addEventListener("load", function () {
+        document.querySelector(".preloader").style.display = "none";
+      });
+    })();
+  </script>
+
+
+
+
+      
+      <div
+  class="fixed left-0 top-0 z-50 flex w-[30px] items-center justify-center bg-gray-200 py-[2.5px] text-[12px] uppercase text-black sm:bg-red-200 md:bg-yellow-200 lg:bg-green-200 xl:bg-blue-200 2xl:bg-pink-200">
+  <span class="block sm:hidden">all</span>
+  <span class="hidden sm:block md:hidden">sm</span>
+  <span class="hidden md:block lg:hidden">md</span>
+  <span class="hidden lg:block xl:hidden">lg</span>
+  <span class="hidden xl:block 2xl:hidden">xl</span>
+  <span class="hidden 2xl:block">2xl</span>
+</div>
+
+    
+
+
+    
+    
+
+
+
+
+
+    
+    <header
+  class="header sticky top-0 z-30 py-1">
+  <nav class="navbar container">
+    
+    <div class="order-0">
+      
+      <a class="navbar-brand block" href="/en/">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+  
+  
+    
+    
+  
+
+
+  
+  
+      
+      
+    
+    
+    
+    
+    
+    
+  
+  
+
+  
+  
+    
+    
+      
+      
+
+
+      
+      
+        
+        
+        
+        
+
+        
+        
+        
+      
+      
+    
+  
+  
+
+  
+    <img
+      fetchpriority="high"
+      decoding="async"
+      class="img img-light"
+      width="64"
+      height="64"
+      src="/images/logo_hu_22cd5b9f84f4dd29.webp"
+      alt="Liangbin&#39;s Notes"
+      onerror="this.onerror=null;this.src='\/images\/logo_hu_8aaec227ab965c34.png';" />
+
+    <img
+      fetchpriority="high"
+      decoding="async"
+      class="img img-dark"
+      width="64"
+      height="64"
+      src="/images/logo-darkmode_hu_42bdcfb994f8655e.webp"
+      alt="Liangbin&#39;s Notes"
+      onerror="this.onerror=null;this.src='\/images\/logo-darkmode_hu_61dd1b75c461fd.png';" />
+  
+  
+
+
+      </a>
+    </div>
+    
+    <input id="nav-toggle" type="checkbox" class="hidden" />
+    <label
+      for="nav-toggle"
+      class="order-3 cursor-pointer flex items-center lg:hidden text-text-dark dark:text-white lg:order-1">
+      <svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20">
+        <title>Menu Open</title>
+        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
+      </svg>
+      <svg id="hide-button" class="h-6 fill-current hidden" viewBox="0 0 20 20">
+        <title>Menu Close</title>
+        <polygon
+          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+          transform="rotate(45 10 10)"></polygon>
+      </svg>
+    </label>
+    
+
+    
+    <ul
+      id="nav-menu"
+      class="navbar-nav order-3 hidden lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8">
+      
+      
+        
+        
+        
+        
+            
+        
+
+
+        
+        
+          <li class="nav-item">
+            <a
+              class="nav-link "
+              
+              href="/en/"
+              >Home</a
+            >
+          </li>
+        
+      
+        
+        
+        
+        
+            
+        
+
+
+        
+        
+          <li class="nav-item">
+            <a
+              class="nav-link "
+              
+              href="/en/about"
+              >About</a
+            >
+          </li>
+        
+      
+        
+        
+        
+        
+            
+        
+
+
+        
+        
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              
+              href="/en/notes"
+              >Notes</a
+            >
+          </li>
+        
+      
+        
+        
+        
+        
+            
+        
+
+
+        
+        
+          <li class="nav-item">
+            <a
+              class="nav-link "
+              
+              href="/en/codes"
+              >Codes</a
+            >
+          </li>
+        
+      
+      
+    </ul>
+
+    <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
+      
+        
+          <button
+            aria-label="search"
+            
+              class="border-border text-text-dark hover:text-primary
+              dark:border-darkmode-border mr-5 inline-block border-r pr-5
+              text-xl dark:text-white dark:hover:text-darkmode-primary"
+            
+            data-target="search-modal">
+            <i class="fa-solid fa-search"></i>
+          </button>
+        
+      
+
+      
+
+
+
+
+
+
+  
+
+  
+
+
+  
+
+  
+
+
+<div class="language-switcher mr-5 pl-2 py-1 dark:bg-darkmode-light rounded">
+  
+  
+  
+  
+  
+  <a href="http://localhost:1313/zh/notes/equalization/" 
+  class="lang-link "
+  id="zh">ZH</a>
+  
+  
+  <span class="divider">/</span>
+  
+  
+  
+  <a href="http://localhost:1313/en/notes/equalization/" 
+     class="lang-link active"
+     id="en">EN</a>
+  
+  
+</div>
+
+<style>
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-right: 5px;
+}
+.lang-link {
+  text-decoration: none;
+  color: #666;
+  padding: 2px 4px;
+  transition: color 0.3s;
+}
+.lang-link:hover {
+  color: #333;
+}
+.lang-link.active {
+  color: #000;
+  font-weight: bold;
+}
+.divider {
+  color: #666;
+}
+</style>
+
+      
+
+
+  <div class="theme-switcher mr-5 hidden">
+    <input id="theme-switcher" data-theme-switcher type="checkbox" />
+    <label for="theme-switcher">
+      <span class="sr-only">theme switcher</span>
+      <span>
+        
+        <svg
+          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 opacity-100 dark:opacity-0"
+          viewBox="0 0 56 56"
+          fill="#fff"
+          height="16"
+          width="16">
+          <path
+            d="M30 4.6c0-1-.9-2-2-2a2 2 0 0 0-2 2v5c0 1 .9 2 2 2s2-1 2-2Zm9.6 9a2 2 0 0 0 0 2.8c.8.8 2 .8 2.9 0L46 13a2 2 0 0 0 0-2.9 2 2 0 0 0-3 0Zm-26 2.8c.7.8 2 .8 2.8 0 .8-.7.8-2 0-2.9L13 10c-.7-.7-2-.8-2.9 0-.7.8-.7 2.1 0 3ZM28 16a12 12 0 0 0-12 12 12 12 0 0 0 12 12 12 12 0 0 0 12-12 12 12 0 0 0-12-12Zm23.3 14c1.1 0 2-.9 2-2s-.9-2-2-2h-4.9a2 2 0 0 0-2 2c0 1.1 1 2 2 2ZM4.7 26a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4.9c1 0 2-.9 2-2s-1-2-2-2Zm37.8 13.6a2 2 0 0 0-3 0 2 2 0 0 0 0 2.9l3.6 3.5a2 2 0 0 0 2.9 0c.8-.8.8-2.1 0-3ZM10 43.1a2 2 0 0 0 0 2.9c.8.7 2.1.8 3 0l3.4-3.5c.8-.8.8-2.1 0-2.9-.8-.8-2-.8-2.9 0Zm20 3.4c0-1.1-.9-2-2-2a2 2 0 0 0-2 2v4.9c0 1 .9 2 2 2s2-1 2-2Z" />
+        </svg>
+        
+        <svg
+          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 opacity-0 dark:opacity-100"
+          viewBox="0 0 24 24"
+          fill="none"
+          height="16"
+          width="16">
+          <path
+            fill="#000"
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M8.2 2.2c1-.4 2 .6 1.6 1.5-1 3-.4 6.4 1.8 8.7a8.4 8.4 0 0 0 8.7 1.8c1-.3 2 .5 1.5 1.5v.1a10.3 10.3 0 0 1-9.4 6.2A10.3 10.3 0 0 1 3.2 6.7c1-2 2.9-3.5 4.9-4.4Z" />
+        </svg>
+      </span>
+    </label>
+  </div>
+  
+
+  
+  <script>
+    var darkMode = false;
+
+    
+
+    if (localStorage.getItem("theme") === "dark"){darkMode = true}
+    else if (localStorage.getItem("theme") === "light"){darkMode = false}
+
+    if (darkMode){document.documentElement.classList.add("dark")}
+    else {document.documentElement.classList.remove("dark")}
+
+    
+    document.addEventListener("DOMContentLoaded", () => {
+      var themeSwitch = document.querySelectorAll("[data-theme-switcher]");
+      var themeSwitcherContainer = document.querySelector('.theme-switcher');
+
+      [].forEach.call(themeSwitch, function (ts) {
+        ts.checked = darkMode;
+        ts.addEventListener("click", () => {
+          document.documentElement.classList.toggle("dark");
+          localStorage.setItem(
+            "theme",
+            document.documentElement.classList.contains("dark") ? "dark" : "light"
+          );
+        });
+      });
+
+      
+      themeSwitcherContainer.classList.remove('hidden');
+    });
+  </script>
+
+
+
+
+      
+      
+    </div>
+  </nav>
+</header>
+
+    
+
+
+
+
+  
+    <div
+      class="search-modal "
+      aria-hidden="true"
+      style="--color-primary: #121212">
+      <div data-target="close-search-modal" class="search-modal-overlay"></div>
+      <div
+        class="search-wrapper"
+        data-image="true"
+        data-description="true"
+        data-tags="true"
+        data-categories="true">
+        <div class="search-wrapper-header">
+          <label for="search-modal-input" style="margin-top:-1px">
+            <span class="sr-only">search icon</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+              height="18"
+              width="18"
+              class="search-icon"
+              data-type="search">
+              <path
+                fill="currentColor"
+                d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+              height="18"
+              width="18"
+              class="search-reset"
+              data-type="reset">
+              <path
+                fill="currentColor"
+                d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z" />
+            </svg>
+          </label>
+          <input
+            id="search-modal-input"
+            type="text"
+            data-search-input
+            autocomplete="off"
+            aria-label="Search"
+            placeholder="Search Post..." />
+        </div>
+        <div class="search-wrapper-body">
+          <div class="search-result" data-search-result></div>
+          <span class="search-result-empty">
+            Type something to search..
+          </span>
+        </div>
+        <div class="search-wrapper-footer">
+          <span>
+            <kbd>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                fill="currentColor"
+                viewBox="0 0 16 16">
+                <path
+                  d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z" />
+              </svg>
+            </kbd>
+            <kbd>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                fill="currentColor"
+                style="margin-top:1px;"
+                viewBox="0 0 16 16">
+                <path
+                  d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
+              </svg>
+            </kbd>
+            to navigate
+          </span>
+          <span>
+            <kbd>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="12"
+                fill="currentColor"
+                style="display:inline-block;"
+                viewBox="0 0 16 16">
+                <path
+                  fill-rule="evenodd"
+                  d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" />
+              </svg>
+            </kbd>
+            to select
+          </span>
+          <span class="search-result-info"></span>
+          <span data-target="close-search-modal">
+            <kbd>ESC</kbd> to close
+          </span>
+        </div>
+      </div>
+    </div>
+  
+
+
+
+
+    <main>
+      
+<section class="section pt-7">
+    <div class="container">
+        <div class="row justify-center">
+            <article class="lg:col-10">
+                
+                
+                <div class="mb-10">
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+    
+      
+    
+
+
+    
+    
+
+
+    
+    
+      
+      
+    
+    
+    
+
+
+    
+    
+      
+      
+        
+
+        
+        
+        
+        
+        
+        
+        
+
+
+        
+        
+
+
+        <picture>
+          <source
+            
+              srcset="/en/notes/equalization/index.assets/banner_hu_620052250f2390a7.webp"
+            
+            media="(max-width: 575px)" />
+          <source
+            
+              srcset="/en/notes/equalization/index.assets/banner_hu_c37c09d1fcec4434.webp"
+            
+            media="(max-width: 767px)" />
+          <source
+            
+              srcset="/en/notes/equalization/index.assets/banner_hu_bb8963fb8fb5ad3f.webp"
+            
+            media="(max-width: 991px)" />
+          <source
+            
+              srcset="/en/notes/equalization/index.assets/banner_hu_abe7806e9863940e.webp"
+             />
+          <img
+            
+              loading="lazy" decoding="async"
+              src="/en/notes/equalization/index.assets/banner_hu_ed24187f3b54d2b2.png"
+            class=" w-full rounded img"
+            alt="信道均衡算法"
+            width="1536"
+            height="1024" />
+        </picture>
+      
+      
+    
+    
+  
+
+
+  
+
+
+                </div>
+                
+                <h1 class="h2 mb-4">
+                    信道均衡算法
+                </h1>
+                <ul class="mb-4">
+                    <li class="mr-4 inline-block">
+                        <a href="/en/authors/liangbin/">
+                            <i class="fa-regular fa-user-pen mr-2"></i>Liangbin
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="mr-4 inline-block">
+                        <i class="fa-regular fa-folder mr-2"></i>
+                        
+                        <a href="/en/categories/communication/" class="">Communication
+                        </a>
+                        
+                    </li>
+                    
+                    <li class="mr-4 inline-block">
+                        <i class="fa-regular fa-clock mr-2"></i>
+                        October 6, 2023
+                    </li>
+                </ul>
+                <div class="content mb-10">
+                    
+
+ 
+  
+
+<details open class="table-of-content blog">
+  <summary>
+    
+      Table of Contents
+    
+  </summary>
+  <nav id="TableOfContents">
+  <ol>
+    <li><a href="#自适应均衡原理">自适应均衡原理</a></li>
+    <li><a href="#自适应均衡问题建模">自适应均衡问题建模</a>
+      <ol>
+        <li><a href="#定理">定理</a></li>
+      </ol>
+    </li>
+    <li><a href="#pam系统中的sato算法">PAM系统中的Sato算法</a>
+      <ol>
+        <li><a href="#sato算法的局限性">Sato算法的局限性</a></li>
+      </ol>
+    </li>
+    <li><a href="#qam系统中的自适应均衡">QAM系统中的自适应均衡</a>
+      <ol>
+        <li><a href="#constant-modulus-algorithmcma恒模算法">Constant-modulus algorithm（CMA，恒模算法）</a></li>
+        <li><a href="#cma算法的优缺点">CMA算法的优缺点</a></li>
+      </ol>
+    </li>
+    <li><a href="#multimodulus-algorithmmma多模算法">Multimodulus Algorithm(MMA)多模算法</a>
+      <ol>
+        <li><a href="#mma算法优缺点">MMA算法优缺点</a></li>
+      </ol>
+    </li>
+    <li><a href="#decision-directeddd算法">Decision Directed(DD)算法</a>
+      <ol>
+        <li><a href="#dd算法优缺点">DD算法优缺点</a></li>
+      </ol>
+    </li>
+    <li><a href="#modified-cmamcma">Modified-CMA(MCMA)</a>
+      <ol>
+        <li><a href="#mcma算法优缺点">MCMA算法优缺点</a></li>
+      </ol>
+    </li>
+    <li><a href="#cma-mma">CMA-MMA</a>
+      <ol>
+        <li><a href="#cma-mma算法优缺点">CMA-MMA算法优缺点</a></li>
+      </ol>
+    </li>
+    <li><a href="#cma-assisted-decision-adjusted-modulus-algorithmcadama">CMA-Assisted Decision Adjusted Modulus Algorithm(CADAMA)</a>
+      <ol>
+        <li><a href="#cadama算法的优缺点">CADAMA算法的优缺点</a></li>
+        <li><a href="#cma算法与dama算法之间的转换准则">CMA算法与DAMA算法之间的转换准则</a></li>
+      </ol>
+    </li>
+    <li><a href="#盲均衡性能评价准则">盲均衡性能评价准则</a>
+      <ol>
+        <li><a href="#收敛速度">收敛速度</a></li>
+        <li><a href="#均方判决误差">均方判决误差</a></li>
+        <li><a href="#剩余isi">剩余ISI</a></li>
+        <li><a href="#误符号率">误符号率</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+</details>
+
+                    <blockquote>
+<p>参考文献：
+《高阶QAM信号盲均衡算法研究》
+《Algorithms for Communications Systems and their Applications》
+《Hybrid Methods for Blind Adaptive Equalization: New Results and Comparisons》</p></blockquote>
+<h2 id="自适应均衡原理">自适应均衡原理</h2>
+<p>自适应均衡器可以视为两部分组成：滤波子系统和自适应算法。所以本质上，均衡器也是一个滤波器，更严格地说，自适应均衡是自适应滤波器做补偿信道ISI来讲的一种应用。</p>
+<h2 id="自适应均衡问题建模">自适应均衡问题建模</h2>
+<blockquote>
+<p>参考书籍：《Algorithms for Communications Systems and their Applications》
+From the knowledge of the probability distribution of the channel input symbols $\lbrace a_k\rbrace$ and from the observation of the channel output sequence $\lbrace x_k\rbrace$, we want to ﬁnd an equalizer $C$ such that the overall system impulse response is inter-symbol interference (ISI) free.</p></blockquote>
+<p>假设一个非最小相位系统的有理传递函数为</p>
+<p>$$
+H(z)=H_{0} \frac{P_{1}(z) P_{2}(z)}{P_{3}(z)}
+$$</p>
+<p>其中， $H_ 0$为增益， $P_ 3(z)$ 和 $P_ 1(z)$ 为在单位圆内有零点的一次多项式，而 $P_ 2(z)$ 为在单位圆外有零点的一次多项式。对 $P_ 1(z)$ 和 $P_ 2(z)$ 求逆并用劳伦变换表示，为</p>
+<p>$$
+\begin{aligned}
+&amp;P_{1}^{-1}(z)=\sum_{n=0}^{+\infty} c_{1, n} z^{-n} \
+&amp;P_{2}^{-1}(z)=\sum_{n=-\infty}^{0} c_{2, n} z^{-n}
+\end{aligned}
+$$</p>
+<p>因此有</p>
+<p>$$
+H^{-1}(z)=\frac{1}{H_{0}} P_{3}(z)\left(\sum_{n=0}^{+\infty} c_{1, n} z^{-n}\right)\left(\sum_{n=-\infty}^{0} c_{2, n} z^{-n}\right)
+$$</p>
+<p>由于输入信号是对称的，即 $\left\lbrace-a_{k}\right\rbrace$ 和 $\left\lbrace-a_{k}\right\rbrace$ 有相同的统计特性，因此，我们无法区分目标均衡器为 $H^{-1}$ 还是 $-H^{-1}$。所以均衡器的解为 $C=\pm H^{-1}$ ，这能令整个系统的响应为 $\Psi=\pm I$。</p>
+<h3 id="定理">定理</h3>
+<p>如果输入符号是非高斯的，若输出符号</p>
+<p>$$
+y_{k}=\sum_{n=-\infty}^{+\infty} c_{n} x_{k-n}
+$$</p>
+<p>的输入输出服从同分布，则系统$\Psi=\pm I$。</p>
+<p>利用上述定理可以确定均衡器 $C$ 是否令输出分布收敛于输入分布。令代价函数为</p>
+<p>$$
+J=E\left[\Phi\left(y_{k}\right)\right]
+$$</p>
+<p>其中 $\Phi$ 是选定的实数偶函数，则最优解为</p>
+<p>$$
+C_{o p t}(z)=\arg \min _{C(z)} J
+$$</p>
+<p>这样就能找到$\pm H^{-1}$时的$c$值。</p>
+<p>假设均衡器系数长为$N$，则</p>
+<p>$$
+\boldsymbol{c}_ {k}=\left[c_ {0, k}, c_{1, k}, \ldots, c_{N-1, k}\right]^{T}
+$$</p>
+<p>令输入为</p>
+<p>$$
+\boldsymbol{x}_ {k}=\left[x_ {k}, x_{k-1}, \ldots, x_{k-(N-1)}\right]^{T}
+$$</p>
+<p>有输出</p>
+<p>$$
+y_{k}=\sum_{n=0}^{N-1} c_{n, k} x_{k-n}=c_{k}^{T} \boldsymbol{x}_ {k}
+$$</p>
+<p>同理，可以将系数简化为</p>
+<p>$$
+c_{o p t}=\arg \min_{c} J
+$$</p>
+<p>假设$\Phi$的导数为$\Theta$，$J$关于$c$的梯度为</p>
+<p>$$
+\nabla_{c} J=E\left[\boldsymbol{x}_{k}\Theta (y_k)\right]
+$$</p>
+<p>为了最小化$J$，使用随机梯度下降算法</p>
+<p>$$
+c_{k+1}=c_{k}-\mu \Theta\left(y_{k}\right) \boldsymbol{x}_{k}
+$$</p>
+<p>其中 $\mu$ 是自适应增益。值得注意的是，收敛到 $H^{-1}$ 还是 $-H^{-1}$ 取决于初始系数$C$的选择。</p>
+<p>均衡器迭代时所选择的代价函数 $\Phi$ 很重要。</p>
+<hr>
+<h2 id="pam系统中的sato算法">PAM系统中的Sato算法</h2>
+<p>Sato代价函数定义为：</p>
+<p>$$
+J=E\left[\frac{1}{2} y_{k}^{2}-\gamma_{S}\left|y_{k}\right|\right]
+$$</p>
+<p>其中</p>
+<p>$$
+\gamma_{S}=\frac{E\left[a_{k}^{2}\right]}{E\left[\left|a_{k}\right|\right]}
+$$</p>
+<p>$J$ 的梯度为</p>
+<p>$$
+\nabla_{\boldsymbol{c}} J=E\left[\boldsymbol{x}_ {k}\left(y_{k}-\gamma_{S} \operatorname{sgn}\left(y_{k}\right)\right)\right]
+$$</p>
+<p>引入信号</p>
+<p>$$
+\epsilon_{S, k}=y_{k}-\gamma_{S} \operatorname{sgn}\left(y_{k}\right)
+$$</p>
+<p>假设自训练时伪误差的期望替代最小均方(LMS)判决算法中的误差项。其中，LMS算法的误差信号为</p>
+<p>$$
+e_{k}=y_{k}-\hat{a}_ {k}
+$$</p>
+<p>其中，$ \hat{a}_ {k}$为符号 $a_ k$的判决，这是对样本 $y_ k$ 通过阈值判决器判决出来的结果。下图展示了输出样本$y_ k$时伪误差$\epsilon_{S, k}$的函数。</p>
+<p><img src="/en/notes/equalization/index.assets/cleanshot-on-pdf-expert-in-20220408-at-103732.png" alt="CleanShot on PDF Expert in 2022-04-08 at 10.37.32"></p>
+<p>因此，Sato算法系数更新过程为</p>
+<p>$$
+\boldsymbol{c}_ {k+1}=\boldsymbol{c}_ {k}-\mu \epsilon_ {S, k} \boldsymbol{x}_ {k}
+$$</p>
+<p>通过证明可知，如果输出符号$\lbrace a_{k}\rbrace$是sub-Gaussian的，那么Sato代价函数在一定的滞后后能将系统导向唯一的$C=\pm H^{-1}$。</p>
+<h3 id="sato算法的局限性">Sato算法的局限性</h3>
+<ol>
+<li>在得到Sato代价函数最小时的唯一点的前提是假设输入符号的概率分布是连续的，如果概率分布是离散的，Sato算法的收敛特性将会不理想；</li>
+<li>在$C=\pm H^{-1}$时，伪误差$\epsilon_{S, k}$并不为零，除非系统是二进制传输系统；</li>
+<li>伪误差的方差可以在期望解的邻域内为不可忽略的值。</li>
+</ol>
+<p>值得一提的是，我们在最小化代价函数时，函数中有一项$E\left[\left|y_{k}\right|^{p}\right]$ ，其中$p\geq 2$ ，这意味着在代价函数中我们强调采样点幅值的贡献。</p>
+<h2 id="qam系统中的自适应均衡">QAM系统中的自适应均衡</h2>
+<h3 id="constant-modulus-algorithmcma恒模算法">Constant-modulus algorithm（CMA，恒模算法）</h3>
+<p>最早由Godard提出，其代价函数为：</p>
+<p>$$
+J=E\left[\left(\left|\tilde{y}_ {k}\right|^{p}-R_{p}\right)^{2}\right]=E\left[\left(\left|y_{k}\right|^{p}-R_{p}\right)^{2}\right]
+$$</p>
+<p>其中，$p$是一个参数，通常有 $p=1$ 或 $p=2$ 。由于代价函数 $J$ 取决于均衡器输出的绝对值的 $p$ 次方，因此，CMA不需要载波相位估计。下图是采用了CMA均衡器接收机的框图。</p>
+<p><img src="/en/notes/equalization/index.assets/cleanshot-on-pdf-expert-in-20220408-at-113903.png" alt=""></p>
+<p>上式的梯度为</p>
+<p>$$
+\nabla_{c} J=2 p E\left[\left(\left|\tilde{y}_ {k}\right|^{p}-R_{p}\right)\left|\tilde{y}_ {k}\right|^{p-2} \tilde{y}_ {k} \boldsymbol{x}_ {k}^{*}\right]
+$$</p>
+<p>常数$R_p$会选择成在均衡效果很好时令梯度为0的值，因此，有</p>
+<p>$$
+R_{p}=\frac{E\left[\left|a_{k}\right|^{2 p}\right]}{E\left[\left|a_{k}\right|^{p}\right]}
+$$</p>
+<blockquote>
+<p>为啥这里需要用两个期望相除而不是相除后再求期望？
+因为相除后再求期望还有一项协方差需要求，而这两个随机变量都是$a_k$，协方差不为0，因此如果相除后再求期望的话就不是半径的$p$次方的期望了。</p></blockquote>
+<p>以64QAM星座图为例，利用上式，可以算出 $R_ 1 = 6.9$ 和 $R_ 2 = 58$。计算这两个半径的代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-MATLAB" data-lang="MATLAB"><span class="line"><span class="cl"><span class="n">p</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">E1</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">E2</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="mi">7</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="nb">j</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="mi">7</span>
+</span></span><span class="line"><span class="cl">    <span class="n">E1</span> <span class="p">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">16</span> <span class="o">*</span> <span class="p">(</span><span class="nb">sqrt</span><span class="p">(</span><span class="nb">i</span>^<span class="mi">2</span><span class="o">+</span><span class="nb">j</span>^<span class="mi">2</span><span class="p">)</span> ^ <span class="n">p</span><span class="p">)</span> <span class="o">+</span> <span class="n">E1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">E2</span> <span class="p">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">16</span> <span class="o">*</span> <span class="p">(</span><span class="nb">sqrt</span><span class="p">(</span><span class="nb">i</span>^<span class="mi">2</span><span class="o">+</span><span class="nb">j</span>^<span class="mi">2</span><span class="p">)</span> ^ <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">p</span><span class="p">))</span> <span class="o">+</span> <span class="n">E2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="n">E2</span><span class="o">/</span><span class="n">E1</span>
+</span></span></code></pre></div><p>半径$R_ 1=6.9$的圆在64QAM星座图中的相对位置如下：</p>
+<p><img src="/en/notes/equalization/index.assets/cleanshot-on-pdf-expert-in-20220408-at-144140.png" alt="CleanShot on PDF Expert in 2022-04-08 at 14.41.40"></p>
+<p>我们可以借助下式以利用梯度更新均衡器系数</p>
+<p>$$
+\boldsymbol{c}_ {k+1}=\boldsymbol{c}_ {k}-\mu\left(\left|\tilde{y}_ {k}\right|^{p}-R_{p}\right)\left|\tilde{y}_ {k}\right|^{p-2} \tilde{y}_ {k} \boldsymbol{x}_ {k}^{* }
+$$</p>
+<p>对于 $p=1$ 的情况，上式化简成：</p>
+<p>$$
+\boldsymbol{c}_ {k+1}=\boldsymbol{c}_ {k}-\mu\left(\left|\tilde{y}_ {k}\right|-R_{1}\right) \frac{\tilde{y}_ {k}}{\left|\tilde{y}_ {k}\right|} \boldsymbol{x}_ {k}^{*}
+$$</p>
+<p>这就是CMA算法，而Sato算法是CMA算法的一个特例。</p>
+<h3 id="cma算法的优缺点">CMA算法的优缺点</h3>
+<p><strong>优点</strong></p>
+<ol>
+<li>鲁棒性好</li>
+<li>复杂度低</li>
+<li>使用广泛</li>
+<li>可以在载波恢复之前</li>
+</ol>
+<p><strong>缺点</strong></p>
+<ol>
+<li>Time-to-convergence(TTC)较慢</li>
+<li>收敛时会有一个常数相位偏移</li>
+</ol>
+<h2 id="multimodulus-algorithmmma多模算法">Multimodulus Algorithm(MMA)多模算法</h2>
+<blockquote>
+<p>参考文献：《Hybrid Methods for Blind Adaptive Equalization: New Results and Comparisons》</p></blockquote>
+<p>MMA将均衡器的输出分为同相分量与正交分量，对于方形的QAM星座图来说，MMA误差为</p>
+<p>$$
+\begin{array}{r}
+E_{n, R}^{m m a}=y_{n, R}\left(y_{n, R}^{2}-R_{M}\right) \
+E_{n, I}^{m m a}=y_{n, I}\left(y_{n, I}^{2}-R_{M}\right) \
+E_{n}^{m m a}=E_{n, R}^{m m a}+j \cdot E_{n, I}^{m m a}
+\end{array}
+$$</p>
+<p>$R$ 和 $I$ 分别代表实数和虚数分量，$R_M$ 是一个常数，定义为：</p>
+<p>$$
+R_{M}=\frac{\mathrm{E}\left\lbrace a_{n}^{4}\right\rbrace}{\mathrm{E}\left\lbrace a_{n}^{2}\right\rbrace}
+$$</p>
+<h3 id="mma算法优缺点">MMA算法优缺点</h3>
+<p>MMA算法对比CMA有更低的MSE，并且不需要相位恢复。然而，收敛速率与CMA是差不多的，并且鲁棒性更低。</p>
+<h2 id="decision-directeddd算法">Decision Directed(DD)算法</h2>
+<p>DD算法在更新均衡抽头的时候用符号估计替换掉符号统计值。DD误差定义如下：</p>
+<p>$$
+E_ {n}^{d d}=y_ {n}-\hat{s}_ {n}
+$$</p>
+<p>其中 $\hat{s}_ {n}$ 是符号点的估计。</p>
+<h3 id="dd算法优缺点">DD算法优缺点</h3>
+<p>DD算法有更低的MSE和更低的抖动。然而，只有当MSE低于一个固定的阈值的时候才会收敛，针对QAM星座图，有论文推导过其阈值。</p>
+<h2 id="modified-cmamcma">Modified-CMA(MCMA)</h2>
+<p>相比CMA的误差函数，MCMA算法增加了一个星座图匹配误差项(constellation matched error, CME)。这能够极大地降低TTC和MSE。MCMA误差定义为：</p>
+<p>$$
+E_{n}^{m c m a}=y_{n}\left(\left|y_{n}\right|^{2}-R_{C}\right)+\beta \eta_{n}
+$$</p>
+<p>其中$\beta$ 是CME权重因子，$\eta_ n$是CME项，其定义为：</p>
+<p>$$
+\eta_{n}=\left.\frac{d}{d x} g(x)\right|_ {x=y_ {n, R}}+\left.j \frac{d}{d x} g(x)\right|_ {x=y_ {n, I}}
+$$</p>
+<p>其中$g(x)$是CME函数，该函数对QAM星座图来说在符号点上为0，$g(x)$定义为：</p>
+<p>$$
+g(x)=1-\sin ^{2 p}\left(\frac{x \pi}{2 d}\right)
+$$</p>
+<p>其中，$p$是正整数，$d$ 是星座点间的距离。</p>
+<h3 id="mcma算法优缺点">MCMA算法优缺点</h3>
+<p>相比CMA算法有更低的MSE，更低的抖动以及更快的TTC。然而，该算法需要提前做相位恢复，并且复杂度更高，若CME项通过查找表实现的话，需要消耗大量面积。</p>
+<h2 id="cma-mma">CMA-MMA</h2>
+<p>CMA-MMA算法在代价函数中采用非对称的做法，在同相滤波器(in-phase filter)中使用CMA误差，在正交滤波器(quadrature filter)中使用MMA误差。CMA-MMA误差定义如下：</p>
+<p>$$
+\begin{array}{r}
+E_{n, R}^{c m a-m m a}=y_{n, R}\left(\left|y_{n}\right|^{2}-R_{C}\right) \
+E_{n, I}^{c m a-m m a}=y_{n, I}\left(y_{n, I}^{2}-R_{M}\right) \
+E_{n}^{c m a-m m a}=E_{n, R}^{c m a-m m a}+j \cdot E_{n, I}^{c m a-m m a}
+\end{array}
+$$</p>
+<h3 id="cma-mma算法优缺点">CMA-MMA算法优缺点</h3>
+<p>优点：</p>
+<ol>
+<li>相比CMA算法有更低的MSE</li>
+<li>鲁棒性好</li>
+<li>尽管MMA误差项会导致星座图旋转，也不需要提前做相位恢复</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>收敛速率差不多</li>
+<li>可能会导致较大的抖动</li>
+</ol>
+<h2 id="cma-assisted-decision-adjusted-modulus-algorithmcadama">CMA-Assisted Decision Adjusted Modulus Algorithm(CADAMA)</h2>
+<p>CADAMA是一种双模式算法，首先用CMA来减小MSE来让改进第二模式中的判决步骤。The decision adjusted modulus algorithm(DAMA)的代价函数对每个QAM中的环来说都是0，将DAMA用在第二模式中，DAMA误差项定义为：</p>
+<p>$$
+E_{n}^{d a m a}=\min _ {i}\left[y_ {n}\left(\left|y_{n}\right|^{2}-R_{i}\right)\right]
+$$</p>
+<p>其中，$1 \leq i \leq p$ 且 $\left\lbrace R_{i}\right\rbrace_{i=1}^{p}$ 是QAM星座图中信号点对应的半径，$p$是大于1的整数。</p>
+<h3 id="cadama算法的优缺点">CADAMA算法的优缺点</h3>
+<p>优点：</p>
+<ol>
+<li>有更低的MSE</li>
+<li>比CMA有更低的抖动</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>对于高阶QAM星座图来说需要更多的判决区域，这增加了选区错误的可能性</li>
+<li>在信道失真严重时，DAMA算法代价函数的错误率太大，DAMA算法不能收敛，因此在均衡的初始阶段，使用DAMA算法不可靠，不能冷启动DAMA算法</li>
+</ol>
+<h3 id="cma算法与dama算法之间的转换准则">CMA算法与DAMA算法之间的转换准则</h3>
+<blockquote>
+<p>CADAMA需要首先采用CMA来实现均衡器的初始化调整，并且当幅度均衡完成之后，切换到DAMA模式。由于DAMA是使每个QAM星座图中的圈对应的代价函数归为0来实现的，因此对于很多标准QAM星座图来说，其抖动可以降低18到25dB。</p></blockquote>
+<p>CMA与DAMA的切换准则：使用goodness-of-fit test来对观测间隔内的半径直方图与QAM星座图的半径分布模板进行比较来指导切换的。</p>
+<h4 id="qam星座图半径分布模板">QAM星座图半径分布模板</h4>
+<p>令 $p_ i$ 代表信号点半径 $i$ 的模板概率，则有 $p_i = (\text{number of signal points on radius} \quad i)/M$，其中 $M$ 为调制阶数，且有$\sum_{i=1}^{\rho} p_{i}=1$。</p>
+<h4 id="观测间隔">观测间隔</h4>
+<p>用 $N$ 来表示观测间隔，其与 $M$ 的关系为：$N=\kappa M$，观测间隔 $\kappa M$ 可以生成一个针对每个符号 $a_ m$ 的观测值 $K$。此处可以采用 $\kappa = 20$。</p>
+<h2 id="盲均衡性能评价准则">盲均衡性能评价准则</h2>
+<h3 id="收敛速度">收敛速度</h3>
+<p>一个具有较高收敛能力的算法通常冷启动能力比较强，即算法是“易于收敛”的。</p>
+<h3 id="均方判决误差">均方判决误差</h3>
+<p>均方误差MSE的定义：</p>
+<p>$$
+M S E=E\left\lbrace|d(n)-\mathrm{y}(n)|^{2}\right\rbrace
+$$</p>
+<p>其中，$d(n)$是期望信号，$y(n)$是均衡器输出。</p>
+<h3 id="剩余isi">剩余ISI</h3>
+<p>定义盲均衡算法的评价指数ISI，表达式为：</p>
+<p>$$
+\operatorname{ISI}(n)=\frac{\sum\left|\mathbf{h}_ {w}(n)\right|^{2}-\max \left|\mathbf{h}_ {w}(n)\right|^{2}}{\max \left|\mathbf{h}_{w}(n)\right|^{2}}
+$$</p>
+<p>$\operatorname{ISI}(n)$ 表示第 $n$ 次迭代后的剩余码间干扰， $\sum\left|\mathbf{h}_ {w}(n)\right|^{2}$ 表示对联合冲激响应 $\mathbf{h}_ {w}(n)$ 的所有 $n$ 求平方之和， $\max \left|\mathbf{h}_ {w}(n)\right|^{2}$ 表示联合冲激相应 $\mathbf{h}_{w}(n)$ 最大的一项的平方。</p>
+<h3 id="误符号率">误符号率</h3>
+<p>多数情况下，误符号率和盲均衡算法的均方判决误差以及剩余ISI是一致的。</p>
+
+                </div>
+                <div class="row items-start justify-between">
+                    
+                    
+                    <div class="lg:col-6 mb-10 flex items-center lg:mb-0">
+                        <h5 class="mr-3">Tags :</h5>
+                        <ul>
+                            
+                            <li class="inline-block">
+                                <a class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
+                                    href="/en/tags/signal-processing/">
+                                    Signal processing
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    
+                    
+                    <div class="lg:col-6 flex items-center lg:justify-end">
+                        <h5>Share :</h5>
+                        <div class="share-icons ml-2">
+                            
+                            <button onclick="copyPageUrl()"
+                                class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary m-1 rounded px-3 py-1 hover:text-white"
+                                title="Copy Link">
+                                <i class="fa-solid fa-link"></i>
+                            </button>
+                            
+                            <button onclick="showQRCode()"
+                                class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary m-1 rounded px-3 py-1 hover:text-white"
+                                title="Show QR Code">
+                                <i class="fa-solid fa-qrcode"></i>
+                            </button>
+                        </div>
+
+                        
+                        <div id="qrcode-popup"
+                            class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black bg-opacity-50">
+                            <div class="bg-white dark:bg-darkmode-theme-dark p-6 rounded-lg shadow-lg relative">
+                                <button onclick="hideQRCode()"
+                                    class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
+                                    <i class="fa-solid fa-times"></i>
+                                </button>
+                                <h4 class="mb-4">Scan to share.</h4>
+                                <div id="qrcode-container" class="flex justify-center"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="mt-20">
+                    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "themefisher-template" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                </div>
+                
+            </article>
+        </div>
+
+        
+        
+        
+        
+        <div class="section pb-0">
+            <h2 class="h3 mb-12">Related Posts</h2>
+            <div class="row">
+                
+                <div class="lg:col-4 md:col-6 mb-14">
+                    <div class="blog-card bg-body dark:bg-darkmode-body">
+  
+  
+    <div class="blog-card-image-container">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+    
+      
+    
+
+
+    
+    
+
+
+    
+    
+      
+      
+    
+    
+    
+
+
+    
+    
+      
+      
+        
+
+        
+        
+        
+        
+        
+        
+        
+
+
+        
+        
+
+
+        <picture>
+          <source
+            
+              srcset="/en/notes/polyphase-matched-filtering/index.assets/banner_hu_550da289e0ad8a5c.webp"
+            
+            media="(max-width: 575px)" />
+          <source
+            
+              srcset="/en/notes/polyphase-matched-filtering/index.assets/banner_hu_46d8741ce7b856f0.webp"
+            
+            media="(max-width: 767px)" />
+          <source
+            
+              srcset="/en/notes/polyphase-matched-filtering/index.assets/banner_hu_7b09c8563fe98444.webp"
+            
+            media="(max-width: 991px)" />
+          <source
+            
+              srcset="/en/notes/polyphase-matched-filtering/index.assets/banner_hu_d0534e558d9f0192.webp"
+             />
+          <img
+            
+              loading="lazy" decoding="async"
+              src="/en/notes/polyphase-matched-filtering/index.assets/banner_hu_a13c6e8a5ccd512b.png"
+            class=" blog-card-image img"
+            alt="基于多相滤波器技术的匹配滤波实现方法"
+            width="1536"
+            height="1024" />
+        </picture>
+      
+      
+    
+    
+  
+
+
+  
+
+
+    </div>
+  
+  <h4 class="blog-card-title mb-3">
+    <a href="/en/notes/polyphase-matched-filtering/">
+      基于多相滤波器技术的匹配滤波实现方法
+    </a>
+  </h4>
+  
+  
+    <ul class="mb-4">
+      <li class="mr-4 inline-block">
+        <a href="/en/authors/liangbin/">
+          <i class="fa-regular fa-circle-user mr-2"></i>Liangbin
+        </a>
+      </li>
+      <li class="mr-4 inline-block">
+        <i class="fa-regular fa-folder mr-1"></i>
+        
+          <a
+            href="/en/categories/communication/"
+            class="ms-1"
+            >Communication
+          </a>
+        
+      </li>
+    </ul>
+  
+  <div class="blog-card-content">
+    <p class="blog-card-summary">介绍了通信系统中经典的自适应信道均衡算法，包括Sato算法、CMA恒模算法、MMA多模算法、DD算法、MCMA改进恒模算法及CADAMA等算法原理。</p>
+  </div>
+  <div class="blog-card-footer">
+    <a class="btn btn-outline-primary btn-sm" href="/en/notes/polyphase-matched-filtering/">
+      Read More
+    </a>
+    <span class="text-sm text-gray-500 dark:text-gray-400">
+      2022-05-28
+    </span>
+  </div>
+</div>
+
+<style>
+  .blog-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 18px;
+    background-color: var(--bg-body);
+  }
+  
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+  
+  .dark .blog-card {
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .blog-card-image-container {
+    width: calc(100% + 36px);
+    height: 200px;  
+    overflow: hidden;
+    margin: -18px -18px 1.5rem -18px;
+    border-radius: 12px 12px 0 0;
+  }
+  
+  .blog-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  
+    object-position: center;  
+    transition: transform 0.3s ease;
+  }
+  
+  .blog-card:hover .blog-card-image {
+    transform: scale(1.05);
+  }
+  
+  .blog-card-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;  
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 600;
+    color: var(--color-text-dark);
+  }
+
+  .dark .blog-card-title {
+    color: #fff;  
+  }
+  
+  .blog-card-content {
+    flex-grow: 1;  
+    margin-bottom: 0;  
+  }
+  
+  .blog-card-summary {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;  
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+  
+  .blog-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;  
+    padding-top: 1rem;  
+  }
+  
+  .blog-card a.btn {
+    font-weight: 500;
+  }
+</style>
+                </div>
+                
+                <div class="lg:col-4 md:col-6 mb-14">
+                    <div class="blog-card bg-body dark:bg-darkmode-body">
+  
+  
+    <div class="blog-card-image-container">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+    
+      
+    
+
+
+    
+    
+
+
+    
+    
+      
+      
+    
+    
+    
+
+
+    
+    
+      
+      
+        
+
+        
+        
+        
+        
+        
+        
+        
+
+
+        
+        
+
+
+        <picture>
+          <source
+            
+              srcset="/en/notes/timing-recovery/index.assets/banner_hu_ce2ad4cfedb7cacd.webp"
+            
+            media="(max-width: 575px)" />
+          <source
+            
+              srcset="/en/notes/timing-recovery/index.assets/banner_hu_67f14a731bf2efa0.webp"
+            
+            media="(max-width: 767px)" />
+          <source
+            
+              srcset="/en/notes/timing-recovery/index.assets/banner_hu_d1841ce6093ab621.webp"
+            
+            media="(max-width: 991px)" />
+          <source
+            
+              srcset="/en/notes/timing-recovery/index.assets/banner_hu_5a081e8eff44ccdf.webp"
+             />
+          <img
+            
+              loading="lazy" decoding="async"
+              src="/en/notes/timing-recovery/index.assets/banner_hu_cec7de6b3fb5f526.png"
+            class=" blog-card-image img"
+            alt="定时同步算法"
+            width="1536"
+            height="1024" />
+        </picture>
+      
+      
+    
+    
+  
+
+
+  
+
+
+    </div>
+  
+  <h4 class="blog-card-title mb-3">
+    <a href="/en/notes/timing-recovery/">
+      定时同步算法
+    </a>
+  </h4>
+  
+  
+    <ul class="mb-4">
+      <li class="mr-4 inline-block">
+        <a href="/en/authors/liangbin/">
+          <i class="fa-regular fa-circle-user mr-2"></i>Liangbin
+        </a>
+      </li>
+      <li class="mr-4 inline-block">
+        <i class="fa-regular fa-folder mr-1"></i>
+        
+          <a
+            href="/en/categories/communication/"
+            class="ms-1"
+            >Communication
+          </a>
+        
+      </li>
+    </ul>
+  
+  <div class="blog-card-content">
+    <p class="blog-card-summary">介绍了通信系统中经典的自适应信道均衡算法，包括Sato算法、CMA恒模算法、MMA多模算法、DD算法、MCMA改进恒模算法及CADAMA等算法原理。</p>
+  </div>
+  <div class="blog-card-footer">
+    <a class="btn btn-outline-primary btn-sm" href="/en/notes/timing-recovery/">
+      Read More
+    </a>
+    <span class="text-sm text-gray-500 dark:text-gray-400">
+      2022-08-03
+    </span>
+  </div>
+</div>
+
+<style>
+  .blog-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 18px;
+    background-color: var(--bg-body);
+  }
+  
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+  
+  .dark .blog-card {
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .blog-card-image-container {
+    width: calc(100% + 36px);
+    height: 200px;  
+    overflow: hidden;
+    margin: -18px -18px 1.5rem -18px;
+    border-radius: 12px 12px 0 0;
+  }
+  
+  .blog-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  
+    object-position: center;  
+    transition: transform 0.3s ease;
+  }
+  
+  .blog-card:hover .blog-card-image {
+    transform: scale(1.05);
+  }
+  
+  .blog-card-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;  
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 600;
+    color: var(--color-text-dark);
+  }
+
+  .dark .blog-card-title {
+    color: #fff;  
+  }
+  
+  .blog-card-content {
+    flex-grow: 1;  
+    margin-bottom: 0;  
+  }
+  
+  .blog-card-summary {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;  
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+  
+  .blog-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;  
+    padding-top: 1rem;  
+  }
+  
+  .blog-card a.btn {
+    font-weight: 500;
+  }
+</style>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+<script>
+    function copyPageUrl() {
+        const url = window.location.href;
+        navigator.clipboard.writeText(url).then(() => {
+            
+            const toast = document.createElement('div');
+            toast.textContent = 'Link Copied!';
+            toast.className = 'fixed bottom-4 right-4 bg-primary text-white py-2 px-4 rounded shadow-lg';
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                document.body.removeChild(toast);
+            }, 2000);
+        });
+    }
+
+    function showQRCode() {
+        const url = window.location.href;
+        const qrcodeContainer = document.getElementById('qrcode-container');
+        qrcodeContainer.innerHTML = ''; 
+
+        
+        QRCode.toDataURL(url, { width: 200 }, function (err, url) {
+            if (err) {
+                console.error(err);
+                return;
+            }
+
+            
+            const img = document.createElement('img');
+            img.src = url;
+            img.width = 200;
+            img.height = 200;
+            qrcodeContainer.appendChild(img);
+        });
+
+        document.getElementById('qrcode-popup').classList.remove('hidden');
+    }
+
+    function hideQRCode() {
+        document.getElementById('qrcode-popup').classList.add('hidden');
+    }
+</script>
+
+    </main>
+
+    
+    <footer class="bg-light dark:bg-darkmode-light">
+  <div class="container">
+    <div class="row items-center py-10">
+      <div class="lg:col-3 mb-8 text-center lg:mb-0 lg:text-left">
+        
+        <a
+          class="navbar-brand inline-block"
+          href="/en/">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+  
+  
+    
+    
+  
+
+
+  
+  
+      
+      
+    
+    
+    
+    
+    
+    
+  
+  
+
+  
+  
+    
+    
+      
+      
+
+
+      
+      
+        
+        
+        
+        
+
+        
+        
+        
+      
+      
+    
+  
+  
+
+  
+    <img
+      fetchpriority="high"
+      decoding="async"
+      class="img img-light"
+      width="64"
+      height="64"
+      src="/images/logo_hu_22cd5b9f84f4dd29.webp"
+      alt="Liangbin&#39;s Notes"
+      onerror="this.onerror=null;this.src='\/images\/logo_hu_8aaec227ab965c34.png';" />
+
+    <img
+      fetchpriority="high"
+      decoding="async"
+      class="img img-dark"
+      width="64"
+      height="64"
+      src="/images/logo-darkmode_hu_42bdcfb994f8655e.webp"
+      alt="Liangbin&#39;s Notes"
+      onerror="this.onerror=null;this.src='\/images\/logo-darkmode_hu_61dd1b75c461fd.png';" />
+  
+  
+
+
+        </a>
+      </div>
+      <div class="lg:col-6 mb-8 text-center lg:mb-0">
+        <ul>
+          
+        </ul>
+      </div>
+      <div class="lg:col-3 mb-8 text-center lg:mb-0 lg:mt-0 lg:text-right">
+        <ul class="social-icons">
+          
+            <li>
+              <a
+                target="_blank"
+                aria-label="Google Scholar"
+                rel="nofollow noopener"
+                href="https://scholar.google.com/citations?user=O3RdaQ8AAAAJ&amp;hl=en&amp;oi=sra">
+                <i class="fas fa-graduation-cap"></i>
+              </a>
+            </li>
+          
+            <li>
+              <a
+                target="_blank"
+                aria-label="github"
+                rel="nofollow noopener"
+                href="https://github.com/zhaoliangbin42">
+                <i class="fab fa-github"></i>
+              </a>
+            </li>
+          
+            <li>
+              <a
+                target="_blank"
+                aria-label="linkedin"
+                rel="nofollow noopener"
+                href="https://www.linkedin.com/in/liangbin-zhao-487854142/">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </li>
+          
+        </ul>
+        <p class="text-sm text-text-light dark:text-darkmode-text-light mt-4">
+            <i class="fa-regular mr-1"></i> 最后更新于: 2023-10-07
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="border-border dark:border-darkmode-border border-t py-7">
+    <div
+      class="text-text-light dark:text-darkmode-text-light container text-center">
+      <p>
+        © 2025 Liangbin Zhao. Powered by <a href="https://gohugo.io/"
+
+
+
+
+ target="_blank"
+ 
+
+
+>Hugo</a> and <a href="https://github.com/zeon-studio/hugoplate"
+
+
+
+
+ target="_blank"
+ 
+
+
+>Hugoplate</a> theme.
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+
+    
+    
+
+
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<script
+  crossorigin="anonymous"
+  integrity=""
+  src="/js/script.js"></script>
+
+
+<script
+  defer
+  async
+  crossorigin="anonymous"
+  integrity=""
+  src="/js/script-lazy.js"></script>
+
+
+
+<script>
+  if ('serviceWorker' in navigator){navigator.serviceWorker.register("/service-worker.js");}
+</script>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      tags: 'ams'
+    },
+    options: {
+      enableMenu: true
+    },
+    
+    startup: {
+      ready() {
+        
+        const mathElements = document.querySelectorAll('p, div, span');
+        mathElements.forEach(el => {
+          if (el.textContent.includes('\\begin{aligned}')) {
+            el.innerHTML = el.innerHTML.replace(/\\ /g, '\\\\');
+          }
+        });
+        MathJax.startup.defaultReady();
+      }
+    }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  </body>
+</html>

@@ -6,41 +6,13 @@
     <description>Recent content in Categories on Liangbin&#39;s Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Apr 2022 05:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Oct 2023 00:00:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/en/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Application</title>
-      <link>http://localhost:1313/en/categories/application/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/categories/application/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Architecture</title>
-      <link>http://localhost:1313/en/categories/architecture/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/categories/architecture/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Data</title>
-      <link>http://localhost:1313/en/categories/data/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/categories/data/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Software</title>
-      <link>http://localhost:1313/en/categories/software/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/categories/software/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Technology</title>
-      <link>http://localhost:1313/en/categories/technology/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/categories/technology/</guid>
+      <title>Communication</title>
+      <link>http://localhost:1313/en/categories/communication/</link>
+      <pubDate>Sat, 07 Oct 2023 00:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/en/categories/communication/</guid>
       <description></description>
     </item>
   </channel>

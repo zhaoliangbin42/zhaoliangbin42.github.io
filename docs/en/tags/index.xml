@@ -6,41 +6,13 @@
     <description>Recent content in Tags on Liangbin&#39;s Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Apr 2022 05:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Oct 2023 00:00:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/en/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Nextjs</title>
-      <link>http://localhost:1313/en/tags/nextjs/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/tags/nextjs/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Silicon</title>
-      <link>http://localhost:1313/en/tags/silicon/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/tags/silicon/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Software</title>
-      <link>http://localhost:1313/en/tags/software/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/tags/software/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Tailwind</title>
-      <link>http://localhost:1313/en/tags/tailwind/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/tags/tailwind/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Technology</title>
-      <link>http://localhost:1313/en/tags/technology/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/tags/technology/</guid>
+      <title>Signal Processing</title>
+      <link>http://localhost:1313/en/tags/signal-processing/</link>
+      <pubDate>Sat, 07 Oct 2023 00:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/en/tags/signal-processing/</guid>
       <description></description>
     </item>
   </channel>

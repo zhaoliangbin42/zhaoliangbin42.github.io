@@ -15,7 +15,7 @@
               {{ if .enable }}
                 <a
                   class="btn btn-primary"
-                  href="{{ .link | absURL }}"
+                  href="{{ .link | absLangURL }}"
                   {{ if strings.HasPrefix .link `http` }}
                     target="_blank" rel="noopener"
                   {{ end }}>
@@ -79,7 +79,7 @@
   <!-- /Features -->
 
   <!-- Testimonials -->
-  {{ with site.GetPage "sections/testimonial" }}
+  <!-- {{ with site.GetPage "sections/testimonial" }}
     {{ if .Params.enable }}
       <section class="section">
         <div class="container">
@@ -139,6 +139,6 @@
         </div>
       </section>
     {{ end }}
-  {{ end }}
+  {{ end }} -->
   <!-- /Testimonials -->
 {{ end }}

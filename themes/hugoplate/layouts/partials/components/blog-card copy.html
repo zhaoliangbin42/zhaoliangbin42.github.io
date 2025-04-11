@@ -1,0 +1,83 @@
+<div class="blog-card bg-body dark:bg-darkmode-body">
+  {{ $image:= .Params.image }}
+  {{ if $image }}
+    <div class="blog-card-image-container">
+      {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "blog-card-image") }}
+    </div>
+  {{ end }}
+  <h4 class="blog-card-title mb-3">
+    <a href="{{ .RelPermalink }}">
+      {{ .Title }}
+    </a>
+  </h4>
+  {{ $categories:= .Params.categories }}
+  {{ if $categories }}
+    <ul class="mb-4">
+      <li class="mr-4 inline-block">
+        <a href="{{ `authors/` | relLangURL }}{{ .Params.Author | urlize }}/">
+          <i class="fa-regular fa-circle-user mr-2"></i>{{ .Params.author }}
+        </a>
+      </li>
+      <li class="mr-4 inline-block">
+        <i class="fa-regular fa-folder mr-1"></i>
+        {{ range $i,$p:= $categories }}
+          <a
+            href="{{ `categories/` | relLangURL }}{{ . | urlize | lower }}/"
+            class="ms-1"
+            >{{ . | humanize }}{{ if ne $i (sub (len $categories) 1) }}
+              {{ "," }}
+            {{ end }}
+          </a>
+        {{ end }}
+      </li>
+    </ul>
+  {{ end }}
+  <p class="blog-card-summary mb-6">{{ .Summary | plainify }}</p>
+  <div class="flex items-center justify-between">
+    <a class="btn btn-outline-primary btn-sm" href="{{ .RelPermalink }}">
+      {{ T "read_more" }}
+    </a>
+    <span class="text-sm text-gray-500 dark:text-gray-400">
+      {{ .Date.Format "2006-01-02" }}
+    </span>
+  </div>
+</div>
+
+<style>
+  .blog-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .blog-card-image-container {
+    width: 100%;
+    height: 200px; /* 固定图片容器高度 */
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+  
+  .blog-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 保持宽高比并裁剪多余部分 */
+    object-position: center; /* 居中裁剪 */
+  }
+  
+  .blog-card-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 限制标题最多显示2行 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .blog-card-summary {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* 限制摘要最多显示3行 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>

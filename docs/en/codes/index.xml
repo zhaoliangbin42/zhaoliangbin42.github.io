@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My Codes on Liangbin&#39;s Notes</title>
+    <link>http://localhost:1313/en/codes/</link>
+    <description>Recent content in My Codes on Liangbin&#39;s Notes</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 10 Apr 2025 00:00:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/en/codes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>High-Resolution Uplink Sensing in Millimeter-Wave ISAC Systems</title>
+      <link>http://localhost:1313/en/codes/code1/</link>
+      <pubDate>Thu, 10 Apr 2025 00:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/en/codes/code1/</guid>
+      <description>Simulation for paper &amp;ldquo;High-Resolution Uplink Sensing in Millimeter-Wave ISAC Systems&amp;rdquo;</description>
+    </item>
+  </channel>
+</rss>

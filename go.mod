@@ -19,6 +19,7 @@ require (
 	github.com/gethugothemes/hugo-modules/pwa v0.0.0-20250409040650-2f989f5e8ea1 // indirect
 	github.com/gethugothemes/hugo-modules/search v0.0.0-20250409040650-2f989f5e8ea1 // indirect
 	github.com/gethugothemes/hugo-modules/seo-tools/basic-seo v0.0.0-20250409040650-2f989f5e8ea1 // indirect
+	github.com/gethugothemes/hugo-modules/seo-tools/counter-analytics v0.0.0-20250409040650-2f989f5e8ea1 // indirect
 	github.com/gethugothemes/hugo-modules/seo-tools/google-tag-manager v0.0.0-20250409040650-2f989f5e8ea1 // indirect
 	github.com/gethugothemes/hugo-modules/seo-tools/site-verifications v0.0.0-20250409040650-2f989f5e8ea1 // indirect
 	github.com/gethugothemes/hugo-modules/shortcodes/button v0.0.0-20250409040650-2f989f5e8ea1 // indirect

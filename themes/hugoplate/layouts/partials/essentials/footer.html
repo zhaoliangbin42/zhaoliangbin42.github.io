@@ -44,6 +44,9 @@
             </li>
           {{ end }}
         </ul>
+        <p class="text-sm text-text-light dark:text-darkmode-text-light mt-4">
+            <i class="fa-regular mr-1"></i> {{ T "last_updated" | default "Last updated" }}: {{ .Site.Lastmod.Format "2006-01-02" }}
+        </p>
       </div>
     </div>
   </div>

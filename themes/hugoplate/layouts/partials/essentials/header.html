@@ -1,5 +1,5 @@
 <header
-  class="header {{ if site.Params.navbar_fixed }}sticky top-0{{ end }} z-30">
+  class="header {{ if site.Params.navbar_fixed }}sticky top-0{{ end }} z-30 py-1">
   <nav class="navbar container">
     <!-- logo -->
     <div class="order-0">
@@ -34,7 +34,15 @@
       {{ range site.Menus.main }}
         {{ $menuURL := .URL | absLangURL }}
         {{ $pageURL:= $currentPage.Permalink | absLangURL }}
-        {{ $active := eq $menuURL $pageURL }}
+        <!-- {{ $active := eq $menuURL $pageURL }} -->
+        {{ if eq .URL "/" }}
+            {{ $active = false }}
+        {{ else }}
+            {{ $active = hasPrefix $pageURL $menuURL }}
+        {{ end }}
+
+
+        
         {{ if .HasChildren }}
           <li class="nav-item nav-dropdown group relative">
             <span

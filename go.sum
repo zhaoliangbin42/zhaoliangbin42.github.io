@@ -30,6 +30,8 @@ github.com/gethugothemes/hugo-modules/search v0.0.0-20250409040650-2f989f5e8ea1 
 github.com/gethugothemes/hugo-modules/search v0.0.0-20250409040650-2f989f5e8ea1/go.mod h1:tmDvLaZCM+QDvS/WLZXNjY1QTdWh7/68D2wIToECbyA=
 github.com/gethugothemes/hugo-modules/seo-tools/basic-seo v0.0.0-20250409040650-2f989f5e8ea1 h1:ST9twy5/L7ycciXm5boqT+wzukVp4zVVP7RudWfM010=
 github.com/gethugothemes/hugo-modules/seo-tools/basic-seo v0.0.0-20250409040650-2f989f5e8ea1/go.mod h1:Q8dPgjamV7pxwKSQyWV21Xwh5CGi23/k+M8HPTphYbs=
+github.com/gethugothemes/hugo-modules/seo-tools/counter-analytics v0.0.0-20250409040650-2f989f5e8ea1 h1:loRlJi9ApgVpM4gpd2K0hU+OyJm49qxEJErKBOub8eI=
+github.com/gethugothemes/hugo-modules/seo-tools/counter-analytics v0.0.0-20250409040650-2f989f5e8ea1/go.mod h1:3kPooRg0PWUkciccThPQbBvIpTfSCo7W9mc3a5GxXHs=
 github.com/gethugothemes/hugo-modules/seo-tools/google-tag-manager v0.0.0-20250409040650-2f989f5e8ea1 h1:1Qkluq3jZvbQPlXs1D2+E/b89FPMIP1e3xa4Hzn/pGg=
 github.com/gethugothemes/hugo-modules/seo-tools/google-tag-manager v0.0.0-20250409040650-2f989f5e8ea1/go.mod h1:cCq50yd55eFTrpqOfeyOK5X0hU5E7qxsqOD7IzTsgLA=
 github.com/gethugothemes/hugo-modules/seo-tools/site-verifications v0.0.0-20250409040650-2f989f5e8ea1 h1:+DqeTTysMwvBYuwIk5+tNKiZSFdApbJVfOdAC+xcMVk=

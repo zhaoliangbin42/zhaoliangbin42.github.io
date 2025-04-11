@@ -1,1 +1,104 @@
 /* Add your own custom styles here */
+
+
+.nav-link.active {
+    border-bottom: 2px solid #000; /* 将 #1d4ed8 替换成你的主题色 */
+  }
+
+
+
+/* 通用样式 - 适用于所有代码块 */
+.highlight {
+  margin: 1.5rem 0;
+  
+  pre {
+    padding: 1rem;
+    border-radius: 0.375rem;
+    overflow: auto;
+  }
+  
+  code {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 0.9em;
+  }
+}
+
+/* 明亮模式专用样式 */
+:root:not(.dark) .highlight pre {
+  background-color: #f6f8fa !important;
+}
+
+/* 暗黑模式专用样式 */
+:root.dark .highlight pre {
+  background-color: #1e1e1e !important;
+}
+
+/* 强制所有暗黑模式下的代码颜色 */
+:root.dark .highlight .chroma {
+  color: #abb2bf !important; /* onedark基本文本颜色 */
+}
+
+:root.dark .highlight .chroma .c { color: #5c6370; font-style: italic; } /* 注释 */
+:root.dark .highlight .chroma .k { color: #c678dd; } /* 关键字 */
+:root.dark .highlight .chroma .kd { color: #c678dd; } /* 关键字声明 */
+:root.dark .highlight .chroma .kn { color: #c678dd; } /* 关键字命名空间 */
+:root.dark .highlight .chroma .kp { color: #c678dd; } /* 关键字伪 */
+:root.dark .highlight .chroma .kr { color: #c678dd; } /* 关键字保留 */
+:root.dark .highlight .chroma .kt { color: #c678dd; } /* 关键字类型 */
+:root.dark .highlight .chroma .n { color: #abb2bf; } /* 名称 */
+:root.dark .highlight .chroma .na { color: #e5c07b; } /* 名称属性 */
+:root.dark .highlight .chroma .nb { color: #e5c07b; } /* 名称内置 */
+:root.dark .highlight .chroma .nc { color: #e5c07b; } /* 名称类 */
+:root.dark .highlight .chroma .no { color: #e5c07b; } /* 名称常量 */
+:root.dark .highlight .chroma .nd { color: #e06c75; } /* 名称装饰符 */
+:root.dark .highlight .chroma .ni { color: #e06c75; } /* 名称实体 */
+:root.dark .highlight .chroma .ne { color: #e06c75; } /* 名称异常 */
+:root.dark .highlight .chroma .nf { color: #61afef; } /* 名称函数 */
+:root.dark .highlight .chroma .nl { color: #abb2bf; } /* 名称标签 */
+:root.dark .highlight .chroma .nn { color: #abb2bf; } /* 名称命名空间 */
+:root.dark .highlight .chroma .nt { color: #e06c75; } /* 名称标签 */
+:root.dark .highlight .chroma .nv { color: #abb2bf; } /* 名称变量 */
+:root.dark .highlight .chroma .nx { color: #abb2bf; } /* 名称其他 */
+:root.dark .highlight .chroma .s { color: #98c379; } /* 字符串 */
+:root.dark .highlight .chroma .sa { color: #98c379; } /* 字符串其他 */
+:root.dark .highlight .chroma .sb { color: #98c379; } /* 字符串反引号 */
+:root.dark .highlight .chroma .sc { color: #98c379; } /* 字符串字符 */
+:root.dark .highlight .chroma .dl { color: #98c379; } /* 字符串分隔符 */
+:root.dark .highlight .chroma .sd { color: #98c379; } /* 字符串文档 */
+:root.dark .highlight .chroma .s2 { color: #98c379; } /* 字符串双引号 */
+:root.dark .highlight .chroma .se { color: #98c379; } /* 字符串转义 */
+:root.dark .highlight .chroma .sh { color: #98c379; } /* 字符串heredoc */
+:root.dark .highlight .chroma .si { color: #98c379; } /* 字符串插值 */
+:root.dark .highlight .chroma .sx { color: #98c379; } /* 字符串其他 */
+:root.dark .highlight .chroma .sr { color: #56b6c2; } /* 字符串正则表达式 */
+:root.dark .highlight .chroma .s1 { color: #98c379; } /* 字符串单引号 */
+:root.dark .highlight .chroma .ss { color: #56b6c2; } /* 字符串符号 */
+:root.dark .highlight .chroma .m { color: #d19a66; } /* 数字 */
+:root.dark .highlight .chroma .mb { color: #d19a66; } /* 数字二进制 */
+:root.dark .highlight .chroma .mf { color: #d19a66; } /* 数字浮点数 */
+:root.dark .highlight .chroma .mh { color: #d19a66; } /* 数字十六进制 */
+:root.dark .highlight .chroma .mi { color: #d19a66; } /* 数字整数 */
+:root.dark .highlight .chroma .mo { color: #d19a66; } /* 数字八进制 */
+:root.dark .highlight .chroma .o { color: #56b6c2; } /* 操作符 */
+:root.dark .highlight .chroma .ow { color: #56b6c2; } /* 操作符单词 */
+:root.dark .highlight .chroma .p { color: #abb2bf; } /* 标点符号 - 修复黑色标点问题 */
+:root.dark .highlight .chroma .c1 { color: #5c6370; font-style: italic; } /* 注释单行 */
+:root.dark .highlight .chroma .cs { color: #5c6370; font-style: italic; } /* 注释特殊 */
+:root.dark .highlight .chroma .cp { color: #5c6370; font-style: italic; } /* 注释预处理 */
+:root.dark .highlight .chroma .cpf { color: #5c6370; font-style: italic; } /* 注释预处理文件 */
+:root.dark .highlight .chroma .gd { color: #e06c75; } /* 通用删除 */
+:root.dark .highlight .chroma .ge { font-style: italic; } /* 通用强调 */
+:root.dark .highlight .chroma .gr { color: #e06c75; } /* 通用错误 */
+:root.dark .highlight .chroma .gh { color: #61afef; font-weight: bold; } /* 通用标题 */
+:root.dark .highlight .chroma .gi { color: #98c379; } /* 通用插入 */
+:root.dark .highlight .chroma .go { color: #abb2bf; } /* 通用输出 */
+:root.dark .highlight .chroma .gp { color: #abb2bf; } /* 通用提示 */
+:root.dark .highlight .chroma .gs { font-weight: bold; } /* 通用强 */
+:root.dark .highlight .chroma .gu { color: #61afef; } /* 通用子标题 */
+:root.dark .highlight .chroma .gt { color: #e06c75; } /* 通用跟踪 */
+:root.dark .highlight .chroma .gl { text-decoration: underline; } /* 通用行 */
+:root.dark .highlight .chroma .w { color: #f8f8f2; } /* 文本空白 */
+
+/* 行号颜色 */
+:root.dark .highlight .chroma .ln { color: #636d83; }
+:root.dark .highlight .chroma .lnt { color: #636d83; }

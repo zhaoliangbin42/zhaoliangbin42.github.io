@@ -14,26 +14,32 @@ disableLanguages = [
 ] # example: ["fr"] for disable french language. see https://gohugo.io/content-management/multilingual/
 hasCJKLanguage = true #  If hasCJKLanguage true, auto-detect Chinese/Japanese/Korean Languages in the content. see: https://gohugo.io/getting-started/configuration/#hascjklanguage
 # default language
-defaultContentLanguage = 'en'
+defaultContentLanguage = 'zh'
 # defaultContentLanguageInSubdir need to be true if you want to use the language code as a subdirectory and language specific 404 page
 defaultContentLanguageInSubdir = true
 
 publishDir = "docs"
 
+enableMathJax = true
+
+[params]
+  enableMathJax = true
+
 
 ########################## Multilingual ############################
 [languages]
-  [languages.en]
-    languageName = "English"
+  [languages.zh]
+    languageName = "zh"
     weight = 1
+    contentDir = "content/zh"
+    title = "Liangbin's Notes"            # 你可以根据需求自定义中文站点标题
+
+  [languages.en]
+    languageName = "en"
+    weight = 2
     contentDir = "content/en"
     title = "Liangbin's Notes"    # 可使用与全局相同的标题
 
-  [languages.zh]
-    languageName = "中文"
-    weight = 2
-    contentDir = "content/zh"
-    title = "Liangbin's Notes"            # 你可以根据需求自定义中文站点标题
 
 
 ########################### Services #############################
@@ -75,9 +81,14 @@ source = 'hugo_stats.json'
 target = 'assets/notwatching/hugo_stats.json'
 
 
+[search]
+enable = true
+includeSections = ["notes", "projects", "works"]
+
 ############################# Outputs ############################
 [outputs]
 home = ["HTML", "RSS", "WebAppManifest", "SearchIndex"]
+section = ["HTML", "RSS", "JSON"]
 
 ############################# Imaging ############################
 [imaging]
@@ -103,20 +114,23 @@ maxAge = "720h"
 unsafe = true
 
 [markup.highlight]
-style = 'monokai' # see https://xyproto.github.io/splash/docs/all.html
-lineNumbersInTable = false
+# style = 'vs' # see https://xyproto.github.io/splash/docs/all.html
+# lineNumbersInTable = false # 从true改为false
+# codeFences = true
+noClasses = false 
+lineNumbersInTable = false 
+codeFences = true 
+guessSyntax = false 
 
 [markup.tableOfContents]
 startLevel = 2
-endLevel = 5
+endLevel = 3
 ordered = true
-
 
 ########################### Media types ###########################
 [mediaTypes]
 [mediaTypes."application/manifest+json"]
 suffixes = ["webmanifest"]
-
 
 ########################### Output Format ##########################
 [outputFormats]
@@ -149,6 +163,12 @@ lazy = true
 [[params.plugins.css]]
 link = "plugins/font-awesome/v6/icons.css"
 lazy = true
+[[params.plugins.css]]
+link = "css/github.css"
+lazy = false
+[[params.plugins.css]]
+link = "css/onedark.css"
+lazy = false
 
 # JS Plugins
 [[params.plugins.js]]

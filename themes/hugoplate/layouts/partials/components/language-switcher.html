@@ -4,32 +4,57 @@
 {{ $context := .Context }}
 {{ $pageLang := $context.Lang }}
 {{ $pageTranslations := newScratch }}
-{{/* First, fill all translations of the Home page (failsafe) */}}
 {{ range site.Home.AllTranslations }}
   {{ $pageTranslations.Set .Language.Lang .Permalink }}
 {{ end }}
-{{/* Second, if a translation exists for the current page for the target language, replace failsafe */}}
 {{ range $context.AllTranslations }}
   {{ $pageTranslations.Set .Language.Lang .Permalink }}
 {{ end }}
 
-<select class="{{ $class }}" onchange="location = this.value">
-  {{ range site.Languages }}
-    {{/* Fill the dropdown with all known languages */}}
-    {{ $link := $pageTranslations.Get .Lang }}
-    {{ if $link }}
-      <option
-        id="{{ .Lang }}"
-        value="{{ $link }}"
-      {{ if eq .Lang $pageLang }}
-        selected
-      {{ end }}
-        >
-        {{ .LanguageName }}
-      </option>
-    {{ else }}
-      {{/* if we can't safely redirect the user to the translated page or at least to translated home, discard the language from options */}}
-    {{ end }}
+<div class="language-switcher {{ $class }}">
+  <!-- 特别针对英文和中文的处理 -->
+  {{ $enLink := $pageTranslations.Get "en" }}
+  {{ $zhLink := $pageTranslations.Get "zh" }}
+  
+  {{ if $zhLink }}
+  <a href="{{ $zhLink }}" 
+  class="lang-link {{ if eq "zh" $pageLang }}active{{ end }}"
+  id="zh">ZH</a>
+  
+  {{ if and $enLink $zhLink }}
+  <span class="divider">/</span>
   {{ end }}
-</select>
+  
+  {{ if $enLink }}
+  <a href="{{ $enLink }}" 
+     class="lang-link {{ if eq "en" $pageLang }}active{{ end }}"
+     id="en">EN</a>
+  {{ end }}
+  {{ end }}
+</div>
+
+<style>
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-right: 5px;
+}
+.lang-link {
+  text-decoration: none;
+  color: #666;
+  padding: 2px 4px;
+  transition: color 0.3s;
+}
+.lang-link:hover {
+  color: #333;
+}
+.lang-link.active {
+  color: #000;
+  font-weight: bold;
+}
+.divider {
+  color: #666;
+}
+</style>
 {{ end }}

@@ -6,55 +6,62 @@
     <description>Recent content on Liangbin&#39;s Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Apr 2022 05:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Oct 2023 00:00:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/en/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>How to build an Application with modern Technology</title>
-      <link>http://localhost:1313/en/blog/post-1/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/blog/post-1/</guid>
-      <description>&lt;p&gt;Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.&lt;/p&gt;</description>
+      <title>BI-AWGN信道接收概率初始化</title>
+      <link>http://localhost:1313/en/notes/bi-awgn-initialize/</link>
+      <pubDate>Sat, 07 Oct 2023 00:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/en/notes/bi-awgn-initialize/</guid>
+      <description>本文介绍了BI-AWGN信道中接收概率的初始化方法，详细推导了对数似然比(LLR)的计算过程和在不同信噪比表示形式下的数学表达式。</description>
     </item>
     <item>
-      <title>How to build an Application with modern Technology</title>
-      <link>http://localhost:1313/en/blog/post-2/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/blog/post-2/</guid>
-      <description>&lt;p&gt;Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.&lt;/p&gt;</description>
+      <title>信道均衡算法</title>
+      <link>http://localhost:1313/en/notes/equalization/</link>
+      <pubDate>Fri, 06 Oct 2023 00:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/en/notes/equalization/</guid>
+      <description>介绍了通信系统中经典的自适应信道均衡算法，包括Sato算法、CMA恒模算法、MMA多模算法、DD算法、MCMA改进恒模算法及CADAMA等算法原理。</description>
     </item>
     <item>
-      <title>How to build an Application with modern Technology</title>
-      <link>http://localhost:1313/en/blog/post-3/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/blog/post-3/</guid>
-      <description>&lt;p&gt;Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.&lt;/p&gt;</description>
+      <title>定时同步算法</title>
+      <link>http://localhost:1313/en/notes/timing-recovery/</link>
+      <pubDate>Wed, 03 Aug 2022 00:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/en/notes/timing-recovery/</guid>
+      <description>介绍了通信系统中经典的自适应信道均衡算法，包括Sato算法、CMA恒模算法、MMA多模算法、DD算法、MCMA改进恒模算法及CADAMA等算法原理。</description>
     </item>
     <item>
-      <title>How to build an Application with modern Technology</title>
-      <link>http://localhost:1313/en/blog/post-4/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/blog/post-4/</guid>
-      <description>&lt;p&gt;Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.&lt;/p&gt;</description>
+      <title>基于多相滤波器技术的匹配滤波实现方法</title>
+      <link>http://localhost:1313/en/notes/polyphase-matched-filtering/</link>
+      <pubDate>Sat, 28 May 2022 00:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/en/notes/polyphase-matched-filtering/</guid>
+      <description>介绍了通信系统中经典的自适应信道均衡算法，包括Sato算法、CMA恒模算法、MMA多模算法、DD算法、MCMA改进恒模算法及CADAMA等算法原理。</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/en/works/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/works/</guid>
+      <description></description>
     </item>
     <item>
       <title>Elements</title>
       <link>http://localhost:1313/en/contact/benko/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/en/contact/benko/</guid>
-      <description>&lt;details class=&#34;table-of-content &#34;&gt;&#xA;  &lt;summary&gt;&#xA;    &#xA;      Table of Contents&#xA;    &#xA;  &lt;/summary&gt;&#xA;  &lt;nav id=&#34;TableOfContents&#34;&gt;&#xA;  &lt;ol&gt;&#xA;    &lt;li&gt;&lt;a href=&#34;#heading-2&#34;&gt;Heading 2&lt;/a&gt;&#xA;      &lt;ol&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#heading-3&#34;&gt;Heading 3&lt;/a&gt;&#xA;          &lt;ol&gt;&#xA;            &lt;li&gt;&lt;a href=&#34;#heading-4&#34;&gt;Heading 4&lt;/a&gt;&#xA;              &lt;ol&gt;&#xA;                &lt;li&gt;&lt;a href=&#34;#heading-5&#34;&gt;Heading 5&lt;/a&gt;&lt;/li&gt;&#xA;              &lt;/ol&gt;&#xA;            &lt;/li&gt;&#xA;          &lt;/ol&gt;&#xA;        &lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#emphasis&#34;&gt;Emphasis&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#button&#34;&gt;Button&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#link&#34;&gt;Link&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#paragraph&#34;&gt;Paragraph&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#ordered-list&#34;&gt;Ordered List&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#unordered-list&#34;&gt;Unordered List&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#notice&#34;&gt;Notice&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#tab&#34;&gt;Tab&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#accordions&#34;&gt;Accordions&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#code-and-syntax-highlighting&#34;&gt;Code and Syntax Highlighting&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#blockquote&#34;&gt;Blockquote&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#tables&#34;&gt;Tables&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#image&#34;&gt;Image&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#gallery&#34;&gt;Gallery&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#slider&#34;&gt;Slider&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#youtube-video&#34;&gt;Youtube video&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#custom-video&#34;&gt;Custom video&lt;/a&gt;&lt;/li&gt;&#xA;      &lt;/ol&gt;&#xA;    &lt;/li&gt;&#xA;  &lt;/ol&gt;&#xA;&lt;/nav&gt;&#xA;&lt;/details&gt;&#xA;&#xA;&lt;p&gt;Here is an example of headings. You can use this heading by the following markdown rules. For example: use &lt;code&gt;#&lt;/code&gt; for heading 1 and use &lt;code&gt;######&lt;/code&gt; for heading 6.&lt;/p&gt;</description>
+      <description>&lt;details class=&#34;table-of-content &#34;&gt;&#xA;  &lt;summary&gt;&#xA;    &#xA;      Table of Contents&#xA;    &#xA;  &lt;/summary&gt;&#xA;  &lt;nav id=&#34;TableOfContents&#34;&gt;&#xA;  &lt;ol&gt;&#xA;    &lt;li&gt;&lt;a href=&#34;#heading-2&#34;&gt;Heading 2&lt;/a&gt;&#xA;      &lt;ol&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#heading-3&#34;&gt;Heading 3&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#emphasis&#34;&gt;Emphasis&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#button&#34;&gt;Button&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#link&#34;&gt;Link&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#paragraph&#34;&gt;Paragraph&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#ordered-list&#34;&gt;Ordered List&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#unordered-list&#34;&gt;Unordered List&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#notice&#34;&gt;Notice&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#tab&#34;&gt;Tab&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#accordions&#34;&gt;Accordions&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#code-and-syntax-highlighting&#34;&gt;Code and Syntax Highlighting&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#blockquote&#34;&gt;Blockquote&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#tables&#34;&gt;Tables&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#image&#34;&gt;Image&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#gallery&#34;&gt;Gallery&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#slider&#34;&gt;Slider&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#youtube-video&#34;&gt;Youtube video&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#custom-video&#34;&gt;Custom video&lt;/a&gt;&lt;/li&gt;&#xA;      &lt;/ol&gt;&#xA;    &lt;/li&gt;&#xA;  &lt;/ol&gt;&#xA;&lt;/nav&gt;&#xA;&lt;/details&gt;&#xA;&#xA;&lt;p&gt;Here is an example of headings. You can use this heading by the following markdown rules. For example: use &lt;code&gt;#&lt;/code&gt; for heading 1 and use &lt;code&gt;######&lt;/code&gt; for heading 6.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Elements</title>
       <link>http://localhost:1313/en/elements/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/en/elements/</guid>
-      <description>&lt;details class=&#34;table-of-content &#34;&gt;&#xA;  &lt;summary&gt;&#xA;    &#xA;      Table of Contents&#xA;    &#xA;  &lt;/summary&gt;&#xA;  &lt;nav id=&#34;TableOfContents&#34;&gt;&#xA;  &lt;ol&gt;&#xA;    &lt;li&gt;&lt;a href=&#34;#heading-2&#34;&gt;Heading 2&lt;/a&gt;&#xA;      &lt;ol&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#heading-3&#34;&gt;Heading 3&lt;/a&gt;&#xA;          &lt;ol&gt;&#xA;            &lt;li&gt;&lt;a href=&#34;#heading-4&#34;&gt;Heading 4&lt;/a&gt;&#xA;              &lt;ol&gt;&#xA;                &lt;li&gt;&lt;a href=&#34;#heading-5&#34;&gt;Heading 5&lt;/a&gt;&lt;/li&gt;&#xA;              &lt;/ol&gt;&#xA;            &lt;/li&gt;&#xA;          &lt;/ol&gt;&#xA;        &lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#emphasis&#34;&gt;Emphasis&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#button&#34;&gt;Button&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#link&#34;&gt;Link&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#paragraph&#34;&gt;Paragraph&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#ordered-list&#34;&gt;Ordered List&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#unordered-list&#34;&gt;Unordered List&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#notice&#34;&gt;Notice&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#tab&#34;&gt;Tab&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#accordions&#34;&gt;Accordions&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#code-and-syntax-highlighting&#34;&gt;Code and Syntax Highlighting&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#blockquote&#34;&gt;Blockquote&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#tables&#34;&gt;Tables&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#image&#34;&gt;Image&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#gallery&#34;&gt;Gallery&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#slider&#34;&gt;Slider&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#youtube-video&#34;&gt;Youtube video&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#custom-video&#34;&gt;Custom video&lt;/a&gt;&lt;/li&gt;&#xA;      &lt;/ol&gt;&#xA;    &lt;/li&gt;&#xA;  &lt;/ol&gt;&#xA;&lt;/nav&gt;&#xA;&lt;/details&gt;&#xA;&#xA;&lt;p&gt;Here is an example of headings. You can use this heading by the following markdown rules. For example: use &lt;code&gt;#&lt;/code&gt; for heading 1 and use &lt;code&gt;######&lt;/code&gt; for heading 6.&lt;/p&gt;</description>
+      <description>&lt;details class=&#34;table-of-content &#34;&gt;&#xA;  &lt;summary&gt;&#xA;    &#xA;      Table of Contents&#xA;    &#xA;  &lt;/summary&gt;&#xA;  &lt;nav id=&#34;TableOfContents&#34;&gt;&#xA;  &lt;ol&gt;&#xA;    &lt;li&gt;&lt;a href=&#34;#heading-2&#34;&gt;Heading 2&lt;/a&gt;&#xA;      &lt;ol&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#heading-3&#34;&gt;Heading 3&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#emphasis&#34;&gt;Emphasis&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#button&#34;&gt;Button&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#link&#34;&gt;Link&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#paragraph&#34;&gt;Paragraph&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#ordered-list&#34;&gt;Ordered List&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#unordered-list&#34;&gt;Unordered List&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#notice&#34;&gt;Notice&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#tab&#34;&gt;Tab&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#accordions&#34;&gt;Accordions&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#code-and-syntax-highlighting&#34;&gt;Code and Syntax Highlighting&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#blockquote&#34;&gt;Blockquote&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#tables&#34;&gt;Tables&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#image&#34;&gt;Image&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#gallery&#34;&gt;Gallery&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#slider&#34;&gt;Slider&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#youtube-video&#34;&gt;Youtube video&lt;/a&gt;&lt;/li&gt;&#xA;        &lt;li&gt;&lt;a href=&#34;#custom-video&#34;&gt;Custom video&lt;/a&gt;&lt;/li&gt;&#xA;      &lt;/ol&gt;&#xA;    &lt;/li&gt;&#xA;  &lt;/ol&gt;&#xA;&lt;/nav&gt;&#xA;&lt;/details&gt;&#xA;&#xA;&lt;p&gt;Here is an example of headings. You can use this heading by the following markdown rules. For example: use &lt;code&gt;#&lt;/code&gt; for heading 1 and use &lt;code&gt;######&lt;/code&gt; for heading 6.&lt;/p&gt;</description>
     </item>
     <item>
       <title>John Doe</title>
-      <link>http://localhost:1313/en/authors/john-doe/</link>
+      <link>http://localhost:1313/en/projects/john-doe/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/authors/john-doe/</guid>
+      <guid>http://localhost:1313/en/projects/john-doe/</guid>
       <description>&lt;p&gt;lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr navigation et dolore magna aliqua.&lt;/p&gt;</description>
     </item>
     <item>
@@ -65,31 +72,17 @@
       <description>&lt;h4 id=&#34;responsibility-of-contributors&#34;&gt;Responsibility of Contributors&lt;/h4&gt;&#xA;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus. Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Ready to build your next project with Hugo?</title>
-      <link></link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid></guid>
-      <description></description>
-    </item>
-    <item>
       <title>Sam Wilson</title>
-      <link>http://localhost:1313/en/authors/sam-wilson/</link>
+      <link>http://localhost:1313/en/projects/sam-wilson/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/authors/sam-wilson/</guid>
+      <guid>http://localhost:1313/en/projects/sam-wilson/</guid>
       <description>&lt;p&gt;lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr navigation et dolore magna aliqua.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>What Users Are Saying About Hugoplate</title>
-      <link></link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid></guid>
-      <description></description>
-    </item>
-    <item>
       <title>William Jacob</title>
-      <link>http://localhost:1313/en/authors/william-jacob/</link>
+      <link>http://localhost:1313/en/projects/william-jacob/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/en/authors/william-jacob/</guid>
+      <guid>http://localhost:1313/en/projects/william-jacob/</guid>
       <description>&lt;p&gt;lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr navigation et dolore magna aliqua.&lt;/p&gt;</description>
     </item>
   </channel>

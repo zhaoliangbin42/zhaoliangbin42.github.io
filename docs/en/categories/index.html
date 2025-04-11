@@ -30,11 +30,11 @@
 
 
 
-<link rel="shortcut icon" href="/images/favicon_hu_4384881fdc2d307e.png" type="image/x-icon">
-<link rel="icon" href="/images/favicon_hu_4384881fdc2d307e.png" type="image/x-icon">
-<link rel="icon" type="image/png" sizes="48x48" href="/images/favicon_hu_79c3559174e61a5e.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/images/favicon_hu_4384881fdc2d307e.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/images/favicon_hu_cfffba76e19e8ff2.png">
+<link rel="shortcut icon" href="/images/favicon_hu_f7de9c17dbcc61b2.png" type="image/x-icon">
+<link rel="icon" href="/images/favicon_hu_f7de9c17dbcc61b2.png" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="48x48" href="/images/favicon_hu_6ecf37be797dc02a.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/images/favicon_hu_f7de9c17dbcc61b2.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/favicon_hu_356f711d531fa433.png">
 
 
 
@@ -93,9 +93,9 @@
 
 
   
-    <link rel="alternate" hreflang="en" href="http://localhost:1313/en/categories/" />
-  
     <link rel="alternate" hreflang="zh" href="http://localhost:1313/zh/categories/" />
+  
+    <link rel="alternate" hreflang="en" href="http://localhost:1313/en/categories/" />
   
   <link rel="alternate" hreflang="x-default" href="http://localhost:1313/en/categories/" />
 
@@ -105,18 +105,18 @@
 
   <meta
     name="keywords"
-    content="Boilerplate, Hugo" />
+    content="Liangbin" />
 
 
 
 
 <meta
   name="description"
-  content="Hugo &amp; Tailwindcss Starter" />
+  content="Liangbin&#39;s Notes" />
 
 
 
-  <meta name="author" content="zeon.studio" />
+  <meta name="author" content="Liangbin" />
 
 
 
@@ -188,19 +188,17 @@
 
 
 <meta property="og:title" content="Liangbin&#39;s Notes" />
-<meta property="og:description" content="Hugo &amp; Tailwindcss Starter" />
+<meta property="og:description" content="Liangbin&#39;s Notes" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://localhost:1313/en/categories/" />
 
 
 <meta name="twitter:title" content="Liangbin&#39;s Notes" />
-<meta name="twitter:description" content="Hugo &amp; Tailwindcss Starter" />
+<meta name="twitter:description" content="Liangbin&#39;s Notes" />
 
 
-  <meta name="twitter:site" content="@zeon_studio" />
 
-
-  <meta name="twitter:creator" content="@zeon.studio" />
+  <meta name="twitter:creator" content="@Liangbin" />
 
 
 
@@ -222,7 +220,7 @@
 
 <script>
   let indexURL = "http://localhost:1313/en/searchindex.json";
-  let includeSectionsInSearch = ["blog"];
+  let includeSectionsInSearch = ["notes"];
   let search_no_results = "No results for";
   let search_initial_message = "Type something to search..";
 </script>
@@ -316,6 +314,18 @@
     
   
 
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
 
 
 
@@ -354,6 +364,26 @@
       
 
 
+  <div class="preloader">
+    
+    
+    
+
+      
+      
+    
+    
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+      window.addEventListener("load", function () {
+        document.querySelector(".preloader").style.display = "none";
+      });
+    })();
+  </script>
+
 
 
 
@@ -380,7 +410,7 @@
 
     
     <header
-  class="header sticky top-0 z-30">
+  class="header sticky top-0 z-30 py-1">
   <nav class="navbar container">
     
     <div class="order-0">
@@ -466,21 +496,21 @@
       fetchpriority="high"
       decoding="async"
       class="img img-light"
-      width="160"
-      height="32"
-      src="/images/logo_hu_75df6f187f7b785d.webp"
+      width="64"
+      height="64"
+      src="/images/logo_hu_22cd5b9f84f4dd29.webp"
       alt="Liangbin&#39;s Notes"
-      onerror="this.onerror=null;this.src='\/images\/logo_hu_613f51f483beed3c.png';" />
+      onerror="this.onerror=null;this.src='\/images\/logo_hu_8aaec227ab965c34.png';" />
 
     <img
       fetchpriority="high"
       decoding="async"
       class="img img-dark"
-      width="160"
-      height="32"
-      src="/images/logo-darkmode_hu_a274d2b570d85754.webp"
+      width="64"
+      height="64"
+      src="/images/logo-darkmode_hu_42bdcfb994f8655e.webp"
       alt="Liangbin&#39;s Notes"
-      onerror="this.onerror=null;this.src='\/images\/logo-darkmode_hu_11d6a0e948ad5f4.png';" />
+      onerror="this.onerror=null;this.src='\/images\/logo-darkmode_hu_61dd1b75c461fd.png';" />
   
   
 
@@ -515,6 +545,12 @@
         
         
         
+            
+        
+
+
+        
+        
           <li class="nav-item">
             <a
               class="nav-link "
@@ -527,6 +563,12 @@
       
         
         
+        
+        
+            
+        
+
+
         
         
           <li class="nav-item">
@@ -543,12 +585,18 @@
         
         
         
+            
+        
+
+
+        
+        
           <li class="nav-item">
             <a
               class="nav-link "
               
-              href="/en/elements"
-              >Elements</a
+              href="/en/notes"
+              >Notes</a
             >
           </li>
         
@@ -557,105 +605,22 @@
         
         
         
-          <li class="nav-item nav-dropdown group relative">
-            <span
-              class="nav-link 
-                
-                
-                
+            
+        
+
+
+        
+        
+          <li class="nav-item">
+            <a
+              class="nav-link "
               
-                
-                
-                
-              
-                
-                
-                
-              
-                
-                
-                
-              
-                
-                
-                
-               inline-flex items-center">
-              Pages
-              <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20">
-                <path
-                  d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-              </svg>
-            </span>
-            <ul
-              class="nav-dropdown-list lg:group-hover:visible lg:group-hover:opacity-100">
-              
-                
-                
-                <li class="nav-dropdown-item">
-                  <a
-                    class="nav-dropdown-link "
-                    
-                    href="/en/404">
-                    404 Page
-                  </a>
-                </li>
-              
-                
-                
-                <li class="nav-dropdown-item">
-                  <a
-                    class="nav-dropdown-link "
-                    
-                    href="/en/authors">
-                    Authors
-                  </a>
-                </li>
-              
-                
-                
-                <li class="nav-dropdown-item">
-                  <a
-                    class="nav-dropdown-link "
-                    
-                    href="/en/blog">
-                    Blog
-                  </a>
-                </li>
-              
-                
-                
-                <li class="nav-dropdown-item">
-                  <a
-                    class="nav-dropdown-link "
-                    
-                    href="/en/categories">
-                    Categories
-                  </a>
-                </li>
-              
-                
-                
-                <li class="nav-dropdown-item">
-                  <a
-                    class="nav-dropdown-link "
-                    
-                    href="/en/contact">
-                    Contact
-                  </a>
-                </li>
-              
-            </ul>
+              href="/en/codes"
+              >Codes</a
+            >
           </li>
         
       
-      
-        <li class="mt-4 inline-block lg:hidden">
-          <a
-            class="btn btn-outline-primary btn-sm"
-            href="/en/contact">
-            get a quote
-          </a>
-        </li>
       
     </ul>
 
@@ -682,47 +647,62 @@
 
 
 
+  
+
+  
+
 
   
 
   
 
 
+<div class="language-switcher mr-5 pl-2 py-1 dark:bg-darkmode-light rounded">
+  
+  
+  
+  
+  
+  <a href="http://localhost:1313/zh/categories/" 
+  class="lang-link "
+  id="zh">ZH</a>
+  
+  
+  <span class="divider">/</span>
+  
+  
+  
+  <a href="http://localhost:1313/en/categories/" 
+     class="lang-link active"
+     id="en">EN</a>
+  
+  
+</div>
 
-  
-
-  
-
-
-<select class="mr-5 pl-2 py-1 dark:bg-darkmode-light rounded" onchange="location = this.value">
-  
-    
-    
-    
-      <option
-        id="en"
-        value="http://localhost:1313/en/categories/"
-      
-        selected
-      
-        >
-        En
-      </option>
-    
-  
-    
-    
-    
-      <option
-        id="zh"
-        value="http://localhost:1313/zh/categories/"
-      
-        >
-        中文
-      </option>
-    
-  
-</select>
+<style>
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-right: 5px;
+}
+.lang-link {
+  text-decoration: none;
+  color: #666;
+  padding: 2px 4px;
+  transition: color 0.3s;
+}
+.lang-link:hover {
+  color: #333;
+}
+.lang-link.active {
+  color: #000;
+  font-weight: bold;
+}
+.divider {
+  color: #666;
+}
+</style>
 
       
 
@@ -758,6 +738,7 @@
       </span>
     </label>
   </div>
+  
 
   
   <script>
@@ -796,12 +777,6 @@
 
 
       
-      
-        <a
-          href="/en/contact"
-          class="btn btn-outline-primary btn-sm hidden lg:inline-block">
-          get a quote
-        </a>
       
     </div>
   </nav>
@@ -927,31 +902,10 @@
       class="from-body to-light dark:from-darkmode-body dark:to-darkmode-light rounded-2xl bg-gradient-to-b px-8 py-14">
       <h1>Categories</h1>
       
-
-
-
-
-<ul class="mt-6 inline-flex space-x-1 capitalize">
-  <li>
-    <a class="text-primary dark:text-darkmode-primary" href="http://localhost:1313/en/">
-      Home
-    </a>
-    <span class="inlin-block mr-1">/</span>
-  </li>
-  
-    
-  
-  <li>
-    <span class="text-primary dark:text-darkmode-primary">
-      Categories
-    </span>
-  </li>
-</ul>
-
+      
     </div>
   </div>
 </section>
-
 
 
   <section class="section">
@@ -962,55 +916,11 @@
           
             <li class="m-3 inline-block">
               <a
-                href="http://localhost:1313/en/categories/data/"
+                href="http://localhost:1313/en/categories/communication/"
                 class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
-                Data
+                Communication
                 <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
-                  2
-                </span>
-              </a>
-            </li>
-          
-            <li class="m-3 inline-block">
-              <a
-                href="http://localhost:1313/en/categories/application/"
-                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
-                Application
-                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
-                  1
-                </span>
-              </a>
-            </li>
-          
-            <li class="m-3 inline-block">
-              <a
-                href="http://localhost:1313/en/categories/architecture/"
-                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
-                Architecture
-                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
-                  1
-                </span>
-              </a>
-            </li>
-          
-            <li class="m-3 inline-block">
-              <a
-                href="http://localhost:1313/en/categories/software/"
-                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
-                Software
-                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
-                  1
-                </span>
-              </a>
-            </li>
-          
-            <li class="m-3 inline-block">
-              <a
-                href="http://localhost:1313/en/categories/technology/"
-                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
-                Technology
-                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
-                  1
+                  4
                 </span>
               </a>
             </li>
@@ -1113,21 +1023,21 @@
       fetchpriority="high"
       decoding="async"
       class="img img-light"
-      width="160"
-      height="32"
-      src="/images/logo_hu_75df6f187f7b785d.webp"
+      width="64"
+      height="64"
+      src="/images/logo_hu_22cd5b9f84f4dd29.webp"
       alt="Liangbin&#39;s Notes"
-      onerror="this.onerror=null;this.src='\/images\/logo_hu_613f51f483beed3c.png';" />
+      onerror="this.onerror=null;this.src='\/images\/logo_hu_8aaec227ab965c34.png';" />
 
     <img
       fetchpriority="high"
       decoding="async"
       class="img img-dark"
-      width="160"
-      height="32"
-      src="/images/logo-darkmode_hu_a274d2b570d85754.webp"
+      width="64"
+      height="64"
+      src="/images/logo-darkmode_hu_42bdcfb994f8655e.webp"
       alt="Liangbin&#39;s Notes"
-      onerror="this.onerror=null;this.src='\/images\/logo-darkmode_hu_11d6a0e948ad5f4.png';" />
+      onerror="this.onerror=null;this.src='\/images\/logo-darkmode_hu_61dd1b75c461fd.png';" />
   
   
 
@@ -1137,36 +1047,6 @@
       <div class="lg:col-6 mb-8 text-center lg:mb-0">
         <ul>
           
-            <li class="m-3 inline-block">
-              <a
-                
-                href="
-                  /en/about
-                "
-                >About</a
-              >
-            </li>
-          
-            <li class="m-3 inline-block">
-              <a
-                
-                href="
-                  /en/elements
-                "
-                >Elements</a
-              >
-            </li>
-          
-            <li class="m-3 inline-block">
-              <a
-                
-                href="
-                  /en/privacy-policy
-                "
-                >Privacy Policy</a
-              >
-            </li>
-          
         </ul>
       </div>
       <div class="lg:col-3 mb-8 text-center lg:mb-0 lg:mt-0 lg:text-right">
@@ -1175,20 +1055,10 @@
             <li>
               <a
                 target="_blank"
-                aria-label="facebook"
+                aria-label="Google Scholar"
                 rel="nofollow noopener"
-                href="https://www.facebook.com/">
-                <i class="fab fa-facebook"></i>
-              </a>
-            </li>
-          
-            <li>
-              <a
-                target="_blank"
-                aria-label="twitter"
-                rel="nofollow noopener"
-                href="https://twitter.com/">
-                <i class="fab fa-twitter"></i>
+                href="https://scholar.google.com/citations?user=O3RdaQ8AAAAJ&amp;hl=en&amp;oi=sra">
+                <i class="fas fa-graduation-cap"></i>
               </a>
             </li>
           
@@ -1197,7 +1067,7 @@
                 target="_blank"
                 aria-label="github"
                 rel="nofollow noopener"
-                href="https://www.github.com/">
+                href="https://github.com/zhaoliangbin42">
                 <i class="fab fa-github"></i>
               </a>
             </li>
@@ -1207,12 +1077,15 @@
                 target="_blank"
                 aria-label="linkedin"
                 rel="nofollow noopener"
-                href="https://www.linkedin.com/">
+                href="https://www.linkedin.com/in/liangbin-zhao-487854142/">
                 <i class="fab fa-linkedin"></i>
               </a>
             </li>
           
         </ul>
+        <p class="text-sm text-text-light dark:text-darkmode-text-light mt-4">
+            <i class="fa-regular mr-1"></i> 最后更新于: 2023-10-07
+        </p>
       </div>
     </div>
   </div>
@@ -1220,7 +1093,7 @@
     <div
       class="text-text-light dark:text-darkmode-text-light container text-center">
       <p>
-        Designed &amp; Developed by <a href="https://zeon.studio"
+        © 2025 Liangbin Zhao. Powered by <a href="https://gohugo.io/"
 
 
 
@@ -1229,7 +1102,16 @@
  
 
 
->Zeon Studio</a>
+>Hugo</a> and <a href="https://github.com/zeon-studio/hugoplate"
+
+
+
+
+ target="_blank"
+ 
+
+
+>Hugoplate</a> theme.
       </p>
     </div>
   </div>
@@ -1348,5 +1230,37 @@
 
 
 
+
+
+
+
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      tags: 'ams'
+    },
+    options: {
+      enableMenu: true
+    },
+    
+    startup: {
+      ready() {
+        
+        const mathElements = document.querySelectorAll('p, div, span');
+        mathElements.forEach(el => {
+          if (el.textContent.includes('\\begin{aligned}')) {
+            el.innerHTML = el.innerHTML.replace(/\\ /g, '\\\\');
+          }
+        });
+        MathJax.startup.defaultReady();
+      }
+    }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
   </body>
 </html>

@@ -3,10 +3,10 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/en/</loc>
-    <lastmod>2025-04-09T22:23:27+10:00</lastmod>
+    <lastmod>2023-10-07T00:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
-                hreflang="zh"
+                hreflang="en-us"
                 href="http://localhost:1313/zh/"
                 />
     <xhtml:link
@@ -15,23 +15,24 @@
                 href="http://localhost:1313/en/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/posts/</loc>
-    <lastmod>2025-04-09T22:23:27+10:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/en/categories/application/</loc>
-    <lastmod>2022-04-04T05:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/en/categories/architecture/</loc>
-    <lastmod>2022-04-04T05:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/en/blog/</loc>
-    <lastmod>2022-04-04T05:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/en/categories/</loc>
-    <lastmod>2022-04-04T05:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/en/notes/bi-awgn-initialize/</loc>
+    <lastmod>2023-10-07T00:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
-                hreflang="zh"
+                hreflang="en-us"
+                href="http://localhost:1313/zh/notes/bi-awgn-initialize/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/notes/bi-awgn-initialize/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/en/categories/</loc>
+    <lastmod>2023-10-07T00:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
                 href="http://localhost:1313/zh/categories/"
                 />
     <xhtml:link
@@ -40,38 +41,50 @@
                 href="http://localhost:1313/en/categories/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/categories/data/</loc>
-    <lastmod>2022-04-04T05:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/en/blog/post-1/</loc>
-    <lastmod>2022-04-04T05:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/en/blog/post-2/</loc>
-    <lastmod>2022-04-04T05:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/en/blog/post-3/</loc>
-    <lastmod>2022-04-04T05:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/en/blog/post-4/</loc>
-    <lastmod>2022-04-04T05:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/en/tags/nextjs/</loc>
-    <lastmod>2022-04-04T05:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/en/tags/silicon/</loc>
-    <lastmod>2022-04-04T05:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/en/categories/software/</loc>
-    <lastmod>2022-04-04T05:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/en/tags/software/</loc>
-    <lastmod>2022-04-04T05:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/en/tags/</loc>
-    <lastmod>2022-04-04T05:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/en/categories/communication/</loc>
+    <lastmod>2023-10-07T00:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
-                hreflang="zh"
+                hreflang="en-us"
+                href="http://localhost:1313/zh/categories/communication/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/categories/communication/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/en/notes/</loc>
+    <lastmod>2023-10-07T00:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/zh/notes/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/notes/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/en/tags/signal-processing/</loc>
+    <lastmod>2023-10-07T00:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/zh/tags/signal-processing/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/tags/signal-processing/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/en/tags/</loc>
+    <lastmod>2023-10-07T00:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
                 href="http://localhost:1313/zh/tags/"
                 />
     <xhtml:link
@@ -80,35 +93,177 @@
                 href="http://localhost:1313/en/tags/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/tags/tailwind/</loc>
-    <lastmod>2022-04-04T05:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/en/notes/equalization/</loc>
+    <lastmod>2023-10-06T00:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/zh/notes/equalization/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/notes/equalization/"
+                />
   </url><url>
-    <loc>http://localhost:1313/en/categories/technology/</loc>
-    <lastmod>2022-04-04T05:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/en/notes/timing-recovery/</loc>
+    <lastmod>2022-08-03T00:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/zh/notes/timing-recovery/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/notes/timing-recovery/"
+                />
   </url><url>
-    <loc>http://localhost:1313/en/tags/technology/</loc>
-    <lastmod>2022-04-04T05:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/en/notes/polyphase-matched-filtering/</loc>
+    <lastmod>2022-05-28T00:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/zh/notes/polyphase-matched-filtering/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/notes/polyphase-matched-filtering/"
+                />
   </url><url>
-    <loc>http://localhost:1313/en/authors/</loc>
+    <loc>http://localhost:1313/en/works/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/zh/works/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/works/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/en/works/</loc>
+  </url><url>
+    <loc>http://localhost:1313/en/projects/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/zh/projects/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/projects/"
+                />
   </url><url>
     <loc>http://localhost:1313/en/contact/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/zh/contact/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/contact/"
+                />
   </url><url>
     <loc>http://localhost:1313/en/contact/benko/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/zh/contact/benko/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/contact/benko/"
+                />
   </url><url>
     <loc>http://localhost:1313/en/elements/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/zh/elements/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/elements/"
+                />
   </url><url>
     <loc>http://localhost:1313/en/about/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/zh/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/about/"
+                />
   </url><url>
-    <loc>http://localhost:1313/en/authors/john-doe/</loc>
+    <loc>http://localhost:1313/en/projects/john-doe/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/zh/projects/john-doe/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/projects/john-doe/"
+                />
   </url><url>
     <loc>http://localhost:1313/en/pages/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/zh/pages/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/pages/"
+                />
   </url><url>
     <loc>http://localhost:1313/en/privacy-policy/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/zh/privacy-policy/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/privacy-policy/"
+                />
   </url><url>
-    <loc>http://localhost:1313/en/authors/sam-wilson/</loc>
+    <loc>http://localhost:1313/en/projects/sam-wilson/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/zh/projects/sam-wilson/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/projects/sam-wilson/"
+                />
   </url><url>
-    <loc>http://localhost:1313/en/sections/</loc>
-  </url><url>
-    <loc>http://localhost:1313/en/authors/william-jacob/</loc>
+    <loc>http://localhost:1313/en/projects/william-jacob/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/zh/projects/william-jacob/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/projects/william-jacob/"
+                />
   </url>
 </urlset>

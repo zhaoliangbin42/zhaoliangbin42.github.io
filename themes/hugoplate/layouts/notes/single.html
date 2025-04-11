@@ -1,0 +1,166 @@
+{{ define "main" }}
+<section class="section pt-7">
+    <div class="container">
+        <div class="row justify-center">
+            <article class="lg:col-10">
+                {{ $image:= .Params.image }}
+                {{ if $image }}
+                <div class="mb-10">
+                    {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "w-full rounded") }}
+                </div>
+                {{ end }}
+                <h1 class="h2 mb-4">
+                    {{ .Title }}
+                </h1>
+                <ul class="mb-4">
+                    <li class="mr-4 inline-block">
+                        <a href="{{ `authors/` | relLangURL }}{{ .Params.Author | urlize }}/">
+                            <i class="fa-regular fa-user-pen mr-2"></i>{{ .Params.author }}
+                        </a>
+                    </li>
+                    {{ $categories:= .Params.categories }}
+                    {{ if $categories }}
+                    <li class="mr-4 inline-block">
+                        <i class="fa-regular fa-folder mr-2"></i>
+                        {{ range $i,$p:= $categories }}
+                        <a href="{{ `categories/` | relLangURL }}{{ . | urlize | lower }}/" class="">{{ . | humanize
+                            }}{{ if ne $i (sub (len $categories) 1) }}
+                            {{ "," }}
+                            {{ end }}
+                        </a>
+                        {{ end }}
+                    </li>
+                    {{ end }}
+                    <li class="mr-4 inline-block">
+                        <i class="fa-regular fa-clock mr-2"></i>
+                        {{ time.Format ":date_long" .PublishDate }}
+                    </li>
+                </ul>
+                <div class="content mb-10">
+                    {{ partial "toc.html" (dict "Class" "blog" "Collapsed" false "TableOfContents" .TableOfContents ) }}
+                    {{ .Content }}
+                </div>
+                <div class="row items-start justify-between">
+                    {{ $tags:= .Params.tags }}
+                    {{ if $tags }}
+                    <div class="lg:col-6 mb-10 flex items-center lg:mb-0">
+                        <h5 class="mr-3">{{ T "tags" }} :</h5>
+                        <ul>
+                            {{ range $i,$p:= $tags }}
+                            <li class="inline-block">
+                                <a class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
+                                    href="{{ `tags/` | relLangURL }}{{ . | urlize | lower }}/">
+                                    {{ . | humanize }}
+                                </a>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                    {{ end }}
+                    <!-- <div class="lg:col-6 flex items-center lg:justify-end">
+              <h5>{{ T "share" }} :</h5>
+              {{ partial "social-share" (dict "Context" . "Class" "share-icons" "Title" .Title "Whatsapp" false "Telegram" false "Linkedin" false "Pinterest" false "Tumblr" false "Vk" false "Reddit" false) }}
+            </div> -->
+                    <div class="lg:col-6 flex items-center lg:justify-end">
+                        <h5>{{ T "share" }} :</h5>
+                        <div class="share-icons ml-2">
+                            <!-- 复制链接按钮 -->
+                            <button onclick="copyPageUrl()"
+                                class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary m-1 rounded px-3 py-1 hover:text-white"
+                                title="Copy Link">
+                                <i class="fa-solid fa-link"></i>
+                            </button>
+                            <!-- 显示二维码按钮 -->
+                            <button onclick="showQRCode()"
+                                class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary m-1 rounded px-3 py-1 hover:text-white"
+                                title="Show QR Code">
+                                <i class="fa-solid fa-qrcode"></i>
+                            </button>
+                        </div>
+
+                        <!-- 二维码弹窗 -->
+                        <div id="qrcode-popup"
+                            class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black bg-opacity-50">
+                            <div class="bg-white dark:bg-darkmode-theme-dark p-6 rounded-lg shadow-lg relative">
+                                <button onclick="hideQRCode()"
+                                    class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
+                                    <i class="fa-solid fa-times"></i>
+                                </button>
+                                <h4 class="mb-4">Scan to share.</h4>
+                                <div id="qrcode-container" class="flex justify-center"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- comments -->
+                {{ if site.Config.Services.Disqus.Shortname }}
+                <div class="mt-20">
+                    {{ template "_internal/disqus.html" . }}
+                </div>
+                {{ end }}
+            </article>
+        </div>
+
+        <!-- Related posts -->
+        {{ $related := .Site.RegularPages.Related . | first 10 }}
+        {{ $related = $related | shuffle | first 3 }}
+        {{ with $related }}
+        <div class="section pb-0">
+            <h2 class="h3 mb-12">{{ T "related_posts" }}</h2>
+            <div class="row">
+                {{ range . }}
+                <div class="lg:col-4 md:col-6 mb-14">
+                    {{ partial "components/blog-card" . }}
+                </div>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</section>
+
+<!-- 添加QR Code库和分享功能脚本 -->
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+<script>
+    function copyPageUrl() {
+        const url = window.location.href;
+        navigator.clipboard.writeText(url).then(() => {
+            // 显示复制成功提示
+            const toast = document.createElement('div');
+            toast.textContent = 'Link Copied!';
+            toast.className = 'fixed bottom-4 right-4 bg-primary text-white py-2 px-4 rounded shadow-lg';
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                document.body.removeChild(toast);
+            }, 2000);
+        });
+    }
+
+    function showQRCode() {
+        const url = window.location.href;
+        const qrcodeContainer = document.getElementById('qrcode-container');
+        qrcodeContainer.innerHTML = ''; // 清除旧的二维码
+
+        // 修改这里：使用 toDataURL 而不是 toCanvas
+        QRCode.toDataURL(url, { width: 200 }, function (err, url) {
+            if (err) {
+                console.error(err);
+                return;
+            }
+
+            // 创建图片元素显示二维码
+            const img = document.createElement('img');
+            img.src = url;
+            img.width = 200;
+            img.height = 200;
+            qrcodeContainer.appendChild(img);
+        });
+
+        document.getElementById('qrcode-popup').classList.remove('hidden');
+    }
+
+    function hideQRCode() {
+        document.getElementById('qrcode-popup').classList.add('hidden');
+    }
+</script>
+{{ end }}

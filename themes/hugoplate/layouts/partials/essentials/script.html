@@ -56,3 +56,36 @@
 
 <!-- cookie consent -->
 {{ partialCached "announcement-script.html" . }}
+
+
+
+
+
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      tags: 'ams'
+    },
+    options: {
+      enableMenu: true
+    },
+    // 添加预处理器来修复换行符
+    startup: {
+      ready() {
+        // 在 MathJax 准备好时替换错误的换行符
+        const mathElements = document.querySelectorAll('p, div, span');
+        mathElements.forEach(el => {
+          if (el.textContent.includes('\\begin{aligned}')) {
+            el.innerHTML = el.innerHTML.replace(/\\ /g, '\\\\');
+          }
+        });
+        MathJax.startup.defaultReady();
+      }
+    }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>

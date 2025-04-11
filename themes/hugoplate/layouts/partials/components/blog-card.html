@@ -1,9 +1,11 @@
-<div class="bg-body dark:bg-darkmode-body">
+<div class="blog-card bg-body dark:bg-darkmode-body">
   {{ $image:= .Params.image }}
   {{ if $image }}
-    {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "mb-6 w-full rounded") }}
+    <div class="blog-card-image-container">
+      {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "blog-card-image") }}
+    </div>
   {{ end }}
-  <h4 class="mb-3">
+  <h4 class="blog-card-title mb-3">
     <a href="{{ .RelPermalink }}">
       {{ .Title }}
     </a>
@@ -30,8 +32,101 @@
       </li>
     </ul>
   {{ end }}
-  <p class="mb-6">{{ .Summary | plainify }}</p>
-  <a class="btn btn-outline-primary btn-sm" href="{{ .RelPermalink }}">
-    {{ T "read_more" }}
-  </a>
+  <div class="blog-card-content">
+    <p class="blog-card-summary">{{ .Summary | plainify }}</p>
+  </div>
+  <div class="blog-card-footer">
+    <a class="btn btn-outline-primary btn-sm" href="{{ .RelPermalink }}">
+      {{ T "read_more" }}
+    </a>
+    <span class="text-sm text-gray-500 dark:text-gray-400">
+      {{ .Date.Format "2006-01-02" }}
+    </span>
+  </div>
 </div>
+
+<style>
+  .blog-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 18px;
+    background-color: var(--bg-body);
+  }
+  
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+  
+  .dark .blog-card {
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .blog-card-image-container {
+    width: calc(100% + 36px);
+    height: 200px; /* 固定图片容器高度 */
+    overflow: hidden;
+    margin: -18px -18px 1.5rem -18px;
+    border-radius: 12px 12px 0 0;
+  }
+  
+  .blog-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 保持宽高比并裁剪多余部分 */
+    object-position: center; /* 居中裁剪 */
+    transition: transform 0.3s ease;
+  }
+  
+  .blog-card:hover .blog-card-image {
+    transform: scale(1.05);
+  }
+  
+  .blog-card-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 限制标题最多显示2行 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 600;
+    color: var(--color-text-dark);
+  }
+
+  .dark .blog-card-title {
+    color: #fff; /* 在夜间模式下使用白色标题 */
+  }
+  
+  .blog-card-content {
+    flex-grow: 1; /* 让内容区域自动填充可用空间 */
+    margin-bottom: 0; /* 减少底部间距 */
+  }
+  
+  .blog-card-summary {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* 限制摘要最多显示3行 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+  
+  .blog-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto; /* 将页脚推到底部 */
+    padding-top: 1rem; /* 添加顶部内边距 */
+  }
+  
+  .blog-card a.btn {
+    font-weight: 500;
+  }
+</style>

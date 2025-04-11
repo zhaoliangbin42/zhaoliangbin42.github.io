@@ -1,0 +1,1927 @@
+<!doctype html>
+<html
+  itemscope
+  class=""
+  lang="en-us"
+  itemtype="http://schema.org/WebPage">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8" />
+
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, maximum-scale=5" />
+
+
+<meta name="theme-name" content="hugoplate" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="shortcut icon" href="/images/favicon_hu_f7de9c17dbcc61b2.png" type="image/x-icon">
+<link rel="icon" href="/images/favicon_hu_f7de9c17dbcc61b2.png" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="48x48" href="/images/favicon_hu_6ecf37be797dc02a.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/images/favicon_hu_f7de9c17dbcc61b2.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/favicon_hu_356f711d531fa433.png">
+
+
+
+
+
+
+
+
+<link rel="manifest" href="/manifest.webmanifest" />
+<meta
+  name="msapplication-TileColor"
+  content="#ddd" />
+<meta
+  name="theme-color"
+  content="#ffffff" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<title>基于多相滤波器技术的匹配滤波实现方法</title>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <link rel="alternate" hreflang="zh" href="http://localhost:1313/zh/notes/polyphase-matched-filtering/" />
+  
+    <link rel="alternate" hreflang="en" href="http://localhost:1313/en/notes/polyphase-matched-filtering/" />
+  
+  <link rel="alternate" hreflang="x-default" href="http://localhost:1313/en/notes/polyphase-matched-filtering/" />
+
+
+
+
+
+  <meta
+    name="keywords"
+    content="Liangbin" />
+
+
+
+
+<meta
+  name="description"
+  content="Liangbin&#39;s Notes" />
+
+
+
+  <meta name="author" content="Liangbin" />
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+
+
+  
+  
+    
+    
+      
+    
+
+    
+
+
+    
+    
+
+
+    
+    
+      
+      
+      
+        <meta property="og:image" content="http://localhost:1313/en/notes/polyphase-matched-filtering/index.assets/banner.png" />
+        <meta name="twitter:image" content="http://localhost:1313/en/notes/polyphase-matched-filtering/index.assets/banner.png" />
+        <meta
+          name="twitter:card"
+          content="summary_large_image" />
+      
+      
+      <meta property="og:image:width" content="1536" />
+      <meta property="og:image:height" content="1024" />
+    
+
+
+    
+    <meta
+      property="og:image:type"
+      content="image/.png" />
+  
+
+
+  
+
+
+
+
+
+<meta property="og:title" content="基于多相滤波器技术的匹配滤波实现方法" />
+<meta property="og:description" content="Liangbin&#39;s Notes" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/en/notes/polyphase-matched-filtering/" />
+
+
+<meta name="twitter:title" content="基于多相滤波器技术的匹配滤波实现方法" />
+<meta name="twitter:description" content="Liangbin&#39;s Notes" />
+
+
+
+  <meta name="twitter:creator" content="@Liangbin" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  let indexURL = "http://localhost:1313/en/searchindex.json";
+  let includeSectionsInSearch = ["notes"];
+  let search_no_results = "No results for";
+  let search_initial_message = "Type something to search..";
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="preconnect" href="https://use.fontawesome.com" crossorigin />
+<link rel="preconnect" href="//cdnjs.cloudflare.com" />
+<link rel="preconnect" href="//www.googletagmanager.com" />
+<link rel="preconnect" href="//www.google-analytics.com" />
+<link rel="dns-prefetch" href="https://use.fontawesome.com" />
+<link rel="dns-prefetch" href="//ajax.googleapis.com" />
+<link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+<link rel="dns-prefetch" href="//www.googletagmanager.com" />
+<link rel="dns-prefetch" href="//www.google-analytics.com" />
+<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+<link rel="dns-prefetch" href="//connect.facebook.net" />
+<link rel="dns-prefetch" href="//platform.linkedin.com" />
+<link rel="dns-prefetch" href="//platform.twitter.com" />
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script>
+  (function () {
+    const googleFont = document.createElement("link");
+    googleFont.href = "https://fonts.googleapis.com/css2?family=Heebo:wght@400;600&family=Signika:wght@500;700&display=swap";
+    googleFont.type = "text/css";
+    googleFont.rel = "stylesheet";
+    document.head.appendChild(googleFont);
+  })();
+</script>
+
+
+
+
+
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link
+  href="/css/style.css"
+  integrity=""
+  rel="stylesheet" />
+
+
+<link
+  defer
+  async
+  rel="stylesheet"
+  href="/css/style-lazy.css"
+  integrity=""
+  media="print"
+  onload="this.media='all'; this.onload=null;" />
+
+
+  </head>
+
+  <body>
+    
+    
+      
+
+
+  <div class="preloader">
+    
+    
+    
+
+      
+      
+    
+    
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+      window.addEventListener("load", function () {
+        document.querySelector(".preloader").style.display = "none";
+      });
+    })();
+  </script>
+
+
+
+
+      
+      <div
+  class="fixed left-0 top-0 z-50 flex w-[30px] items-center justify-center bg-gray-200 py-[2.5px] text-[12px] uppercase text-black sm:bg-red-200 md:bg-yellow-200 lg:bg-green-200 xl:bg-blue-200 2xl:bg-pink-200">
+  <span class="block sm:hidden">all</span>
+  <span class="hidden sm:block md:hidden">sm</span>
+  <span class="hidden md:block lg:hidden">md</span>
+  <span class="hidden lg:block xl:hidden">lg</span>
+  <span class="hidden xl:block 2xl:hidden">xl</span>
+  <span class="hidden 2xl:block">2xl</span>
+</div>
+
+    
+
+
+    
+    
+
+
+
+
+
+    
+    <header
+  class="header sticky top-0 z-30 py-1">
+  <nav class="navbar container">
+    
+    <div class="order-0">
+      
+      <a class="navbar-brand block" href="/en/">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+  
+  
+    
+    
+  
+
+
+  
+  
+      
+      
+    
+    
+    
+    
+    
+    
+  
+  
+
+  
+  
+    
+    
+      
+      
+
+
+      
+      
+        
+        
+        
+        
+
+        
+        
+        
+      
+      
+    
+  
+  
+
+  
+    <img
+      fetchpriority="high"
+      decoding="async"
+      class="img img-light"
+      width="64"
+      height="64"
+      src="/images/logo_hu_22cd5b9f84f4dd29.webp"
+      alt="Liangbin&#39;s Notes"
+      onerror="this.onerror=null;this.src='\/images\/logo_hu_8aaec227ab965c34.png';" />
+
+    <img
+      fetchpriority="high"
+      decoding="async"
+      class="img img-dark"
+      width="64"
+      height="64"
+      src="/images/logo-darkmode_hu_42bdcfb994f8655e.webp"
+      alt="Liangbin&#39;s Notes"
+      onerror="this.onerror=null;this.src='\/images\/logo-darkmode_hu_61dd1b75c461fd.png';" />
+  
+  
+
+
+      </a>
+    </div>
+    
+    <input id="nav-toggle" type="checkbox" class="hidden" />
+    <label
+      for="nav-toggle"
+      class="order-3 cursor-pointer flex items-center lg:hidden text-text-dark dark:text-white lg:order-1">
+      <svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20">
+        <title>Menu Open</title>
+        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
+      </svg>
+      <svg id="hide-button" class="h-6 fill-current hidden" viewBox="0 0 20 20">
+        <title>Menu Close</title>
+        <polygon
+          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+          transform="rotate(45 10 10)"></polygon>
+      </svg>
+    </label>
+    
+
+    
+    <ul
+      id="nav-menu"
+      class="navbar-nav order-3 hidden lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8">
+      
+      
+        
+        
+        
+        
+            
+        
+
+
+        
+        
+          <li class="nav-item">
+            <a
+              class="nav-link "
+              
+              href="/en/"
+              >Home</a
+            >
+          </li>
+        
+      
+        
+        
+        
+        
+            
+        
+
+
+        
+        
+          <li class="nav-item">
+            <a
+              class="nav-link "
+              
+              href="/en/about"
+              >About</a
+            >
+          </li>
+        
+      
+        
+        
+        
+        
+            
+        
+
+
+        
+        
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              
+              href="/en/notes"
+              >Notes</a
+            >
+          </li>
+        
+      
+        
+        
+        
+        
+            
+        
+
+
+        
+        
+          <li class="nav-item">
+            <a
+              class="nav-link "
+              
+              href="/en/codes"
+              >Codes</a
+            >
+          </li>
+        
+      
+      
+    </ul>
+
+    <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
+      
+        
+          <button
+            aria-label="search"
+            
+              class="border-border text-text-dark hover:text-primary
+              dark:border-darkmode-border mr-5 inline-block border-r pr-5
+              text-xl dark:text-white dark:hover:text-darkmode-primary"
+            
+            data-target="search-modal">
+            <i class="fa-solid fa-search"></i>
+          </button>
+        
+      
+
+      
+
+
+
+
+
+
+  
+
+  
+
+
+  
+
+  
+
+
+<div class="language-switcher mr-5 pl-2 py-1 dark:bg-darkmode-light rounded">
+  
+  
+  
+  
+  
+  <a href="http://localhost:1313/zh/notes/polyphase-matched-filtering/" 
+  class="lang-link "
+  id="zh">ZH</a>
+  
+  
+  <span class="divider">/</span>
+  
+  
+  
+  <a href="http://localhost:1313/en/notes/polyphase-matched-filtering/" 
+     class="lang-link active"
+     id="en">EN</a>
+  
+  
+</div>
+
+<style>
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-right: 5px;
+}
+.lang-link {
+  text-decoration: none;
+  color: #666;
+  padding: 2px 4px;
+  transition: color 0.3s;
+}
+.lang-link:hover {
+  color: #333;
+}
+.lang-link.active {
+  color: #000;
+  font-weight: bold;
+}
+.divider {
+  color: #666;
+}
+</style>
+
+      
+
+
+  <div class="theme-switcher mr-5 hidden">
+    <input id="theme-switcher" data-theme-switcher type="checkbox" />
+    <label for="theme-switcher">
+      <span class="sr-only">theme switcher</span>
+      <span>
+        
+        <svg
+          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 opacity-100 dark:opacity-0"
+          viewBox="0 0 56 56"
+          fill="#fff"
+          height="16"
+          width="16">
+          <path
+            d="M30 4.6c0-1-.9-2-2-2a2 2 0 0 0-2 2v5c0 1 .9 2 2 2s2-1 2-2Zm9.6 9a2 2 0 0 0 0 2.8c.8.8 2 .8 2.9 0L46 13a2 2 0 0 0 0-2.9 2 2 0 0 0-3 0Zm-26 2.8c.7.8 2 .8 2.8 0 .8-.7.8-2 0-2.9L13 10c-.7-.7-2-.8-2.9 0-.7.8-.7 2.1 0 3ZM28 16a12 12 0 0 0-12 12 12 12 0 0 0 12 12 12 12 0 0 0 12-12 12 12 0 0 0-12-12Zm23.3 14c1.1 0 2-.9 2-2s-.9-2-2-2h-4.9a2 2 0 0 0-2 2c0 1.1 1 2 2 2ZM4.7 26a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4.9c1 0 2-.9 2-2s-1-2-2-2Zm37.8 13.6a2 2 0 0 0-3 0 2 2 0 0 0 0 2.9l3.6 3.5a2 2 0 0 0 2.9 0c.8-.8.8-2.1 0-3ZM10 43.1a2 2 0 0 0 0 2.9c.8.7 2.1.8 3 0l3.4-3.5c.8-.8.8-2.1 0-2.9-.8-.8-2-.8-2.9 0Zm20 3.4c0-1.1-.9-2-2-2a2 2 0 0 0-2 2v4.9c0 1 .9 2 2 2s2-1 2-2Z" />
+        </svg>
+        
+        <svg
+          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 opacity-0 dark:opacity-100"
+          viewBox="0 0 24 24"
+          fill="none"
+          height="16"
+          width="16">
+          <path
+            fill="#000"
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M8.2 2.2c1-.4 2 .6 1.6 1.5-1 3-.4 6.4 1.8 8.7a8.4 8.4 0 0 0 8.7 1.8c1-.3 2 .5 1.5 1.5v.1a10.3 10.3 0 0 1-9.4 6.2A10.3 10.3 0 0 1 3.2 6.7c1-2 2.9-3.5 4.9-4.4Z" />
+        </svg>
+      </span>
+    </label>
+  </div>
+  
+
+  
+  <script>
+    var darkMode = false;
+
+    
+
+    if (localStorage.getItem("theme") === "dark"){darkMode = true}
+    else if (localStorage.getItem("theme") === "light"){darkMode = false}
+
+    if (darkMode){document.documentElement.classList.add("dark")}
+    else {document.documentElement.classList.remove("dark")}
+
+    
+    document.addEventListener("DOMContentLoaded", () => {
+      var themeSwitch = document.querySelectorAll("[data-theme-switcher]");
+      var themeSwitcherContainer = document.querySelector('.theme-switcher');
+
+      [].forEach.call(themeSwitch, function (ts) {
+        ts.checked = darkMode;
+        ts.addEventListener("click", () => {
+          document.documentElement.classList.toggle("dark");
+          localStorage.setItem(
+            "theme",
+            document.documentElement.classList.contains("dark") ? "dark" : "light"
+          );
+        });
+      });
+
+      
+      themeSwitcherContainer.classList.remove('hidden');
+    });
+  </script>
+
+
+
+
+      
+      
+    </div>
+  </nav>
+</header>
+
+    
+
+
+
+
+  
+    <div
+      class="search-modal "
+      aria-hidden="true"
+      style="--color-primary: #121212">
+      <div data-target="close-search-modal" class="search-modal-overlay"></div>
+      <div
+        class="search-wrapper"
+        data-image="true"
+        data-description="true"
+        data-tags="true"
+        data-categories="true">
+        <div class="search-wrapper-header">
+          <label for="search-modal-input" style="margin-top:-1px">
+            <span class="sr-only">search icon</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+              height="18"
+              width="18"
+              class="search-icon"
+              data-type="search">
+              <path
+                fill="currentColor"
+                d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+              height="18"
+              width="18"
+              class="search-reset"
+              data-type="reset">
+              <path
+                fill="currentColor"
+                d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z" />
+            </svg>
+          </label>
+          <input
+            id="search-modal-input"
+            type="text"
+            data-search-input
+            autocomplete="off"
+            aria-label="Search"
+            placeholder="Search Post..." />
+        </div>
+        <div class="search-wrapper-body">
+          <div class="search-result" data-search-result></div>
+          <span class="search-result-empty">
+            Type something to search..
+          </span>
+        </div>
+        <div class="search-wrapper-footer">
+          <span>
+            <kbd>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                fill="currentColor"
+                viewBox="0 0 16 16">
+                <path
+                  d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z" />
+              </svg>
+            </kbd>
+            <kbd>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                fill="currentColor"
+                style="margin-top:1px;"
+                viewBox="0 0 16 16">
+                <path
+                  d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
+              </svg>
+            </kbd>
+            to navigate
+          </span>
+          <span>
+            <kbd>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="12"
+                fill="currentColor"
+                style="display:inline-block;"
+                viewBox="0 0 16 16">
+                <path
+                  fill-rule="evenodd"
+                  d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" />
+              </svg>
+            </kbd>
+            to select
+          </span>
+          <span class="search-result-info"></span>
+          <span data-target="close-search-modal">
+            <kbd>ESC</kbd> to close
+          </span>
+        </div>
+      </div>
+    </div>
+  
+
+
+
+
+    <main>
+      
+<section class="section pt-7">
+    <div class="container">
+        <div class="row justify-center">
+            <article class="lg:col-10">
+                
+                
+                <div class="mb-10">
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+    
+      
+    
+
+
+    
+    
+
+
+    
+    
+      
+      
+    
+    
+    
+
+
+    
+    
+      
+      
+        
+
+        
+        
+        
+        
+        
+        
+        
+
+
+        
+        
+
+
+        <picture>
+          <source
+            
+              srcset="/en/notes/polyphase-matched-filtering/index.assets/banner_hu_550da289e0ad8a5c.webp"
+            
+            media="(max-width: 575px)" />
+          <source
+            
+              srcset="/en/notes/polyphase-matched-filtering/index.assets/banner_hu_46d8741ce7b856f0.webp"
+            
+            media="(max-width: 767px)" />
+          <source
+            
+              srcset="/en/notes/polyphase-matched-filtering/index.assets/banner_hu_7b09c8563fe98444.webp"
+            
+            media="(max-width: 991px)" />
+          <source
+            
+              srcset="/en/notes/polyphase-matched-filtering/index.assets/banner_hu_d0534e558d9f0192.webp"
+             />
+          <img
+            
+              loading="lazy" decoding="async"
+              src="/en/notes/polyphase-matched-filtering/index.assets/banner_hu_a13c6e8a5ccd512b.png"
+            class=" w-full rounded img"
+            alt="基于多相滤波器技术的匹配滤波实现方法"
+            width="1536"
+            height="1024" />
+        </picture>
+      
+      
+    
+    
+  
+
+
+  
+
+
+                </div>
+                
+                <h1 class="h2 mb-4">
+                    基于多相滤波器技术的匹配滤波实现方法
+                </h1>
+                <ul class="mb-4">
+                    <li class="mr-4 inline-block">
+                        <a href="/en/authors/liangbin/">
+                            <i class="fa-regular fa-user-pen mr-2"></i>Liangbin
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="mr-4 inline-block">
+                        <i class="fa-regular fa-folder mr-2"></i>
+                        
+                        <a href="/en/categories/communication/" class="">Communication
+                        </a>
+                        
+                    </li>
+                    
+                    <li class="mr-4 inline-block">
+                        <i class="fa-regular fa-clock mr-2"></i>
+                        May 28, 2022
+                    </li>
+                </ul>
+                <div class="content mb-10">
+                    
+
+ 
+  
+
+<details open class="table-of-content blog">
+  <summary>
+    
+      Table of Contents
+    
+  </summary>
+  <nav id="TableOfContents">
+  <ol>
+    <li><a href="#变速率成型滤波的实现">变速率成型滤波的实现</a>
+      <ol>
+        <li><a href="#成型滤波的表达式">成型滤波的表达式</a></li>
+        <li><a href="#基于数字重采样技术的速率转换方法的公式推导">基于数字重采样技术的速率转换方法的公式推导</a></li>
+        <li><a href="#可变速率成型滤波器设计">可变速率成型滤波器设计</a></li>
+        <li><a href="#可变速率成型滤波模块的一些参数讨论">可变速率成型滤波模块的一些参数讨论</a></li>
+      </ol>
+    </li>
+    <li><a href="#高速并行匹配滤波器的实现">高速并行匹配滤波器的实现</a>
+      <ol>
+        <li><a href="#z变换">$Z$变换</a></li>
+        <li><a href="#公式推导">公式推导</a></li>
+        <li><a href="#高速并行匹配滤波器的实现方法">高速并行匹配滤波器的实现方法</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+</details>
+
+                    <blockquote>
+<p>以毕业论文《柔性速率可变的宽带16QAM16APSK调制解调器的设计与实现》为学习材料</p></blockquote>
+<h2 id="变速率成型滤波的实现">变速率成型滤波的实现</h2>
+<h3 id="成型滤波的表达式">成型滤波的表达式</h3>
+<p>当基带系统的总特性等效为理想低通滤波器时，可实现无码间串扰，但理想的低通滤波器在实际中无法实现，因此在发射端利用根升余弦滤波器对发送信号进行成型滤波，在接收端也用根升余弦滤波器对接收信号进行匹配滤波，这样能使整个信道等效与与低通特性相近的滤波器，可以让系统在本码元的抽样时刻($t=0$)时的值最大，在其他码元抽样时刻($t=\pm k T_{s}$)为0。</p>
+<p>根升余弦滤波器的时域响应为
+$$
+h_{T}(t)=h_{R}(t)=4 \alpha \frac{\cos \left((1+\alpha) \pi t / T_{s}\right)+\frac{\sin \left((1-\alpha) \pi t / T_{s}\right)}{\left(4 \alpha t / T_{s}\right)}}{\pi \sqrt{T_{s}}\left(1-\left(4 \alpha t / T_{s}\right)^{2}\right)}
+$$</p>
+<h3 id="基于数字重采样技术的速率转换方法的公式推导">基于数字重采样技术的速率转换方法的公式推导</h3>
+<blockquote>
+<p>什么是变速率，为什么要进行速率变换？为什么要进行高速并行可变符号速率调制？</p></blockquote>
+<ol>
+<li>一般发射端DA或者接收端AD的采样率会在设计之初便定下来，以保证程序的正常运行，但是，符号速率有可能会根据实际情况进行调整，这样在相同的采样率下，符号的过采样倍数就会不同，而且有时过采样的倍数可能为小数，这样成型滤波器就需要专门设计，并且保证速率可变，以适应不同速率的输入信号。</li>
+<li>由于FPGA内部处理时钟一般不超过200MHz，要实现高速信号Gbps调制，必须使用全并行架构，这时候调制就需要并行架构了。</li>
+</ol>
+<hr>
+<p>根据奈奎斯特采样定理，只要采样频率大于信号带宽的两倍，就可以从采样值$x(nT_s)$中恢复出原始信号$y(t)$
+$$
+y(t)=\sum_{n=-\infty}^{+\infty} x\left(n T_{s}\right) h\left(t-n T_{s}\right)
+$$
+这里$x(t)$为输入信号，$h(t)$为滤波器时域响应，$T_s$为符号周期。</p>
+<blockquote>
+<p>该公式的物理意义是：如果我当前要得到输出信号$y(t)$，那么我要对输入信号与滤波器进行卷积。而你会发现输入信号是离散的，其采样时刻为$nT_s$，而滤波器的时域响应是以$t$为原点的。这个公式非常的普通，但是必须要深入理解该公式才能理解后面的推导。</p></blockquote>
+<p>如果对上面这个恢复的信号进行重采样，即我想获得某个我想要的点的信号，我会首先想到将上面公式中的$t$替换成我想要的点的时刻，比如$kT_{sp}$，有如下公式：
+$$
+y\left(k T_{sp}\right)=\sum_{n=-\infty}^{+\infty} x\left(n T_{s}\right) h\left(k T_{sp}-n T_{s}\right)=\sum_{n=-\infty}^{+\infty} x\left(n T_{s}\right) h\left(T_{s}\left(\frac{k T_{sp}}{T_{s}}-n\right)\right)
+$$</p>
+<blockquote>
+<p>这里的$T_{sp}$可以理解成DA的采样周期，其物理含义是我当前要对符号进行调制，给定了采样周期为$T_{sp}$，那么其通过上述公式可以求出其$y(kT_{sp})$，因为我当前的信息符号周期是$T_s$（偏慢），但是我DA采样的时候其采样周期为$kT_{sp}$（偏快），所以我需要利用上述公式对速率偏慢的信息符号通过成型滤波生成速率较高的信号，然后给到DA进行输出。</p>
+<p>可以看出，$x(nT_s)$是与$x(T_{sp})$无关的，只与$h(t)$有关。</p></blockquote>
+<p>对上述公式进行化简，令$m_{k}=\left\lfloor\frac{k T_{sp}}{T_{s}}\right\rfloor$，$\mu_{k}=\frac{k T_{sp}}{T_{s}}-m_{k}$，代入上式可得：
+$$
+y\left(k T_{sp}\right)=\sum_{n=-\infty}^{+\infty} x\left(n T_{s}\right) h\left(\left(m_{k}+\mu_{k}-n\right) T_{s}\right)
+$$
+再令$m=m_{k}-n$，可得：
+$$
+y\left(k T_{sp}\right)=\sum_{m=-\infty}^{+\infty} x\left(\left(m_{k}-m\right) T_{s}\right) h\left(\left(\mu_{k}+m\right) T_{s}\right)
+$$</p>
+<blockquote>
+<p>这里通过化简，$y(kT_{sp})$只与$x\left(\left(m_{k}-m\right) T_{s}\right)$以及$h\left(\left(\mu_{k}+m\right) T_{s}\right)$有关，这里面涉及到的整数参数有$m_k, m$以及小数参数有$\mu_k$，对于$x(t)$，由于里面的索引要求是整数的，所以$m_k-m$符合要求，此时抽取的是正常的$x$序列，而对于$h$，由于其涉及到小数，所以我们会先对$h$进行过采样，然后再正常抽取，但是这个$m$所对应的是原本没有偏移的正确采样点的位置，加上$\mu_k$是偏移。</p>
+<p><strong>疑问</strong></p>
+<p>我个人觉得上面两条公式看上去是等价的，但是一旦把取值范围确定后，两条公式不是等价的吧？</p></blockquote>
+<p>由于无法做到无穷项求和，所以可以将滤波器截短。
+$$
+\begin{aligned}
+y\left(k T_{sp}\right) &amp;=\sum_{m=-I_{1}}^{I_{2}} x\left(\left(m_{k}-m\right) T_{s}\right) h\left(\left(\mu_{k}+m\right) T_{s}\right) \\
+&amp;=\sum_{m=-I_{1}}^{I_{2}} h_{T}\left(\mu_{k}+m\right) x\left(m_{k}-m\right)
+\end{aligned}
+$$
+由于$T_s$对于$x$和$h$来说都表示当前索引是在序列内抽取的，是一个倍数关系，所以这个倍数关系可以忽略掉，我们只要做好由$x((m_k-m)-T_s)$到$x(m_k-m)$的映射就可以了。</p>
+<h3 id="可变速率成型滤波器设计">可变速率成型滤波器设计</h3>
+<p>在FPGA中，由于无法实时计算$h_{T}\left(\mu_{k}+m\right)$，因此采用查找表的形式来实现。过采样倍数决定了这里的$\mu_k$的精度，如果设定$\mu_k$的精度为$\frac{1}{2^{-12}}$，那么对于5Gsps采样率来说，变速率的步进即为$1.22Msps$。</p>
+<p>按照上一节的说法，假设当前符号前后间隔超过3个符号的影响可忽略不计，把滤波器截短可以得到：
+$$
+y(kT_{sp})=\sum_{m=-3}^{+2} h_{T}\left(\mu_{k}+m\right) x\left(m_{k}-m\right)
+$$</p>
+<blockquote>
+<p>具体做法：</p>
+<p>用Matlab 的 rcosdesign 函数生成一组 α=0.35,过采样倍数为 4096,双边 6 个符号的系数,将其量化为 12bit,然后按符号分为 6 组,每组 4096 个系数,分别存入6 个 ROM 核中,ROM 核宽度为 12,深度为 4096。这样，我们将$\mu_k$和$m$均扩大$2^{12}$倍作为索引地址，分别把运算所需的6个系数都求出来。</p></blockquote>
+<p>假设当前采样率为5Gsps，在200MHz及以下时钟频率下，要32路并行运算，可以将公式修改为
+$$
+y(32n+i) = \sum_{m=-3}^{+2}h_T(\mu_n(i)+m)x(m_n(i)-m)
+$$
+式中$n$为时刻值，$i$为并行的路数的序数。$m_{n}(i)=\left\lfloor\frac{(32 n+i) T_{s p}}{T_{s}}\right\rfloor$，$\mu_{n}(i)=\frac{(32 n+i) T_{s p}}{T_{s}}-m_{n}(i)$。</p>
+<p>整个模块的实现框图如下所示：输入的符号数据先通过FIFO缓存，再输出给DataCache，由COEGen算出$m_n(i)$和$\mu_n(i)$，分别从DataCache和FilterRom中取出6对待内插成型的符号和滤波器系数，相乘求和即得到一路成型输出。</p>
+<p><img src="/en/notes/polyphase-matched-filtering/index.assets/16536664515046.jpg" alt=""></p>
+<h3 id="可变速率成型滤波模块的一些参数讨论">可变速率成型滤波模块的一些参数讨论</h3>
+<p>本项目用到的最高采样率为$5Gsps$，最高符号速率为$1200Msps$，在这个条件下，有$\frac{32T_{sp}}{T_s}=7.68$，即在32路并行时，$m_n(1)$和$m_n(32)$最多相差8，因此，$m_n(i)$的取值区间为$[0, 7]$，再考虑上$m_{n}(1)-2$和$m_{n}(32)+3$，在32路并行成型滤波时，共需要13个符号参与运算。所以DataCache需要对从FIFO输入的8路并行符号数据缓存一拍，接到下一个时刻的数据之前，变成16路并行的数据，以满足滤波的速率要求。</p>
+<p>寄存器寻址方案，为了使精度能够满足设计的需要，我们用53位表示$\frac{(32 n+i) T_{s p}}{T_{s}}$，其中3位整数位，50位小数位，即$m_n(i)$取整数位3位，$\mu_n(i)$取高12小数位。</p>
+<p>还有FIFO取数的策略，这个直接参考文献即可。</p>
+<hr>
+<h2 id="高速并行匹配滤波器的实现">高速并行匹配滤波器的实现</h2>
+<h3 id="z变换">$Z$变换</h3>
+<blockquote>
+<p>向系统输入$\delta(n)$得到脉冲响应$h(n)$，例如$h(n)=\left[\begin{array}{lll}1 &amp; 2 &amp; 1\end{array}\right]$</p>
+<p>这时候我们再向系统输入另外一个信号，例如：$x(n)=[1\quad 2\quad 1]=\delta(n)+2 \delta(n-1)+\delta(n-2)$</p>
+<p>那么输出信号就应该是$y(n)=[1\quad 4\quad 6\quad 4\quad 1]=h(n)+2 h(n-1)+h(n-2)=x(n)* h(n)$（卷积运算）</p>
+<p>经过观察可以发现，这其实就是$[1\quad 2\quad 1]$和$[1\quad 2\quad 1]$的多项式相乘！！！</p>
+<p>因此我们将信号$x(n)$改写成$X(Z)=1+2 Z^{-1}+Z^{-2}$，同理，脉冲响应也写成$H(Z)=1+2 Z^{-1}+Z^{-2}$，则有$Y(Z) = 1+4 Z^{-1}+6 Z^{-2}+4 Z^{-3}+Z^{-4} = X(Z)H(Z)$，这种变换就称为$Z$变换。</p>
+<p>⭐️ <strong>$Z^{-1}$对应的是下一个时钟周期（未来）的数据</strong></p></blockquote>
+<h3 id="公式推导">公式推导</h3>
+<p>一个N阶的 FIR 滤波器在时域上可表示为：
+$$
+y(n)=h(n) * x(n)=\sum_{i=0}^{N-1} h(i) x(n-i), \quad n=0,1,2, \ldots, \infty
+$$
+上式对应的Z变换可以表示为：
+$$
+Y(z)=H(z) \cdot X(z)=\left(\sum_{n=0}^{N-1} h(n) z^{-n}\right) \cdot\left(\sum_{n=0}^{\infty} x(n) z^{-n}\right)
+$$
+根据论文，可以将序列$x(n)$和$h(n)$的$z$变换拆分成偶数时间序列和奇数时间序列的$Z$变换：
+$$
+\begin{aligned}
+X(z) &amp;=x(0)+x(1) z^{-1}+x(2) z^{-2}+x(3) z^{-3}+\cdots+x(n) z^{-n} \\
+&amp;=\left[x(0)+x(2) z^{-2}+x(4) z^{-4}+x(6) z^{-6} \cdots\right] \\
+&amp;+z^{-1}\left[x(1)+x(3) z^{-2}+x(5) z^{-4}+x(7) z^{-6} \cdots\right] \\
+&amp;=X_{0}\left(z^{2}\right)+z^{-1} X_{1}\left(z^{2}\right)
+\end{aligned}
+$$
+同理，有
+$$
+H(z)=H_{0}\left(z^{2}\right)+z^{-1} H_{1}\left(z^{2}\right)
+$$</p>
+<p>则对应的$y(n)$序列也可以表示为偶数时间序列和奇数时间序列的求和：
+$$
+Y(z)=Y_{0}\left(z^{2}\right)+z^{-1} Y_{1}\left(z^{2}\right)
+$$</p>
+<p>$$
+\begin{array}{c}
+Y_{0}\left(z^{2}\right)=X_{0}\left(z^{2}\right) H_{0}\left(z^{2}\right)+\mathrm{z}^{-2}\left(X_{1}\left(z^{2}\right) H_{1}\left(z^{2}\right)\right) \\
+Y_{1}\left(z^{2}\right)=X_{0}\left(z^{2}\right) H_{1}\left(z^{2}\right)+X_{1}\left(z^{2}\right) H_{0}\left(z^{2}\right)
+\end{array}
+$$</p>
+<p>写成矩阵形式可有：
+$$
+\left[\begin{array}{c}
+Y_{0} \\
+Y_{1}
+\end{array}\right]=\left[\begin{array}{cc}
+H_{0} &amp; z^{-2} H_{1} \\
+H_{1} &amp; H_{0}
+\end{array}\right] \cdot\left[\begin{array}{c}
+X_{0} \\
+X_{1}
+\end{array}\right]
+$$
+假设L路并行，则可对其进行拓展：
+$$
+\left[\begin{array}{c}
+Y_{0} \\
+Y_{1} \\
+\ldots \\
+Y_{L-1}
+\end{array}\right]=\left[\begin{array}{cccc}
+H_{0} &amp; z^{-L} H_{L-1} &amp; \ldots &amp; z^{-L} H_{1} \\
+H_{1} &amp; H_{0} &amp; \ldots &amp; z^{-L} H_{2} \\
+\ldots &amp; \ldots &amp; \ldots &amp; \ldots \\
+H_{L-1} &amp; H_{L-2} &amp; \ldots &amp; H_{0}
+\end{array}\right] \cdot\left[\begin{array}{c}
+X_{0} \\
+X_{1} \\
+\ldots \\
+X_{L-1}
+\end{array}\right]
+$$</p>
+<h3 id="高速并行匹配滤波器的实现方法">高速并行匹配滤波器的实现方法</h3>
+<p>此处采用32路并行，输入的IQ数据各只有16路，滤波器的系数长度为25，即<code>rcosdesign(0.35, 4, 6, 'sqrt')</code>。</p>
+<p>为了简单，此处先假设滤波器系数长度为32，推导出其做法，再简化成滤波器系数长度为25的情况。对于I路来说，其输入$x(n)$只有偶数序列的形式，即只有$x(2k)$的情况下不为0，$x(2k+1)$的情况下恒等于0，但其依旧对应两组（每组长度16）的输出，分别为
+$$
+Y_{2 k}=\left\lbrace\begin{array}{cc}
+\left(\sum_{i=0}^{k} H_{2 i} X_{2(k-i)}\right)+z^{-32}\left(\sum_{i=k+1}^{15} H_{2 i} X_{32+2(k-i)}\right), &amp; 0 \leq k \leq 14 \\
+\sum_{i=0}^{15} H_{2 i} X_{2(k-i)}, &amp; k=15
+\end{array}\right.
+$$</p>
+<p>$$
+Y_{2 k+1}=\left\lbrace\begin{array}{cc}
+\left(\sum_{i=0}^{k} H_{2 i+1} X_{2(k-i)}\right)+z^{-32}\left(\sum_{i=k+1}^{15} H_{2 i+1} X_{32+2(k-i)}\right), &amp; 0 \leq k \leq 14 \\
+\sum_{i=0}^{15} H_{2 i+1} X_{2(k-i)}, &amp; k=15
+\end{array}\right.
+$$</p>
+<p>其实也就是
+$$
+\left[\begin{array}{c}
+Y_{0} \\
+Y_{1} \\
+\ldots \\
+Y_{31}
+\end{array}\right]=\left[\begin{array}{cccc}
+H_{0} &amp; z^{-32} H_{31} &amp; \ldots &amp; z^{-32} H_{1} \\
+H_{1} &amp; H_{0} &amp; \ldots &amp; z^{-32} H_{2} \\
+\ldots &amp; \ldots &amp; \ldots &amp; \ldots \\
+H_{31} &amp; H_{30} &amp; \ldots &amp; H_{0}
+\end{array}\right] \cdot\left[\begin{array}{c}
+X_{0} \\
+0 \\
+X_{2}\\
+0\\
+X_{3}\\
+\ldots \\
+X_{30}\\
+0
+\end{array}\right]
+$$
+同理，对于Q路也一样，为
+$$
+\left[\begin{array}{c}
+Y_{0} \\
+Y_{1} \\
+\ldots \\
+Y_{31}
+\end{array}\right]=\left[\begin{array}{cccc}
+H_{0} &amp; z^{-32} H_{31} &amp; \ldots &amp; z^{-32} H_{1} \\
+H_{1} &amp; H_{0} &amp; \ldots &amp; z^{-32} H_{2} \\
+\ldots &amp; \ldots &amp; \ldots &amp; \ldots \\
+H_{31} &amp; H_{30} &amp; \ldots &amp; H_{0}
+\end{array}\right] \cdot\left[\begin{array}{c}
+0\\
+X_{1} \\
+0 \\
+X_{3}\\
+\ldots \\
+0\\
+X_{31}
+\end{array}\right]
+$$</p>
+<p>$$
+Y_{2 k}=\left\lbrace\begin{array}{cc}z^{-32}\left(\sum_{i=0}^{15} H_{2 i+1} X_{31+2(k-i)}\right), &amp; k=0 \\
+\left(\sum_{i=0}^{k-1} H_{2 i+1} X_{2(k-i)-1}\right)+z^{-32}\left(\sum_{i=k}^{15} H_{2 i+1} X_{31+2(k-i)}\right), &amp; 1 \leq k \leq 15\end{array}\right.
+$$</p>
+<p>$$
+Y_{2 k+1}=\left\lbrace\begin{array}{cc}
+\left(\sum_{i=0}^{k} H_{2 i} X_{2(k-i)+1}\right)+z^{-32}\left(\sum_{i=k+1}^{15} H_{2 i} X_{33+2(k-i)}\right), &amp; 0 \leq k \leq 14 \\
+\sum_{i=0}^{15} H_{2 i} X_{2(k-i)+1}, &amp; k=15
+\end{array}\right.
+$$</p>
+<p>如果对里面的元素全部分别相乘，可以看出，对于$H$矩阵的第一列，会分别与$X_0$相乘，对于$H$矩阵的第三列，会分别与$X_2$相乘，对于$H$矩阵的第31列，会分别与$X_{30}$相乘，乘出来待用的参数分别如下：
+$$
+H_0X_0, \quad H_1X_0, \quad  H_2X_0, \quad  H_3X_0, \quad  \cdots, \quad  H_{31}X_0
+$$</p>
+<p>$$
+z^{-32}H_{30}X_2, \quad  z^{-32}H_{31}X_2, \quad  H_{0}X_2, \quad  H_{1}X_2, \quad  \cdots, \quad  H_{29}X_2
+$$</p>
+<p>$$
+\cdots
+$$</p>
+<p>$$
+z^{-32}H_{1}X_{30}, \quad  z^{-32}H_{2}X_{30}, \quad  z^{-32}H_{3}X_{30}, \quad  z^{-32}H_{4}X_{30}, \quad  \cdots, \quad  H_{0}X_{30}
+$$</p>
+<p>由于滤波器参数是对称的，所以其实$H_0X_0$和$H_{31}X_0$是一样的，因此只需要一半的滤波器系数即可，而且由于矩阵中有一半的运算是通过延迟32个时钟（这里32路并行，相当于只需要延迟一个时钟周期即可）实现的，所以可以将结果分成两部分，一部分先延时，再输入流水相加模块，另一部分直接输入流水相加模块，进行流水线相加，实现整个低通滤波的过程，其具体实现框图如图所示：</p>
+<p><img src="/en/notes/polyphase-matched-filtering/index.assets/16536664823809.jpg" alt=""></p>
+<p><strong>对于匹配滤波的实现</strong>，由于其同样是32路并行输入并且其阶数只有25，即$H_{25}-H_{31}$均为0，其余系数$H_0-H_{24}$非0，所以可以列出其算法：
+$$
+\left[\begin{array}{c}
+Y_{0} \\
+Y_{1} \\
+\ldots \\
+Y_{31}
+\end{array}\right]=\left[\begin{array}{ccccc}
+H_{0} &amp; 0 &amp; 0 &amp; \ldots &amp; z^{-32} H_{1} \\
+H_{1} &amp; H_{0} &amp; 0 &amp; \ldots &amp; z^{-32} H_{2} \\
+\ldots &amp; \ldots &amp; \ldots  &amp; \ldots &amp; \ldots \\
+0 &amp; 0 &amp; 0 &amp; \ldots &amp; H_{0}
+\end{array}\right] \cdot\left[\begin{array}{c}
+X_{0} \\
+X_{1} \\
+\ldots \\
+X_{31}
+\end{array}\right]
+$$
+其实现过程与低通滤波器的实现过程几乎一致，只不过有不少空白的系数可以省去运算步骤。</p>
+<p><strong>为了Matlab实现时查找的方便，下面分别列出32路并行的I路和Q路对应的矩阵表达式以及求和公式：</strong>
+$$
+Y_I= \left[\begin{array}{c}
+Y_{0} \\
+Y_{1} \\
+\ldots \\
+Y_{31}
+\end{array}\right]=\left[\begin{array}{ccccc}
+H_{0} &amp; 0 &amp; 0 &amp; \ldots &amp; z^{-32} H_{1} \\
+H_{1} &amp; H_{0} &amp; 0 &amp; \ldots &amp; z^{-32} H_{2} \\
+\ldots &amp; \ldots &amp; \ldots  &amp; \ldots &amp; \ldots \\
+0 &amp; 0 &amp; 0 &amp; \ldots &amp; H_{0}
+\end{array}\right] \cdot\left[\begin{array}{c}
+X_{0} \\
+0 \\
+X_{2}\\
+0\\
+\ldots \\
+X_{30}\\
+0
+\end{array}\right]
+$$</p>
+<p>$$
+Y_{I(2 k)}=\left\lbrace\begin{array}{cc}
+\left(\sum_{i=0}^{k} H_{2 i} X_{2(k-i)}\right)+z^{-32}\left(\sum_{i=k+1}^{12} H_{2 i} X_{32+2(k-i)}\right), &amp; 0 \leq k &lt;12 \\
+\sum_{i=0}^{12} H_{2 i} X_{2(k-i)}, &amp; 12 \leq k \leq 15
+\end{array}\right.
+$$</p>
+<p>$$
+Y_{I(2 k+1)}=\left\lbrace\begin{array}{cc}
+\left(\sum_{i=0}^{k} H_{2 i+1} X_{2(k-i)}\right)+z^{-32}\left(\sum_{i=k+1}^{11} H_{2 i+1} X_{32+2(k-i)}\right), &amp; 0 \leq k \leq 11 \\
+\sum_{i=0}^{11} H_{2 i+1} X_{2(k-i)}, &amp; 11 \leq k \leq 15
+\end{array}\right.
+$$</p>
+<p>$$
+Y_Q= \left[\begin{array}{c}
+Y_{0} \\
+Y_{1} \\
+\ldots \\
+Y_{31}
+\end{array}\right]=\left[\begin{array}{ccccc}
+H_{0} &amp; 0 &amp; 0 &amp; \ldots &amp; z^{-32} H_{1} \\
+H_{1} &amp; H_{0} &amp; 0 &amp; \ldots &amp; z^{-32} H_{2} \\
+\ldots &amp; \ldots &amp; \ldots  &amp; \ldots &amp; \ldots \\
+0 &amp; 0 &amp; 0 &amp; \ldots &amp; H_{0}
+\end{array}\right] \cdot\left[\begin{array}{c}
+0 \\
+X_{1} \\
+0\\
+X_{3}\\
+\ldots \\
+0\\
+X_{31}
+\end{array}\right]
+$$</p>
+<p>$$
+Y_{Q(2 k)}=\left\lbrace\begin{array}{cc}
+z^{-32}\left(\sum_{i=0}^{11} H_{2 i+1} X_{31+2(k-i)}\right), &amp; k=0 \\
+\left(\sum_{i=0}^{k-1} H_{2 i+1} X_{2(k-i)-1}\right)+z^{-32}\left(\sum_{i=k}^{11} H_{2 i+1} X_{31+2(k-i)}\right), &amp; 0 &lt; k \leq 12 \\
+\left(\sum_{i=0}^{11} H_{2 i+1} X_{2(k-i)-1}\right), &amp; 12 \leq k \leq 15
+\end{array}\right.
+$$</p>
+<p>$$
+Y_{Q(2 k+1)}=\left\lbrace\begin{array}{cc}
+\left(\sum_{i=0}^{k} H_{2 i} X_{2(k-i)+1}\right)+z^{-32}\left(\sum_{i=k+1}^{12} H_{2 i} X_{33+2(k-i)}\right), &amp; 0 \leq k &lt; 13 \\
+\sum_{i=0}^{12} H_{2 i} X_{2(k-i)+1}, &amp; 13 \leq k \leq 15
+\end{array}\right.
+$$</p>
+<hr>
+<p><strong>64路并行的也直接罗列于此：</strong>
+对于I路，有</p>
+<p>$$
+Y_{I(2 k)}=\left\lbrace\begin{array}{cl}
+\left(\sum_{i=0}^{k} H_{2 i} X_{2(k-i)}\right)+z^{-64}\left(\sum_{i=k+1}^{31} H_{2 i} X_{64+2(k-i)}\right) &amp; 0 \leq k \leq 30 \\
+\sum_{i=0}^{31} H_{2 i} X_{2(k-i)} &amp; , k=31
+\end{array}\right.
+$$
+$$
+Y_{I(2 k+1)}=\left\lbrace\begin{array}{cc}
+\left(\sum_{i=0}^{k} H_{2 i+1} X_{2(k-i)}\right)+z^{-64}\left(\sum_{i=k+1}^{31} H_{2 i+1} X_{64+2(k-i)}\right) &amp; , 0 \leq k \leq 30 \\
+\sum_{i=0}^{31} H_{2 i+1} X_{2(k-i)} &amp; , k=31
+\end{array}\right.
+$$</p>
+<p>对应的矩阵表示为：</p>
+<p>$$
+\left[\begin{array}{c}
+Y_{0} \\
+Y_{1} \\
+\cdots \\
+Y_{63}
+\end{array}\right]=\left[\begin{array}{cccc}
+H_{0} &amp; z^{-64} H_{63} &amp; \cdots &amp; z^{-64} H_{1} \\
+H_{1} &amp; H_{0} &amp; \cdots &amp; z^{-64} H_{2} \\
+\cdots &amp; \cdots &amp; \cdots &amp; \cdots \\
+H_{63} &amp; H_{62} &amp; \cdots &amp; H_{0}
+\end{array}\right]\left[\begin{array}{c}
+X_{0} \\
+0 \\
+X_{2} \\
+0 \\
+X_{4} \\
+\cdots \\
+X_{62} \\
+0
+\end{array}\right]
+$$</p>
+<p>同理，Q路为：</p>
+<p>$$
+\left[\begin{array}{c}
+Y_{0} \\
+Y_{1} \\
+\cdots \\
+Y_{63}
+\end{array}\right]=\left[\begin{array}{cccc}
+H_{0} &amp; z^{-64} H_{63} &amp; \cdots &amp; z^{-64} H_{1} \\
+H_{1} &amp; H_{0} &amp; \cdots &amp; z^{-64} H_{2} \\
+\cdots &amp; \cdots &amp; \cdots &amp; \cdots \\
+H_{63} &amp; H_{62} &amp; \cdots &amp; H_{0}
+\end{array}\right]\left[\begin{array}{c}
+0 \\
+X_{1} \\
+0 \\
+X_{3} \\
+0 \\
+X_{5} \\
+\cdots \\
+0 \\
+X_{63}
+\end{array}\right]
+$$</p>
+
+                </div>
+                <div class="row items-start justify-between">
+                    
+                    
+                    <div class="lg:col-6 mb-10 flex items-center lg:mb-0">
+                        <h5 class="mr-3">Tags :</h5>
+                        <ul>
+                            
+                            <li class="inline-block">
+                                <a class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
+                                    href="/en/tags/signal-processing/">
+                                    Signal processing
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    
+                    
+                    <div class="lg:col-6 flex items-center lg:justify-end">
+                        <h5>Share :</h5>
+                        <div class="share-icons ml-2">
+                            
+                            <button onclick="copyPageUrl()"
+                                class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary m-1 rounded px-3 py-1 hover:text-white"
+                                title="Copy Link">
+                                <i class="fa-solid fa-link"></i>
+                            </button>
+                            
+                            <button onclick="showQRCode()"
+                                class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary m-1 rounded px-3 py-1 hover:text-white"
+                                title="Show QR Code">
+                                <i class="fa-solid fa-qrcode"></i>
+                            </button>
+                        </div>
+
+                        
+                        <div id="qrcode-popup"
+                            class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black bg-opacity-50">
+                            <div class="bg-white dark:bg-darkmode-theme-dark p-6 rounded-lg shadow-lg relative">
+                                <button onclick="hideQRCode()"
+                                    class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
+                                    <i class="fa-solid fa-times"></i>
+                                </button>
+                                <h4 class="mb-4">Scan to share.</h4>
+                                <div id="qrcode-container" class="flex justify-center"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="mt-20">
+                    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "themefisher-template" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                </div>
+                
+            </article>
+        </div>
+
+        
+        
+        
+        
+    </div>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+<script>
+    function copyPageUrl() {
+        const url = window.location.href;
+        navigator.clipboard.writeText(url).then(() => {
+            
+            const toast = document.createElement('div');
+            toast.textContent = 'Link Copied!';
+            toast.className = 'fixed bottom-4 right-4 bg-primary text-white py-2 px-4 rounded shadow-lg';
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                document.body.removeChild(toast);
+            }, 2000);
+        });
+    }
+
+    function showQRCode() {
+        const url = window.location.href;
+        const qrcodeContainer = document.getElementById('qrcode-container');
+        qrcodeContainer.innerHTML = ''; 
+
+        
+        QRCode.toDataURL(url, { width: 200 }, function (err, url) {
+            if (err) {
+                console.error(err);
+                return;
+            }
+
+            
+            const img = document.createElement('img');
+            img.src = url;
+            img.width = 200;
+            img.height = 200;
+            qrcodeContainer.appendChild(img);
+        });
+
+        document.getElementById('qrcode-popup').classList.remove('hidden');
+    }
+
+    function hideQRCode() {
+        document.getElementById('qrcode-popup').classList.add('hidden');
+    }
+</script>
+
+    </main>
+
+    
+    <footer class="bg-light dark:bg-darkmode-light">
+  <div class="container">
+    <div class="row items-center py-10">
+      <div class="lg:col-3 mb-8 text-center lg:mb-0 lg:text-left">
+        
+        <a
+          class="navbar-brand inline-block"
+          href="/en/">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+  
+  
+    
+    
+  
+
+
+  
+  
+      
+      
+    
+    
+    
+    
+    
+    
+  
+  
+
+  
+  
+    
+    
+      
+      
+
+
+      
+      
+        
+        
+        
+        
+
+        
+        
+        
+      
+      
+    
+  
+  
+
+  
+    <img
+      fetchpriority="high"
+      decoding="async"
+      class="img img-light"
+      width="64"
+      height="64"
+      src="/images/logo_hu_22cd5b9f84f4dd29.webp"
+      alt="Liangbin&#39;s Notes"
+      onerror="this.onerror=null;this.src='\/images\/logo_hu_8aaec227ab965c34.png';" />
+
+    <img
+      fetchpriority="high"
+      decoding="async"
+      class="img img-dark"
+      width="64"
+      height="64"
+      src="/images/logo-darkmode_hu_42bdcfb994f8655e.webp"
+      alt="Liangbin&#39;s Notes"
+      onerror="this.onerror=null;this.src='\/images\/logo-darkmode_hu_61dd1b75c461fd.png';" />
+  
+  
+
+
+        </a>
+      </div>
+      <div class="lg:col-6 mb-8 text-center lg:mb-0">
+        <ul>
+          
+        </ul>
+      </div>
+      <div class="lg:col-3 mb-8 text-center lg:mb-0 lg:mt-0 lg:text-right">
+        <ul class="social-icons">
+          
+            <li>
+              <a
+                target="_blank"
+                aria-label="Google Scholar"
+                rel="nofollow noopener"
+                href="https://scholar.google.com/citations?user=O3RdaQ8AAAAJ&amp;hl=en&amp;oi=sra">
+                <i class="fas fa-graduation-cap"></i>
+              </a>
+            </li>
+          
+            <li>
+              <a
+                target="_blank"
+                aria-label="github"
+                rel="nofollow noopener"
+                href="https://github.com/zhaoliangbin42">
+                <i class="fab fa-github"></i>
+              </a>
+            </li>
+          
+            <li>
+              <a
+                target="_blank"
+                aria-label="linkedin"
+                rel="nofollow noopener"
+                href="https://www.linkedin.com/in/liangbin-zhao-487854142/">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </li>
+          
+        </ul>
+        <p class="text-sm text-text-light dark:text-darkmode-text-light mt-4">
+            <i class="fa-regular mr-1"></i> 最后更新于: 2023-10-07
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="border-border dark:border-darkmode-border border-t py-7">
+    <div
+      class="text-text-light dark:text-darkmode-text-light container text-center">
+      <p>
+        © 2025 Liangbin Zhao. Powered by <a href="https://gohugo.io/"
+
+
+
+
+ target="_blank"
+ 
+
+
+>Hugo</a> and <a href="https://github.com/zeon-studio/hugoplate"
+
+
+
+
+ target="_blank"
+ 
+
+
+>Hugoplate</a> theme.
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+
+    
+    
+
+
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+  
+    
+      
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<script
+  crossorigin="anonymous"
+  integrity=""
+  src="/js/script.js"></script>
+
+
+<script
+  defer
+  async
+  crossorigin="anonymous"
+  integrity=""
+  src="/js/script-lazy.js"></script>
+
+
+
+<script>
+  if ('serviceWorker' in navigator){navigator.serviceWorker.register("/service-worker.js");}
+</script>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      tags: 'ams'
+    },
+    options: {
+      enableMenu: true
+    },
+    
+    startup: {
+      ready() {
+        
+        const mathElements = document.querySelectorAll('p, div, span');
+        mathElements.forEach(el => {
+          if (el.textContent.includes('\\begin{aligned}')) {
+            el.innerHTML = el.innerHTML.replace(/\\ /g, '\\\\');
+          }
+        });
+        MathJax.startup.defaultReady();
+      }
+    }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  </body>
+</html>

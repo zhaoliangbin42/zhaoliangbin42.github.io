@@ -1,0 +1,60 @@
+<div class="bg-body dark:bg-darkmode-body p-4 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
+    {{ $image:= .Params.image }}
+    {{ if $image }}
+      {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "mb-6 w-full rounded") }}
+    {{ end }}
+    <h4 class="mb-3 font-bold">
+      <a href="{{ .RelPermalink }}">
+        {{ .Title }}
+      </a>
+    </h4>
+    <p class="mb-4 text-gray-700 dark:text-gray-300">{{ .Params.summary | default .Summary | plainify }}</p>
+    
+    <div class="flex flex-wrap items-center mb-4 text-sm">
+      {{ if .Params.author }}
+      <div class="mr-4 mb-2">
+        <i class="fa-regular fa-circle-user mr-1"></i>
+        <span>{{ .Params.author }}</span>
+      </div>
+      {{ end }}
+      
+      {{ if .Params.stars }}
+      <div class="mr-4 mb-2">
+        <i class="fa-solid fa-star mr-1 text-yellow-500"></i>
+        <span>{{ .Params.stars }}</span>
+      </div>
+      {{ end }}
+      
+      {{ if .Params.updated_date }}
+      <div class="mb-2">
+        <i class="fa-regular fa-calendar-check mr-1"></i>
+        <span>{{ .Params.updated_date | time.Format "2006-01-02" }}</span>
+      </div>
+      {{ else }}
+      <div class="mb-2">
+        <i class="fa-regular fa-calendar mr-1"></i>
+        <span>{{ .Date.Format "2006-01-02" }}</span>
+      </div>
+      {{ end }}
+    </div>
+    
+    <div class="flex items-center justify-between mt-4">
+      <div class="flex">
+        {{ if .Params.paper_url }}
+        <a href="{{ .Params.paper_url }}" class="mr-3 text-primary hover:text-primary-dark" title="论文链接" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </a>
+        {{ end }}
+        
+        {{ if .Params.github_url }}
+        <a href="{{ .Params.github_url }}" class="text-primary hover:text-primary-dark" title="GitHub 仓库" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-github text-lg"></i>
+        </a>
+        {{ end }}
+      </div>
+      
+      <a class="btn btn-outline-primary btn-sm" href="{{ .RelPermalink }}">
+        {{ T "read_more" }}
+      </a>
+    </div>
+  </div>

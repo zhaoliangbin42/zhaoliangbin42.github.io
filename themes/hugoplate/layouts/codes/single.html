@@ -1,0 +1,54 @@
+{{ define "main" }}
+<section class="section-sm pb-0">
+    <div class="container">
+        <div class="row border-border dark:border-darkmode-border justify-center border-b pb-14">
+            <div class="lg:col-6 text-center">
+                {{ $image:= .Params.image }}
+                {{ if $image }}
+                {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "mx-auto") }}
+                {{ else if .Params.Email }}
+                <img class="mx-auto" alt="{{ .Title }}" height="200" width="200"
+                    src="https://www.gravatar.com/avatar/{{ md5 .Params.email }}?s=128&pg&d=identicon" />
+                {{ end }}
+                <h1 class="h3 mt-10">{{ .Title }}</h1>
+                <div class="content mt-6">
+                    {{ .Summary }}
+                </div>
+                <ul class="social-icons ml-4 mt-10 text-center">
+                    {{ range .Params.social }}
+                    <li>
+                        <a href="{{ .link | safeURL }}" target="_blank" rel="noopener nofollow">
+                            <span class="sr-only">{{ .title }}</span>
+                            <i class="{{ .icon }}"></i>
+                        </a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+
+        <div class="content mb-10">
+            {{ partial "toc.html" (dict "Class" "blog" "Collapsed" false "TableOfContents" .TableOfContents ) }}
+            {{ .Content }}
+        </div>
+        <!-- 黑底白图标链接 -->
+        <div class="flex justify-center mb-14 mt-10">
+            {{ if .Params.paper_url }}
+            <a href="{{ .Params.paper_url }}"
+                class="mx-2 bg-black dark:bg-gray-800 text-white rounded p-3 hover:opacity-80 transition-opacity"
+                title="查看论文" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-file-pdf fa-lg"></i>
+            </a>
+            {{ end }}
+
+            {{ if .Params.github_url }}
+            <a href="{{ .Params.github_url }}"
+                class="mx-2 bg-black dark:bg-gray-800 text-white rounded p-3 hover:opacity-80 transition-opacity"
+                title="访问GitHub仓库" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github fa-lg"></i>
+            </a>
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}
