@@ -28,7 +28,7 @@ npm run clean && npm run build
 hugo  # 构建网站
 hugo server  # 启动本地开发服务器
 hugo new content/notes/新笔记名.md  # 创建新笔记
-hugo --minify  # 构建并压缩网站
+hugo --minify  # 构建并压缩网站，如果要上传至github，则应该运行这一段，完整编译构建项目
 ```
 
 本网站构建之后，会自动生成一个`docs/`文件夹，该文件夹包含网页相关的所有静态文件，在上传github的时候，只需要上传该文件夹即可。后面会有部署到Github的操作流程。

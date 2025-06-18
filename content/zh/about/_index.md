@@ -35,10 +35,10 @@ draft: false
 - P. Li, J. Wang, **L. Zhao**, X. Gao, F. Song, H. Sun, and J. Ma, “Scattering and eavesdropping in terahertz wireless link by wavy surfaces,” IEEE Trans. Antennas Propag., vol. 71, no. 4, pp. 3590–3597, Apr. 2023.
 - Y. Sun, **L. Zhao**, J. Li, Z. Zhang, X. Yang, and X. Bu, “Design and implementation of a highly efficient quasi-cyclic low-density parity-check transceiving system using an overlapping decoder,” Sensors, vol. 23, no. 18, p. 7828, 2023.
 
-#### 授权专利
+<!-- #### 授权专利
 
 - **赵良斌**等. 一种基于CRC-16的高吞吐量并行循环冗余校验的方法[P]. 北京市：CN114726383A,2022-07-08.
-- **赵良斌**等. 一种基于O&M算法的高速时域并行定时同步方法[P]. 北京市：CN114938255A,2022-08-23.
+- **赵良斌**等. 一种基于O&M算法的高速时域并行定时同步方法[P]. 北京市：CN114938255A,2022-08-23. -->
 
 
 ### 荣誉与奖励

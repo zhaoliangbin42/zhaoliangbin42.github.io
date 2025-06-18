@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Signal Processing on </title>
+    <link>//localhost:1313/zh/tags/signal-processing/</link>
+    <description>Recent content in Signal Processing on </description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 Oct 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/zh/tags/signal-processing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BI-AWGN信道接收概率初始化</title>
+      <link>//localhost:1313/zh/notes/bi-awgn-initialize/</link>
+      <pubDate>Sat, 07 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh/notes/bi-awgn-initialize/</guid>
+      <description>本文介绍了BI-AWGN信道中接收概率的初始化方法，详细推导了对数似然比(LLR)的计算过程和在不同信噪比表示形式下的数学表达式。</description>
+    </item>
+    <item>
+      <title>信道均衡算法</title>
+      <link>//localhost:1313/zh/notes/equalization/</link>
+      <pubDate>Fri, 06 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh/notes/equalization/</guid>
+      <description>介绍了通信系统中经典的自适应信道均衡算法，包括Sato算法、CMA恒模算法、MMA多模算法、DD算法、MCMA改进恒模算法及CADAMA等算法原理。</description>
+    </item>
+    <item>
+      <title>定时同步算法</title>
+      <link>//localhost:1313/zh/notes/timing-recovery/</link>
+      <pubDate>Wed, 03 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh/notes/timing-recovery/</guid>
+      <description>介绍了通信系统中经典的自适应信道均衡算法，包括Sato算法、CMA恒模算法、MMA多模算法、DD算法、MCMA改进恒模算法及CADAMA等算法原理。</description>
+    </item>
+    <item>
+      <title>基于多相滤波器技术的匹配滤波实现方法</title>
+      <link>//localhost:1313/zh/notes/polyphase-matched-filtering/</link>
+      <pubDate>Sat, 28 May 2022 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh/notes/polyphase-matched-filtering/</guid>
+      <description>介绍了通信系统中经典的自适应信道均衡算法，包括Sato算法、CMA恒模算法、MMA多模算法、DD算法、MCMA改进恒模算法及CADAMA等算法原理。</description>
+    </item>
+  </channel>
+</rss>

@@ -1,1 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"><url><loc>https://zhaoliangbin42.github.io/</loc><lastmod>2025-04-09T22:23:27+10:00</lastmod></url><url><loc>https://zhaoliangbin42.github.io/posts/</loc><lastmod>2025-04-09T22:23:27+10:00</lastmod></url><url><loc>https://zhaoliangbin42.github.io/categories/application/</loc><lastmod>2022-04-04T05:00:00+00:00</lastmod></url><url><loc>https://zhaoliangbin42.github.io/categories/architecture/</loc><lastmod>2022-04-04T05:00:00+00:00</lastmod></url><url><loc>https://zhaoliangbin42.github.io/blog/</loc><lastmod>2022-04-04T05:00:00+00:00</lastmod></url><url><loc>https://zhaoliangbin42.github.io/categories/</loc><lastmod>2022-04-04T05:00:00+00:00</lastmod></url><url><loc>https://zhaoliangbin42.github.io/categories/data/</loc><lastmod>2022-04-04T05:00:00+00:00</lastmod></url><url><loc>https://zhaoliangbin42.github.io/blog/post-1/</loc><lastmod>2022-04-04T05:00:00+00:00</lastmod></url><url><loc>https://zhaoliangbin42.github.io/blog/post-2/</loc><lastmod>2022-04-04T05:00:00+00:00</lastmod></url><url><loc>https://zhaoliangbin42.github.io/blog/post-3/</loc><lastmod>2022-04-04T05:00:00+00:00</lastmod></url><url><loc>https://zhaoliangbin42.github.io/blog/post-4/</loc><lastmod>2022-04-04T05:00:00+00:00</lastmod></url><url><loc>https://zhaoliangbin42.github.io/tags/nextjs/</loc><lastmod>2022-04-04T05:00:00+00:00</lastmod></url><url><loc>https://zhaoliangbin42.github.io/tags/silicon/</loc><lastmod>2022-04-04T05:00:00+00:00</lastmod></url><url><loc>https://zhaoliangbin42.github.io/categories/software/</loc><lastmod>2022-04-04T05:00:00+00:00</lastmod></url><url><loc>https://zhaoliangbin42.github.io/tags/software/</loc><lastmod>2022-04-04T05:00:00+00:00</lastmod></url><url><loc>https://zhaoliangbin42.github.io/tags/</loc><lastmod>2022-04-04T05:00:00+00:00</lastmod></url><url><loc>https://zhaoliangbin42.github.io/tags/tailwind/</loc><lastmod>2022-04-04T05:00:00+00:00</lastmod></url><url><loc>https://zhaoliangbin42.github.io/categories/technology/</loc><lastmod>2022-04-04T05:00:00+00:00</lastmod></url><url><loc>https://zhaoliangbin42.github.io/tags/technology/</loc><lastmod>2022-04-04T05:00:00+00:00</lastmod></url><url><loc>https://zhaoliangbin42.github.io/authors/</loc></url><url><loc>https://zhaoliangbin42.github.io/contact/</loc></url><url><loc>https://zhaoliangbin42.github.io/elements/</loc></url><url><loc>https://zhaoliangbin42.github.io/about/</loc></url><url><loc>https://zhaoliangbin42.github.io/authors/john-doe/</loc></url><url><loc>https://zhaoliangbin42.github.io/pages/</loc></url><url><loc>https://zhaoliangbin42.github.io/privacy-policy/</loc></url><url><loc>https://zhaoliangbin42.github.io/authors/sam-wilson/</loc></url><url><loc>https://zhaoliangbin42.github.io/sections/</loc></url><url><loc>https://zhaoliangbin42.github.io/authors/william-jacob/</loc></url></urlset>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <sitemap>
+    <loc>//localhost:1313/en/sitemap.xml</loc>
+    
+      <lastmod>2025-04-10T00:00:00+00:00</lastmod>
+    
+  </sitemap>
+  
+  <sitemap>
+    <loc>//localhost:1313/zh/sitemap.xml</loc>
+    
+      <lastmod>2025-04-10T00:00:00+00:00</lastmod>
+    
+  </sitemap>
+  
+</sitemapindex>

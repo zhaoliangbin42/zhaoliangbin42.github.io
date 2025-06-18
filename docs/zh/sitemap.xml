@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/zh/</loc>
-    <lastmod>2025-04-10T00:00:00+08:00</lastmod>
+    <lastmod>2025-06-18T00:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
@@ -15,21 +15,21 @@
                 href="http://localhost:1313/zh/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/codes/code1/</loc>
-    <lastmod>2025-04-10T00:00:00+08:00</lastmod>
+    <loc>http://localhost:1313/zh/codes/swip_music/</loc>
+    <lastmod>2025-06-18T00:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/codes/code1/"
+                href="http://localhost:1313/en/codes/swip_music/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/zh/codes/code1/"
+                href="http://localhost:1313/zh/codes/swip_music/"
                 />
   </url><url>
     <loc>http://localhost:1313/zh/codes/</loc>
-    <lastmod>2025-04-10T00:00:00+08:00</lastmod>
+    <lastmod>2025-06-18T00:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
@@ -39,6 +39,19 @@
                 rel="alternate"
                 hreflang="en-us"
                 href="http://localhost:1313/zh/codes/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/zh/codes/ab2fm/</loc>
+    <lastmod>2025-04-10T00:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/codes/ab2fm/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/zh/codes/ab2fm/"
                 />
   </url><url>
     <loc>http://localhost:1313/zh/notes/bi-awgn-initialize/</loc>

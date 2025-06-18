@@ -35,10 +35,10 @@ His current research interests include wireless communication, signal processing
 - P. Li, J. Wang, **L. Zhao**, X. Gao, F. Song, H. Sun, and J. Ma, “Scattering and eavesdropping in terahertz wireless link by wavy surfaces,” *IEEE Transactions on Antennas and Propagation*, vol. 71, no. 4, pp. 3590–3597, Apr. 2023.
 - Y. Sun, **L. Zhao**, J. Li, Z. Zhang, X. Yang, and X. Bu, “Design and implementation of a highly efficient quasi-cyclic low-density parity-check transceiving system using an overlapping decoder,” *Sensors*, vol. 23, no. 18, p. 7828, 2023.
 
-#### Patents
+<!-- #### Patents
 
 - **Liangbin Zhao**, et al., "A high-throughput parallel cyclic redundancy check method based on CRC-16," Beijing, CN114726383A, 2022-07-08.
-- **Liangbin Zhao**, et al., "A high-speed, time-domain parallel timing synchronization method based on the O&M algorithm," Beijing, CN114938255A, 2022-08-23.
+- **Liangbin Zhao**, et al., "A high-speed, time-domain parallel timing synchronization method based on the O&M algorithm," Beijing, CN114938255A, 2022-08-23. -->
 
 
 ### Honors and Awards

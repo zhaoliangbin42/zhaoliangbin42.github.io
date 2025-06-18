@@ -6,13 +6,20 @@
     <description>Recent content on Liangbin&#39;s Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 10 Apr 2025 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 18 Jun 2025 00:00:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/zh/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Passive Sensing for Multiple Vehicles in Bi-static ISAC Systems</title>
+      <link>http://localhost:1313/zh/codes/swip_music/</link>
+      <pubDate>Wed, 18 Jun 2025 00:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/zh/codes/swip_music/</guid>
+      <description>Simulation for paper &amp;ldquo;Passive Sensing for Multiple Vehicles in Bi-static ISAC Systems&amp;rdquo;, accepted by VTC-2025 Spring</description>
+    </item>
+    <item>
       <title>High-Resolution Uplink Sensing in Millimeter-Wave ISAC Systems</title>
-      <link>http://localhost:1313/zh/codes/code1/</link>
+      <link>http://localhost:1313/zh/codes/ab2fm/</link>
       <pubDate>Thu, 10 Apr 2025 00:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/zh/codes/code1/</guid>
+      <guid>http://localhost:1313/zh/codes/ab2fm/</guid>
       <description>Simulation for paper &amp;ldquo;High-Resolution Uplink Sensing in Millimeter-Wave ISAC Systems&amp;rdquo;</description>
     </item>
     <item>

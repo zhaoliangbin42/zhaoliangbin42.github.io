@@ -1,0 +1,31 @@
+{
+    "created_time": "2025-05-28T00:14:53Z",
+    "files": [
+        {
+            "attachment_folder": "",
+            "created_time": "2025-05-28T00:14:53Z",
+            "id": "47",
+            "modified_time": "2025-05-28T00:14:53Z",
+            "name": "banner.png",
+            "signature": "16695675923079779709",
+            "tags": [
+            ]
+        },
+        {
+            "attachment_folder": "",
+            "created_time": "2025-05-28T00:14:53Z",
+            "id": "48",
+            "modified_time": "2025-05-28T00:14:53Z",
+            "name": "cleanshot-on-pdf-expert-in-20220301-at-164623.png",
+            "signature": "7761428513222448509",
+            "tags": [
+            ]
+        }
+    ],
+    "folders": [
+    ],
+    "id": "46",
+    "modified_time": "2025-05-28T00:14:53Z",
+    "signature": "8862065306465883517",
+    "version": 3
+}
