@@ -1,0 +1,24 @@
+{
+    "created_time": "2025-05-28T00:14:53Z",
+    "files": [
+        {
+            "attachment_folder": "",
+            "created_time": "2025-05-28T00:14:53Z",
+            "id": "49",
+            "modified_time": "2025-05-28T00:14:53Z",
+            "name": "index.md",
+            "signature": "13696835796013045117",
+            "tags": [
+            ]
+        }
+    ],
+    "folders": [
+        {
+            "name": "index.assets"
+        }
+    ],
+    "id": "45",
+    "modified_time": "2025-05-28T00:14:53Z",
+    "signature": "6990633474461160829",
+    "version": 3
+}
