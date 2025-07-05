@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/zh/</loc>
-    <lastmod>2025-06-18T00:00:00+08:00</lastmod>
+    <lastmod>2025-07-04T00:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
@@ -14,6 +14,66 @@
                 hreflang="en-us"
                 href="http://localhost:1313/zh/"
                 />
+  </url><url>
+    <loc>http://localhost:1313/zh/categories/</loc>
+    <lastmod>2025-07-04T00:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/zh/categories/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/zh/categories/reflections/</loc>
+    <lastmod>2025-07-04T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/zh/tags/reflections/</loc>
+    <lastmod>2025-07-04T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/zh/tags/</loc>
+    <lastmod>2025-07-04T00:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/zh/tags/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/zh/notes/reflection-wechat-official-account/</loc>
+    <lastmod>2025-07-04T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/zh/notes/</loc>
+    <lastmod>2025-07-04T00:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/notes/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/zh/notes/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/zh/notes/pdf-to-eps/</loc>
+    <lastmod>2025-06-23T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/zh/tags/software/</loc>
+    <lastmod>2025-06-23T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/zh/categories/tips/</loc>
+    <lastmod>2025-06-23T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/zh/notes/build-vpn/</loc>
+    <lastmod>2025-06-20T00:00:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/zh/codes/swip_music/</loc>
     <lastmod>2025-06-18T00:00:00+08:00</lastmod>
@@ -41,6 +101,12 @@
                 href="http://localhost:1313/zh/codes/"
                 />
   </url><url>
+    <loc>http://localhost:1313/zh/tags/resource/</loc>
+    <lastmod>2025-05-20T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/zh/notes/my-color/</loc>
+    <lastmod>2025-05-20T00:00:00+08:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/zh/codes/ab2fm/</loc>
     <lastmod>2025-04-10T00:00:00+08:00</lastmod>
     <xhtml:link
@@ -67,19 +133,6 @@
                 href="http://localhost:1313/zh/notes/bi-awgn-initialize/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/categories/</loc>
-    <lastmod>2023-10-07T00:00:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/en/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/zh/categories/"
-                />
-  </url><url>
     <loc>http://localhost:1313/zh/categories/communication/</loc>
     <lastmod>2023-10-07T00:00:00+08:00</lastmod>
     <xhtml:link
@@ -104,32 +157,6 @@
                 rel="alternate"
                 hreflang="en-us"
                 href="http://localhost:1313/zh/tags/signal-processing/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/zh/tags/</loc>
-    <lastmod>2023-10-07T00:00:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/zh/tags/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/zh/notes/</loc>
-    <lastmod>2023-10-07T00:00:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/en/notes/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/zh/notes/"
                 />
   </url><url>
     <loc>http://localhost:1313/zh/notes/equalization/</loc>

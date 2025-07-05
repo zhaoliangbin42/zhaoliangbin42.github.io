@@ -1,4 +1,6 @@
 *.png
 *.webp
 *.svg
+*.html
+*.xml
 docs/

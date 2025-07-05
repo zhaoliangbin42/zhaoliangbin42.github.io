@@ -6,8 +6,29 @@
     <description>Recent content in Tags on Liangbin&#39;s Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Oct 2023 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 04 Jul 2025 00:00:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/zh/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reflections</title>
+      <link>http://localhost:1313/zh/tags/reflections/</link>
+      <pubDate>Fri, 04 Jul 2025 00:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/zh/tags/reflections/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Software</title>
+      <link>http://localhost:1313/zh/tags/software/</link>
+      <pubDate>Mon, 23 Jun 2025 00:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/zh/tags/software/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Resource</title>
+      <link>http://localhost:1313/zh/tags/resource/</link>
+      <pubDate>Tue, 20 May 2025 00:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/zh/tags/resource/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Signal Processing</title>
       <link>http://localhost:1313/zh/tags/signal-processing/</link>
