@@ -1,0 +1,47 @@
+############# Navigation ##############
+
+# main menu
+[[main]]
+name = "首页"
+url = "/"
+weight = 1
+
+[[main]]
+name = "简介"
+url = "/about"
+weight = 2
+
+[[main]]
+name = "笔记"
+url = "/notes"
+weight = 3
+
+# [[main]]
+# name = "成果"
+# url = "/works"
+# weight = 4
+
+[[main]]
+name = "代码"
+url = "/codes"
+weight = 4
+
+
+
+
+
+# footer menu
+# [[footer]]
+# name = "简介"
+# url = "/about"
+# weight = 1
+
+# [[footer]]
+# name = "Works"
+# url = "/works"
+# weight = 2
+
+# [[footer]]
+# name = "Privacy Policy"
+# url = "/privacy-policy"
+# weight = 2

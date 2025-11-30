@@ -1,18 +1,99 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <sitemap>
-    <loc>http://localhost:1313/zh/sitemap.xml</loc>
-    
-      <lastmod>2025-07-04T00:00:00+08:00</lastmod>
-    
-  </sitemap>
-  
-  <sitemap>
-    <loc>http://localhost:1313/en/sitemap.xml</loc>
-    
-      <lastmod>2025-06-18T00:00:00+08:00</lastmod>
-    
-  </sitemap>
-  
-</sitemapindex>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://localhost:61557/</loc>
+    <lastmod>2025-07-13T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61557/categories/</loc>
+    <lastmod>2025-07-13T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61557/tags/</loc>
+    <lastmod>2025-07-13T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61557/categories/tips/</loc>
+    <lastmod>2025-07-13T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61557/tags/ubuntu/</loc>
+    <lastmod>2025-07-13T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61557/notes/</loc>
+    <lastmod>2025-07-13T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61557/notes/tutorial-how-to-use-server/</loc>
+    <lastmod>2025-07-13T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61557/categories/reflections/</loc>
+    <lastmod>2025-07-04T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61557/tags/reflections/</loc>
+    <lastmod>2025-07-04T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61557/notes/reflection-wechat-official-account/</loc>
+    <lastmod>2025-07-04T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61557/notes/pdf-to-eps/</loc>
+    <lastmod>2025-06-23T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61557/tags/software/</loc>
+    <lastmod>2025-06-23T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61557/notes/build-vpn/</loc>
+    <lastmod>2025-06-20T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61557/codes/swip_music/</loc>
+    <lastmod>2025-06-18T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61557/codes/</loc>
+    <lastmod>2025-06-18T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61557/tags/resource/</loc>
+    <lastmod>2025-05-20T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61557/notes/my-color/</loc>
+    <lastmod>2025-05-20T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61557/codes/ab2fm/</loc>
+    <lastmod>2025-04-10T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61557/notes/bi-awgn-initialize/</loc>
+    <lastmod>2023-10-07T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61557/categories/communication/</loc>
+    <lastmod>2023-10-07T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61557/tags/signal-processing/</loc>
+    <lastmod>2023-10-07T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61557/notes/equalization/</loc>
+    <lastmod>2023-10-06T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61557/notes/timing-recovery/</loc>
+    <lastmod>2022-08-03T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61557/notes/polyphase-matched-filtering/</loc>
+    <lastmod>2022-05-28T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61557/works/</loc>
+  </url><url>
+    <loc>http://localhost:61557/projects/</loc>
+  </url><url>
+    <loc>http://localhost:61557/contact/</loc>
+  </url><url>
+    <loc>http://localhost:61557/contact/benko/</loc>
+  </url><url>
+    <loc>http://localhost:61557/elements/</loc>
+  </url><url>
+    <loc>http://localhost:61557/about/</loc>
+  </url><url>
+    <loc>http://localhost:61557/projects/john-doe/</loc>
+  </url><url>
+    <loc>http://localhost:61557/pages/</loc>
+  </url><url>
+    <loc>http://localhost:61557/privacy-policy/</loc>
+  </url><url>
+    <loc>http://localhost:61557/projects/sam-wilson/</loc>
+  </url><url>
+    <loc>http://localhost:61557/projects/william-jacob/</loc>
+  </url>
+</urlset>

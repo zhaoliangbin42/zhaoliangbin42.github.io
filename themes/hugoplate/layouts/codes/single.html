@@ -1,54 +1,126 @@
 {{ define "main" }}
 <section class="section-sm pb-0">
     <div class="container">
-        <div class="row border-border dark:border-darkmode-border justify-center border-b pb-14">
-            <div class="lg:col-6 text-center">
-                {{ $image:= .Params.image }}
-                {{ if $image }}
-                {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "mx-auto") }}
-                {{ else if .Params.Email }}
-                <img class="mx-auto" alt="{{ .Title }}" height="200" width="200"
-                    src="https://www.gravatar.com/avatar/{{ md5 .Params.email }}?s=128&pg&d=identicon" />
-                {{ end }}
-                <h1 class="h3 mt-10">{{ .Title }}</h1>
-                <div class="content mt-6">
-                    {{ .Summary }}
-                </div>
-                <ul class="social-icons ml-4 mt-10 text-center">
-                    {{ range .Params.social }}
-                    <li>
-                        <a href="{{ .link | safeURL }}" target="_blank" rel="noopener nofollow">
-                            <span class="sr-only">{{ .title }}</span>
-                            <i class="{{ .icon }}"></i>
-                        </a>
-                    </li>
+        <!-- 文章布局容器 -->
+        <div class="article-layout-container">
+            <div class="article-layout-wrapper">
+                <!-- 移动端 TOC -->
+                <div class="toc-mobile">
+                    {{ if .TableOfContents }}
+                    <div class="toc-mobile-wrapper">
+                        <button class="toc-mobile-toggle" onclick="toggleMobileTOC()">
+                            <span class="flex items-center">
+                                <i class="fa-solid fa-list mr-2"></i>
+                                <span>目录</span>
+                            </span>
+                            <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                        </button>
+                        <div class="toc-mobile-content hidden">
+                            {{ .TableOfContents }}
+                        </div>
+                    </div>
                     {{ end }}
-                </ul>
+                </div>
+
+                <!-- 主要内容网格 -->
+                <div class="article-content-grid">
+                    <!-- 左侧：文章内容 -->
+                    <article class="article-main-content">
+                        <div class="border-border dark:border-darkmode-border border-b pb-14">
+                            <div class="text-center">
+                                {{ $image:= .Params.image }}
+                                {{ if $image }}
+                                {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "mx-auto") }}
+                                {{ else if .Params.Email }}
+                                <img class="mx-auto" alt="{{ .Title }}" height="200" width="200"
+                                    src="https://www.gravatar.com/avatar/{{ md5 .Params.email }}?s=128&pg&d=identicon" />
+                                {{ end }}
+                                <h1 class="h3 mt-10">{{ .Title }}</h1>
+                                <div class="content mt-6">
+                                    {{ .Summary }}
+                                </div>
+                                <ul class="social-icons ml-4 mt-10 text-center">
+                                    {{ range .Params.social }}
+                                    <li>
+                                        <a href="{{ .link | safeURL }}" target="_blank" rel="noopener nofollow">
+                                            <span class="sr-only">{{ .title }}</span>
+                                            <i class="{{ .icon }}"></i>
+                                        </a>
+                                    </li>
+                                    {{ end }}
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="content mb-10 mt-10">
+                            {{ .Content }}
+                        </div>
+                        
+                        <!-- 黑底白图标链接 -->
+                        <div class="flex justify-center mb-14 mt-10">
+                            {{ if .Params.paper_url }}
+                            <a href="{{ .Params.paper_url }}"
+                                class="mx-2 bg-black dark:bg-gray-800 text-white rounded p-3 hover:opacity-80 transition-opacity"
+                                title="查看论文" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-solid fa-file-pdf fa-lg"></i>
+                            </a>
+                            {{ end }}
+
+                            {{ if .Params.github_url }}
+                            <a href="{{ .Params.github_url }}"
+                                class="mx-2 bg-black dark:bg-gray-800 text-white rounded p-3 hover:opacity-80 transition-opacity"
+                                title="访问GitHub仓库" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-github fa-lg"></i>
+                            </a>
+                            {{ end }}
+                        </div>
+                    </article>
+
+                    <!-- 右侧：浮动 TOC -->
+                    {{ if .TableOfContents }}
+                    <aside class="article-toc-sidebar">
+                        <div class="toc-sticky-wrapper">
+                            <h4 class="toc-title">目录</h4>
+                            <nav class="toc-nav">
+                                {{ .TableOfContents }}
+                            </nav>
+                        </div>
+                    </aside>
+                    {{ end }}
+                </div>
             </div>
-        </div>
-
-        <div class="content mb-10">
-            {{ partial "toc.html" (dict "Class" "blog" "Collapsed" false "TableOfContents" .TableOfContents ) }}
-            {{ .Content }}
-        </div>
-        <!-- 黑底白图标链接 -->
-        <div class="flex justify-center mb-14 mt-10">
-            {{ if .Params.paper_url }}
-            <a href="{{ .Params.paper_url }}"
-                class="mx-2 bg-black dark:bg-gray-800 text-white rounded p-3 hover:opacity-80 transition-opacity"
-                title="查看论文" target="_blank" rel="noopener noreferrer">
-                <i class="fa-solid fa-file-pdf fa-lg"></i>
-            </a>
-            {{ end }}
-
-            {{ if .Params.github_url }}
-            <a href="{{ .Params.github_url }}"
-                class="mx-2 bg-black dark:bg-gray-800 text-white rounded p-3 hover:opacity-80 transition-opacity"
-                title="访问GitHub仓库" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-github fa-lg"></i>
-            </a>
-            {{ end }}
         </div>
     </div>
 </section>
+
+<script>
+    function toggleMobileTOC() {
+        const content = document.querySelector('.toc-mobile-content');
+        const icon = document.querySelector('.toggle-icon');
+        content.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+    }
+
+    // 高亮当前章节
+    document.addEventListener('DOMContentLoaded', function() {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.intersectionRatio > 0) {
+                    document.querySelectorAll('.toc-nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    const activeLink = document.querySelector(`.toc-nav a[href="#${id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            });
+        }, { rootMargin: '-20% 0% -35% 0%' });
+
+        document.querySelectorAll('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]').forEach(section => {
+            observer.observe(section);
+        });
+    });
+</script>
 {{ end }}

@@ -1,27 +1,6 @@
-/* ============================================
-   自定义样式 - 优化版本
-   ============================================ */
+/* Add your own custom styles here */
 
-/* CSS 变量 - 主题色 */
-:root {
-  --gradient-light-from: rgba(173, 83, 137, 0.12);
-  --gradient-light-to: rgba(60, 16, 83, 0.12);
-  --gradient-solid-from: #ad5389;
-  --gradient-solid-to: #3c1053;
-  --theme-color: #ad5389;
-}
-
-.dark {
-  --gradient-light-from: rgba(224, 145, 208, 0.25);
-  --gradient-light-to: rgba(192, 132, 179, 0.25);
-  --gradient-solid-from: #e091d0;
-  --gradient-solid-to: #c084b3;
-  --theme-color: #e091d0;
-}
-
-/* ============================================
-   导航栏
-   ============================================ */
+/* 导航栏激活状态 - 使用胶囊型渐变背景 */
 .nav-link {
   padding: 8px 20px;
   border-radius: 20px;
@@ -29,33 +8,51 @@
 }
 
 .nav-link.active {
-  background: linear-gradient(90deg, var(--gradient-light-from), var(--gradient-light-to));
-  color: var(--theme-color);
+  background: linear-gradient(90deg, rgba(173, 83, 137, 0.12), rgba(60, 16, 83, 0.12));
+  color: #ad5389;
 }
 
-/* ============================================
-   通用组件
-   ============================================ */
+.dark .nav-link.active {
+  background: linear-gradient(90deg, rgba(224, 145, 208, 0.25), rgba(192, 132, 179, 0.25));
+  color: #e091d0;
+}
+
 .gradient-text {
-  background: linear-gradient(90deg, var(--gradient-solid-from), var(--gradient-solid-to));
+  background: linear-gradient(90deg, #ad5389, #3c1053);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.dark .gradient-text {
+  background: linear-gradient(90deg, #e091d0, #c084b3);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+/* 搜索图标渐变色 */
 .search-icon-btn {
-  color: var(--theme-color);
+  color: #ad5389;
   transition: all 0.3s ease;
 }
 
 .search-icon-btn:hover {
+  color: #3c1053;
   transform: scale(1.1);
-  opacity: 0.8;
 }
 
-/* ============================================
-   页脚
-   ============================================ */
+.dark .search-icon-btn {
+  color: #e091d0;
+}
+
+.dark .search-icon-btn:hover {
+  color: #f0b3e0;
+  transform: scale(1.1);
+}
+
+/* 页脚社交图标样式 */
 .footer-social-link {
   display: flex;
   align-items: center;
@@ -63,22 +60,33 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: linear-gradient(90deg, var(--gradient-light-from), var(--gradient-light-to));
-  color: var(--theme-color);
+  background: linear-gradient(90deg, rgba(173, 83, 137, 0.1), rgba(60, 16, 83, 0.1));
+  color: #ad5389;
   transition: all 0.3s ease;
   text-decoration: none;
 }
 
 .footer-social-link:hover {
-  background: linear-gradient(90deg, var(--gradient-solid-from), var(--gradient-solid-to));
+  background: linear-gradient(90deg, #ad5389, #3c1053);
   color: white;
   transform: translateY(-3px);
+}
+
+.dark .footer-social-link {
+  background: linear-gradient(90deg, rgba(224, 145, 208, 0.2), rgba(192, 132, 179, 0.2));
+  color: #e091d0;
+}
+
+.dark .footer-social-link:hover {
+  background: linear-gradient(90deg, #e091d0, #c084b3);
+  color: white;
 }
 
 .footer-update-text {
   margin-top: 1rem;
   font-size: 0.875rem;
   color: #888;
+  font-weight: 400;
 }
 
 .dark .footer-update-text {
@@ -86,13 +94,59 @@
 }
 
 .footer-update-text i {
-  color: var(--theme-color);
+  color: #ad5389;
 }
 
-/* ============================================
-   CTA 按钮
-   ============================================ */
-.cta-gradient-btn,
+.dark .footer-update-text i {
+  color: #e091d0;
+}
+
+/* 首页 Call-to-Action 按钮 */
+.cta-gradient-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(90deg, #ad5389, #3c1053);
+  border-radius: 50px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 15px rgba(173, 83, 137, 0.3);
+}
+
+.cta-gradient-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.cta-gradient-btn:hover::before {
+  left: 100%;
+}
+
+.cta-gradient-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(173, 83, 137, 0.4);
+}
+
+.cta-gradient-btn i {
+  transition: transform 0.3s ease;
+}
+
+.cta-gradient-btn:hover i {
+  transform: translateX(4px);
+}
+
+/* 首页 Banner 按钮 */
 .home-cta-gradient-btn {
   position: relative;
   display: inline-flex;
@@ -101,7 +155,7 @@
   font-size: 1rem;
   font-weight: 600;
   color: white;
-  background: linear-gradient(90deg, var(--gradient-solid-from), var(--gradient-solid-to));
+  background: linear-gradient(90deg, #ad5389, #3c1053);
   border-radius: 50px;
   text-decoration: none;
   overflow: hidden;
@@ -109,12 +163,6 @@
   box-shadow: 0 4px 15px rgba(173, 83, 137, 0.3);
 }
 
-.dark .cta-gradient-btn,
-.dark .home-cta-gradient-btn {
-  box-shadow: 0 4px 15px rgba(224, 145, 208, 0.3);
-}
-
-.cta-gradient-btn::before,
 .home-cta-gradient-btn::before {
   content: '';
   position: absolute;
@@ -126,42 +174,33 @@
   transition: left 0.6s ease;
 }
 
-.cta-gradient-btn:hover::before,
 .home-cta-gradient-btn:hover::before {
   left: 100%;
 }
 
-.cta-gradient-btn:hover,
 .home-cta-gradient-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(173, 83, 137, 0.4);
 }
 
-.dark .cta-gradient-btn:hover,
-.dark .home-cta-gradient-btn:hover {
-  box-shadow: 0 6px 20px rgba(224, 145, 208, 0.4);
-}
-
-.cta-gradient-btn i,
 .home-cta-gradient-btn i {
   transition: transform 0.3s ease;
 }
 
-.cta-gradient-btn:hover i,
 .home-cta-gradient-btn:hover i {
   transform: translateX(4px);
 }
 
-/* ============================================
-   Banner
-   ============================================ */
+/* Banner 标题渐变色 */
 .banner-gradient-title {
-  background: linear-gradient(90deg, var(--gradient-solid-from), var(--gradient-solid-to));
+  background: linear-gradient(90deg, #ad5389, #3c1053);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
+/* Banner 描述文字 */
 .banner-description {
   font-size: 1.125rem;
   color: #666;
@@ -172,6 +211,7 @@
   color: #bbb;
 }
 
+/* Banner 图片容器 - OpenAI 风格 */
 .banner-image-wrapper {
   position: relative;
   max-width: 900px;
@@ -185,6 +225,13 @@
   background: linear-gradient(135deg, rgba(173, 83, 137, 0.03), rgba(60, 16, 83, 0.03));
 }
 
+.banner-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 24px;
+}
+
 .dark .banner-image-wrapper {
   box-shadow: 
     0 20px 40px rgba(224, 145, 208, 0.25),
@@ -193,105 +240,117 @@
   background: linear-gradient(135deg, rgba(224, 145, 208, 0.08), rgba(192, 132, 179, 0.08));
 }
 
-.banner-image {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 24px;
-}
-
 @media (max-width: 768px) {
-  .banner-image-wrapper,
+  .banner-image-wrapper {
+    border-radius: 16px;
+  }
+  
   .banner-image {
     border-radius: 16px;
   }
 }
 
-/* ============================================
-   代码高亮
-   ============================================ */
+/* 通用样式 - 适用于所有代码块 */
 .highlight {
   margin: 1.5rem 0;
+  
+  pre {
+    padding: 1rem;
+    border-radius: 0.375rem;
+    overflow: auto;
+  }
+  
+  code {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 0.9em;
+  }
 }
 
-.highlight pre {
-  padding: 1rem;
-  border-radius: 0.375rem;
-  overflow: auto;
-}
-
-.highlight code {
-  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-  font-size: 0.9em;
-}
-
+/* 明亮模式专用样式 */
 :root:not(.dark) .highlight pre {
   background-color: #f6f8fa !important;
 }
 
+/* 暗黑模式专用样式 */
 :root.dark .highlight pre {
   background-color: #1e1e1e !important;
 }
 
+/* 强制所有暗黑模式下的代码颜色 */
 :root.dark .highlight .chroma {
-  color: #abb2bf !important;
+  color: #abb2bf !important; /* onedark基本文本颜色 */
 }
 
-/* OneDark 主题色 */
-:root.dark .highlight .chroma .c,
-:root.dark .highlight .chroma .c1,
-:root.dark .highlight .chroma .cs,
-:root.dark .highlight .chroma .cp,
-:root.dark .highlight .chroma .cpf { color: #5c6370; font-style: italic; }
-:root.dark .highlight .chroma .k,
-:root.dark .highlight .chroma .kd,
-:root.dark .highlight .chroma .kn,
-:root.dark .highlight .chroma .kp,
-:root.dark .highlight .chroma .kr,
-:root.dark .highlight .chroma .kt { color: #c678dd; }
-:root.dark .highlight .chroma .na,
-:root.dark .highlight .chroma .nb,
-:root.dark .highlight .chroma .nc,
-:root.dark .highlight .chroma .no { color: #e5c07b; }
-:root.dark .highlight .chroma .nd,
-:root.dark .highlight .chroma .ni,
-:root.dark .highlight .chroma .ne,
-:root.dark .highlight .chroma .nt { color: #e06c75; }
-:root.dark .highlight .chroma .nf { color: #61afef; }
-:root.dark .highlight .chroma .s,
-:root.dark .highlight .chroma .sa,
-:root.dark .highlight .chroma .sb,
-:root.dark .highlight .chroma .sc,
-:root.dark .highlight .chroma .dl,
-:root.dark .highlight .chroma .sd,
-:root.dark .highlight .chroma .s2,
-:root.dark .highlight .chroma .se,
-:root.dark .highlight .chroma .sh,
-:root.dark .highlight .chroma .si,
-:root.dark .highlight .chroma .sx,
-:root.dark .highlight .chroma .s1 { color: #98c379; }
-:root.dark .highlight .chroma .sr,
-:root.dark .highlight .chroma .ss { color: #56b6c2; }
-:root.dark .highlight .chroma .m,
-:root.dark .highlight .chroma .mb,
-:root.dark .highlight .chroma .mf,
-:root.dark .highlight .chroma .mh,
-:root.dark .highlight .chroma .mi,
-:root.dark .highlight .chroma .mo { color: #d19a66; }
-:root.dark .highlight .chroma .o,
-:root.dark .highlight .chroma .ow { color: #56b6c2; }
-:root.dark .highlight .chroma .p,
-:root.dark .highlight .chroma .n,
-:root.dark .highlight .chroma .nl,
-:root.dark .highlight .chroma .nn,
-:root.dark .highlight .chroma .nv,
-:root.dark .highlight .chroma .nx { color: #abb2bf; }
-:root.dark .highlight .chroma .ln,
+:root.dark .highlight .chroma .c { color: #5c6370; font-style: italic; } /* 注释 */
+:root.dark .highlight .chroma .k { color: #c678dd; } /* 关键字 */
+:root.dark .highlight .chroma .kd { color: #c678dd; } /* 关键字声明 */
+:root.dark .highlight .chroma .kn { color: #c678dd; } /* 关键字命名空间 */
+:root.dark .highlight .chroma .kp { color: #c678dd; } /* 关键字伪 */
+:root.dark .highlight .chroma .kr { color: #c678dd; } /* 关键字保留 */
+:root.dark .highlight .chroma .kt { color: #c678dd; } /* 关键字类型 */
+:root.dark .highlight .chroma .n { color: #abb2bf; } /* 名称 */
+:root.dark .highlight .chroma .na { color: #e5c07b; } /* 名称属性 */
+:root.dark .highlight .chroma .nb { color: #e5c07b; } /* 名称内置 */
+:root.dark .highlight .chroma .nc { color: #e5c07b; } /* 名称类 */
+:root.dark .highlight .chroma .no { color: #e5c07b; } /* 名称常量 */
+:root.dark .highlight .chroma .nd { color: #e06c75; } /* 名称装饰符 */
+:root.dark .highlight .chroma .ni { color: #e06c75; } /* 名称实体 */
+:root.dark .highlight .chroma .ne { color: #e06c75; } /* 名称异常 */
+:root.dark .highlight .chroma .nf { color: #61afef; } /* 名称函数 */
+:root.dark .highlight .chroma .nl { color: #abb2bf; } /* 名称标签 */
+:root.dark .highlight .chroma .nn { color: #abb2bf; } /* 名称命名空间 */
+:root.dark .highlight .chroma .nt { color: #e06c75; } /* 名称标签 */
+:root.dark .highlight .chroma .nv { color: #abb2bf; } /* 名称变量 */
+:root.dark .highlight .chroma .nx { color: #abb2bf; } /* 名称其他 */
+:root.dark .highlight .chroma .s { color: #98c379; } /* 字符串 */
+:root.dark .highlight .chroma .sa { color: #98c379; } /* 字符串其他 */
+:root.dark .highlight .chroma .sb { color: #98c379; } /* 字符串反引号 */
+:root.dark .highlight .chroma .sc { color: #98c379; } /* 字符串字符 */
+:root.dark .highlight .chroma .dl { color: #98c379; } /* 字符串分隔符 */
+:root.dark .highlight .chroma .sd { color: #98c379; } /* 字符串文档 */
+:root.dark .highlight .chroma .s2 { color: #98c379; } /* 字符串双引号 */
+:root.dark .highlight .chroma .se { color: #98c379; } /* 字符串转义 */
+:root.dark .highlight .chroma .sh { color: #98c379; } /* 字符串heredoc */
+:root.dark .highlight .chroma .si { color: #98c379; } /* 字符串插值 */
+:root.dark .highlight .chroma .sx { color: #98c379; } /* 字符串其他 */
+:root.dark .highlight .chroma .sr { color: #56b6c2; } /* 字符串正则表达式 */
+:root.dark .highlight .chroma .s1 { color: #98c379; } /* 字符串单引号 */
+:root.dark .highlight .chroma .ss { color: #56b6c2; } /* 字符串符号 */
+:root.dark .highlight .chroma .m { color: #d19a66; } /* 数字 */
+:root.dark .highlight .chroma .mb { color: #d19a66; } /* 数字二进制 */
+:root.dark .highlight .chroma .mf { color: #d19a66; } /* 数字浮点数 */
+:root.dark .highlight .chroma .mh { color: #d19a66; } /* 数字十六进制 */
+:root.dark .highlight .chroma .mi { color: #d19a66; } /* 数字整数 */
+:root.dark .highlight .chroma .mo { color: #d19a66; } /* 数字八进制 */
+:root.dark .highlight .chroma .o { color: #56b6c2; } /* 操作符 */
+:root.dark .highlight .chroma .ow { color: #56b6c2; } /* 操作符单词 */
+:root.dark .highlight .chroma .p { color: #abb2bf; } /* 标点符号 - 修复黑色标点问题 */
+:root.dark .highlight .chroma .c1 { color: #5c6370; font-style: italic; } /* 注释单行 */
+:root.dark .highlight .chroma .cs { color: #5c6370; font-style: italic; } /* 注释特殊 */
+:root.dark .highlight .chroma .cp { color: #5c6370; font-style: italic; } /* 注释预处理 */
+:root.dark .highlight .chroma .cpf { color: #5c6370; font-style: italic; } /* 注释预处理文件 */
+:root.dark .highlight .chroma .gd { color: #e06c75; } /* 通用删除 */
+:root.dark .highlight .chroma .ge { font-style: italic; } /* 通用强调 */
+:root.dark .highlight .chroma .gr { color: #e06c75; } /* 通用错误 */
+:root.dark .highlight .chroma .gh { color: #61afef; font-weight: bold; } /* 通用标题 */
+:root.dark .highlight .chroma .gi { color: #98c379; } /* 通用插入 */
+:root.dark .highlight .chroma .go { color: #abb2bf; } /* 通用输出 */
+:root.dark .highlight .chroma .gp { color: #abb2bf; } /* 通用提示 */
+:root.dark .highlight .chroma .gs { font-weight: bold; } /* 通用强 */
+:root.dark .highlight .chroma .gu { color: #61afef; } /* 通用子标题 */
+:root.dark .highlight .chroma .gt { color: #e06c75; } /* 通用跟踪 */
+:root.dark .highlight .chroma .gl { text-decoration: underline; } /* 通用行 */
+:root.dark .highlight .chroma .w { color: #f8f8f2; } /* 文本空白 */
+
+/* 行号颜色 */
+:root.dark .highlight .chroma .ln { color: #636d83; }
 :root.dark .highlight .chroma .lnt { color: #636d83; }
 
 /* ============================================
-   文章布局系统
+   ChatGPT 风格的文章布局系统
    ============================================ */
+
+/* 文章布局容器 - 最大宽度 1200px */
 .article-layout-container {
   width: 100%;
   max-width: 1200px;
@@ -299,6 +358,11 @@
   padding: 0 1.5rem;
 }
 
+.article-layout-wrapper {
+  position: relative;
+}
+
+/* 内容网格布局 */
 .article-content-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -306,19 +370,23 @@
   position: relative;
 }
 
+/* 桌面端：2/3 内容 + 1/3 TOC */
 @media (min-width: 1000px) {
   .article-content-grid {
     grid-template-columns: 2fr 1fr;
   }
 }
 
+/* 文章主内容区域 */
 .article-main-content {
-  min-width: 0;
+  min-width: 0; /* 防止内容溢出 */
 }
 
 /* ============================================
-   TOC 样式
+   浮动 TOC 样式
    ============================================ */
+
+/* 桌面端浮动 TOC */
 .article-toc-sidebar {
   display: none;
 }
@@ -363,14 +431,6 @@
   font-size: 0.875rem;
 }
 
-/* 移除 Hugo 生成的 TableOfContents 默认样式 */
-.toc-nav #TableOfContents {
-  background: none;
-  padding: 0;
-  margin: 0;
-  border: none;
-}
-
 .toc-nav ul {
   list-style: none;
   padding-left: 0;
@@ -388,7 +448,7 @@
 
 .toc-nav a {
   display: block;
-  color: #6b7280;
+  /* color: #6b7280; */
   text-decoration: none;
   padding: 0.25rem 0.5rem;
   border-radius: 6px;
@@ -397,18 +457,28 @@
 }
 
 .toc-nav a:hover {
-  color: var(--theme-color);
-  background-color: var(--gradient-light-from);
+  color: #ad5389;
+  background-color: rgba(173, 83, 137, 0.08);
 }
 
 .toc-nav a.active {
-  color: var(--theme-color);
-  background-color: var(--gradient-light-from);
+  color: #ad5389;
+  background-color: rgba(173, 83, 137, 0.12);
   font-weight: 500;
 }
 
 .dark .toc-nav a {
   color: #9ca3af;
+}
+
+.dark .toc-nav a:hover {
+  color: #e091d0;
+  background-color: rgba(224, 145, 208, 0.12);
+}
+
+.dark .toc-nav a.active {
+  color: #e091d0;
+  background-color: rgba(224, 145, 208, 0.18);
 }
 
 /* 移动端 TOC */
@@ -450,11 +520,15 @@
 }
 
 .toc-mobile-toggle:hover {
-  background-color: var(--gradient-light-from);
+  background-color: rgba(173, 83, 137, 0.05);
 }
 
 .dark .toc-mobile-toggle {
   color: #d1d5db;
+}
+
+.dark .toc-mobile-toggle:hover {
+  background-color: rgba(224, 145, 208, 0.08);
 }
 
 .toggle-icon {
@@ -467,14 +541,6 @@
 
 .toc-mobile-content {
   padding: 0 1.25rem 1rem;
-}
-
-/* 移除 Hugo 生成的 TableOfContents 默认样式 */
-.toc-mobile-content #TableOfContents {
-  background: none;
-  padding: 0;
-  margin: 0;
-  border: none;
 }
 
 .toc-mobile-content ul {
@@ -501,17 +567,24 @@
 }
 
 .toc-mobile-content a:hover {
-  color: var(--theme-color);
-  background-color: var(--gradient-light-from);
+  color: #ad5389;
+  background-color: rgba(173, 83, 137, 0.08);
 }
 
 .dark .toc-mobile-content a {
   color: #9ca3af;
 }
 
+.dark .toc-mobile-content a:hover {
+  color: #e091d0;
+  background-color: rgba(224, 145, 208, 0.12);
+}
+
 /* ============================================
-   Markdown 内容渲染
+   ChatGPT 风格的 Markdown 内容渲染
    ============================================ */
+
+/* 文章内容基础样式 */
 .content {
   line-height: 1.75;
   font-size: 1rem;
@@ -524,16 +597,18 @@
   color: #d1d5db;
 }
 
+/* 段落样式 - ChatGPT 精确间距 */
 .content p {
   margin-top: 0;
   margin-bottom: 1em;
+  line-height: 1.75;
 }
 
 .content > p:first-child {
   margin-top: 0;
 }
 
-/* 标题 */
+/* 标题样式 - 完全模拟 ChatGPT */
 .content h1,
 .content h2,
 .content h3,
@@ -578,9 +653,17 @@
   border-bottom-color: #374151;
 }
 
-.content h3 { font-size: 1.25em; }
-.content h4 { font-size: 1em; }
-.content h5 { font-size: 0.875em; }
+.content h3 {
+  font-size: 1.25em;
+}
+
+.content h4 {
+  font-size: 1em;
+}
+
+.content h5 {
+  font-size: 0.875em;
+}
 
 .content h6 {
   font-size: 0.85em;
@@ -591,7 +674,7 @@
   color: #9ca3af;
 }
 
-/* 列表 */
+/* 列表样式 - ChatGPT 风格 */
 .content ul,
 .content ol {
   margin-top: 0;
@@ -615,14 +698,33 @@
   margin-bottom: 0;
 }
 
-.content ul { list-style-type: disc; }
-.content ul ul { list-style-type: circle; }
-.content ul ul ul { list-style-type: square; }
-.content ol { list-style-type: decimal; }
-.content ol ol { list-style-type: lower-alpha; }
-.content ol ol ol { list-style-type: lower-roman; }
+/* 无序列表使用圆点 */
+.content ul {
+  list-style-type: disc;
+}
 
-/* 引用 */
+.content ul ul {
+  list-style-type: circle;
+}
+
+.content ul ul ul {
+  list-style-type: square;
+}
+
+/* 有序列表 */
+.content ol {
+  list-style-type: decimal;
+}
+
+.content ol ol {
+  list-style-type: lower-alpha;
+}
+
+.content ol ol ol {
+  list-style-type: lower-roman;
+}
+
+/* 引用块 - ChatGPT 风格 */
 .content blockquote {
   margin: 1em 0;
   padding: 0 1em;
@@ -643,20 +745,22 @@
   margin-bottom: 0;
 }
 
-/* 代码 */
+/* 行内代码 - ChatGPT 精确样式 */
 .content code {
   font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, 'Courier New', monospace;
   font-size: 0.875em;
   padding: 0.2em 0.4em;
   background-color: rgba(175, 184, 193, 0.2);
   border-radius: 6px;
-  color: var(--theme-color);
+  color: #ad5389;
 }
 
 .dark .content code {
   background-color: rgba(110, 118, 129, 0.4);
+  color: #e091d0;
 }
 
+/* 代码块 - ChatGPT 风格 */
 .content pre {
   margin: 1em 0;
   padding: 1em;
@@ -681,6 +785,7 @@
   line-height: 1.45;
 }
 
+/* 代码块带语言标签 */
 .content .highlight {
   margin: 1em 0;
   border-radius: 8px;
@@ -693,7 +798,7 @@
   border: none;
 }
 
-/* 表格 */
+/* 表格 - ChatGPT 风格 */
 .content table {
   width: 100%;
   margin: 1em 0;
@@ -732,7 +837,7 @@
   background-color: rgba(255, 255, 255, 0.02);
 }
 
-/* 其他元素 */
+/* 水平线 */
 .content hr {
   margin: 2em 0;
   border: none;
@@ -743,17 +848,28 @@
   border-top-color: #374151;
 }
 
+/* 链接 - 主题色 */
 .content a {
-  color: var(--theme-color);
+  color: #ad5389;
   text-decoration: none;
   transition: all 0.2s ease;
 }
 
 .content a:hover {
+  color: #3c1053;
   text-decoration: underline;
-  opacity: 0.8;
 }
 
+.dark .content a {
+  color: #e091d0;
+}
+
+.dark .content a:hover {
+  color: #f0b3e0;
+  text-decoration: underline;
+}
+
+/* 图片 */
 .content img {
   max-width: 100%;
   height: auto;
@@ -761,6 +877,7 @@
   margin: 1em 0;
 }
 
+/* 数学公式 (KaTeX) */
 .content .katex {
   font-size: 1.05em;
 }
@@ -772,19 +889,23 @@
   padding: 0.5em 0;
 }
 
+/* 强调文本 */
 .content strong {
   font-weight: 600;
+  color: inherit;
 }
 
 .content em {
   font-style: italic;
 }
 
+/* 删除线 */
 .content del {
   text-decoration: line-through;
   opacity: 0.7;
 }
 
+/* 任务列表 */
 .content input[type="checkbox"] {
   margin-right: 0.5em;
   margin-left: -1.5em;
@@ -796,6 +917,7 @@
   list-style-type: none;
 }
 
+/* 脚注 */
 .content .footnotes {
   margin-top: 2em;
   padding-top: 1em;
@@ -813,6 +935,7 @@
   padding-left: 1.5em;
 }
 
+/* 定义列表 */
 .content dl {
   margin: 1em 0;
 }
@@ -827,6 +950,7 @@
   margin-bottom: 0.5em;
 }
 
+/* 缩进块 */
 .content details {
   margin: 1em 0;
   padding: 0.5em 1em;
@@ -847,13 +971,20 @@
   padding: 0.5em 0;
 }
 
+/* 标记/高亮文本 */
 .content mark {
-  background-color: var(--gradient-light-from);
-  color: var(--theme-color);
+  background-color: rgba(173, 83, 137, 0.15);
+  color: #ad5389;
   padding: 0.1em 0.3em;
   border-radius: 3px;
 }
 
+.dark .content mark {
+  background-color: rgba(224, 145, 208, 0.2);
+  color: #e091d0;
+}
+
+/* 键盘按键 */
 .content kbd {
   font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
   font-size: 0.875em;
@@ -869,9 +1000,45 @@
   border-color: #4b5563;
 }
 
+/* 响应式优化 */
+@media (max-width: 768px) {
+  .article-layout-container {
+    padding: 0 1rem;
+  }
+  
+  .content {
+    font-size: 0.9375rem;
+  }
+  
+  .content h1 {
+    font-size: 1.75em;
+  }
+  
+  .content h2 {
+    font-size: 1.5em;
+  }
+  
+  .content h3 {
+    font-size: 1.25em;
+  }
+  
+  .content pre {
+    padding: 0.75em;
+  }
+  
+  .content table {
+    font-size: 0.875em;
+  }
+  
+  .toc-sticky-wrapper {
+    padding: 1rem;
+  }
+}
+
 /* ============================================
-   文章底部
+   文章底部标签和分享区域样式
    ============================================ */
+
 .article-footer {
   margin-top: 3rem;
   padding-top: 2rem;
@@ -882,26 +1049,22 @@
   border-top-color: #374151;
 }
 
-.article-tags-title,
-.article-share-title {
+/* 标签区域 */
+.article-tags {
+  margin-bottom: 1.5rem;
+}
+
+.article-tags-title {
   font-size: 0.875rem;
   font-weight: 600;
   color: #6b7280;
+  margin-bottom: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
-.dark .article-tags-title,
-.dark .article-share-title {
+.dark .article-tags-title {
   color: #9ca3af;
-}
-
-.article-tags-title {
-  margin-bottom: 0.75rem;
-}
-
-.article-share-title {
-  margin-right: 1rem;
 }
 
 .article-tags-list {
@@ -915,29 +1078,51 @@
   align-items: center;
   padding: 0.375rem 0.875rem;
   font-size: 0.875rem;
-  color: var(--theme-color);
-  background: linear-gradient(90deg, var(--gradient-light-from), var(--gradient-light-to));
+  color: #ad5389;
+  background: linear-gradient(90deg, rgba(173, 83, 137, 0.08), rgba(60, 16, 83, 0.08));
   border-radius: 20px;
   text-decoration: none;
   transition: all 0.2s ease;
-  border: 1px solid var(--gradient-light-from);
+  border: 1px solid rgba(173, 83, 137, 0.2);
 }
 
 .article-tag:hover {
-  background: linear-gradient(90deg, var(--gradient-solid-from), var(--gradient-solid-to));
+  background: linear-gradient(90deg, #ad5389, #3c1053);
   color: white;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(173, 83, 137, 0.3);
 }
 
+.dark .article-tag {
+  color: #e091d0;
+  background: linear-gradient(90deg, rgba(224, 145, 208, 0.12), rgba(192, 132, 179, 0.12));
+  border-color: rgba(224, 145, 208, 0.3);
+}
+
 .dark .article-tag:hover {
+  background: linear-gradient(90deg, #e091d0, #c084b3);
+  color: white;
   box-shadow: 0 4px 12px rgba(224, 145, 208, 0.4);
 }
 
+/* 分享区域 */
 .article-share {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+
+.article-share-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #6b7280;
+  margin-right: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.dark .article-share-title {
+  color: #9ca3af;
 }
 
 .article-share-buttons {
@@ -952,8 +1137,8 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: linear-gradient(90deg, var(--gradient-light-from), var(--gradient-light-to));
-  color: var(--theme-color);
+  background: linear-gradient(90deg, rgba(173, 83, 137, 0.1), rgba(60, 16, 83, 0.1));
+  color: #ad5389;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -961,13 +1146,20 @@
 }
 
 .share-btn:hover {
-  background: linear-gradient(90deg, var(--gradient-solid-from), var(--gradient-solid-to));
+  background: linear-gradient(90deg, #ad5389, #3c1053);
   color: white;
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 6px 16px rgba(173, 83, 137, 0.4);
 }
 
+.dark .share-btn {
+  background: linear-gradient(90deg, rgba(224, 145, 208, 0.15), rgba(192, 132, 179, 0.15));
+  color: #e091d0;
+}
+
 .dark .share-btn:hover {
+  background: linear-gradient(90deg, #e091d0, #c084b3);
+  color: white;
   box-shadow: 0 6px 16px rgba(224, 145, 208, 0.5);
 }
 
@@ -1003,8 +1195,14 @@
 }
 
 @keyframes modalFadeIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .qrcode-modal-close {
@@ -1053,12 +1251,13 @@
   align-items: center;
 }
 
+/* 复制成功提示 */
 .copy-toast {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
   padding: 0.875rem 1.5rem;
-  background: linear-gradient(90deg, var(--gradient-solid-from), var(--gradient-solid-to));
+  background: linear-gradient(90deg, #ad5389, #3c1053);
   color: white;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(173, 83, 137, 0.4);
@@ -1069,38 +1268,23 @@
 }
 
 .dark .copy-toast {
+  background: linear-gradient(90deg, #e091d0, #c084b3);
   box-shadow: 0 8px 24px rgba(224, 145, 208, 0.5);
 }
 
 @keyframes toastSlideIn {
-  from { opacity: 0; transform: translateX(100%); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-/* ============================================
-   响应式优化
-   ============================================ */
+/* 响应式调整 */
 @media (max-width: 768px) {
-  .article-layout-container {
-    padding: 0 1rem;
-  }
-  
-  .content {
-    font-size: 0.9375rem;
-  }
-  
-  .content h1 { font-size: 1.75em; }
-  .content h2 { font-size: 1.5em; }
-  .content h3 { font-size: 1.25em; }
-  
-  .content pre {
-    padding: 0.75em;
-  }
-  
-  .content table {
-    font-size: 0.875em;
-  }
-  
   .article-footer {
     margin-top: 2rem;
     padding-top: 1.5rem;

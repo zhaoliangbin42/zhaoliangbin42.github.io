@@ -5,128 +5,261 @@
       {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "blog-card-image") }}
     </div>
   {{ end }}
-  <h4 class="blog-card-title mb-3">
-    <a href="{{ .RelPermalink }}">
-      {{ .Title }}
-    </a>
-  </h4>
-  {{ $categories:= .Params.categories }}
-  {{ if $categories }}
-    <ul class="mb-4">
-      <li class="mr-4 inline-block">
-        <a href="{{ `authors/` | relLangURL }}{{ .Params.Author | urlize }}/">
-          <i class="fa-regular fa-circle-user mr-2"></i>{{ .Params.author }}
-        </a>
-      </li>
-      <li class="mr-4 inline-block">
-        <i class="fa-regular fa-folder mr-1"></i>
+  
+  <div class="blog-card-body">
+    {{ $categories:= .Params.categories }}
+    {{ if $categories }}
+      <div class="blog-card-meta">
         {{ range $i,$p:= $categories }}
-          <a
-            href="{{ `categories/` | relLangURL }}{{ . | urlize | lower }}/"
-            class="ms-1"
-            >{{ . | humanize }}{{ if ne $i (sub (len $categories) 1) }}
-              {{ "," }}
-            {{ end }}
-          </a>
+          <span class="blog-card-tag">{{ . | humanize }}</span>
         {{ end }}
-      </li>
-    </ul>
-  {{ end }}
-  <div class="blog-card-content">
+      </div>
+    {{ end }}
+    
+    <h4 class="blog-card-title">
+      <a href="{{ .RelPermalink }}">
+        {{ .Title }}
+      </a>
+    </h4>
+    
     <p class="blog-card-summary">{{ .Summary | plainify }}</p>
+    
+    <div class="blog-card-footer">
+      <div class="blog-card-author">
+        <!-- <i class="fa-regular fa-circle-user"></i> -->
+        <span>{{ .Params.author }}</span>
+      </div>
+      <span class="blog-card-date">
+        {{ .Date.Format "2006-01-02" }}
+      </span>
+    </div>
   </div>
-  <div class="blog-card-footer">
-    <a class="btn btn-outline-primary btn-sm" href="{{ .RelPermalink }}">
-      {{ T "read_more" }}
-    </a>
-    <span class="text-sm text-gray-500 dark:text-gray-400">
-      {{ .Date.Format "2006-01-02" }}
-    </span>
-  </div>
+  
+  <a class="blog-card-overlay" href="{{ .RelPermalink }}" aria-label="{{ .Title }}"></a>
 </div>
 
 <style>
   .blog-card {
+    position: relative;
     display: flex;
     flex-direction: column;
     height: 100%;
     overflow: hidden;
-    border-radius: 12px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    padding: 18px;
+    border-radius: 16px;
     background-color: var(--bg-body);
+    box-shadow: 
+      0 2px 8px rgba(173, 83, 137, 0.12),
+      0 1px 4px rgba(60, 16, 83, 0.10),
+      0 0 0 1px rgba(173, 83, 137, 0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .blog-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-8px);
+    box-shadow: 
+      0 12px 24px rgba(173, 83, 137, 0.15),
+      0 8px 16px rgba(60, 16, 83, 0.12),
+      0 0 0 1px rgba(173, 83, 137, 0.08);
   }
   
   .dark .blog-card {
-    border-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 
+      0 2px 8px rgba(224, 145, 208, 0.18),
+      0 1px 4px rgba(192, 132, 179, 0.15),
+      0 0 0 1px rgba(224, 145, 208, 0.12);
+  }
+
+  .dark .blog-card:hover {
+    box-shadow: 
+      0 12px 24px rgba(224, 145, 208, 0.25),
+      0 8px 16px rgba(192, 132, 179, 0.2),
+      0 0 0 1px rgba(224, 145, 208, 0.18);
   }
   
   .blog-card-image-container {
-    width: calc(100% + 36px);
-    height: 200px; /* 固定图片容器高度 */
+    width: 100%;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
-    margin: -18px -18px 1.5rem -18px;
-    border-radius: 12px 12px 0 0;
+    position: relative;
+  }
+  
+  .blog-card-image-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .blog-card:hover .blog-card-image-container::after {
+    opacity: 1;
   }
   
   .blog-card-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 保持宽高比并裁剪多余部分 */
-    object-position: center; /* 居中裁剪 */
-    transition: transform 0.3s ease;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .blog-card:hover .blog-card-image {
-    transform: scale(1.05);
+    transform: scale(1.08);
+  }
+  
+  .blog-card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .blog-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .blog-card-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #ad5389;
+    background: linear-gradient(90deg, rgba(173, 83, 137, 0.1), rgba(60, 16, 83, 0.1));
+    border-radius: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  
+  .dark .blog-card-tag {
+    background: linear-gradient(90deg, rgba(224, 145, 208, 0.18), rgba(192, 132, 179, 0.18));
+    color: #e091d0;
   }
   
   .blog-card-title {
+    margin: 0 0 12px 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4;
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* 限制标题最多显示2行 */
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-weight: 600;
-    color: var(--color-text-dark);
-  }
-
-  .dark .blog-card-title {
-    color: #fff; /* 在夜间模式下使用白色标题 */
   }
   
-  .blog-card-content {
-    flex-grow: 1; /* 让内容区域自动填充可用空间 */
-    margin-bottom: 0; /* 减少底部间距 */
+  .blog-card-title a {
+    text-decoration: none;
+    color: #1a1a1a;
+    transition: color 0.3s ease;
+  }
+  
+  .blog-card:hover .blog-card-title a {
+    color: #ad5389;
+  }
+
+  .dark .blog-card-title a {
+    color: #fff;
+  }
+  
+  .dark .blog-card:hover .blog-card-title a {
+    color: #e091d0;
   }
   
   .blog-card-summary {
+    flex-grow: 1;
+    margin: 0 0 20px 0;
+    color: #666;
+    line-height: 1.7;
+    font-size: 0.9375rem;
     display: -webkit-box;
-    -webkit-line-clamp: 3; /* 限制摘要最多显示3行 */
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: var(--color-text-light);
-    line-height: 1.6;
+  }
+  
+  .dark .blog-card-summary {
+    color: #aaa;
   }
   
   .blog-card-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: auto; /* 将页脚推到底部 */
-    padding-top: 1rem; /* 添加顶部内边距 */
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    margin-top: auto;
   }
   
-  .blog-card a.btn {
+  .dark .blog-card-footer {
+    border-top-color: rgba(255, 255, 255, 0.06);
+  }
+  
+  .blog-card-author {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    color: #666;
     font-weight: 500;
+  }
+  
+  .dark .blog-card-author {
+    color: #aaa;
+  }
+  
+  .blog-card-author::before {
+    content: 'Author';
+    font-size: 0.75rem;
+    color: #ad5389;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .dark .blog-card-author::before {
+    color: #e091d0;
+  }
+  
+  .blog-card-date {
+    font-size: 0.8125rem;
+    color: #999;
+    font-weight: 400;
+  }
+  
+  .dark .blog-card-date {
+    color: #999;
+  }
+  
+  .blog-card-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+  
+  .blog-card-body {
+    position: relative;
+    z-index: 2;
+  }
+  
+  @media (max-width: 768px) {
+    .blog-card-image-container {
+      aspect-ratio: 16 / 9;
+    }
+    
+    .blog-card-body {
+      padding: 20px;
+    }
+    
+    .blog-card-title {
+      font-size: 1.125rem;
+    }
   }
 </style>

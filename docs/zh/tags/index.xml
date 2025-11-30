@@ -6,8 +6,15 @@
     <description>Recent content in Tags on Liangbin&#39;s Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 04 Jul 2025 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 13 Jul 2025 00:00:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/zh/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu</title>
+      <link>http://localhost:1313/zh/tags/ubuntu/</link>
+      <pubDate>Sun, 13 Jul 2025 00:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/zh/tags/ubuntu/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Reflections</title>
       <link>http://localhost:1313/zh/tags/reflections/</link>

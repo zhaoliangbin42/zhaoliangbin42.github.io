@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/zh/</loc>
-    <lastmod>2025-07-04T00:00:00+08:00</lastmod>
+    <lastmod>2025-07-13T00:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>http://localhost:1313/zh/categories/</loc>
-    <lastmod>2025-07-04T00:00:00+08:00</lastmod>
+    <lastmod>2025-07-13T00:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
@@ -28,14 +28,8 @@
                 href="http://localhost:1313/zh/categories/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/categories/reflections/</loc>
-    <lastmod>2025-07-04T00:00:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/zh/tags/reflections/</loc>
-    <lastmod>2025-07-04T00:00:00+08:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/zh/tags/</loc>
-    <lastmod>2025-07-04T00:00:00+08:00</lastmod>
+    <lastmod>2025-07-13T00:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
@@ -47,11 +41,14 @@
                 href="http://localhost:1313/zh/tags/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/notes/reflection-wechat-official-account/</loc>
-    <lastmod>2025-07-04T00:00:00+08:00</lastmod>
+    <loc>http://localhost:1313/zh/categories/tips/</loc>
+    <lastmod>2025-07-13T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/zh/tags/ubuntu/</loc>
+    <lastmod>2025-07-13T00:00:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/zh/notes/</loc>
-    <lastmod>2025-07-04T00:00:00+08:00</lastmod>
+    <lastmod>2025-07-13T00:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
@@ -63,13 +60,22 @@
                 href="http://localhost:1313/zh/notes/"
                 />
   </url><url>
+    <loc>http://localhost:1313/zh/notes/tutorial-how-to-use-server/</loc>
+    <lastmod>2025-07-13T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/zh/categories/reflections/</loc>
+    <lastmod>2025-07-04T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/zh/tags/reflections/</loc>
+    <lastmod>2025-07-04T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/zh/notes/reflection-wechat-official-account/</loc>
+    <lastmod>2025-07-04T00:00:00+08:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/zh/notes/pdf-to-eps/</loc>
     <lastmod>2025-06-23T00:00:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/zh/tags/software/</loc>
-    <lastmod>2025-06-23T00:00:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/zh/categories/tips/</loc>
     <lastmod>2025-06-23T00:00:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/zh/notes/build-vpn/</loc>

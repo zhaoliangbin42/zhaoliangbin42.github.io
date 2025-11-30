@@ -5,16 +5,16 @@
       <div class="container">
         <div class="row justify-center">
           <div class="lg:col-7 md:col-9 mb-8 text-center">
-            <h1 class="mb-4 text-h3 lg:text-h1">
+            <h1 class="mb-4 text-h3 lg:text-h1 banner-gradient-title">
               {{ .title | markdownify }}
             </h1>
-            <p class="mb-8">
+            <p class="mb-8 banner-description">
               {{ .content | markdownify }}
             </p>
             {{ with .button }}
               {{ if .enable }}
                 <a
-                  class="btn btn-primary"
+                  class="btn home-cta-gradient-btn"
                   href="{{ .link | absLangURL }}"
                   {{ if strings.HasPrefix .link `http` }}
                     target="_blank" rel="noopener"
@@ -26,7 +26,9 @@
             {{ end }}
           </div>
           <div class="col-12">
-            {{ partial "image" (dict "Src" .image "Alt" "Banner image" "Loading" "eager" "Class" "mx-auto lg:!max-w-[800px]" "DisplayXL" "800x" ) }}
+            <div class="banner-image-wrapper">
+              {{ partial "image" (dict "Src" .image "Alt" "Banner image" "Loading" "eager" "Class" "banner-image" "DisplayXL" "800x" ) }}
+            </div>
           </div>
         </div>
       </div>

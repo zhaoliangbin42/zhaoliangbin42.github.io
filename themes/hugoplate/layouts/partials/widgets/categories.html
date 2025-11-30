@@ -2,17 +2,14 @@
 {{ if isset site.Taxonomies "categories" }}
   {{ if not (eq (len site.Taxonomies.categories) 0) }}
     <div class="mb-8">
-      <h5 class="mb-6">{{ T "categories" }}</h5>
-      <div class="bg-light dark:bg-darkmode-light rounded p-8">
-        <ul class="space-y-4">
+      <h5 class="mb-6 font-semibold text-lg">{{ T "categories" }}</h5>
+      <div class="rounded-2xl p-6" style="background: rgba(173, 83, 137, 0.03);">
+        <ul class="space-y-3">
           {{ range $name, $items := site.Taxonomies.categories }}
             <li>
-              <a
-                class="hover:text-primary dark:hover:text-darkmode-primary {{ if (and (eq $.Page.Kind `term`) (eq $.Page.Type `categories`) (eq $.Page.Title .Page.Title)) }}
-                  active
-                {{ end }} flex justify-between"
-                href="{{ .Page.RelPermalink }}">
-                {{ .Page.Title }} <span>( {{ len $items }} )</span>
+              <a class="category-item {{ if (and (eq $.Page.Kind `term`) (eq $.Page.Type `categories`) (eq $.Page.Title .Page.Title)) }}active{{ end }}" href="{{ .Page.RelPermalink }}">
+                <span class="category-name">{{ .Page.Title }}</span>
+                <span class="category-count">{{ len $items }}</span>
               </a>
             </li>
           {{ end }}
@@ -21,3 +18,85 @@
     </div>
   {{ end }}
 {{ end }}
+
+<style>
+  .category-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    font-size: 0.9375rem;
+    color: #444;
+    background: white;
+    border: 1px solid rgba(173, 83, 137, 0.15);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .category-item:hover {
+    background: linear-gradient(90deg, rgba(173, 83, 137, 0.08), rgba(60, 16, 83, 0.08));
+    border-color: rgba(173, 83, 137, 0.3);
+    transform: translateX(4px);
+  }
+  
+  .category-item.active {
+    background: linear-gradient(90deg, rgba(173, 83, 137, 0.1), rgba(60, 16, 83, 0.1));
+    border-color: #ad5389;
+  }
+  
+  .category-name {
+    font-weight: 500;
+  }
+  
+  .category-item:hover .category-name,
+  .category-item.active .category-name {
+    color: #ad5389;
+  }
+  
+  .category-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    height: 28px;
+    padding: 0 8px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #999;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 14px;
+  }
+  
+  .category-item:hover .category-count,
+  .category-item.active .category-count {
+    color: white;
+    background: linear-gradient(90deg, #ad5389, #3c1053);
+  }
+  
+  .dark .category-item {
+    background: var(--bg-darkmode-body);
+    color: #bbb;
+    border-color: rgba(224, 145, 208, 0.25);
+  }
+  
+  .dark .category-item:hover {
+    background: linear-gradient(90deg, rgba(224, 145, 208, 0.12), rgba(192, 132, 179, 0.12));
+    border-color: rgba(224, 145, 208, 0.45);
+  }
+  
+  .dark .category-item.active {
+    background: linear-gradient(90deg, rgba(224, 145, 208, 0.25), rgba(192, 132, 179, 0.25));
+    border-color: #e091d0;
+  }
+  
+  .dark .category-item:hover .category-name,
+  .dark .category-item.active .category-name {
+    color: #e091d0;
+  }
+  
+  .dark .category-count {
+    background: rgba(255, 255, 255, 0.05);
+    color: #999;
+  }
+</style>

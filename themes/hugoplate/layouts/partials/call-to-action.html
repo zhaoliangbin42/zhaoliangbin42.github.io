@@ -18,8 +18,9 @@
               </p>
               {{ with .Params.button }}
                 {{ if .enable }}
-                  <a class="btn btn-primary" href="{{ .link | absURL }}">
+                  <a class="cta-gradient-btn" href="{{ .link | absURL }}">
                     {{ .label }}
+                    <i class="fa-solid fa-arrow-right ml-2"></i>
                   </a>
                 {{ end }}
               {{ end }}

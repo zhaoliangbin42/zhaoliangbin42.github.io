@@ -16,29 +16,11 @@ hasCJKLanguage = true #  If hasCJKLanguage true, auto-detect Chinese/Japanese/Ko
 # default language
 defaultContentLanguage = 'zh'
 # defaultContentLanguageInSubdir need to be true if you want to use the language code as a subdirectory and language specific 404 page
-defaultContentLanguageInSubdir = true
+defaultContentLanguageInSubdir = false
 
 publishDir = "docs"
 
 enableMathJax = true
-
-
-########################## Multilingual ############################
-[languages]
-  [languages.zh]
-    languageName = "zh"
-    weight = 1
-    contentDir = "content/zh"
-    title = "Liangbin's Notes"            # 你可以根据需求自定义中文站点标题
-
-  [languages.en]
-    languageName = "en"
-    weight = 2
-    contentDir = "content/en"
-    title = "Liangbin's Notes"    # 可使用与全局相同的标题
-
-
-
 ########################### Services #############################
 [services]
 [services.googleAnalytics]

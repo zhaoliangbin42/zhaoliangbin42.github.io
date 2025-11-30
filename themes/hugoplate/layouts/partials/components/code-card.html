@@ -1,60 +1,315 @@
-<div class="bg-body dark:bg-darkmode-body p-4 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
-    {{ $image:= .Params.image }}
-    {{ if $image }}
-      {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "mb-6 w-full rounded") }}
-    {{ end }}
-    <h4 class="mb-3 font-bold">
+<div class="code-card bg-body dark:bg-darkmode-body">
+  {{ $image:= .Params.image }}
+  {{ if $image }}
+    <div class="code-card-image-container">
+      {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "code-card-image") }}
+    </div>
+  {{ end }}
+  
+  <div class="code-card-body">
+    <h4 class="code-card-title">
       <a href="{{ .RelPermalink }}">
         {{ .Title }}
       </a>
     </h4>
-    <p class="mb-4 text-gray-700 dark:text-gray-300">{{ .Params.summary | default .Summary | plainify }}</p>
     
-    <div class="flex flex-wrap items-center mb-4 text-sm">
+    <p class="code-card-summary">{{ .Params.summary | default .Summary | plainify }}</p>
+    
+    <div class="code-card-meta">
       {{ if .Params.author }}
-      <div class="mr-4 mb-2">
-        <i class="fa-regular fa-circle-user mr-1"></i>
+      <div class="code-card-meta-item">
+        <span class="code-card-meta-label">Author</span>
         <span>{{ .Params.author }}</span>
       </div>
       {{ end }}
       
       {{ if .Params.stars }}
-      <div class="mr-4 mb-2">
-        <i class="fa-solid fa-star mr-1 text-yellow-500"></i>
+      <div class="code-card-meta-item">
+        <i class="fa-solid fa-star code-card-star"></i>
         <span>{{ .Params.stars }}</span>
-      </div>
-      {{ end }}
-      
-      {{ if .Params.updated_date }}
-      <div class="mb-2">
-        <i class="fa-regular fa-calendar-check mr-1"></i>
-        <span>{{ .Params.updated_date | time.Format "2006-01-02" }}</span>
-      </div>
-      {{ else }}
-      <div class="mb-2">
-        <i class="fa-regular fa-calendar mr-1"></i>
-        <span>{{ .Date.Format "2006-01-02" }}</span>
       </div>
       {{ end }}
     </div>
     
-    <div class="flex items-center justify-between mt-4">
-      <div class="flex">
+    <div class="code-card-footer">
+      <div class="code-card-links">
         {{ if .Params.paper_url }}
-        <a href="{{ .Params.paper_url }}" class="mr-3 text-primary hover:text-primary-dark" title="论文链接" target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-file-pdf text-lg"></i>
+        <a href="{{ .Params.paper_url }}" class="code-card-link" title="论文链接" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-file-pdf"></i>
         </a>
         {{ end }}
         
         {{ if .Params.github_url }}
-        <a href="{{ .Params.github_url }}" class="text-primary hover:text-primary-dark" title="GitHub 仓库" target="_blank" rel="noopener noreferrer">
-          <i class="fa-brands fa-github text-lg"></i>
+        <a href="{{ .Params.github_url }}" class="code-card-link" title="GitHub 仓库" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-github"></i>
         </a>
         {{ end }}
       </div>
       
-      <a class="btn btn-outline-primary btn-sm" href="{{ .RelPermalink }}">
-        {{ T "read_more" }}
-      </a>
+      <div class="code-card-date">
+        {{ if .Params.updated_date }}
+          {{ .Params.updated_date | time.Format "2006-01-02" }}
+        {{ else }}
+          {{ .Date.Format "2006-01-02" }}
+        {{ end }}
+      </div>
     </div>
   </div>
+  
+  <a class="code-card-overlay" href="{{ .RelPermalink }}" aria-label="{{ .Title }}"></a>
+</div>
+
+<style>
+  .code-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 16px;
+    background-color: var(--bg-body);
+    box-shadow: 
+      0 2px 8px rgba(173, 83, 137, 0.12),
+      0 1px 4px rgba(60, 16, 83, 0.10),
+      0 0 0 1px rgba(173, 83, 137, 0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .code-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+      0 12px 24px rgba(173, 83, 137, 0.15),
+      0 8px 16px rgba(60, 16, 83, 0.12),
+      0 0 0 1px rgba(173, 83, 137, 0.08);
+  }
+  
+  .dark .code-card {
+    box-shadow: 
+      0 2px 8px rgba(224, 145, 208, 0.18),
+      0 1px 4px rgba(192, 132, 179, 0.15),
+      0 0 0 1px rgba(224, 145, 208, 0.12);
+  }
+
+  .dark .code-card:hover {
+    box-shadow: 
+      0 12px 24px rgba(224, 145, 208, 0.25),
+      0 8px 16px rgba(192, 132, 179, 0.2),
+      0 0 0 1px rgba(224, 145, 208, 0.18);
+  }
+  
+  .code-card-image-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .code-card-image-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .code-card:hover .code-card-image-container::after {
+    opacity: 1;
+  }
+  
+  .code-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .code-card:hover .code-card-image {
+    transform: scale(1.08);
+  }
+  
+  .code-card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 24px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .code-card-title {
+    margin: 0 0 12px 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .code-card-title a {
+    text-decoration: none;
+    color: #1a1a1a;
+    transition: color 0.3s ease;
+  }
+  
+  .code-card:hover .code-card-title a {
+    color: #ad5389;
+  }
+
+  .dark .code-card-title a {
+    color: #fff;
+  }
+  
+  .dark .code-card:hover .code-card-title a {
+    color: #e091d0;
+  }
+  
+  .code-card-summary {
+    flex-grow: 1;
+    margin: 0 0 20px 0;
+    color: #666;
+    line-height: 1.7;
+    font-size: 0.9375rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .dark .code-card-summary {
+    color: #bbb;
+  }
+  
+  .code-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  
+  .dark .code-card-meta {
+    border-bottom-color: rgba(255, 255, 255, 0.06);
+  }
+  
+  .code-card-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.875rem;
+    color: #666;
+  }
+  
+  .dark .code-card-meta-item {
+    color: #aaa;
+  }
+  
+  .code-card-meta-label {
+    font-size: 0.75rem;
+    color: #ad5389;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .dark .code-card-meta-label {
+    color: #e091d0;
+  }
+  
+  .code-card-meta-item i {
+    color: #999;
+    font-size: 0.875rem;
+  }
+  
+  .dark .code-card-meta-item i {
+    color: #999;
+  }
+  
+  .code-card-star {
+    color: #fbbf24 !important;
+  }
+  
+  .code-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+  }
+  
+  .code-card-links {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .code-card-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, rgba(173, 83, 137, 0.1), rgba(60, 16, 83, 0.1));
+    color: #ad5389;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .code-card-link:hover {
+    background: linear-gradient(90deg, #ad5389, #3c1053);
+    color: white;
+    transform: scale(1.1);
+  }
+  
+  .dark .code-card-link {
+    background: linear-gradient(90deg, rgba(224, 145, 208, 0.18), rgba(192, 132, 179, 0.18));
+    color: #e091d0;
+  }
+  
+  .dark .code-card-link:hover {
+    background: linear-gradient(90deg, #e091d0, #c084b3);
+    color: white;
+  }
+  
+  .code-card-link i {
+    font-size: 1rem;
+  }
+  
+  .code-card-date {
+    font-size: 0.8125rem;
+    color: #999;
+    font-weight: 400;
+  }
+  
+  .dark .code-card-date {
+    color: #888;
+  }
+  
+  .code-card-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+  
+  @media (max-width: 768px) {
+    .code-card-image-container {
+      aspect-ratio: 16 / 9;
+    }
+    
+    .code-card-body {
+      padding: 20px;
+    }
+    
+    .code-card-title {
+      font-size: 1.125rem;
+    }
+  }
+</style>

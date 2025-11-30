@@ -39,14 +39,13 @@ hugo --minify  # 构建并压缩网站，如果要上传至github，则应该运
 .
 ├── assets/            # 资源文件（SCSS、JS等）
 ├── content/           # 内容文件夹
-│   ├── en/            # 英文内容
-│   │   ├── about/     # 关于页面
-│   │   ├── notes/     # 英文笔记
-│   │   └── pages/     # 其他页面
-│   └── zh/            # 中文内容
-│       ├── about/     # 关于页面
-│       ├── notes/     # 中文笔记
-│       └── pages/     # 其他页面
+│   ├── about/         # 关于页面
+│   ├── codes/         # 代码相关
+│   ├── contact/       # 联系方式
+│   ├── notes/         # 笔记
+│   ├── pages/         # 其他页面
+│   ├── projects/      # 项目
+│   └── sections/      # 首页分区
 ├── layouts/           # 自定义布局模板
 ├── static/            # 静态资源文件（直接复制到输出目录）
 ├── hugo.toml          # 主要配置文件
@@ -65,7 +64,7 @@ hugo --minify  # 构建并压缩网站，如果要上传至github，则应该运
 1. 在相应文件夹下创建一个新的Markdown文件（`.md`或`.md`）
 2. 添加必要的前置元数据（frontmatter）
 3. 编写笔记内容
-4. 相关资源（如图片）可以放在同名文件夹内的assets目录中，例如：`content/zh/notes/新笔记名/index.assets/`
+4. 相关资源（如图片）可以放在同名文件夹内的assets目录中，例如：`content/notes/新笔记名/index.assets/`
 
 
 
@@ -114,18 +113,12 @@ draft: false             # 草稿状态，true则不会在生产环境显示
 
 1. **创建内容目录**：
    ```bash
-   # 创建中文内容目录
-   mkdir -p content/zh/projects
-   # 创建英文内容目录
-   mkdir -p content/en/projects
+   mkdir -p content/projects
    ```
 
 2. **创建_index.md文件**：
    ```bash
-   # 中文索引页
-   hugo new content/zh/projects/_index.md
-   # 英文索引页
-   hugo new content/en/projects/_index.md
+   hugo new content/projects/_index.md
    ```
 
 3. **在_index.md中添加元数据**：
@@ -149,18 +142,11 @@ draft: false             # 草稿状态，true则不会在生产环境显示
    ```
 
 5. **添加到导航菜单**：
-   在`hugo.toml`中的`[menu]`部分添加：
+   在`config/_default/menus.toml`中添加：
    ```toml
-   # 中文导航
-   [[languages.zh.menu.main]]
+   [[main]]
    name = "项目"
-   url = "projects"
-   weight = 4
-   
-   # 英文导航
-   [[languages.en.menu.main]]
-   name = "Projects"
-   url = "projects"
+   url = "/projects"
    weight = 4
    ```
 
@@ -172,14 +158,9 @@ draft: false             # 草稿状态，true则不会在生产环境显示
    includeSections = ["notes", "projects", "works"]  # 添加新的section
    ```
 
-## 多语言支持
+## 语言说明
 
-本站支持中英双语，通过`hugo.toml`中的语言设置配置：
-- 默认语言：`defaultContentLanguage = 'zh'`
-- 中文内容：`content/zh/`
-- 英文内容：`content/en/`
-
-每种语言可以拥有独立的导航菜单和翻译文件。
+目前站点只保留一套内容，所有页面都直接位于 `content/` 目录下。
 
 ## 调试技巧
 
@@ -283,14 +264,12 @@ content/
 
 
 
+## Images Generating Prompts
+### Background Images
+A minimalist 3D render of **[Over-ear Headphones]**, floating directly in the center against the background. The object features a smooth matte plastic texture and is rendered in **beautiful, aesthetically pleasing colors suitable for high-end design**. It is medium scale relative to the vast frame, leaving ample negative space around it. Soft diffused studio lighting. The background is a luxurious abstract fluid gradient, shades of **[cyan, soft blue, and purple]**, blurred, elegant, tech vibe. ultra-detailed, 8k resolution --ar 16:9 --no background card, platform, podium
 
-
-
-
-
-
-
-
+### Icon Images
+A cute, minimalist 3D render icon of **[a graduation cap]**, floating centrally in a seamless pure white studio space. The object has a smooth matte plastic texture with friendly, rounded edges and toy-like geometry. It is rendered in aesthetically pleasing, modern design colors chosen by the AI. Soft, diffused studio lighting from top-left creates gentle highlights. A soft, realistic ambient occlusion shadow is cast on the invisible white ground plane directly underneath the object, emphasizing that it is suspended in mid-air. Isometric view, sharp focus, high detailed 3D rendering, C4D style. Square aspect ratio (1:1).
 
 
 

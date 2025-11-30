@@ -2,16 +2,12 @@
 {{ if isset site.Taxonomies "tags" }}
   {{ if not (eq (len site.Taxonomies.tags) 0) }}
     <div class="mb-8">
-      <h5 class="mb-6">{{ T "tags" }}</h5>
-      <div class="bg-light dark:bg-darkmode-light rounded p-6">
-        <ul>
+      <h5 class="mb-6 font-semibold text-lg">{{ T "tags" }}</h5>
+      <div class="rounded-2xl p-6" style="background: rgba(173, 83, 137, 0.03);">
+        <ul class="flex flex-wrap gap-2">
           {{ range $name, $items := site.Taxonomies.tags }}
-            <li class="inline-block">
-              <a
-                class="hover:bg-primary dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark {{ if (and (eq $.Page.Kind `term`) (eq $.Page.Type `tags`) (eq $.Page.Title .Page.Title)) }}
-                  active
-                {{ end }} m-1 block rounded bg-white px-3 py-1 hover:text-white"
-                href="{{ .Page.RelPermalink }}">
+            <li>
+              <a class="tag-item {{ if (and (eq $.Page.Kind `term`) (eq $.Page.Type `tags`) (eq $.Page.Title .Page.Title)) }}active{{ end }}" href="{{ .Page.RelPermalink }}">
                 {{ .Page.Title }}
               </a>
             </li>
@@ -21,3 +17,43 @@
     </div>
   {{ end }}
 {{ end }}
+
+<style>
+  .tag-item {
+    display: inline-block;
+    padding: 6px 16px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #666;
+    background: white;
+    border: 1px solid rgba(173, 83, 137, 0.2);
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .tag-item:hover {
+    background: linear-gradient(90deg, #ad5389, #3c1053);
+    color: white;
+    border-color: transparent;
+    transform: translateY(-2px);
+  }
+  
+  .tag-item.active {
+    background: linear-gradient(90deg, #ad5389, #3c1053);
+    color: white;
+    border-color: transparent;
+  }
+  
+  .dark .tag-item {
+    background: var(--bg-darkmode-body);
+    color: #bbb;
+    border-color: rgba(224, 145, 208, 0.35);
+  }
+  
+  .dark .tag-item:hover,
+  .dark .tag-item.active {
+    background: linear-gradient(90deg, #e091d0, #c084b3);
+    color: white;
+  }
+</style>

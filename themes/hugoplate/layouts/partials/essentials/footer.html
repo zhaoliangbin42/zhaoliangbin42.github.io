@@ -31,10 +31,11 @@
         </ul>
       </div>
       <div class="lg:col-3 mb-8 text-center lg:mb-0 lg:mt-0 lg:text-right">
-        <ul class="social-icons">
+        <ul class="social-icons flex justify-center lg:justify-end gap-3">
           {{ range site.Data.social.main }}
             <li>
               <a
+                class="footer-social-link"
                 target="_blank"
                 aria-label="{{ .name }}"
                 rel="nofollow noopener"
@@ -44,8 +45,8 @@
             </li>
           {{ end }}
         </ul>
-        <p class="text-sm text-text-light dark:text-darkmode-text-light mt-4">
-            <i class="fa-regular mr-1"></i> {{ T "last_updated" | default "Last updated" }}: {{ .Site.Lastmod.Format "2006-01-02" }}
+        <p class="footer-update-text">
+            <i class="fa-regular fa-calendar-check mr-1"></i> {{ T "last_updated" | default "Last updated" }}: {{ .Site.Lastmod.Format "2006-01-02" }}
         </p>
       </div>
     </div>
