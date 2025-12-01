@@ -4,8 +4,8 @@
       <!-- 头部信息 -->
       <div class="row justify-center">
         <div class="md:col-10 lg:col-7 text-center">
-          {{ partial "image" (dict "Src" .Params.image "Context" .Page "Alt" .Title "Class" "mx-auto mb-6" "Size" "200x0") }}
-          <h2 class="h3 mb-6">{{ .Title }}</h2>
+          {{ partial "image" (dict "Src" .Params.image "Context" .Page "Alt" .Title "Class" "about-avatar mx-auto mb-6" "Size" "200x0") }}
+          <h2 class="h3 mb-6 gradient-text">{{ .Title }}</h2>
         </div>
       </div>
       
@@ -32,10 +32,16 @@
 
           <!-- 主要内容网格 -->
           <div class="article-content-grid">
-            <!-- 左侧：文章内容 -->
+            <!-- 左侧:文章内容 -->
             <article class="article-main-content">
               <div class="content">
                 {{ .Content }}
+              </div>
+              
+              <!-- 最后更新时间 -->
+              <div class="article-update-time">
+                <i class="fa-regular fa-calendar-check"></i>
+                <span>最后更新: {{ .Lastmod.Format "2006-01-02" }}</span>
               </div>
             </article>
 

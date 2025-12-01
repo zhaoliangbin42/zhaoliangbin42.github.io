@@ -262,6 +262,9 @@ content/
 - [GitHub Pages](https://pages.github.com/) - 提供网站托管服务
 
 
+## Resources
+
+- Gradient colors: https://uigradients.com/#eXpresso
 
 
 ## Images Generating Prompts

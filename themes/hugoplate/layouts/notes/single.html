@@ -29,38 +29,64 @@
                         {{ $image:= .Params.image }}
                         {{ if $image }}
                         <div class="mb-10">
-                            {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "w-full rounded") }}
+                            {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "w-full article-banner-image") }}
                         </div>
                         {{ end }}
                         
-                        <h1 class="h2 mb-4">
+                        <h1 class="h2 mb-4 gradient-text">
                             {{ .Title }}
                         </h1>
                         
-                        <ul class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-                            <li class="mr-4 inline-block">
-                                <a href="{{ `authors/` | relLangURL }}{{ .Params.Author | urlize }}/">
-                                    <i class="fa-regular fa-user-pen mr-2"></i>{{ .Params.author }}
-                                </a>
-                            </li>
+                        <!-- 文章摘要 -->
+                        {{ with .Params.summary }}
+                        <div class="article-summary">
+                            <div class="article-summary-icon">
+                                <i class="fa-solid fa-quote-left"></i>
+                            </div>
+                            <p class="article-summary-text">{{ . }}</p>
+                        </div>
+                        {{ end }}
+                        
+                        <!-- 文章元信息 -->
+                        <div class="article-meta-card">
+                            <div class="article-meta-item">
+                                <span class="meta-label">Author</span>
+                                <span class="meta-value">{{ .Params.author }}</span>
+                            </div>
                             {{ $categories:= .Params.categories }}
                             {{ if $categories }}
-                            <li class="mr-4 inline-block">
-                                <i class="fa-regular fa-folder mr-2"></i>
-                                {{ range $i,$p:= $categories }}
-                                <a href="{{ `categories/` | relLangURL }}{{ . | urlize | lower }}/" class="">{{ . | humanize
-                                    }}{{ if ne $i (sub (len $categories) 1) }}
-                                    {{ "," }}
+                            <div class="article-meta-item">
+                                <span class="meta-label">Category</span>
+                                <span class="meta-value">
+                                    {{ range $i,$p:= $categories }}
+                                    <a href="{{ `categories/` | relLangURL }}{{ . | urlize | lower }}/" class="article-meta-link">
+                                        {{ . | humanize }}{{ if ne $i (sub (len $categories) 1) }}, {{ end }}
+                                    </a>
                                     {{ end }}
+                                </span>
+                            </div>
+                            {{ end }}
+                            <div class="article-meta-item">
+                                <span class="meta-label">Date</span>
+                                <span class="meta-value">{{ time.Format "2006-01-02" .PublishDate }}</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Tags 行 -->
+                        {{ $tags:= .Params.tags }}
+                        {{ if $tags }}
+                        <div class="article-tags-header">
+                            <span class="article-tags-label">Tags</span>
+                            <div class="article-tags-inline">
+                                {{ range $tags }}
+                                <a href="{{ `tags/` | relLangURL }}{{ . | urlize | lower }}/" class="article-tag-item">
+                                    <i class="fa-solid fa-tag"></i>
+                                    {{ . }}
                                 </a>
                                 {{ end }}
-                            </li>
-                            {{ end }}
-                            <li class="mr-4 inline-block">
-                                <i class="fa-regular fa-clock mr-2"></i>
-                                {{ time.Format ":date_long" .PublishDate }}
-                            </li>
-                        </ul>
+                            </div>
+                        </div>
+                        {{ end }}
                         
                         <div class="content mb-10">
                             {{ .Content }}
@@ -77,7 +103,7 @@
                                     <div class="article-tags-list">
                                         {{ range $tags }}
                                         <a class="article-tag" href="{{ `tags/` | relLangURL }}{{ . | urlize | lower }}/">
-                                            {{ . | humanize }}
+                                            {{ . }}
                                         </a>
                                         {{ end }}
                                     </div>
@@ -109,12 +135,10 @@
                                 <div id="qrcode-container" class="qrcode-container"></div>
                             </div>
                         </div>
-                        
-                        {{ if site.Config.Services.Disqus.Shortname }}
-                        <div class="mt-20">
-                            {{ template "_internal/disqus.html" . }}
+                        <!-- Giscus 评论区 -->
+                        <div class="comments-section">
+                            {{ partial "giscus.html" . }}
                         </div>
-                        {{ end }}
                     </article>
 
                     <!-- 右侧：浮动 TOC -->
@@ -136,16 +160,19 @@
         {{ $related := .Site.RegularPages.Related . | first 10 }}
         {{ $related = $related | shuffle | first 3 }}
         {{ with $related }}
-        <div class="section pb-0">
-            <h2 class="h3 mb-12">{{ T "related_posts" }}</h2>
+        <!-- <div class="section pb-0"> -->
+            <div class="related-posts-header pt-14">
+                <i class="fa-solid fa-layer-group"></i>
+                <h2 class="related-posts-title">{{ T "related_posts" }}</h2>
+            </div>
             <div class="row">
                 {{ range . }}
-                <div class="lg:col-4 md:col-6 mb-14">
+                <div class="lg:col-4 md:col-6 mb-8">
                     {{ partial "components/blog-card" . }}
                 </div>
                 {{ end }}
             </div>
-        </div>
+        <!-- </div> -->
         {{ end }}
     </div>
 </section>

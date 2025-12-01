@@ -24,10 +24,11 @@ enableMathJax = true
 ########################### Services #############################
 [services]
 [services.googleAnalytics]
-ID = 'G-MEASUREMENT_ID' # see https://gohugo.io/templates/internal/#configure-google-analytics
+ID = 'G-0TRYH6SRSY' # see https://gohugo.io/templates/internal/#configure-google-analytics
 
-[services.disqus]
-shortname = 'zhaoliangbin42-github-io' # we use disqus to show comments in blog posts . To install disqus please follow this tutorial https://portfolio.peter-baumgartner.net/2017/09/10/how-to-install-disqus-on-hugo/
+# Disqus - 已禁用，改用 Giscus
+# [services.disqus]
+# shortname = 'zhaoliangbin42-github-io'
 
 ########################## Permalinks ############################
 [permalinks.page]
@@ -37,7 +38,7 @@ shortname = 'zhaoliangbin42-github-io' # we use disqus to show comments in blog 
 ########################## Pagination ############################
 [pagination]
 disableAliases = false
-pagerSize = 10
+pagerSize = 18
 path = 'page'
 
 
@@ -102,9 +103,15 @@ codeFences = true
 guessSyntax = false 
 
 [markup.tableOfContents]
-startLevel = 2
+startLevel = 1
 endLevel = 3
-ordered = true
+ordered = false
+
+########################### Taxonomies ###########################
+[taxonomies]
+category = "categories"
+tag = "tags"
+author = "authors"
 
 ########################### Media types ###########################
 [mediaTypes]

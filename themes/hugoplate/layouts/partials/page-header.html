@@ -2,14 +2,29 @@
   <div class="container text-center">
     <div class="page-header-card">
       <div class="page-header-icon">
-        {{ if eq .Title "笔记" }}
-          <i class="fa-solid fa-pen-nib"></i>
-        {{ else if eq .Title "代码" }}
-          <i class="fa-solid fa-pen-fancy"></i>
+        {{ if or (eq .Section "notes") (in .Title "笔记") }}
+          <i class="fa-solid fa-book"></i>
+        {{ else if or (eq .Section "codes") (in .Title "代码") }}
+          <i class="fa-solid fa-code"></i>
+        {{ else if or (eq .Section "categories") (hasPrefix .RelPermalink "/categories/") }}
+          <i class="fa-solid fa-folder-open"></i>
+        {{ else if or (eq .Section "tags") (hasPrefix .RelPermalink "/tags/") }}
+          <i class="fa-solid fa-tags"></i>
+        {{ else if or (eq .Section "authors") (hasPrefix .RelPermalink "/authors/") }}
+          <i class="fa-solid fa-user-pen"></i>
         {{ else }}
           <i class="fa-solid fa-folder-open"></i>
         {{ end }}
       </div>
+      
+      {{ if or (eq .Section "categories") (hasPrefix .RelPermalink "/categories/") }}
+        <div class="page-header-type">Category</div>
+      {{ else if or (eq .Section "tags") (hasPrefix .RelPermalink "/tags/") }}
+        <div class="page-header-type">Tag</div>
+      {{ else if or (eq .Section "authors") (hasPrefix .RelPermalink "/authors/") }}
+        <div class="page-header-type">Author</div>
+      {{ end }}
+      
       <h1 class="gradient-text page-header-title">
         {{ T (printf "%s" (lower .Title)) | default .Title | title }}
       </h1>
@@ -25,9 +40,10 @@
   
   .page-header-card {
     background: linear-gradient(135deg, rgba(173, 83, 137, 0.08), rgba(60, 16, 83, 0.08));
-    border: 1px solid rgba(173, 83, 137, 0.15);
+    border: none;
     border-radius: 24px;
     padding: 3rem 2rem;
+    box-shadow: 0 0 30px rgba(173, 83, 137, 0.15);
   }
   
   .page-header-icon {
@@ -42,6 +58,15 @@
     color: white;
     font-size: 1.75rem;
     box-shadow: 0 8px 16px rgba(173, 83, 137, 0.3);
+  }
+  
+  .page-header-type {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--theme-color);
+    margin-bottom: 0.5rem;
   }
   
   .page-header-title {
@@ -61,7 +86,8 @@
   
   .dark .page-header-card {
     background: linear-gradient(135deg, rgba(224, 145, 208, 0.18), rgba(192, 132, 179, 0.18));
-    border-color: rgba(224, 145, 208, 0.35);
+    border: none;
+    box-shadow: 0 0 30px rgba(224, 145, 208, 0.2);
   }
   
   .dark .page-header-description { color: #bbb; }

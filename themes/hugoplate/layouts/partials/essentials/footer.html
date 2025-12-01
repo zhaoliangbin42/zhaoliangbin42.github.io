@@ -38,7 +38,7 @@
                 class="footer-social-link"
                 target="_blank"
                 aria-label="{{ .name }}"
-                rel="nofollow noopener"
+                rel="nofollow noopener noreferrer"
                 href="{{ .link | safeURL }}">
                 <i class="{{ .icon }}"></i>
               </a>
@@ -46,7 +46,7 @@
           {{ end }}
         </ul>
         <p class="footer-update-text">
-            <i class="fa-regular fa-calendar-check mr-1"></i> {{ T "last_updated" | default "Last updated" }}: {{ .Site.Lastmod.Format "2006-01-02" }}
+            <i class="fa-regular fa-calendar-check mr-1"></i> {{ T "last_updated" | default "Last updated" }}: {{ now.Format "2006-01-02" }}
         </p>
       </div>
     </div>

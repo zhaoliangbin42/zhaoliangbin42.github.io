@@ -4,3 +4,9 @@
 *.html
 *.xml
 docs/
+vx_notebook/
+.MWebMetaData/
+*.log
+.env
+.DS_Store
+**/.DS_Store

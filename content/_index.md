@@ -1,53 +1,72 @@
 ---
-# Banner
-banner:
-  title: "Liangbin's Notes"
-  content: "Just a place where Liangbin keeps thinking out loud."
+# Hero Section
+hero:
+  enable: true
+  greeting: "Hi, I'm"
+  name: "Liangbin"
+  title: "北京理工大学"
+  subtitle: "Ph.D Candidate in Wireless Communications"
+  description: "通信物理计算机，样样都想学；编程游泳羽毛球，样样学不好。"
   image: "/images/banner.png"
-  button:
-    enable: true
-    label: "Let's go"
-    link: "notes"
+  buttons:
+    - label: "阅读我的思考"
+      link: "notes"
+      style: "primary"
+    - label: "逛逛我的代码"
+      link: "codes"
+      style: "outline"
 
-# # Features
-# features:
-#   - title: "What's Included in Hugoplate"
-#     image: "/images/service-1.png"
-#     content: "Hugoplate is a comprehensive starter template that includes everything you need to get started with your Hugo project. What's Included in Hugoplate"
-#     bulletpoints:
-#       - "10+ Pre-build pages"
-#       - "95+ Google Pagespeed Score"
-#       - "Build with Hugo and TailwindCSS for easy and customizable styling"
-#       - "Fully responsive on all devices"
-#       - "SEO-optimized for better search engine rankings"
-#       - "**Open-source and free** for personal and commercial use"
-#     button:
-#       enable: false
-#       label: "Get Started Now"
-#       link: "#"
+# About Section
+about:
+  enable: true
+  title: "致我的朋友"
+  content: |
+    我是一名很普通的北京理工大学老博士生，目前研究的方向是**通信与感知一体化**。
 
-#   - title: "Discover the Key Features Of Hugo"
-#     image: "/images/service-2.png"
-#     content: "Hugo is an all-in-one web framework for building fast, content-focused websites. It offers a range of exciting features for developers and website creators. Some of the key features are:"
-#     bulletpoints:
-#       - "Zero JS, by default: No JavaScript runtime overhead to slow you down."
-#       - "Customizable: Tailwind, MDX, and 100+ other integrations to choose from."
-#       - "UI-agnostic: Supports React, Preact, Svelte, Vue, Solid, Lit and more."
-#     button:
-#       enable: true
-#       label: "Get Started Now"
-#       link: "https://github.com/zeon-studio/hugoplate"
+    科研之外，我平时闲下来了会去**打打球、吃吃饭、吹吹水**，亦或者写写个人博客。
 
-#   - title: "The Top Reasons to Choose Hugo for Your Hugo Project"
-#     image: "/images/service-3.png"
-#     content: "With Hugo, you can build modern and content-focused websites without sacrificing performance or ease of use."
-#     bulletpoints:
-#       - "Instantly load static sites for better user experience and SEO."
-#       - "Intuitive syntax and support for popular frameworks make learning and using Hugo a breeze."
-#       - "Use any front-end library or framework, or build custom components, for any project size."
-#       - "Built on cutting-edge technology to keep your projects up-to-date with the latest web standards."
-#     button:
-#       enable: false
-#       label: ""
-#       link: ""
+    这里是我用来存放“**踩坑记录**”和“**胡思乱想**”的赛博自留地。 内容主打一个随心所欲，可能是一次代码报错的复盘，也可能是深夜的一点碎碎念。 这里的原则很简单：首先是为了我自己爽，其次，如果这些文字能帮到你，或者让你深有同感，那我就更爽了。
+
+    **朋友，既然来了，有空常来。**
+
+  image: "/images/Intro_Me.png"
+
+# Research Interests
+research_interests:
+  enable: true
+  title: "研究兴趣"
+  items:
+    - icon: "fa-solid fa-wifi"
+      title: "无线通信"
+      description: "研究无线通信系统的理论与技术，做点约等于无甚至是负的贡献"
+    - icon: "fa-solid fa-tower-broadcast"
+      title: "毫米波ISAC"
+      description: "探索异步通信与感知一体化系统，利用通信信号实现高精度参数估计"
+    - icon: "fa-solid fa-wave-square"
+      title: "信号处理"
+      description: "探索新型天线架构的信号处理技术，如全息天线、混合天线阵列等"
+    - icon: "fa-solid fa-brain"
+      title: "机器学习"
+      description: "很感兴趣，天天看大公司又推出了什么模型，事实是：在这个方向没有任何实际行动"
+
+# Featured Content (tabs已移除，改为在模板中直接定义)
+featured:
+  enable: true
+  title: "精选内容"
+
+# Philosophy
+philosophy:
+  enable: false
+  quote: "通信物理计算机，样样都想学, 编程游泳羽毛球，样样学不好"
+#   author: "— Liangbin's Research Philosophy"
+
+# Stats
+stats:
+  enable: true
+  papers: 4  # 发表论文数量，手动填写
+
+# Timeline (items已移除，改为动态获取最新文章)
+timeline:
+  enable: true
+  title: "近期动态"
 ---

@@ -7,11 +7,16 @@
   {{ end }}
   
   <div class="blog-card-body">
+    <!-- Categories and Tags -->
     {{ $categories:= .Params.categories }}
-    {{ if $categories }}
+    {{ $tags:= .Params.tags }}
+    {{ if or $categories $tags }}
       <div class="blog-card-meta">
-        {{ range $i,$p:= $categories }}
-          <span class="blog-card-tag">{{ . | humanize }}</span>
+        {{ range $categories }}
+          <a href="{{ `categories/` | relLangURL }}{{ . | urlize | lower }}/" class="blog-card-category">
+            <i class="fa-solid fa-folder"></i>
+            {{ . | humanize }}
+          </a>
         {{ end }}
       </div>
     {{ end }}
@@ -121,25 +126,47 @@
   .blog-card-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 6px;
     margin-bottom: 16px;
   }
   
-  .blog-card-tag {
-    display: inline-block;
-    padding: 4px 12px;
-    font-size: 12px;
-    font-weight: 500;
-    color: #ad5389;
-    background: linear-gradient(90deg, rgba(173, 83, 137, 0.1), rgba(60, 16, 83, 0.1));
+  /* Category 样式 - 深色背景，可点击链接 */
+  .blog-card-category {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #ad5389, #3c1053);
     border-radius: 12px;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
     text-transform: uppercase;
+    box-shadow: 0 2px 4px rgba(173, 83, 137, 0.3);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 10;
   }
   
-  .dark .blog-card-tag {
-    background: linear-gradient(90deg, rgba(224, 145, 208, 0.18), rgba(192, 132, 179, 0.18));
-    color: #e091d0;
+  .blog-card-category:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(173, 83, 137, 0.5);
+  }
+  
+  .blog-card-category i {
+    font-size: 10px;
+    opacity: 0.9;
+  }
+  
+  .dark .blog-card-category {
+    background: linear-gradient(135deg, #e091d0, #c084b3);
+    box-shadow: 0 2px 4px rgba(224, 145, 208, 0.4);
+  }
+  
+  .dark .blog-card-category:hover {
+    box-shadow: 0 4px 8px rgba(224, 145, 208, 0.6);
   }
   
   .blog-card-title {
