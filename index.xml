@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Liangbin's Notes</title><link>https://zhaoliangbin42.github.io/</link><description>Recent content on Liangbin's Notes</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Mon, 01 Dec 2025 00:00:00 +0800</lastBuildDate><atom:link href="https://zhaoliangbin42.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>小电驴博弈趣事</title><link>https://zhaoliangbin42.github.io/notes/ebike-gaming/</link><pubDate>Mon, 01 Dec 2025 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/notes/ebike-gaming/</guid><description>在城市道路上，小电驴是一种很神奇的存在。它既不是车，也不是人，介于秩序与混乱之间，像是现代交通体系中的野生动物，靠直觉与勇气闯荡。在北京，十里之内，电驴最快的事实，也让小电驴保有量急剧扩张，随之而来的就是小电驴与原有道路交通之间的各种顶级博弈行为。这些博弈行为让我感慨：人工智能想要模仿，还道阻且长。</description></item><item><title>Hey, I am Liangbin!</title><link>https://zhaoliangbin42.github.io/about/20251201_index_bak/</link><pubDate>Sun, 30 Nov 2025 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/about/20251201_index_bak/</guid><description>&lt;hr>
+&lt;h2 id="个人简介">个人简介&lt;/h2>
+&lt;p>赵良斌，2019年毕业于北京理工大学信息与电子学院通信工程专业，获工学学士学位；2020年至今于北京理工大学信息与电子学院攻读博士学位（信息与通信工程专业），师从&lt;a href="https://cnet.bit.edu.cn/sztd/js/b103673.htm"
+
+
+
+
+ target="_blank"
+ 
+
+
+>卜祥元教授&lt;/a>。
+自2023年起，以国家公派联合培养博士生身份赴澳大利亚麦考瑞大学（Macquarie University）计算机学院进行访问学习与合作研究，合作导师为&lt;a href="https://researchers.mq.edu.au/en/persons/yimeng-feng"
+
+
+
+
+ target="_blank"
+ 
+
+
+>Dr. Yimeng Feng&lt;/a>和&lt;a href="https://profiles.uts.edu.au/Andrew.Zhang"
+
+
+
+
+ target="_blank"
+ 
+
+
+>Prof. Andrew Zhang&lt;/a>。&lt;/p></description></item><item><title>分享一些我用到的文生图Prompt资源</title><link>https://zhaoliangbin42.github.io/notes/prompt_txt2img/</link><pubDate>Sun, 30 Nov 2025 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/notes/prompt_txt2img/</guid><description>年初刚开始写博客的时候，用的GPT5的文生图，那个时候生成出来的还比较单调，正好我博客也因为科研繁忙，搁置了好长一段时间。现在Gemini 3的Nano Banana Pro又上了一个台阶，恰逢我时间稍微宽松点，就想着将之前的图全部换掉，看看Nano Banana能不能胜任此次工作，顺便在这里记录一下我用到的Prompt。大家如果觉得图片好看，也可以试试我这里的Prompt。</description></item><item><title>High-Resolution Uplink Sensing in Millimeter-Wave ISAC Systems</title><link>https://zhaoliangbin42.github.io/codes/ab2fm/</link><pubDate>Sun, 16 Nov 2025 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/codes/ab2fm/</guid><description>Simulation for paper &amp;ldquo;High-Resolution Uplink Sensing in Millimeter-Wave ISAC Systems&amp;rdquo;</description></item><item><title>Passive Sensing for Multiple Vehicles in Bi-static ISAC Systems</title><link>https://zhaoliangbin42.github.io/codes/swip_music/</link><pubDate>Tue, 30 Sep 2025 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/codes/swip_music/</guid><description>Simulation for paper &amp;ldquo;Passive Sensing for Multiple Vehicles in Bi-static ISAC Systems&amp;rdquo;, accepted by VTC-2025 Spring</description></item><item><title>远程服务器怎么用才顺手</title><link>https://zhaoliangbin42.github.io/notes/tutorial-how-to-use-server/</link><pubDate>Sun, 13 Jul 2025 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/notes/tutorial-how-to-use-server/</guid><description>科研党怎么样才能比较顺手地使用远程Ubuntu服务器跑程序？</description></item><item><title>吐槽微信公众号的推送模式</title><link>https://zhaoliangbin42.github.io/notes/reflection-wechat-official-account/</link><pubDate>Fri, 04 Jul 2025 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/notes/reflection-wechat-official-account/</guid><description>内容还是流量？脚踏实地还是投机取巧？</description></item><item><title>.pdf转.eps</title><link>https://zhaoliangbin42.github.io/notes/pdf-to-eps/</link><pubDate>Mon, 23 Jun 2025 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/notes/pdf-to-eps/</guid><description>IEEE论文被接收之后，上传的最终版中，图片要求是eps格式，而如果你前期的图片是pdf格式，那么如何快速转为eps格式呢？</description></item><item><title>在国外留学，如何更快速访问国内网站</title><link>https://zhaoliangbin42.github.io/notes/build-vpn/</link><pubDate>Fri, 20 Jun 2025 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/notes/build-vpn/</guid><description>推荐一个软件，帮助你在海外高校网络中提高连接国内网站的速度。</description></item><item><title>我的配色方案</title><link>https://zhaoliangbin42.github.io/notes/my-color/</link><pubDate>Tue, 20 May 2025 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/notes/my-color/</guid><description>一个普通工科生平时常用的一些配色方案。</description></item><item><title>BI-AWGN信道接收概率初始化</title><link>https://zhaoliangbin42.github.io/notes/bi-awgn-initialize/</link><pubDate>Sat, 07 Oct 2023 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/notes/bi-awgn-initialize/</guid><description>本文介绍了BI-AWGN信道中接收概率的初始化方法，详细推导了对数似然比(LLR)的计算过程和在不同信噪比表示形式下的数学表达式。</description></item><item><title>信道均衡算法</title><link>https://zhaoliangbin42.github.io/notes/equalization/</link><pubDate>Fri, 06 Oct 2023 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/notes/equalization/</guid><description>介绍了通信系统中经典的自适应信道均衡算法，包括Sato算法、CMA恒模算法、MMA多模算法、DD算法、MCMA改进恒模算法及CADAMA等算法原理。</description></item><item><title>定时同步算法</title><link>https://zhaoliangbin42.github.io/notes/timing-recovery/</link><pubDate>Wed, 03 Aug 2022 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/notes/timing-recovery/</guid><description>介绍了通信系统中经典的自适应信道均衡算法，包括Sato算法、CMA恒模算法、MMA多模算法、DD算法、MCMA改进恒模算法及CADAMA等算法原理。</description></item><item><title>基于多相滤波器技术的匹配滤波实现方法</title><link>https://zhaoliangbin42.github.io/notes/polyphase-matched-filtering/</link><pubDate>Sat, 28 May 2022 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/notes/polyphase-matched-filtering/</guid><description>介绍了通信系统中经典的自适应信道均衡算法，包括Sato算法、CMA恒模算法、MMA多模算法、DD算法、MCMA改进恒模算法及CADAMA等算法原理。</description></item><item><title/><link>https://zhaoliangbin42.github.io/works/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/works/</guid><description/></item><item><title>Elements</title><link>https://zhaoliangbin42.github.io/contact/benko/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/contact/benko/</guid><description>&lt;details class="table-of-content ">
+ &lt;summary>
+ 
+ 目录
+ 
+ &lt;/summary>
+ &lt;nav id="TableOfContents">
+ &lt;ul>
+ &lt;li>&lt;a href="#heading-1">Heading 1&lt;/a>
+ &lt;ul>
+ &lt;li>&lt;a href="#heading-2">Heading 2&lt;/a>
+ &lt;ul>
+ &lt;li>&lt;a href="#heading-3">Heading 3&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#emphasis">Emphasis&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#button">Button&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#link">Link&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#paragraph">Paragraph&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#ordered-list">Ordered List&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#unordered-list">Unordered List&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#notice">Notice&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#tab">Tab&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#accordions">Accordions&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#code-and-syntax-highlighting">Code and Syntax Highlighting&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#blockquote">Blockquote&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#tables">Tables&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#image">Image&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#gallery">Gallery&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#slider">Slider&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#youtube-video">Youtube video&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#custom-video">Custom video&lt;/a>&lt;/li>
+ &lt;/ul>
+ &lt;/li>
+ &lt;/ul>
+ &lt;/li>
+ &lt;/ul>
+&lt;/nav>
+&lt;/details>
+
+&lt;p>Here is an example of headings. You can use this heading by the following markdown rules. For example: use &lt;code>#&lt;/code> for heading 1 and use &lt;code>######&lt;/code> for heading 6.&lt;/p></description></item><item><title>Elements</title><link>https://zhaoliangbin42.github.io/elements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/elements/</guid><description>&lt;details class="table-of-content ">
+ &lt;summary>
+ 
+ 目录
+ 
+ &lt;/summary>
+ &lt;nav id="TableOfContents">
+ &lt;ul>
+ &lt;li>&lt;a href="#heading-1">Heading 1&lt;/a>
+ &lt;ul>
+ &lt;li>&lt;a href="#heading-2">Heading 2&lt;/a>
+ &lt;ul>
+ &lt;li>&lt;a href="#heading-3">Heading 3&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#emphasis">Emphasis&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#button">Button&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#link">Link&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#paragraph">Paragraph&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#ordered-list">Ordered List&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#unordered-list">Unordered List&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#notice">Notice&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#tab">Tab&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#accordions">Accordions&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#code-and-syntax-highlighting">Code and Syntax Highlighting&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#blockquote">Blockquote&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#tables">Tables&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#image">Image&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#gallery">Gallery&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#slider">Slider&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#youtube-video">Youtube video&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#custom-video">Custom video&lt;/a>&lt;/li>
+ &lt;/ul>
+ &lt;/li>
+ &lt;/ul>
+ &lt;/li>
+ &lt;/ul>
+&lt;/nav>
+&lt;/details>
+
+&lt;p>Here is an example of headings. You can use this heading by the following markdown rules. For example: use &lt;code>#&lt;/code> for heading 1 and use &lt;code>######&lt;/code> for heading 6.&lt;/p></description></item><item><title>John Doe</title><link>https://zhaoliangbin42.github.io/projects/john-doe/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/projects/john-doe/</guid><description>&lt;p>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr navigation et dolore magna aliqua.&lt;/p></description></item><item><title>Privacy</title><link>https://zhaoliangbin42.github.io/privacy-policy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/privacy-policy/</guid><description>&lt;h4 id="responsibility-of-contributors">Responsibility of Contributors&lt;/h4>
+&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus. Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed&lt;/p></description></item><item><title>Sam Wilson</title><link>https://zhaoliangbin42.github.io/projects/sam-wilson/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/projects/sam-wilson/</guid><description>&lt;p>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr navigation et dolore magna aliqua.&lt;/p></description></item><item><title>William Jacob</title><link>https://zhaoliangbin42.github.io/projects/william-jacob/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/projects/william-jacob/</guid><description>&lt;p>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr navigation et dolore magna aliqua.&lt;/p></description></item></channel></rss>

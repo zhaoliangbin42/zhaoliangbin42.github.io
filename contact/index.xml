@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Contact on Liangbin's Notes</title><link>https://zhaoliangbin42.github.io/contact/</link><description>Recent content in Contact on Liangbin's Notes</description><generator>Hugo</generator><language>zh</language><atom:link href="https://zhaoliangbin42.github.io/contact/index.xml" rel="self" type="application/rss+xml"/><item><title>Elements</title><link>https://zhaoliangbin42.github.io/contact/benko/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/contact/benko/</guid><description>&lt;details class="table-of-content ">
+ &lt;summary>
+ 
+ 目录
+ 
+ &lt;/summary>
+ &lt;nav id="TableOfContents">
+ &lt;ul>
+ &lt;li>&lt;a href="#heading-1">Heading 1&lt;/a>
+ &lt;ul>
+ &lt;li>&lt;a href="#heading-2">Heading 2&lt;/a>
+ &lt;ul>
+ &lt;li>&lt;a href="#heading-3">Heading 3&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#emphasis">Emphasis&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#button">Button&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#link">Link&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#paragraph">Paragraph&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#ordered-list">Ordered List&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#unordered-list">Unordered List&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#notice">Notice&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#tab">Tab&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#accordions">Accordions&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#code-and-syntax-highlighting">Code and Syntax Highlighting&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#blockquote">Blockquote&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#tables">Tables&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#image">Image&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#gallery">Gallery&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#slider">Slider&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#youtube-video">Youtube video&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="#custom-video">Custom video&lt;/a>&lt;/li>
+ &lt;/ul>
+ &lt;/li>
+ &lt;/ul>
+ &lt;/li>
+ &lt;/ul>
+&lt;/nav>
+&lt;/details>
+
+&lt;p>Here is an example of headings. You can use this heading by the following markdown rules. For example: use &lt;code>#&lt;/code> for heading 1 and use &lt;code>######&lt;/code> for heading 6.&lt;/p></description></item></channel></rss>

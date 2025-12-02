@@ -1,0 +1,333 @@
+<!doctype html><html itemscope lang=zh itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=5"><meta name=theme-name content="hugoplate"><link rel="shortcut icon" href=/images/favicon_hu_6feaa8c37572a616.png type=image/x-icon><link rel=icon href=/images/favicon_hu_6feaa8c37572a616.png type=image/x-icon><link rel=icon type=image/png sizes=48x48 href=/images/favicon_hu_6f206a73e1a97729.png><link rel=icon type=image/png sizes=96x96 href=/images/favicon_hu_6feaa8c37572a616.png><link rel=apple-touch-icon sizes=144x144 href=/images/favicon_hu_28c9131087a4492f.png><link rel=manifest href=/manifest.webmanifest><meta name=msapplication-TileColor content="#ddd"><meta name=theme-color content="#ffffff"><base href=https://zhaoliangbin42.github.io/notes/polyphase-matched-filtering/><title>基于多相滤波器技术的匹配滤波实现方法</title>
+<meta name=keywords content="Liangbin"><meta name=description content="Liangbin's Notes"><meta name=author content="Liangbin"><meta property="og:image" content="https://zhaoliangbin42.github.io/notes/polyphase-matched-filtering/index.assets/banner.png"><meta name=twitter:image content="https://zhaoliangbin42.github.io/notes/polyphase-matched-filtering/index.assets/banner.png"><meta name=twitter:card content="summary_large_image"><meta property="og:image:width" content="1125"><meta property="og:image:height" content="633"><meta property="og:image:type" content="image/.png"><meta property="og:title" content="基于多相滤波器技术的匹配滤波实现方法"><meta property="og:description" content="Liangbin's Notes"><meta property="og:type" content="website"><meta property="og:url" content="https://zhaoliangbin42.github.io/notes/polyphase-matched-filtering/"><meta name=twitter:title content="基于多相滤波器技术的匹配滤波实现方法"><meta name=twitter:description content="Liangbin's Notes"><meta name=twitter:creator content="@Liangbin"><script async src="https://www.googletagmanager.com/gtag/js?id=G-0TRYH6SRSY"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-0TRYH6SRSY")}</script><script>let indexURL="https://zhaoliangbin42.github.io/searchindex.json",includeSectionsInSearch=["notes"],search_no_results="没有结果",search_initial_message="输入内容进行搜索.."</script><meta http-equiv=x-dns-prefetch-control content="on"><link rel=preconnect href=https://use.fontawesome.com crossorigin><link rel=preconnect href=//cdnjs.cloudflare.com><link rel=preconnect href=//www.googletagmanager.com><link rel=preconnect href=//www.google-analytics.com><link rel=dns-prefetch href=https://use.fontawesome.com><link rel=dns-prefetch href=//ajax.googleapis.com><link rel=dns-prefetch href=//cdnjs.cloudflare.com><link rel=dns-prefetch href=//www.googletagmanager.com><link rel=dns-prefetch href=//www.google-analytics.com><link rel=dns-prefetch href=//fonts.googleapis.com><link rel=dns-prefetch href=//connect.facebook.net><link rel=dns-prefetch href=//platform.linkedin.com><link rel=dns-prefetch href=//platform.twitter.com><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji'&family=-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji'&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script><link href=/css/style.min.eea1d0526b2db99c841f0cedaedee11c4a6a4049f702f3aeb56f3192dac5bc2d.css integrity="sha256-7qHQUmstuZyEHwztrt7hHEpqQEn3AvOutW8xktrFvC0=" rel=stylesheet><link defer async rel=stylesheet href=/css/style-lazy.min.9e7e035d2f064fe004383f2ffc11a8f2966ef7b51c5fb2fac926e35c0061b5cf.css integrity="sha256-nn4DXS8GT+AEOD8v/BGo8pZu97UcX7L6ySbjXABhtc8=" media=print onload='this.media="all",this.onload=null'></head><body><div class=preloader></div><script>(function(){"use strict";window.addEventListener("load",function(){document.querySelector(".preloader").style.display="none"})})()</script><header class="header sticky top-0 z-30 py-1" id=site-header><nav class="navbar container"><div class="order-0 flex items-center gap-3"><a class="navbar-brand block" href=/><img fetchpriority=high decoding=async class="img img-light" width=64 height=64 src=/images/logo_hu_515ea5dfce2edb6e.webp alt="Liangbin's Notes" onerror='this.onerror=null,this.src="/images/logo_hu_f5cfd5dd416f79c6.png"'>
+<img fetchpriority=high decoding=async class="img img-dark" width=64 height=64 src=/images/logo-darkmode_hu_515ea5dfce2edb6e.webp alt="Liangbin's Notes" onerror='this.onerror=null,this.src="/images/logo-darkmode_hu_f5cfd5dd416f79c6.png"'></a><div class=mobile-site-title><span class=mobile-title-full><span>Liangbin's</span>
+<span>Blog</span>
+</span><span class=mobile-title-short><span>LB's</span>
+<span>Blog</span></span></div></div><input id=nav-toggle type=checkbox class=hidden>
+<label for=nav-toggle class="order-3 cursor-pointer flex items-center lg:hidden text-text-dark dark:text-white lg:order-1"><svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20"><title>Menu Open</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0V0z"/></svg><svg id="hide-button" class="h-6 fill-current hidden" viewBox="0 0 20 20"><title>Menu Close</title><polygon points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2" transform="rotate(45 10 10)"/></svg></label><ul id=nav-menu class="navbar-nav order-3 hidden lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8"><li class=nav-item><a class=nav-link href=/>首页</a></li><li class=nav-item><a class=nav-link href=/about>简介</a></li><li class=nav-item><a class="nav-link active" href=/notes>笔记</a></li><li class=nav-item><a class=nav-link href=/codes>代码</a></li></ul><div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0"><button aria-label=search class="search-icon-btn border-border
+dark:border-darkmode-border mr-5 inline-block border-r pr-5
+text-xl" data-target=search-modal>
+<i class="fa-solid fa-search"></i></button><div class="theme-switcher mr-5 hidden"><input id=theme-switcher data-theme-switcher type=checkbox>
+<label for=theme-switcher><span class=sr-only>theme switcher</span>
+<span><svg class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 opacity-100 dark:opacity-0" viewBox="0 0 56 56" fill="#fff" height="16" width="16"><path d="M30 4.6c0-1-.9-2-2-2a2 2 0 00-2 2v5c0 1 .9 2 2 2s2-1 2-2zm9.6 9a2 2 0 000 2.8c.8.8 2 .8 2.9.0L46 13a2 2 0 000-2.9 2 2 0 00-3 0zm-26 2.8c.7.8 2 .8 2.8.0.8-.7.8-2 0-2.9L13 10c-.7-.7-2-.8-2.9.0-.7.8-.7 2.1.0 3zM28 16A12 12 0 0016 28a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0028 16zm23.3 14c1.1.0 2-.9 2-2s-.9-2-2-2h-4.9a2 2 0 00-2 2c0 1.1 1 2 2 2zM4.7 26a2 2 0 00-2 2c0 1.1.9 2 2 2h4.9c1 0 2-.9 2-2s-1-2-2-2zm37.8 13.6a2 2 0 00-3 0 2 2 0 000 2.9l3.6 3.5a2 2 0 002.9.0c.8-.8.8-2.1.0-3zM10 43.1a2 2 0 000 2.9c.8.7 2.1.8 3 0l3.4-3.5c.8-.8.8-2.1.0-2.9s-2-.8-2.9.0zm20 3.4c0-1.1-.9-2-2-2a2 2 0 00-2 2v4.9c0 1 .9 2 2 2s2-1 2-2z"/></svg><svg class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 opacity-0 dark:opacity-100" viewBox="0 0 24 24" fill="none" height="16" width="16"><path fill="#000" fill-rule="evenodd" clip-rule="evenodd" d="M8.2 2.2c1-.4 2 .6 1.6 1.5-1 3-.4 6.4 1.8 8.7a8.4 8.4.0 008.7 1.8c1-.3 2 .5 1.5 1.5v.1A10.3 10.3.0 0112.4 22 10.3 10.3.0 013.2 6.7c1-2 2.9-3.5 4.9-4.4z"/></svg></span></label></div><script>var darkMode=!1;localStorage.getItem("theme")==="dark"?darkMode=!0:localStorage.getItem("theme")==="light"&&(darkMode=!1),darkMode?document.documentElement.classList.add("dark"):document.documentElement.classList.remove("dark"),document.addEventListener("DOMContentLoaded",()=>{var e=document.querySelectorAll("[data-theme-switcher]"),t=document.querySelector(".theme-switcher");[].forEach.call(e,function(e){e.checked=darkMode,e.addEventListener("click",()=>{document.documentElement.classList.toggle("dark"),localStorage.setItem("theme",document.documentElement.classList.contains("dark")?"dark":"light")})}),t.classList.remove("hidden")})</script></div></nav></header><div class="search-modal search-modal-rounded" aria-hidden=true style=--color-primary:#121212><div data-target=close-search-modal class=search-modal-overlay></div><div class=search-wrapper data-image=true data-description=true data-tags=true data-categories=true><div class=search-wrapper-header><label for=search-modal-input style=margin-top:-1px><span class=sr-only>search icon</span>
+<svg viewBox="0 0 512 512" height="18" width="18" class="search-icon" data-type="search"><path fill="currentcolor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8.0 45.3s-32.8 12.5-45.3.0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9.0 208S93.1.0 208 0 416 93.1 416 208zM208 352a144 144 0 100-288 144 144 0 100 288z"/></svg>
+<svg viewBox="0 0 512 512" height="18" width="18" class="search-reset" data-type="reset"><path fill="currentcolor" d="M256 512A256 256 0 10256 0a256 256 0 100 512zM175 175c9.4-9.4 24.6-9.4 33.9.0l47 47 47-47c9.4-9.4 24.6-9.4 33.9.0s9.4 24.6.0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6.0 33.9s-24.6 9.4-33.9.0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9.0s-9.4-24.6.0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6.0-33.9z"/></svg>
+</label><input id=search-modal-input type=text data-search-input autocomplete=off aria-label=Search placeholder=搜索文章...></div><div class=search-wrapper-body><div class=search-result data-search-result></div><span class=search-result-empty>输入内容进行搜索..</span></div><div class=search-wrapper-footer><span><kbd><svg width="14" height="14" fill="currentcolor" viewBox="0 0 16 16"><path d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 011.506.0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 01-.753-1.659z"/></svg>
+</kbd><kbd><svg width="14" height="14" fill="currentcolor" style="margin-top:1px" viewBox="0 0 16 16"><path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 001.506.0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 00-.753 1.659z"/></svg>
+</kbd>导航
+</span><span><kbd><svg width="12" height="12" fill="currentcolor" style="display:inline-block" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M14.5 1.5a.5.5.0 01.5.5v4.8a2.5 2.5.0 01-2.5 2.5H2.707l3.347 3.346a.5.5.0 01-.708.708l-4.2-4.2a.5.5.0 010-.708l4-4a.5.5.0 11.708.708L2.707 8.3H12.5A1.5 1.5.0 0014 6.8V2a.5.5.0 01.5-.5z"/></svg>
+</kbd>选择
+</span><span class=search-result-info></span>
+<span data-target=close-search-modal><kbd>ESC</kbd> 关闭</span></div></div></div><style>.search-modal-rounded .search-wrapper{border-radius:24px;background:#fff;padding:20px;box-shadow:0 20px 60px rgba(173,83,137,.15),0 10px 30px rgba(60,16,83,.1);border:1px solid rgba(173,83,137,.1)}.search-modal-rounded .search-wrapper-header{padding:0;margin-bottom:4px}.search-modal-rounded .search-wrapper-header input{border-radius:16px;border:2px solid rgba(173,83,137,.15);height:56px;padding:0 20px 0 52px;font-size:1rem;transition:all .3s ease;background:rgba(173,83,137,2%)}.search-modal-rounded .search-wrapper-header input:focus{border-color:#ad5389;box-shadow:0 0 0 4px rgba(173,83,137,.12);background:#fff;outline:none}.search-modal-rounded .search-wrapper-header input::placeholder{color:#999}.search-modal-rounded .search-wrapper-header label{left:24px}.search-modal-rounded .search-icon{color:#ad5389}.search-modal-rounded .search-reset{color:#999;transition:color .2s ease}.search-modal-rounded .search-reset:hover{color:#ad5389}.search-modal-rounded .search-wrapper-body{background:0 0;box-shadow:none;padding:12px 0;border-radius:12px;max-height:400px}.search-modal-rounded .search-result-empty{background:0 0;display:block;padding:40px 20px;text-align:center;color:#999}.search-modal-rounded .search-wrapper-footer{background:linear-gradient(135deg,rgba(173,83,137,5%),rgba(60,16,83,5%));padding:12px 16px;border-radius:12px;margin-top:8px}.search-modal-rounded .search-wrapper-footer kbd{background:#fff;border:1px solid rgba(173,83,137,.2);border-radius:6px;padding:4px 8px;font-size:.75rem;color:#666;box-shadow:0 1px 3px rgba(0,0,0,.1)}.search-modal-rounded .search-wrapper-footer span{color:#666;font-size:.875rem}.dark .search-modal-rounded .search-wrapper{background:#1c1c1c;border-color:rgba(224,145,208,.35);box-shadow:0 20px 60px rgba(224,145,208,.25),0 10px 30px rgba(192,132,179,.2)}.dark .search-modal-rounded .search-wrapper-header input{border-color:rgba(224,145,208,.4);background:rgba(224,145,208,8%);color:#fff}.dark .search-modal-rounded .search-wrapper-header input:focus{border-color:#e091d0;box-shadow:0 0 0 4px rgba(224,145,208,.25);background:rgba(224,145,208,.12)}.dark .search-modal-rounded .search-wrapper-header input::placeholder{color:#999}.dark .search-modal-rounded .search-icon{color:#e091d0}.dark .search-modal-rounded .search-reset{color:#999}.dark .search-modal-rounded .search-reset:hover{color:#e091d0}.dark .search-modal-rounded .search-result-empty{color:#999}.dark .search-modal-rounded .search-wrapper-footer{background:linear-gradient(135deg,rgba(224,145,208,.15),rgba(192,132,179,.15))}.dark .search-modal-rounded .search-wrapper-footer kbd{background:rgba(255,255,255,8%);border-color:rgba(224,145,208,.4);color:#bbb}.dark .search-modal-rounded .search-wrapper-footer span{color:#bbb}.search-result-item{padding:12px 16px;margin-bottom:8px;border-radius:12px;border:1px solid rgba(173,83,137,.1);transition:all .3s ease;cursor:pointer}.search-result-item:hover{background:#3c1053!important;border-color:rgba(173,83,137,.3)}.search-modal-rounded mark{background:linear-gradient(90deg,rgba(173,83,137,.2),rgba(60,16,83,.2))!important;color:#ad5389!important;font-weight:600;padding:2px 6px;border-radius:4px}.dark .search-result-item:hover{background:linear-gradient(135deg,rgba(224,145,208,.2),rgba(192,132,179,.2))!important;border-color:rgba(224,145,208,.5)}.dark .search-modal-rounded mark{background:linear-gradient(90deg,rgba(224,145,208,.35),rgba(192,132,179,.35))!important;color:#e091d0!important}</style><main><section class="section pt-7"><div class=container><div class=article-layout-container><div class=article-layout-wrapper><nav class=breadcrumb-nav aria-label=breadcrumb><ol class=breadcrumb-list><li class=breadcrumb-item><a href=/notes/ class=breadcrumb-link><i class="fa-solid fa-book breadcrumb-icon"></i>
+<span>笔记</span></a></li><li class=breadcrumb-separator><i class="fa-solid fa-chevron-right"></i></li><li class="breadcrumb-item breadcrumb-current"><span>基于多相滤波器技术的...</span></li></ol></nav><style>.breadcrumb-nav{margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid rgba(173,83,137,.1)}.breadcrumb-list{display:flex;align-items:center;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0;font-size:.875rem}.breadcrumb-item{display:flex;align-items:center}.breadcrumb-link{display:flex;align-items:center;gap:6px;padding:6px 12px;color:#666;text-decoration:none;border-radius:8px;transition:all .2s ease;background:rgba(173,83,137,5%)}.breadcrumb-link:hover{color:#ad5389;background:linear-gradient(135deg,rgba(173,83,137,.12),rgba(60,16,83,.12));transform:translateX(2px)}.breadcrumb-icon{font-size:14px;color:#ad5389}.breadcrumb-separator{display:flex;align-items:center;color:#ccc;font-size:12px}.breadcrumb-current{color:#ad5389;font-weight:600;padding:6px 12px;background:linear-gradient(135deg,rgba(173,83,137,.15),rgba(60,16,83,.15));border-radius:8px;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.dark .breadcrumb-nav{border-bottom-color:rgba(224,145,208,.15)}.dark .breadcrumb-link{color:#aaa;background:rgba(224,145,208,8%)}.dark .breadcrumb-link:hover{color:#e091d0;background:linear-gradient(135deg,rgba(224,145,208,.18),rgba(192,132,179,.18))}.dark .breadcrumb-icon{color:#e091d0}.dark .breadcrumb-separator{color:#555}.dark .breadcrumb-current{color:#e091d0;background:linear-gradient(135deg,rgba(224,145,208,.2),rgba(192,132,179,.2))}@media(max-width:640px){.breadcrumb-nav{margin-bottom:16px;padding-bottom:12px}.breadcrumb-list{font-size:.8125rem;gap:6px}.breadcrumb-link,.breadcrumb-current{padding:4px 10px}.breadcrumb-icon{font-size:12px}.breadcrumb-current{max-width:150px}}</style><div class=toc-mobile><div class=toc-mobile-wrapper><button class=toc-mobile-toggle onclick=toggleMobileTOC()>
+<span class="flex items-center"><i class="fa-solid fa-list mr-2"></i>
+<span>目录</span>
+</span><i class="fa-solid fa-chevron-down toggle-icon"></i></button><div class="toc-mobile-content hidden"><nav id=TableOfContents><ul><li><ul><li><a href=#变速率成型滤波的实现>变速率成型滤波的实现</a><ul><li><a href=#成型滤波的表达式>成型滤波的表达式</a></li><li><a href=#基于数字重采样技术的速率转换方法的公式推导>基于数字重采样技术的速率转换方法的公式推导</a></li><li><a href=#可变速率成型滤波器设计>可变速率成型滤波器设计</a></li><li><a href=#可变速率成型滤波模块的一些参数讨论>可变速率成型滤波模块的一些参数讨论</a></li></ul></li><li><a href=#高速并行匹配滤波器的实现>高速并行匹配滤波器的实现</a><ul><li><a href=#z变换>$Z$变换</a></li><li><a href=#公式推导>公式推导</a></li><li><a href=#高速并行匹配滤波器的实现方法>高速并行匹配滤波器的实现方法</a></li></ul></li></ul></li></ul></nav></div></div></div><div class=article-content-grid><article class=article-main-content><div class=mb-10><picture><source srcset=/notes/polyphase-matched-filtering/index.assets/banner_hu_46d9ff008d3516cd.webp media="(max-width: 575px)"><source srcset=/notes/polyphase-matched-filtering/index.assets/banner_hu_241407e220517c69.webp media="(max-width: 767px)"><source srcset=/notes/polyphase-matched-filtering/index.assets/banner_hu_bf3a102108f1679c.webp media="(max-width: 991px)"><source srcset=/notes/polyphase-matched-filtering/index.assets/banner_hu_4c5e806c22594239.webp><img loading=lazy decoding=async src=/notes/polyphase-matched-filtering/index.assets/banner_hu_15f1066d07fe52c8.png class="w-full article-banner-image img" alt=基于多相滤波器技术的匹配滤波实现方法 width=1125 height=633></picture></div><h1 class="h2 mb-4 gradient-text">基于多相滤波器技术的匹配滤波实现方法</h1><div class=article-summary><div class=article-summary-icon><i class="fa-solid fa-quote-left"></i></div><p class=article-summary-text>介绍了通信系统中经典的自适应信道均衡算法，包括Sato算法、CMA恒模算法、MMA多模算法、DD算法、MCMA改进恒模算法及CADAMA等算法原理。</p></div><div class=article-meta-card><div class=article-meta-item><span class=meta-label>Author</span>
+<span class=meta-value>Liangbin</span></div><div class=article-meta-item><span class=meta-label>Category</span>
+<span class=meta-value><a href=/categories/communication/ class=article-meta-link>Communication</a></span></div><div class=article-meta-item><span class=meta-label>Date</span>
+<span class=meta-value>2022-05-28</span></div></div><div class=article-tags-header><span class=article-tags-label>Tags</span><div class=article-tags-inline><a href=/tags/signal-processing/ class=article-tag-item><i class="fa-solid fa-tag"></i>
+Signal Processing</a></div></div><div class="content mb-10"><blockquote><p>以毕业论文《柔性速率可变的宽带16QAM16APSK调制解调器的设计与实现》为学习材料</p></blockquote><h2 id=变速率成型滤波的实现>变速率成型滤波的实现</h2><h3 id=成型滤波的表达式>成型滤波的表达式</h3><p>当基带系统的总特性等效为理想低通滤波器时，可实现无码间串扰，但理想的低通滤波器在实际中无法实现，因此在发射端利用根升余弦滤波器对发送信号进行成型滤波，在接收端也用根升余弦滤波器对接收信号进行匹配滤波，这样能使整个信道等效与与低通特性相近的滤波器，可以让系统在本码元的抽样时刻($t=0$)时的值最大，在其他码元抽样时刻($t=\pm k T_{s}$)为0。</p><p>根升余弦滤波器的时域响应为
+$$
+h_{T}(t)=h_{R}(t)=4 \alpha \frac{\cos \left((1+\alpha) \pi t / T_{s}\right)+\frac{\sin \left((1-\alpha) \pi t / T_{s}\right)}{\left(4 \alpha t / T_{s}\right)}}{\pi \sqrt{T_{s}}\left(1-\left(4 \alpha t / T_{s}\right)^{2}\right)}
+$$</p><h3 id=基于数字重采样技术的速率转换方法的公式推导>基于数字重采样技术的速率转换方法的公式推导</h3><blockquote><p>什么是变速率，为什么要进行速率变换？为什么要进行高速并行可变符号速率调制？</p></blockquote><ol><li>一般发射端DA或者接收端AD的采样率会在设计之初便定下来，以保证程序的正常运行，但是，符号速率有可能会根据实际情况进行调整，这样在相同的采样率下，符号的过采样倍数就会不同，而且有时过采样的倍数可能为小数，这样成型滤波器就需要专门设计，并且保证速率可变，以适应不同速率的输入信号。</li><li>由于FPGA内部处理时钟一般不超过200MHz，要实现高速信号Gbps调制，必须使用全并行架构，这时候调制就需要并行架构了。</li></ol><hr><p>根据奈奎斯特采样定理，只要采样频率大于信号带宽的两倍，就可以从采样值$x(nT_s)$中恢复出原始信号$y(t)$
+$$
+y(t)=\sum_{n=-\infty}^{+\infty} x\left(n T_{s}\right) h\left(t-n T_{s}\right)
+$$
+这里$x(t)$为输入信号，$h(t)$为滤波器时域响应，$T_s$为符号周期。</p><blockquote><p>该公式的物理意义是：如果我当前要得到输出信号$y(t)$，那么我要对输入信号与滤波器进行卷积。而你会发现输入信号是离散的，其采样时刻为$nT_s$，而滤波器的时域响应是以$t$为原点的。这个公式非常的普通，但是必须要深入理解该公式才能理解后面的推导。</p></blockquote><p>如果对上面这个恢复的信号进行重采样，即我想获得某个我想要的点的信号，我会首先想到将上面公式中的$t$替换成我想要的点的时刻，比如$kT_{sp}$，有如下公式：
+$$
+y\left(k T_{sp}\right)=\sum_{n=-\infty}^{+\infty} x\left(n T_{s}\right) h\left(k T_{sp}-n T_{s}\right)=\sum_{n=-\infty}^{+\infty} x\left(n T_{s}\right) h\left(T_{s}\left(\frac{k T_{sp}}{T_{s}}-n\right)\right)
+$$</p><blockquote><p>这里的$T_{sp}$可以理解成DA的采样周期，其物理含义是我当前要对符号进行调制，给定了采样周期为$T_{sp}$，那么其通过上述公式可以求出其$y(kT_{sp})$，因为我当前的信息符号周期是$T_s$（偏慢），但是我DA采样的时候其采样周期为$kT_{sp}$（偏快），所以我需要利用上述公式对速率偏慢的信息符号通过成型滤波生成速率较高的信号，然后给到DA进行输出。</p><p>可以看出，$x(nT_s)$是与$x(T_{sp})$无关的，只与$h(t)$有关。</p></blockquote><p>对上述公式进行化简，令$m_{k}=\left\lfloor\frac{k T_{sp}}{T_{s}}\right\rfloor$，$\mu_{k}=\frac{k T_{sp}}{T_{s}}-m_{k}$，代入上式可得：
+$$
+y\left(k T_{sp}\right)=\sum_{n=-\infty}^{+\infty} x\left(n T_{s}\right) h\left(\left(m_{k}+\mu_{k}-n\right) T_{s}\right)
+$$
+再令$m=m_{k}-n$，可得：
+$$
+y\left(k T_{sp}\right)=\sum_{m=-\infty}^{+\infty} x\left(\left(m_{k}-m\right) T_{s}\right) h\left(\left(\mu_{k}+m\right) T_{s}\right)
+$$</p><blockquote><p>这里通过化简，$y(kT_{sp})$只与$x\left(\left(m_{k}-m\right) T_{s}\right)$以及$h\left(\left(\mu_{k}+m\right) T_{s}\right)$有关，这里面涉及到的整数参数有$m_k, m$以及小数参数有$\mu_k$，对于$x(t)$，由于里面的索引要求是整数的，所以$m_k-m$符合要求，此时抽取的是正常的$x$序列，而对于$h$，由于其涉及到小数，所以我们会先对$h$进行过采样，然后再正常抽取，但是这个$m$所对应的是原本没有偏移的正确采样点的位置，加上$\mu_k$是偏移。</p><p><strong>疑问</strong></p><p>我个人觉得上面两条公式看上去是等价的，但是一旦把取值范围确定后，两条公式不是等价的吧？</p></blockquote><p>由于无法做到无穷项求和，所以可以将滤波器截短。
+$$
+\begin{aligned}
+y\left(k T_{sp}\right) &=\sum_{m=-I_{1}}^{I_{2}} x\left(\left(m_{k}-m\right) T_{s}\right) h\left(\left(\mu_{k}+m\right) T_{s}\right) \\
+&=\sum_{m=-I_{1}}^{I_{2}} h_{T}\left(\mu_{k}+m\right) x\left(m_{k}-m\right)
+\end{aligned}
+$$
+由于$T_s$对于$x$和$h$来说都表示当前索引是在序列内抽取的，是一个倍数关系，所以这个倍数关系可以忽略掉，我们只要做好由$x((m_k-m)-T_s)$到$x(m_k-m)$的映射就可以了。</p><h3 id=可变速率成型滤波器设计>可变速率成型滤波器设计</h3><p>在FPGA中，由于无法实时计算$h_{T}\left(\mu_{k}+m\right)$，因此采用查找表的形式来实现。过采样倍数决定了这里的$\mu_k$的精度，如果设定$\mu_k$的精度为$\frac{1}{2^{-12}}$，那么对于5Gsps采样率来说，变速率的步进即为$1.22Msps$。</p><p>按照上一节的说法，假设当前符号前后间隔超过3个符号的影响可忽略不计，把滤波器截短可以得到：
+$$
+y(kT_{sp})=\sum_{m=-3}^{+2} h_{T}\left(\mu_{k}+m\right) x\left(m_{k}-m\right)
+$$</p><blockquote><p>具体做法：</p><p>用Matlab 的 rcosdesign 函数生成一组 α=0.35,过采样倍数为 4096,双边 6 个符号的系数,将其量化为 12bit,然后按符号分为 6 组,每组 4096 个系数,分别存入6 个 ROM 核中,ROM 核宽度为 12,深度为 4096。这样，我们将$\mu_k$和$m$均扩大$2^{12}$倍作为索引地址，分别把运算所需的6个系数都求出来。</p></blockquote><p>假设当前采样率为5Gsps，在200MHz及以下时钟频率下，要32路并行运算，可以将公式修改为
+$$
+y(32n+i) = \sum_{m=-3}^{+2}h_T(\mu_n(i)+m)x(m_n(i)-m)
+$$
+式中$n$为时刻值，$i$为并行的路数的序数。$m_{n}(i)=\left\lfloor\frac{(32 n+i) T_{s p}}{T_{s}}\right\rfloor$，$\mu_{n}(i)=\frac{(32 n+i) T_{s p}}{T_{s}}-m_{n}(i)$。</p><p>整个模块的实现框图如下所示：输入的符号数据先通过FIFO缓存，再输出给DataCache，由COEGen算出$m_n(i)$和$\mu_n(i)$，分别从DataCache和FilterRom中取出6对待内插成型的符号和滤波器系数，相乘求和即得到一路成型输出。</p><p><img src=index.assets/16536664515046.jpg alt></p><h3 id=可变速率成型滤波模块的一些参数讨论>可变速率成型滤波模块的一些参数讨论</h3><p>本项目用到的最高采样率为$5Gsps$，最高符号速率为$1200Msps$，在这个条件下，有$\frac{32T_{sp}}{T_s}=7.68$，即在32路并行时，$m_n(1)$和$m_n(32)$最多相差8，因此，$m_n(i)$的取值区间为$[0, 7]$，再考虑上$m_{n}(1)-2$和$m_{n}(32)+3$，在32路并行成型滤波时，共需要13个符号参与运算。所以DataCache需要对从FIFO输入的8路并行符号数据缓存一拍，接到下一个时刻的数据之前，变成16路并行的数据，以满足滤波的速率要求。</p><p>寄存器寻址方案，为了使精度能够满足设计的需要，我们用53位表示$\frac{(32 n+i) T_{s p}}{T_{s}}$，其中3位整数位，50位小数位，即$m_n(i)$取整数位3位，$\mu_n(i)$取高12小数位。</p><p>还有FIFO取数的策略，这个直接参考文献即可。</p><hr><h2 id=高速并行匹配滤波器的实现>高速并行匹配滤波器的实现</h2><h3 id=z变换>$Z$变换</h3><blockquote><p>向系统输入$\delta(n)$得到脉冲响应$h(n)$，例如$h(n)=\left[\begin{array}{lll}1 & 2 & 1\end{array}\right]$</p><p>这时候我们再向系统输入另外一个信号，例如：$x(n)=[1\quad 2\quad 1]=\delta(n)+2 \delta(n-1)+\delta(n-2)$</p><p>那么输出信号就应该是$y(n)=[1\quad 4\quad 6\quad 4\quad 1]=h(n)+2 h(n-1)+h(n-2)=x(n)* h(n)$（卷积运算）</p><p>经过观察可以发现，这其实就是$[1\quad 2\quad 1]$和$[1\quad 2\quad 1]$的多项式相乘！！！</p><p>因此我们将信号$x(n)$改写成$X(Z)=1+2 Z^{-1}+Z^{-2}$，同理，脉冲响应也写成$H(Z)=1+2 Z^{-1}+Z^{-2}$，则有$Y(Z) = 1+4 Z^{-1}+6 Z^{-2}+4 Z^{-3}+Z^{-4} = X(Z)H(Z)$，这种变换就称为$Z$变换。</p><p>⭐️ <strong>$Z^{-1}$对应的是下一个时钟周期（未来）的数据</strong></p></blockquote><h3 id=公式推导>公式推导</h3><p>一个N阶的 FIR 滤波器在时域上可表示为：
+$$
+y(n)=h(n) * x(n)=\sum_{i=0}^{N-1} h(i) x(n-i), \quad n=0,1,2, \ldots, \infty
+$$
+上式对应的Z变换可以表示为：
+$$
+Y(z)=H(z) \cdot X(z)=\left(\sum_{n=0}^{N-1} h(n) z^{-n}\right) \cdot\left(\sum_{n=0}^{\infty} x(n) z^{-n}\right)
+$$
+根据论文，可以将序列$x(n)$和$h(n)$的$z$变换拆分成偶数时间序列和奇数时间序列的$Z$变换：
+$$
+\begin{aligned}
+X(z) &=x(0)+x(1) z^{-1}+x(2) z^{-2}+x(3) z^{-3}+\cdots+x(n) z^{-n} \\
+&=\left[x(0)+x(2) z^{-2}+x(4) z^{-4}+x(6) z^{-6} \cdots\right] \\
+&+z^{-1}\left[x(1)+x(3) z^{-2}+x(5) z^{-4}+x(7) z^{-6} \cdots\right] \\
+&=X_{0}\left(z^{2}\right)+z^{-1} X_{1}\left(z^{2}\right)
+\end{aligned}
+$$
+同理，有
+$$
+H(z)=H_{0}\left(z^{2}\right)+z^{-1} H_{1}\left(z^{2}\right)
+$$</p><p>则对应的$y(n)$序列也可以表示为偶数时间序列和奇数时间序列的求和：
+$$
+Y(z)=Y_{0}\left(z^{2}\right)+z^{-1} Y_{1}\left(z^{2}\right)
+$$</p><p>$$
+\begin{array}{c}
+Y_{0}\left(z^{2}\right)=X_{0}\left(z^{2}\right) H_{0}\left(z^{2}\right)+\mathrm{z}^{-2}\left(X_{1}\left(z^{2}\right) H_{1}\left(z^{2}\right)\right) \\
+Y_{1}\left(z^{2}\right)=X_{0}\left(z^{2}\right) H_{1}\left(z^{2}\right)+X_{1}\left(z^{2}\right) H_{0}\left(z^{2}\right)
+\end{array}
+$$</p><p>写成矩阵形式可有：
+$$
+\left[\begin{array}{c}
+Y_{0} \\
+Y_{1}
+\end{array}\right]=\left[\begin{array}{cc}
+H_{0} & z^{-2} H_{1} \\
+H_{1} & H_{0}
+\end{array}\right] \cdot\left[\begin{array}{c}
+X_{0} \\
+X_{1}
+\end{array}\right]
+$$
+假设L路并行，则可对其进行拓展：
+$$
+\left[\begin{array}{c}
+Y_{0} \\
+Y_{1} \\
+\ldots \\
+Y_{L-1}
+\end{array}\right]=\left[\begin{array}{cccc}
+H_{0} & z^{-L} H_{L-1} & \ldots & z^{-L} H_{1} \\
+H_{1} & H_{0} & \ldots & z^{-L} H_{2} \\
+\ldots & \ldots & \ldots & \ldots \\
+H_{L-1} & H_{L-2} & \ldots & H_{0}
+\end{array}\right] \cdot\left[\begin{array}{c}
+X_{0} \\
+X_{1} \\
+\ldots \\
+X_{L-1}
+\end{array}\right]
+$$</p><h3 id=高速并行匹配滤波器的实现方法>高速并行匹配滤波器的实现方法</h3><p>此处采用32路并行，输入的IQ数据各只有16路，滤波器的系数长度为25，即<code>rcosdesign(0.35, 4, 6, 'sqrt')</code>。</p><p>为了简单，此处先假设滤波器系数长度为32，推导出其做法，再简化成滤波器系数长度为25的情况。对于I路来说，其输入$x(n)$只有偶数序列的形式，即只有$x(2k)$的情况下不为0，$x(2k+1)$的情况下恒等于0，但其依旧对应两组（每组长度16）的输出，分别为
+$$
+Y_{2 k}=\left\lbrace\begin{array}{cc}
+\left(\sum_{i=0}^{k} H_{2 i} X_{2(k-i)}\right)+z^{-32}\left(\sum_{i=k+1}^{15} H_{2 i} X_{32+2(k-i)}\right), & 0 \leq k \leq 14 \\
+\sum_{i=0}^{15} H_{2 i} X_{2(k-i)}, & k=15
+\end{array}\right.
+$$</p><p>$$
+Y_{2 k+1}=\left\lbrace\begin{array}{cc}
+\left(\sum_{i=0}^{k} H_{2 i+1} X_{2(k-i)}\right)+z^{-32}\left(\sum_{i=k+1}^{15} H_{2 i+1} X_{32+2(k-i)}\right), & 0 \leq k \leq 14 \\
+\sum_{i=0}^{15} H_{2 i+1} X_{2(k-i)}, & k=15
+\end{array}\right.
+$$</p><p>其实也就是
+$$
+\left[\begin{array}{c}
+Y_{0} \\
+Y_{1} \\
+\ldots \\
+Y_{31}
+\end{array}\right]=\left[\begin{array}{cccc}
+H_{0} & z^{-32} H_{31} & \ldots & z^{-32} H_{1} \\
+H_{1} & H_{0} & \ldots & z^{-32} H_{2} \\
+\ldots & \ldots & \ldots & \ldots \\
+H_{31} & H_{30} & \ldots & H_{0}
+\end{array}\right] \cdot\left[\begin{array}{c}
+X_{0} \\
+0 \\
+X_{2}\\
+0\\
+X_{3}\\
+\ldots \\
+X_{30}\\
+0
+\end{array}\right]
+$$
+同理，对于Q路也一样，为
+$$
+\left[\begin{array}{c}
+Y_{0} \\
+Y_{1} \\
+\ldots \\
+Y_{31}
+\end{array}\right]=\left[\begin{array}{cccc}
+H_{0} & z^{-32} H_{31} & \ldots & z^{-32} H_{1} \\
+H_{1} & H_{0} & \ldots & z^{-32} H_{2} \\
+\ldots & \ldots & \ldots & \ldots \\
+H_{31} & H_{30} & \ldots & H_{0}
+\end{array}\right] \cdot\left[\begin{array}{c}
+0\\
+X_{1} \\
+0 \\
+X_{3}\\
+\ldots \\
+0\\
+X_{31}
+\end{array}\right]
+$$</p><p>$$
+Y_{2 k}=\left\lbrace\begin{array}{cc}z^{-32}\left(\sum_{i=0}^{15} H_{2 i+1} X_{31+2(k-i)}\right), & k=0 \\
+\left(\sum_{i=0}^{k-1} H_{2 i+1} X_{2(k-i)-1}\right)+z^{-32}\left(\sum_{i=k}^{15} H_{2 i+1} X_{31+2(k-i)}\right), & 1 \leq k \leq 15\end{array}\right.
+$$</p><p>$$
+Y_{2 k+1}=\left\lbrace\begin{array}{cc}
+\left(\sum_{i=0}^{k} H_{2 i} X_{2(k-i)+1}\right)+z^{-32}\left(\sum_{i=k+1}^{15} H_{2 i} X_{33+2(k-i)}\right), & 0 \leq k \leq 14 \\
+\sum_{i=0}^{15} H_{2 i} X_{2(k-i)+1}, & k=15
+\end{array}\right.
+$$</p><p>如果对里面的元素全部分别相乘，可以看出，对于$H$矩阵的第一列，会分别与$X_0$相乘，对于$H$矩阵的第三列，会分别与$X_2$相乘，对于$H$矩阵的第31列，会分别与$X_{30}$相乘，乘出来待用的参数分别如下：
+$$
+H_0X_0, \quad H_1X_0, \quad H_2X_0, \quad H_3X_0, \quad \cdots, \quad H_{31}X_0
+$$</p><p>$$
+z^{-32}H_{30}X_2, \quad z^{-32}H_{31}X_2, \quad H_{0}X_2, \quad H_{1}X_2, \quad \cdots, \quad H_{29}X_2
+$$</p><p>$$
+\cdots
+$$</p><p>$$
+z^{-32}H_{1}X_{30}, \quad z^{-32}H_{2}X_{30}, \quad z^{-32}H_{3}X_{30}, \quad z^{-32}H_{4}X_{30}, \quad \cdots, \quad H_{0}X_{30}
+$$</p><p>由于滤波器参数是对称的，所以其实$H_0X_0$和$H_{31}X_0$是一样的，因此只需要一半的滤波器系数即可，而且由于矩阵中有一半的运算是通过延迟32个时钟（这里32路并行，相当于只需要延迟一个时钟周期即可）实现的，所以可以将结果分成两部分，一部分先延时，再输入流水相加模块，另一部分直接输入流水相加模块，进行流水线相加，实现整个低通滤波的过程，其具体实现框图如图所示：</p><p><img src=index.assets/16536664823809.jpg alt></p><p><strong>对于匹配滤波的实现</strong>，由于其同样是32路并行输入并且其阶数只有25，即$H_{25}-H_{31}$均为0，其余系数$H_0-H_{24}$非0，所以可以列出其算法：
+$$
+\left[\begin{array}{c}
+Y_{0} \\
+Y_{1} \\
+\ldots \\
+Y_{31}
+\end{array}\right]=\left[\begin{array}{ccccc}
+H_{0} & 0 & 0 & \ldots & z^{-32} H_{1} \\
+H_{1} & H_{0} & 0 & \ldots & z^{-32} H_{2} \\
+\ldots & \ldots & \ldots & \ldots & \ldots \\
+0 & 0 & 0 & \ldots & H_{0}
+\end{array}\right] \cdot\left[\begin{array}{c}
+X_{0} \\
+X_{1} \\
+\ldots \\
+X_{31}
+\end{array}\right]
+$$
+其实现过程与低通滤波器的实现过程几乎一致，只不过有不少空白的系数可以省去运算步骤。</p><p><strong>为了Matlab实现时查找的方便，下面分别列出32路并行的I路和Q路对应的矩阵表达式以及求和公式：</strong>
+$$
+Y_I= \left[\begin{array}{c}
+Y_{0} \\
+Y_{1} \\
+\ldots \\
+Y_{31}
+\end{array}\right]=\left[\begin{array}{ccccc}
+H_{0} & 0 & 0 & \ldots & z^{-32} H_{1} \\
+H_{1} & H_{0} & 0 & \ldots & z^{-32} H_{2} \\
+\ldots & \ldots & \ldots & \ldots & \ldots \\
+0 & 0 & 0 & \ldots & H_{0}
+\end{array}\right] \cdot\left[\begin{array}{c}
+X_{0} \\
+0 \\
+X_{2}\\
+0\\
+\ldots \\
+X_{30}\\
+0
+\end{array}\right]
+$$</p><p>$$
+Y_{I(2 k)}=\left\lbrace\begin{array}{cc}
+\left(\sum_{i=0}^{k} H_{2 i} X_{2(k-i)}\right)+z^{-32}\left(\sum_{i=k+1}^{12} H_{2 i} X_{32+2(k-i)}\right), & 0 \leq k &lt;12 \\
+\sum_{i=0}^{12} H_{2 i} X_{2(k-i)}, & 12 \leq k \leq 15
+\end{array}\right.
+$$</p><p>$$
+Y_{I(2 k+1)}=\left\lbrace\begin{array}{cc}
+\left(\sum_{i=0}^{k} H_{2 i+1} X_{2(k-i)}\right)+z^{-32}\left(\sum_{i=k+1}^{11} H_{2 i+1} X_{32+2(k-i)}\right), & 0 \leq k \leq 11 \\
+\sum_{i=0}^{11} H_{2 i+1} X_{2(k-i)}, & 11 \leq k \leq 15
+\end{array}\right.
+$$</p><p>$$
+Y_Q= \left[\begin{array}{c}
+Y_{0} \\
+Y_{1} \\
+\ldots \\
+Y_{31}
+\end{array}\right]=\left[\begin{array}{ccccc}
+H_{0} & 0 & 0 & \ldots & z^{-32} H_{1} \\
+H_{1} & H_{0} & 0 & \ldots & z^{-32} H_{2} \\
+\ldots & \ldots & \ldots & \ldots & \ldots \\
+0 & 0 & 0 & \ldots & H_{0}
+\end{array}\right] \cdot\left[\begin{array}{c}
+0 \\
+X_{1} \\
+0\\
+X_{3}\\
+\ldots \\
+0\\
+X_{31}
+\end{array}\right]
+$$</p><p>$$
+Y_{Q(2 k)}=\left\lbrace\begin{array}{cc}
+z^{-32}\left(\sum_{i=0}^{11} H_{2 i+1} X_{31+2(k-i)}\right), & k=0 \\
+\left(\sum_{i=0}^{k-1} H_{2 i+1} X_{2(k-i)-1}\right)+z^{-32}\left(\sum_{i=k}^{11} H_{2 i+1} X_{31+2(k-i)}\right), & 0 &lt; k \leq 12 \\
+\left(\sum_{i=0}^{11} H_{2 i+1} X_{2(k-i)-1}\right), & 12 \leq k \leq 15
+\end{array}\right.
+$$</p><p>$$
+Y_{Q(2 k+1)}=\left\lbrace\begin{array}{cc}
+\left(\sum_{i=0}^{k} H_{2 i} X_{2(k-i)+1}\right)+z^{-32}\left(\sum_{i=k+1}^{12} H_{2 i} X_{33+2(k-i)}\right), & 0 \leq k &lt; 13 \\
+\sum_{i=0}^{12} H_{2 i} X_{2(k-i)+1}, & 13 \leq k \leq 15
+\end{array}\right.
+$$</p><hr><p><strong>64路并行的也直接罗列于此：</strong>
+对于I路，有</p><p>$$
+Y_{I(2 k)}=\left\lbrace\begin{array}{cl}
+\left(\sum_{i=0}^{k} H_{2 i} X_{2(k-i)}\right)+z^{-64}\left(\sum_{i=k+1}^{31} H_{2 i} X_{64+2(k-i)}\right) & 0 \leq k \leq 30 \\
+\sum_{i=0}^{31} H_{2 i} X_{2(k-i)} & , k=31
+\end{array}\right.
+$$
+$$
+Y_{I(2 k+1)}=\left\lbrace\begin{array}{cc}
+\left(\sum_{i=0}^{k} H_{2 i+1} X_{2(k-i)}\right)+z^{-64}\left(\sum_{i=k+1}^{31} H_{2 i+1} X_{64+2(k-i)}\right) & , 0 \leq k \leq 30 \\
+\sum_{i=0}^{31} H_{2 i+1} X_{2(k-i)} & , k=31
+\end{array}\right.
+$$</p><p>对应的矩阵表示为：</p><p>$$
+\left[\begin{array}{c}
+Y_{0} \\
+Y_{1} \\
+\cdots \\
+Y_{63}
+\end{array}\right]=\left[\begin{array}{cccc}
+H_{0} & z^{-64} H_{63} & \cdots & z^{-64} H_{1} \\
+H_{1} & H_{0} & \cdots & z^{-64} H_{2} \\
+\cdots & \cdots & \cdots & \cdots \\
+H_{63} & H_{62} & \cdots & H_{0}
+\end{array}\right]\left[\begin{array}{c}
+X_{0} \\
+0 \\
+X_{2} \\
+0 \\
+X_{4} \\
+\cdots \\
+X_{62} \\
+0
+\end{array}\right]
+$$</p><p>同理，Q路为：</p><p>$$
+\left[\begin{array}{c}
+Y_{0} \\
+Y_{1} \\
+\cdots \\
+Y_{63}
+\end{array}\right]=\left[\begin{array}{cccc}
+H_{0} & z^{-64} H_{63} & \cdots & z^{-64} H_{1} \\
+H_{1} & H_{0} & \cdots & z^{-64} H_{2} \\
+\cdots & \cdots & \cdots & \cdots \\
+H_{63} & H_{62} & \cdots & H_{0}
+\end{array}\right]\left[\begin{array}{c}
+0 \\
+X_{1} \\
+0 \\
+X_{3} \\
+0 \\
+X_{5} \\
+\cdots \\
+0 \\
+X_{63}
+\end{array}\right]
+$$</p></div><div class=article-footer><div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6"><div class=article-tags><h5 class=article-tags-title>标签</h5><div class=article-tags-list><a class=article-tag href=/tags/signal-processing/>Signal Processing</a></div></div><div class=article-share><h5 class=article-share-title>分享</h5><div class=article-share-buttons><button onclick=copyPageUrl() class=share-btn title=复制链接>
+<i class="fa-solid fa-link"></i>
+</button>
+<button onclick=showQRCode() class=share-btn title=二维码分享>
+<i class="fa-solid fa-qrcode"></i></button></div></div></div></div><div id=qrcode-popup class="qrcode-modal hidden"><div class=qrcode-modal-content><button onclick=hideQRCode() class=qrcode-modal-close>
+<i class="fa-solid fa-times"></i></button><h4 class=qrcode-modal-title>扫码分享</h4><div id=qrcode-container class=qrcode-container></div></div></div><div class=comments-section><div class=giscus-wrapper><div class=giscus-header><i class="fa-regular fa-comments"></i><h3>欢迎讨论</h3></div><div class=giscus-container id=giscus-container></div></div><script>(function(){const n=document.documentElement.classList.contains("dark"),s=n?"dark":"light",e=document.createElement("script");e.src="https://giscus.app/client.js",e.setAttribute("data-repo","zhaoliangbin42/zhaoliangbin42.github.io"),e.setAttribute("data-repo-id","R_kgDOOWpJ1g"),e.setAttribute("data-category","Announcements"),e.setAttribute("data-category-id","DIC_kwDOOWpJ1s4CzOtT"),e.setAttribute("data-mapping","pathname"),e.setAttribute("data-strict","0"),e.setAttribute("data-reactions-enabled","1"),e.setAttribute("data-emit-metadata","0"),e.setAttribute("data-input-position","top"),e.setAttribute("data-theme",s),e.setAttribute("data-lang","zh-CN"),e.setAttribute("data-loading","lazy"),e.crossOrigin="anonymous",e.async=!0;const t=document.getElementById("giscus-container");t&&t.appendChild(e)})();function setGiscusTheme(){const t=document.documentElement.classList.contains("dark"),n=t?"dark":"light",e=document.querySelector("iframe.giscus-frame");e&&e.contentWindow.postMessage({giscus:{setConfig:{theme:n}}},"https://giscus.app")}const observer=new MutationObserver(function(e){e.forEach(function(e){e.attributeName==="class"&&setTimeout(setGiscusTheme,100)})});observer.observe(document.documentElement,{attributes:!0,attributeFilter:["class"]})</script></div></article><aside class=article-toc-sidebar><div class=toc-sticky-wrapper><h4 class=toc-title>目录</h4><nav class=toc-nav><nav id=TableOfContents><ul><li><ul><li><a href=#变速率成型滤波的实现>变速率成型滤波的实现</a><ul><li><a href=#成型滤波的表达式>成型滤波的表达式</a></li><li><a href=#基于数字重采样技术的速率转换方法的公式推导>基于数字重采样技术的速率转换方法的公式推导</a></li><li><a href=#可变速率成型滤波器设计>可变速率成型滤波器设计</a></li><li><a href=#可变速率成型滤波模块的一些参数讨论>可变速率成型滤波模块的一些参数讨论</a></li></ul></li><li><a href=#高速并行匹配滤波器的实现>高速并行匹配滤波器的实现</a><ul><li><a href=#z变换>$Z$变换</a></li><li><a href=#公式推导>公式推导</a></li><li><a href=#高速并行匹配滤波器的实现方法>高速并行匹配滤波器的实现方法</a></li></ul></li></ul></li></ul></nav></nav></div></aside></div></div></div></div></section><script src=https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js></script><script>function toggleMobileTOC(){const e=document.querySelector(".toc-mobile-content"),t=document.querySelector(".toggle-icon");e.classList.toggle("hidden"),t.classList.toggle("rotate-180")}document.addEventListener("DOMContentLoaded",function(){const e=new IntersectionObserver(e=>{e.forEach(e=>{const t=e.target.getAttribute("id");if(e.intersectionRatio>0){document.querySelectorAll(".toc-nav a").forEach(e=>{e.classList.remove("active")});const e=document.querySelector(`.toc-nav a[href="#${t}"]`);e&&e.classList.add("active")}})},{rootMargin:"-20% 0% -35% 0%"});document.querySelectorAll("h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]").forEach(t=>{e.observe(t)})});function copyPageUrl(){const e=window.location.href;navigator.clipboard.writeText(e).then(()=>{const e=document.createElement("div");e.textContent="✓ 链接已复制",e.className="copy-toast",document.body.appendChild(e),setTimeout(()=>{e.style.opacity="0",e.style.transform="translateX(100%)",setTimeout(()=>document.body.removeChild(e),300)},2e3)})}function showQRCode(){const t=window.location.href,e=document.getElementById("qrcode-container");e.innerHTML="",QRCode.toDataURL(t,{width:200,margin:2},function(t,n){if(t){console.error(t);return}const s=document.createElement("img");s.src=n,s.width=200,s.height=200,s.style.borderRadius="8px",e.appendChild(s)}),document.getElementById("qrcode-popup").classList.remove("hidden")}function hideQRCode(){document.getElementById("qrcode-popup").classList.add("hidden")}document.addEventListener("DOMContentLoaded",function(){const e=document.getElementById("qrcode-popup");e&&e.addEventListener("click",function(t){t.target===e&&hideQRCode()})})</script></main><footer class="bg-light dark:bg-darkmode-light"><div class=container><div class="row items-center py-10"><div class="lg:col-3 mb-8 text-center lg:mb-0 lg:text-left"><a class="navbar-brand inline-block" href=/><img fetchpriority=high decoding=async class="img img-light" width=64 height=64 src=/images/logo_hu_515ea5dfce2edb6e.webp alt="Liangbin's Notes" onerror='this.onerror=null,this.src="/images/logo_hu_f5cfd5dd416f79c6.png"'>
+<img fetchpriority=high decoding=async class="img img-dark" width=64 height=64 src=/images/logo-darkmode_hu_515ea5dfce2edb6e.webp alt="Liangbin's Notes" onerror='this.onerror=null,this.src="/images/logo-darkmode_hu_f5cfd5dd416f79c6.png"'></a></div><div class="lg:col-6 mb-8 text-center lg:mb-0"><ul></ul></div><div class="lg:col-3 mb-8 text-center lg:mb-0 lg:mt-0 lg:text-right"><ul class="social-icons flex justify-center lg:justify-end gap-3"><li><a class=footer-social-link target=_blank aria-label="Google Scholar" rel="nofollow noopener noreferrer" href="https://scholar.google.com/citations?user=O3RdaQ8AAAAJ&amp;hl=en&amp;oi=sra"><i class="fas fa-graduation-cap"></i></a></li><li><a class=footer-social-link target=_blank aria-label=github rel="nofollow noopener noreferrer" href=https://github.com/zhaoliangbin42><i class="fab fa-github"></i></a></li><li><a class=footer-social-link target=_blank aria-label=linkedin rel="nofollow noopener noreferrer" href=https://www.linkedin.com/in/liangbin-zhao-487854142/><i class="fab fa-linkedin"></i></a></li></ul><p class=footer-update-text><i class="fa-regular fa-calendar-check mr-1"></i> 最后更新于: 2025-12-02</p></div></div></div><div class="border-border dark:border-darkmode-border border-t py-7"><div class="text-text-light dark:text-darkmode-text-light container text-center"><p>© 2025 Liangbin Zhao. Powered by <a href=https://gohugo.io/ target=_blank>Hugo</a> and <a href=https://github.com/zeon-studio/hugoplate target=_blank>Hugoplate</a> theme.</p></div></div></footer><script>const header=document.getElementById("site-header");let lastScrollY=window.scrollY;function updateHeaderShadow(){const e=window.scrollY;e>10?header.classList.add("sticky-scrolled"):header.classList.remove("sticky-scrolled"),lastScrollY=e}window.addEventListener("scroll",updateHeaderShadow,{passive:!0}),updateHeaderShadow()</script><script crossorigin=anonymous integrity="sha256-LO9JECYLqyMcpGlrtxZcpUn0I8AvhO6oIIibJZv4zbk=" src=/js/script.min.2cef4910260bab231ca4696bb7165ca549f423c02f84eea820889b259bf8cdb9.js></script><script defer async crossorigin=anonymous integrity="sha256-6WomfiWXziApPR9exxy3xjT2w9Za+OYxJPD02L7xe5A=" src=/js/script-lazy.min.e96a267e2597ce20293d1f5ec71cb7c634f6c3d65af8e63124f0f4d8bef17b90.js></script><script>"serviceWorker"in navigator&&navigator.serviceWorker.register("/service-worker.js")</script><script>MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0,tags:"ams"},options:{enableMenu:!0},startup:{ready(){const e=document.querySelectorAll("p, div, span");e.forEach(e=>{e.textContent.includes("\\begin{aligned}")&&(e.innerHTML=e.innerHTML.replace(/\\ /g,"\\\\"))}),MathJax.startup.defaultReady()}}}</script><script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js></script></body></html>
