@@ -9,7 +9,7 @@ hero:
   description: "通信物理计算机，样样都想学；编程游泳羽毛球，样样学不好。"
   image: "/images/banner.png"
   buttons:
-    - label: "阅读我的思考"
+    - label: "看看我的笔记"
       link: "notes"
       style: "primary"
     - label: "逛逛我的代码"

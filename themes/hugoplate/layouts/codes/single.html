@@ -4,6 +4,9 @@
         <!-- 文章布局容器 -->
         <div class="article-layout-container">
             <div class="article-layout-wrapper">
+                <!-- 面包屑导航 -->
+                {{ partial "breadcrumb.html" . }}
+                
                 <!-- 移动端 TOC -->
                 <div class="toc-mobile">
                     {{ if .TableOfContents }}
@@ -36,9 +39,31 @@
                                     src="https://www.gravatar.com/avatar/{{ md5 .Params.email }}?s=128&pg&d=identicon" />
                                 {{ end }}
                                 <h1 class="h3 mt-10 gradient-text">{{ .Title }}</h1>
+                                
+                                
                                 <div class="content mt-6">
                                     {{ .Summary }}
                                 </div>
+                                <!-- 自定义 GitHub Star 按钮 -->
+                                {{ if .Params.github_url }}
+                                {{ $githubURL := .Params.github_url }}
+                                {{ $repo := replaceRE "^https?://github\\.com/(.+?)/?$" "$1" $githubURL }}
+                                <div class="custom-github-star-container mt-4">
+                                    <a class="custom-github-star-btn" 
+                                       href="{{ $githubURL }}" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer"
+                                       data-repo="{{ $repo }}">
+                                        <i class="fa-brands fa-github github-icon"></i>
+                                        <span class="btn-divider"></span>
+                                        <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+                                            <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"></path>
+                                        </svg>
+                                        <span class="star-text">Star</span>
+                                        <span class="star-count" data-repo="{{ $repo }}">...</span>
+                                    </a>
+                                </div>
+                                {{ end }}
                                 <ul class="social-icons ml-4 mt-10 text-center">
                                     {{ range .Params.social }}
                                     <li>
@@ -128,4 +153,95 @@
         });
     });
 </script>
+
+<!-- GitHub Stars 数据获取脚本 -->
+<script>
+// 获取 GitHub Stars 数量
+async function fetchGitHubStars(repo) {
+    try {
+        const response = await fetch(`https://api.github.com/repos/${repo}`);
+        if (!response.ok) throw new Error('API request failed');
+        const data = await response.json();
+        return data.stargazers_count;
+    } catch (error) {
+        console.error('Failed to fetch GitHub stars:', error);
+        return null;
+    }
+}
+
+// 格式化数字（超过 1000 显示 k）
+function formatStarCount(count) {
+    if (count >= 1000) {
+        return (count / 1000).toFixed(1) + 'k';
+    }
+    return count.toString();
+}
+
+// 更新页面上的 Star 数量
+async function updateStarCounts() {
+    const starElements = document.querySelectorAll('.star-count[data-repo]');
+    
+    for (const element of starElements) {
+        const repo = element.getAttribute('data-repo');
+        if (!repo) continue;
+        
+        const stars = await fetchGitHubStars(repo);
+        if (stars !== null) {
+            element.textContent = formatStarCount(stars);
+            element.classList.add('loaded');
+            
+            // 缓存到 localStorage（24小时有效）
+            const cacheKey = `github_stars_${repo}`;
+            const cacheData = {
+                stars: stars,
+                timestamp: Date.now()
+            };
+            localStorage.setItem(cacheKey, JSON.stringify(cacheData));
+        } else {
+            element.textContent = '-';
+        }
+    }
+}
+
+// 从缓存加载或获取新数据
+function loadStarCounts() {
+    const starElements = document.querySelectorAll('.star-count[data-repo]');
+    
+    starElements.forEach(element => {
+        const repo = element.getAttribute('data-repo');
+        if (!repo) return;
+        
+        // 尝试从缓存读取
+        const cacheKey = `github_stars_${repo}`;
+        const cached = localStorage.getItem(cacheKey);
+        
+        if (cached) {
+            try {
+                const { stars, timestamp } = JSON.parse(cached);
+                const age = Date.now() - timestamp;
+                
+                // 缓存 24 小时内有效
+                if (age < 24 * 60 * 60 * 1000) {
+                    element.textContent = formatStarCount(stars);
+                    element.classList.add('loaded');
+                    return;
+                }
+            } catch (e) {
+                console.error('Cache parse error:', e);
+            }
+        }
+    });
+    
+    // 获取新数据
+    updateStarCounts();
+}
+
+// 页面加载时执行
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadStarCounts);
+} else {
+    loadStarCounts();
+}
+</script>
+
 {{ end }}

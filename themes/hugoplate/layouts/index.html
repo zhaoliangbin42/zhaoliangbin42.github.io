@@ -41,8 +41,17 @@
           <h2 class="home-section-title">{{ .title }}</h2>
         </div>
         <div class="home-about-content">
-          <div class="home-about-image">
-            {{ partial "image" (dict "Src" .image "Alt" "About image" "Class" "home-about-img") }}
+          <div class="home-about-image-wrapper">
+            <div class="home-about-image">
+              {{ partial "image" (dict "Src" .image "Alt" "About image" "Class" "home-about-img") }}
+            </div>
+            <a href="https://github.com/zhaoliangbin42" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="about-github-attach-btn">
+              <i class="fa-brands fa-github"></i>
+              Follow Me
+            </a>
           </div>
           <div class="home-about-text">
             {{ .content | markdownify }}
@@ -89,7 +98,7 @@
         <!-- Tabs -->
         <div class="home-featured-tabs">
           <button class="home-featured-tab active" onclick="switchTab('notes')">
-            思考与记录
+            所思所想
           </button>
           <button class="home-featured-tab" onclick="switchTab('papers')">
             开源代码
@@ -98,19 +107,45 @@
 
         <!-- Tab Content - Notes -->
         <div id="notes" class="home-featured-content active">
-          <div class="home-featured-grid">
-            {{ range first 3 (where site.RegularPages.ByPublishDate.Reverse "Section" "notes") }}
-              {{ partial "components/featured-card" . }}
-            {{ end }}
+          <div class="home-featured-slider-wrapper">
+            <button class="home-featured-prev" onclick="slideFeatured('notes', -1)" aria-label="Previous">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <div class="home-featured-slider" data-tab="notes">
+              <div class="home-featured-grid" data-current-page="0">
+                {{ range first 6 (where site.RegularPages.ByPublishDate.Reverse "Section" "notes") }}
+                  {{ partial "components/featured-card" . }}
+                {{ end }}
+              </div>
+            </div>
+            <button class="home-featured-next" onclick="slideFeatured('notes', 1)" aria-label="Next">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+          <div class="home-featured-pagination" data-tab="notes">
+            <!-- 分页点由 JavaScript 动态生成 -->
           </div>
         </div>
 
         <!-- Tab Content - Papers -->
         <div id="papers" class="home-featured-content">
-          <div class="home-featured-grid">
-            {{ range first 3 (where site.RegularPages "Section" "codes") }}
-              {{ partial "components/featured-card" . }}
-            {{ end }}
+          <div class="home-featured-slider-wrapper">
+            <button class="home-featured-prev" onclick="slideFeatured('papers', -1)" aria-label="Previous">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <div class="home-featured-slider" data-tab="papers">
+              <div class="home-featured-grid" data-current-page="0">
+                {{ range first 6 (where site.RegularPages "Section" "codes") }}
+                  {{ partial "components/featured-card" . }}
+                {{ end }}
+              </div>
+            </div>
+            <button class="home-featured-next" onclick="slideFeatured('papers', 1)" aria-label="Next">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+          <div class="home-featured-pagination" data-tab="papers">
+            <!-- 分页点由 JavaScript 动态生成 -->
           </div>
         </div>
       </div>
@@ -142,26 +177,27 @@
           <h2 class="home-section-title">数据统计</h2>
         </div>
         <div class="home-stats-grid">
-          <!-- 手动配置的论文数量 -->
-          <div class="home-stats-card">
-            <i class="fa-solid fa-file-lines home-stats-icon"></i>
-            <div class="home-stats-number">{{ .papers | default 0 }}</div>
-            <div class="home-stats-label">发表论文</div>
-          </div>
-          
-          <!-- 动态计算代码数量 -->
-          <div class="home-stats-card">
-            <i class="fa-solid fa-code home-stats-icon"></i>
-            <div class="home-stats-number">{{ len (where site.RegularPages "Section" "codes") }}</div>
-            <div class="home-stats-label">开源项目</div>
-          </div>
-          
-          <!-- 动态计算笔记数量 -->
-          <div class="home-stats-card">
-            <i class="fa-solid fa-book home-stats-icon"></i>
-            <div class="home-stats-number">{{ len (where site.RegularPages "Section" "notes") }}</div>
-            <div class="home-stats-label">学习笔记</div>
-          </div>
+            
+            <!-- 动态计算代码数量 -->
+            <div class="home-stats-card">
+                <i class="fa-solid fa-code home-stats-icon"></i>
+                <div class="home-stats-number">{{ len (where site.RegularPages "Section" "codes") }}</div>
+                <div class="home-stats-label">开源项目</div>
+            </div>
+            
+            <!-- 动态计算笔记数量 -->
+            <div class="home-stats-card">
+                <i class="fa-solid fa-book home-stats-icon"></i>
+                <div class="home-stats-number">{{ len (where site.RegularPages "Section" "notes") }}</div>
+                <div class="home-stats-label">学习笔记</div>
+            </div>
+
+            <!-- 手动配置的论文数量 -->
+            <div class="home-stats-card">
+              <i class="fa-solid fa-file-lines home-stats-icon"></i>
+              <div class="home-stats-number">{{ .papers | default 0 }}</div>
+              <div class="home-stats-label">发表论文</div>
+            </div>
         </div>
       </div>
     </section>
@@ -177,7 +213,7 @@
           <h2 class="home-section-title">{{ .title }}</h2>
         </div>
         <div class="home-timeline">
-          {{ range first 4 (where site.RegularPages.ByPublishDate.Reverse "Section" "in" (slice "notes" "codes" "projects")) }}
+          {{ range first 5 (where site.RegularPages.ByPublishDate.Reverse "Section" "in" (slice "notes" "codes" "projects")) }}
             <div class="home-timeline-item">
               <div class="home-timeline-date">{{ .PublishDate.Format "2006-01" }}</div>
               <div class="home-timeline-icon">
@@ -195,6 +231,15 @@
                 <a href="{{ .RelPermalink }}" class="home-timeline-link">
                   查看详情 <i class="fa-solid fa-arrow-right"></i>
                 </a>
+                <span class="home-timeline-badge">
+                  {{ if eq .Section "notes" }}
+                    新增笔记
+                  {{ else if eq .Section "codes" }}
+                    新增开源项目
+                  {{ else }}
+                    新增项目
+                  {{ end }}
+                </span>
               </div>
             </div>
           {{ end }}
@@ -204,8 +249,9 @@
     {{ end }}
   {{ end }}
 
-  <!-- Tab Switch Script -->
+  <!-- Tab Switch & Pagination Script -->
   <script>
+    // Tab切换功能
     function switchTab(tabId) {
       // Hide all contents
       document.querySelectorAll('.home-featured-content').forEach(content => {
@@ -219,6 +265,253 @@
       document.getElementById(tabId).classList.add('active');
       // Add active class to clicked tab
       event.target.classList.add('active');
+      
+      // 重置当前 tab 的滑动位置
+      goToPage(tabId, 0);
+      // 停止之前的自动播放，启动新的
+      startAutoPlay(tabId);
+    }
+
+    // 获取当前屏幕下每页显示的卡片数
+    function getCardsPerPage() {
+      const width = window.innerWidth;
+      if (width >= 1024) return 3; // 宽屏
+      if (width >= 768) return 2;  // 平板
+      return 1; // 移动端
+    }
+
+    // 获取实际卡片数量
+    function getActualCardCount(tabId) {
+      const slider = document.querySelector(`[data-tab="${tabId}"] .home-featured-grid`);
+      if (!slider) return 0;
+      // 排除克隆的卡片
+      return Array.from(slider.children).filter(child => !child.classList.contains('cloned')).length;
+    }
+
+    // 更新按钮和分页的可见性
+    function updateControlsVisibility(tabId) {
+      const cardsPerPage = getCardsPerPage();
+      const totalCards = getActualCardCount(tabId);
+      const totalPages = Math.ceil(totalCards / cardsPerPage);
+      const needsPagination = totalPages > 1;
+
+      // 获取按钮和分页容器
+      const slider = document.querySelector(`[data-tab="${tabId}"] .home-featured-grid`);
+      const wrapper = document.querySelector(`[data-tab="${tabId}"]`).closest('.home-featured-slider-wrapper');
+      const prevBtn = wrapper.querySelector('.home-featured-prev');
+      const nextBtn = wrapper.querySelector('.home-featured-next');
+      const pagination = document.querySelector(`.home-featured-pagination[data-tab="${tabId}"]`);
+
+      // 根据是否需要分页显示/隐藏控件
+      if (prevBtn) prevBtn.style.display = needsPagination ? 'flex' : 'none';
+      if (nextBtn) nextBtn.style.display = needsPagination ? 'flex' : 'none';
+      if (pagination) pagination.style.display = needsPagination ? 'flex' : 'none';
+
+      // 如果不需要分页，调整 wrapper 的 padding
+      if (wrapper) {
+        wrapper.style.padding = needsPagination ? '' : '0';
+      }
+
+      // 如果卡片数量少于每页显示数量，添加居中类
+      if (slider) {
+        if (totalCards < cardsPerPage) {
+          slider.classList.add('center-cards');
+          // 重置transform，不需要轮播
+          slider.style.transform = 'translateX(0)';
+        } else {
+          slider.classList.remove('center-cards');
+        }
+      }
+    }
+
+    // 轮播图滑动功能（循环模式）
+    function slideFeatured(tabId, direction) {
+      const slider = document.querySelector(`[data-tab="${tabId}"] .home-featured-grid`);
+      const currentPage = parseInt(slider.getAttribute('data-current-page'));
+      const cardsPerPage = getCardsPerPage();
+      const totalCards = getActualCardCount(tabId);
+      const totalPages = Math.ceil(totalCards / cardsPerPage);
+      
+      // 如果不需要分页，直接返回
+      if (totalPages <= 1) return;
+      
+      let newPage = currentPage + direction;
+      
+      // 循环轮播：到最后一页后回到第一页，到第一页前回到最后一页
+      if (newPage >= totalPages) {
+        newPage = 0;
+      } else if (newPage < 0) {
+        newPage = totalPages - 1;
+      }
+      
+      goToPage(tabId, newPage);
+    }
+
+    // 跳转到指定页
+    function goToPage(tabId, pageIndex) {
+      const slider = document.querySelector(`[data-tab="${tabId}"] .home-featured-grid`);
+      const pagination = document.querySelector(`.home-featured-pagination[data-tab="${tabId}"]`);
+      if (!slider || !pagination) return;
+      
+      const cardsPerPage = getCardsPerPage();
+      const totalCards = getActualCardCount(tabId);
+      const totalPages = Math.ceil(totalCards / cardsPerPage);
+      
+      // 确保 pageIndex 在有效范围内
+      pageIndex = Math.max(0, Math.min(pageIndex, totalPages - 1));
+      
+      // 更新滑动位置
+      slider.setAttribute('data-current-page', pageIndex);
+      
+      // 计算滑动距离
+      let translateValue;
+      if (cardsPerPage === 1) {
+        // 移动端: 每页1张卡片，卡片宽度100% + gap 2rem
+        translateValue = `calc(-${pageIndex * 100}% - ${pageIndex * 2}rem)`;
+      } else if (cardsPerPage === 2) {
+        // 平板端: 每页2张卡片，每页宽度 = 2 * (50% - 1rem) + 1 * 2rem = 100%
+        translateValue = `calc(-${pageIndex * 100}% - ${pageIndex * 2}rem)`;
+      } else {
+        // 宽屏: 每页3张卡片，每页宽度 = 3 * (33.333% - 1.334rem) + 2 * 2rem = 100%
+        translateValue = `calc(-${pageIndex * 100}% - ${pageIndex * 2}rem)`;
+      }
+      
+      slider.style.transform = `translateX(${translateValue})`;
+      
+      // 更新分页指示器
+      updatePaginationDots(tabId, pageIndex, totalPages);
+      // 更新控件可见性
+      updateControlsVisibility(tabId);
+    }
+
+    // 更新分页指示器
+    function updatePaginationDots(tabId, currentPage, totalPages) {
+      const pagination = document.querySelector(`.home-featured-pagination[data-tab="${tabId}"]`);
+      if (!pagination) return;
+      
+      // 清空现有的点
+      pagination.innerHTML = '';
+      
+      // 创建新的点
+      for (let i = 0; i < totalPages; i++) {
+        const dot = document.createElement('span');
+        dot.className = 'pagination-dot' + (i === currentPage ? ' active' : '');
+        dot.onclick = () => goToPage(tabId, i);
+        pagination.appendChild(dot);
+      }
+    }
+
+    // 窗口大小变化时重新计算
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        const activeTab = document.querySelector('.home-featured-content.active').id;
+        const slider = document.querySelector(`[data-tab="${activeTab}"] .home-featured-grid`);
+        const currentPage = parseInt(slider.getAttribute('data-current-page')) || 0;
+        goToPage(activeTab, currentPage);
+      }, 150);
+    });
+
+    // 自动播放
+    let autoPlayInterval;
+    function startAutoPlay(tabId) {
+      stopAutoPlay();
+      
+      // 检查是否需要分页，如果不需要则不启动自动播放
+      const cardsPerPage = getCardsPerPage();
+      const totalCards = getActualCardCount(tabId);
+      const totalPages = Math.ceil(totalCards / cardsPerPage);
+      
+      if (totalPages <= 1) {
+        return; // 不需要分页，不启动自动播放
+      }
+      
+      autoPlayInterval = setInterval(() => {
+        slideFeatured(tabId, 1);
+      }, 5000);
+    }
+
+    function stopAutoPlay() {
+      if (autoPlayInterval) {
+        clearInterval(autoPlayInterval);
+      }
+    }
+
+    // 鼠标悬停时停止自动播放
+    document.querySelectorAll('.home-featured-slider-wrapper').forEach(wrapper => {
+      wrapper.addEventListener('mouseenter', stopAutoPlay);
+      wrapper.addEventListener('mouseleave', () => {
+        const activeContent = document.querySelector('.home-featured-content.active');
+        if (activeContent) {
+          startAutoPlay(activeContent.id);
+        }
+      });
+    });
+
+    // 页面加载后初始化
+    document.addEventListener('DOMContentLoaded', () => {
+      // 初始化两个 tab 的分页器和控件可见性
+      goToPage('notes', 0);
+      goToPage('papers', 0);
+      
+      // 启动自动播放
+      startAutoPlay('notes');
+      
+      // 获取 GitHub Star 数量
+      fetchGitHubStars();
+    });
+
+    // 获取 GitHub Star 数量 (footer版本)
+    function fetchGitHubStars() {
+      const starElement = document.querySelector('.footer-github-star-count');
+      if (!starElement) return;
+      
+      const repo = starElement.getAttribute('data-repo');
+      if (!repo) return;
+      
+      // 检查缓存
+      const cacheKey = `github_stars_${repo}`;
+      const cached = localStorage.getItem(cacheKey);
+      if (cached) {
+        const data = JSON.parse(cached);
+        const now = new Date().getTime();
+        // 缓存24小时
+        if (now - data.timestamp < 24 * 60 * 60 * 1000) {
+          updateStarCount(starElement, data.stars);
+          return;
+        }
+      }
+      
+      // 从 API 获取
+      fetch(`https://api.github.com/repos/${repo}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.stargazers_count !== undefined) {
+            const stars = data.stargazers_count;
+            updateStarCount(starElement, stars);
+            // 保存到缓存
+            localStorage.setItem(cacheKey, JSON.stringify({
+              stars: stars,
+              timestamp: new Date().getTime()
+            }));
+          }
+        })
+        .catch(error => {
+          console.error('Failed to fetch GitHub stars:', error);
+          starElement.textContent = '-';
+          starElement.classList.add('loaded');
+        });
+    }
+
+    function updateStarCount(element, count) {
+      // 格式化数字（例如：1234 -> 1.2k）
+      let formatted = count;
+      if (count >= 1000) {
+        formatted = (count / 1000).toFixed(1) + 'k';
+      }
+      element.textContent = formatted;
+      element.classList.add('loaded');
     }
   </script>
 

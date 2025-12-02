@@ -1,12 +1,11 @@
 ---
 title: "Passive Sensing for Multiple Vehicles in Bi-static ISAC Systems"
-date: 2025-06-18
+date: 2025-09-30
 image: "index.assets/banner.png"
 author: "Liangbin"
 summary: "Simulation for paper \"Passive Sensing for Multiple Vehicles in Bi-static ISAC Systems\", accepted by VTC-2025 Spring"
-stars: 0
-updated_date: 2025-06-18
-paper_url: ""
+updated_date: 2025-09-30
+paper_url: "https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11174283"
 github_url: "https://github.com/zhaoliangbin42/VTC2025-SWIP-MUSIC"
 
 ---
@@ -72,6 +71,17 @@ If you find it useful, please consider giving us a star ⭐!
 
 If you use this code in your research, please cite our paper:
 
+```bibtex
+@INPROCEEDINGS{Zhao2025PassiveSensing,
+  author={Zhao, Liangbin and Feng, Yimeng and Ni, Zhitong and Bu, Xiangyuan},
+  booktitle={2025 IEEE 101st Vehicular Technology Conference (VTC2025-Spring)}, 
+  title={Passive Sensing for Multiple Vehicles in Bi-Static ISAC Systems}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={1-6},
+  doi={10.1109/VTC2025-Spring65109.2025.11174283}}
+```
 
 ## License
 

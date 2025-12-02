@@ -1,6 +1,12 @@
 {{ define "main" }}
-  {{ partial "page-header" . }}
+  <section class="pt-7 pb-0">
+    <div class="container">
+      <!-- 面包屑导航 -->
+      {{ partial "breadcrumb.html" . }}
+    </div>
+  </section>
 
+  {{ partial "page-header" . }}
 
   <section class="section">
     <div class="container">

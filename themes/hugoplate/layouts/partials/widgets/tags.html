@@ -2,7 +2,16 @@
 {{ if isset site.Taxonomies "tags" }}
   {{ if not (eq (len site.Taxonomies.tags) 0) }}
     <div class="mb-8">
-      <h5 class="mb-6 font-semibold text-lg">{{ T "tags" }}</h5>
+      <div class="widget-header">
+        <h5 class="widget-title">
+          <i class="fa-solid fa-tags widget-title-icon"></i>
+          {{ T "tags" }}
+        </h5>
+        <a href="/tags/" class="widget-view-all">
+          View All
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
       <div class="rounded-2xl p-6" style="background: rgba(173, 83, 137, 0.03);">
         <ul class="flex flex-wrap gap-2">
           {{ range $name, $items := site.Taxonomies.tags }}

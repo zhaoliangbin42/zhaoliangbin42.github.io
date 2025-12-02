@@ -4,6 +4,9 @@
         <!-- 文章布局容器 -->
         <div class="article-layout-container">
             <div class="article-layout-wrapper">
+                <!-- 面包屑导航 -->
+                {{ partial "breadcrumb.html" . }}
+                
                 <!-- 移动端 TOC -->
                 <div class="toc-mobile">
                     {{ if .TableOfContents }}

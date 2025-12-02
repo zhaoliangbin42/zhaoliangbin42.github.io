@@ -1,41 +1,45 @@
 {{ define "main" }}
-  {{ partial "page-header" . }}
+  <section class="pt-7 pb-0">
+    <div class="container">
+      <!-- 面包屑导航 -->
+      {{ partial "breadcrumb.html" . }}
+    </div>
+  </section>
 
+  {{ partial "page-header" . }}
 
   <section class="section">
     <div class="container">
-      <ul class="text-center">
+      <div class="terms-grid">
         {{/* categories */}}
         {{ if eq .Permalink (`categories/` | absLangURL) }}
           {{ range site.Taxonomies.categories.ByCount }}
-            <li class="m-3 inline-block">
-              <a
-                href="{{ .Page.Permalink }}"
-                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
-                {{ .Page.Title }}
-                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
-                  {{ .Count }}
-                </span>
-              </a>
-            </li>
+            <a href="{{ .Page.Permalink }}" class="term-card">
+              <div class="term-card-icon">
+                <i class="fa-solid fa-folder-open"></i>
+              </div>
+              <div class="term-card-content">
+                <h3 class="term-card-title">{{ .Page.Title }}</h3>
+                <span class="term-card-count">{{ .Count }} 篇文章</span>
+              </div>
+            </a>
           {{ end }}
         {{ end }}
         {{/* tags */}}
         {{ if eq .Permalink (`tags/` | absLangURL) }}
           {{ range site.Taxonomies.tags.ByCount }}
-            <li class="m-3 inline-block">
-              <a
-                href="{{ .Page.Permalink }}"
-                class="bg-light text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark block rounded px-4 py-2 text-xl">
-                {{ .Page.Title }}
-                <span class="bg-body dark:bg-darkmode-body ml-2 rounded px-2">
-                  {{ .Count }}
-                </span>
-              </a>
-            </li>
+            <a href="{{ .Page.Permalink }}" class="term-card">
+              <div class="term-card-icon">
+                <i class="fa-solid fa-tag"></i>
+              </div>
+              <div class="term-card-content">
+                <h3 class="term-card-title">{{ .Page.Title }}</h3>
+                <span class="term-card-count">{{ .Count }} 篇文章</span>
+              </div>
+            </a>
           {{ end }}
         {{ end }}
-      </ul>
+      </div>
     </div>
   </section>
 {{ end }}

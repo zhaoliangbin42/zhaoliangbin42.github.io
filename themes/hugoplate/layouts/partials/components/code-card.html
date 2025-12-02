@@ -23,10 +23,12 @@
       </div>
       {{ end }}
       
-      {{ if .Params.stars }}
+      {{ if .Params.github_url }}
+      {{ $githubURL := .Params.github_url }}
+      {{ $repo := replaceRE "^https?://github\\.com/(.+?)/?$" "$1" $githubURL }}
       <div class="code-card-meta-item">
         <i class="fa-solid fa-star code-card-star"></i>
-        <span>{{ .Params.stars }}</span>
+        <span class="star-count" data-repo="{{ $repo }}">...</span>
       </div>
       {{ end }}
     </div>

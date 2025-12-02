@@ -1,12 +1,11 @@
 ---
 title: "High-Resolution Uplink Sensing in Millimeter-Wave ISAC Systems"
-date: 2025-04-10
+date: 2025-11-16
 image: "index.assets/banner.png"
 author: "Liangbin"
 summary: "Simulation for paper \"High-Resolution Uplink Sensing in Millimeter-Wave ISAC Systems\""
-stars: 8
-updated_date: 2025-03-15
-paper_url: "https://arxiv.org/abs/2503.10107"
+updated_date: 2025-11-16
+paper_url: "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11071294"
 github_url: "https://github.com/zhaoliangbin42/UplinkSensing_mmWave"
 ---
 
@@ -73,14 +72,14 @@ Note that `L` should be less than `Nr` and `K/2`.
 If you use this code in your research, please cite our paper:
 
 ```bibtex
-@misc{zhao2025highresolution,
-      title={High-Resolution Uplink Sensing in Millimeter-Wave ISAC Systems}, 
-      author={Liangbin Zhao and Zhitong Ni and Yimeng Feng and Jianguo Li and Xiangyuan Bu and J. Andrew Zhang},
-      year={2025},
-      eprint={2503.10107},
-      archivePrefix={arXiv},
-      primaryClass={eess.SP},
-      url={https://arxiv.org/abs/2503.10107}, 
-}
+@ARTICLE{Zhao2025HighResolution,
+  author={Zhao, Liangbin and Ni, Zhitong and Feng, Yimeng and Li, Jianguo and Bu, Xiangyuan and Andrew Zhang, J.},
+  journal={IEEE Transactions on Communications}, 
+  title={High-Resolution Uplink Sensing in Millimeter-Wave ISAC Systems}, 
+  year={2025},
+  volume={73},
+  number={11},
+  pages={12680-12695},
+  doi={10.1109/TCOMM.2025.3585582}}
 ```
 

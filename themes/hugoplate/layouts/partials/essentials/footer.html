@@ -60,3 +60,24 @@
     </div>
   </div>
 </footer>
+
+<script>
+  // 导航栏滚动阴影效果
+  const header = document.getElementById('site-header');
+  let lastScrollY = window.scrollY;
+  
+  function updateHeaderShadow() {
+    const currentScrollY = window.scrollY;
+    
+    if (currentScrollY > 10) {
+      header.classList.add('sticky-scrolled');
+    } else {
+      header.classList.remove('sticky-scrolled');
+    }
+    
+    lastScrollY = currentScrollY;
+  }
+  
+  window.addEventListener('scroll', updateHeaderShadow, { passive: true });
+  updateHeaderShadow(); // 初始检查
+</script>
