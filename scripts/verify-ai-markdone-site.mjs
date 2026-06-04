@@ -238,7 +238,6 @@ assert(css.includes(".amd-feature-table"), "AI-MarkDone CSS must include feature
 assert(css.includes(".amd-settings-table"), "AI-MarkDone CSS must include the settings reference table");
 assert(css.includes(".amd-feature-anchor-strip a.is-active"), "AI-MarkDone CSS must style the active feature anchor");
 assert(css.includes(".amd-site-links a.is-active"), "AI-MarkDone CSS must style the active product nav link");
-assert(css.includes(".home-ai-markdone-card"), "Blog CSS must include the AI-MarkDone homepage entry");
 assert(!css.includes(".amd-feature-summary-panel") && !css.includes(".amd-feature-summary-grid"), "AI-MarkDone CSS must not keep the removed feature summary cards");
 assert(!css.includes("amd-reader-flow") && !css.includes("amd-flow-") && !css.includes("amd-mini-diagram"), "AI-MarkDone CSS must not keep ambiguous homepage diagram classes");
 assert(!css.includes("amd-browser-glyph"), "AI-MarkDone CSS must not keep fake browser letter glyph styles");
@@ -349,7 +348,7 @@ const blogHome = read("docs/index.html");
 assert(blogHome.includes("id=site-header") || blogHome.includes('id="site-header"'), "Blog homepage must still render the shared blog header");
 assert(blogHome.includes("footer-social-link"), "Blog homepage must still render the shared blog footer");
 assert(blogHome.includes("/ai-markdone/en/"), "Blog homepage must link into the English AI-MarkDone product site by default");
-assert(blogHome.includes("home-ai-markdone-card") && blogHome.includes("AI-MarkDone") && blogHome.includes("ChatGPT browser extension"), "Blog homepage must render the AI-MarkDone product entry");
+assert(!blogHome.includes("home-ai-markdone-card"), "Blog homepage must not render a duplicate AI-MarkDone product entry");
 assert(!blogHome.includes("amd-site-header"), "Blog homepage must not render the AI-MarkDone product header");
 
 const zhHome = read("docs/ai-markdone/index.html");

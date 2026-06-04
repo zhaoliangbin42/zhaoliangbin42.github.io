@@ -62,27 +62,6 @@
     {{ end }}
   {{ end }}
 
-  <!-- AI-MarkDone Product Entry -->
-  <section class="home-ai-markdone-section">
-    <div class="container">
-      <a class="home-ai-markdone-card" href="{{ "/ai-markdone/en/" | relURL }}">
-        <span class="home-ai-markdone-icon">
-          {{ with resources.Get "ai-markdone/icons/app-icon.png" }}
-            {{ $mark := .Resize "96x96 png" }}
-            <img src="{{ $mark.RelPermalink }}" width="48" height="48" alt="AI-MarkDone icon">
-          {{ end }}
-        </span>
-        <span class="home-ai-markdone-copy">
-          <strong>AI-MarkDone</strong>
-          <span>ChatGPT browser extension for Reader, Markdown copy, formulas, bookmarks, export, and annotations.</span>
-        </span>
-        <span class="home-ai-markdone-arrow" aria-hidden="true">
-          <i class="fa-solid fa-arrow-right"></i>
-        </span>
-      </a>
-    </div>
-  </section>
-
   <!-- Research Interests Section -->
   {{ with .Params.research_interests }}
     {{ if .enable }}
