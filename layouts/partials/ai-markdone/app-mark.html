@@ -1,0 +1,7 @@
+{{- $appIcon := resources.Get "ai-markdone/icons/app-icon.png" -}}
+{{- if $appIcon -}}
+  {{- $mark := $appIcon.Resize "96x96 png" -}}
+  <span class="amd-site-mark amd-site-mark-image" aria-hidden="true">
+    <img src="{{ $mark.RelPermalink }}" width="48" height="48" alt="">
+  </span>
+{{- end -}}

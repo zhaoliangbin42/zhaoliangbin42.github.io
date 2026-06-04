@@ -1,0 +1,17 @@
+{{ define "main" }}
+  <div class="amd-product">
+    {{ if eq .Params.page_kind "manual" }}
+      {{ partial "ai-markdone/manual.html" . }}
+    {{ else if eq .Params.page_kind "features" }}
+      {{ partial "ai-markdone/features.html" . }}
+    {{ else if eq .Params.page_kind "manual_feature" }}
+      {{ partial "ai-markdone/manual-feature.html" . }}
+    {{ else if eq .Params.page_kind "faq" }}
+      {{ partial "ai-markdone/faq.html" . }}
+    {{ else if eq .Params.page_kind "privacy" }}
+      {{ partial "ai-markdone/privacy.html" . }}
+    {{ else if eq .Params.page_kind "contact" }}
+      {{ partial "ai-markdone/contact.html" . }}
+    {{ end }}
+  </div>
+{{ end }}

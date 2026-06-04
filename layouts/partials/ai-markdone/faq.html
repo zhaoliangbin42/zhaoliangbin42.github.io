@@ -1,0 +1,36 @@
+{{ $isEN := eq (.Params.amd_lang | default "zh") "en" }}
+{{ $otherLang := .Params.translation_url | default "/ai-markdone/faq/" }}
+{{ $faqFile := cond $isEN "assets/ai-markdone/faq.en.md" "assets/ai-markdone/faq.zh.md" }}
+{{ $rawFaq := readFile $faqFile }}
+{{ $faqBody := replaceRE `(?s)^# [^\n]+\n+` "" $rawFaq }}
+{{ $faqMarked := replaceRE `(?m)^## ` "|||AMD_FAQ_ITEM|||" $faqBody }}
+{{ $faqItems := split $faqMarked "|||AMD_FAQ_ITEM|||" }}
+
+<section class="amd-page-hero amd-faq-hero">
+  <div class="amd-container amd-narrow">
+    <h1>{{ if $isEN }}FAQ{{ else }}常见问题{{ end }}</h1>
+    <p>{{ if $isEN }}The same answers used inside the extension, kept here for reference before or after installation.{{ else }}这里放的是插件内置 FAQ 的同一套答案。你在官网和扩展里看到的是同一个口径。{{ end }}</p>
+  </div>
+</section>
+
+<section class="amd-section">
+  <div class="amd-container amd-faq-accordion" aria-label="{{ if $isEN }}AI-MarkDone FAQ{{ else }}AI-MarkDone 常见问题{{ end }}">
+    {{ range $index, $item := $faqItems }}
+      {{ $trimmed := strings.TrimSpace $item }}
+      {{ if $trimmed }}
+        {{ $parts := split $trimmed "\n" }}
+        {{ $question := index $parts 0 }}
+        {{ $answerLines := after 1 $parts }}
+        {{ $answer := delimit $answerLines "\n" }}
+        <details class="amd-faq-item"{{ if lt $index 2 }} open{{ end }}>
+          <summary>
+            <span>{{ $question }}</span>
+          </summary>
+          <div class="amd-faq-answer">
+            {{ $answer | markdownify }}
+          </div>
+        </details>
+      {{ end }}
+    {{ end }}
+  </div>
+</section>

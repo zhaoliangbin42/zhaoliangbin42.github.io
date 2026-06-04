@@ -1,0 +1,72 @@
+<!-- 统一的内容布局模板 -->
+<div class="article-layout-container">
+  <div class="article-layout-wrapper">
+    <!-- 移动端 TOC (< 800px) -->
+    <div class="toc-mobile">
+      {{ if .TableOfContents }}
+      <div class="toc-mobile-wrapper">
+        <button class="toc-mobile-toggle" onclick="toggleMobileTOC()">
+          <i class="fa-solid fa-list mr-2"></i>
+          <span>目录</span>
+          <i class="fa-solid fa-chevron-down ml-2 toggle-icon"></i>
+        </button>
+        <div class="toc-mobile-content hidden">
+          {{ .TableOfContents }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div class="article-content-grid">
+      <!-- 左侧：文章内容 (2/3) -->
+      <article class="article-main-content">
+        {{ block "article-content" . }}{{ end }}
+      </article>
+
+      <!-- 右侧：浮动 TOC (1/3, > 800px) -->
+      {{ if .TableOfContents }}
+      <aside class="article-toc-sidebar">
+        <div class="toc-sticky-wrapper">
+          <h4 class="toc-title">目录</h4>
+          <nav class="toc-nav">
+            {{ .TableOfContents }}
+          </nav>
+        </div>
+      </aside>
+      {{ end }}
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleMobileTOC() {
+  const content = document.querySelector('.toc-mobile-content');
+  const icon = document.querySelector('.toggle-icon');
+  content.classList.toggle('hidden');
+  icon.classList.toggle('rotate-180');
+}
+
+// 高亮当前章节
+document.addEventListener('DOMContentLoaded', function() {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const id = entry.target.getAttribute('id');
+      if (entry.intersectionRatio > 0) {
+        document.querySelectorAll('.toc-nav a').forEach(link => {
+          link.classList.remove('active');
+        });
+        const activeLink = document.querySelector(`.toc-nav a[href="#${id}"]`);
+        if (activeLink) {
+          activeLink.classList.add('active');
+        }
+      }
+    });
+  }, { rootMargin: '-20% 0% -35% 0%' });
+
+  // 观察所有标题
+  document.querySelectorAll('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]').forEach(section => {
+    observer.observe(section);
+  });
+});
+</script>

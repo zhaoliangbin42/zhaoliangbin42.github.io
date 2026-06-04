@@ -1,0 +1,309 @@
+{{ $isEN := eq (.Params.amd_lang | default "zh") "en" }}
+{{ $home := cond $isEN "/ai-markdone/en/" "/ai-markdone/" }}
+{{ $features := cond $isEN "/ai-markdone/en/features/" "/ai-markdone/features/" }}
+{{ $faq := cond $isEN "/ai-markdone/en/faq/" "/ai-markdone/faq/" }}
+{{ $privacy := cond $isEN "/ai-markdone/en/privacy/" "/ai-markdone/privacy/" }}
+{{ $github := "https://github.com/zhaoliangbin42/AI-MarkDone" }}
+{{ $testimonialBlocks := slice }}
+{{ range split (readFile "assets/ai-markdone/testimonials.md") "\n---\n" }}
+  {{ $block := trim . " \n\r\t" }}
+  {{ if hasPrefix $block "## " }}
+    {{ $lines := split $block "\n" }}
+    {{ $name := replaceRE "^##\\s+" "" (index $lines 0 | plainify | strings.TrimSpace) }}
+    {{ $source := replaceRE "^source:\\s*" "" (index $lines 1 | plainify | strings.TrimSpace) }}
+    {{ $quote := (delimit (after 3 $lines) "\n") | strings.TrimSpace }}
+    {{ $testimonialBlocks = $testimonialBlocks | append (dict "nickname" $name "source" $source "quote" $quote) }}
+  {{ end }}
+{{ end }}
+{{ $featureSections := slice
+  (dict
+    "icon" "book-open-text"
+    "zhMeta" "Reader"
+    "enMeta" "Reader"
+    "zhTitle" "阅读器"
+    "enTitle" "Reader"
+    "zhDesc" "ChatGPT 原页面适合聊天，但长回答需要一个能静下来读的地方。阅读器把回答放进更清爽的阅读面里，公式、代码和表格保留原样。"
+    "enDesc" "ChatGPT is great for conversation, but long answers need a quieter surface. Reader keeps formulas, code, and tables intact in a focused reading view."
+    "zhBullets" (slice "阅读面更安静。" "代码、表格、公式不打散。" "适合论文、推导和长代码说明。")
+    "enBullets" (slice "A quieter reading surface." "Code, tables, and formulas stay intact." "Better for papers, derivations, and long code explanations.")
+    "zhDetails" (slice
+      (dict
+        "title" "局部 Markdown 复制"
+        "desc" "选中一段，直接复制成 Markdown。列表、代码和公式尽量保留结构。"
+        "shot" "选区复制浮层"
+        "shotDesc" "需要一张选中文本后的浮层截图，展示局部 Markdown 复制入口。"
+      )
+      (dict
+        "title" "灵动注释"
+        "desc" "读到一句想追问，就把想法写在原句旁边。注释可以继续复制成下一轮 Prompt。"
+        "shot" "灵动注释浮层"
+        "shotDesc" "需要一张选中文本后写注释的截图，展示注释输入和复制入口。"
+      )
+      (dict
+        "title" "消息切换"
+        "desc" "在 Reader 里切到前后消息。看长线程时，不用回到原页面重新翻。"
+        "shot" "Reader 消息切换"
+        "shotDesc" "需要一张 Reader 内切换前后消息，或展示标题结构的截图。"
+      )
+    )
+    "enDetails" (slice
+      (dict
+        "title" "Partial Markdown copy"
+        "desc" "Select a passage and copy it as Markdown, with lists, code, and formulas kept as clean as possible."
+        "shot" "Selection copy popover"
+        "shotDesc" "Add a screenshot of selected text with the partial Markdown copy action visible."
+      )
+      (dict
+        "title" "Precise annotations"
+        "desc" "Leave a note beside the exact sentence you want to question, rewrite, or turn into the next prompt."
+        "shot" "Annotation popover"
+        "shotDesc" "Add a screenshot of selected text with the annotation input and copy action visible."
+      )
+      (dict
+        "title" "Message switching"
+        "desc" "Move between nearby messages inside Reader instead of scrolling back through the original thread."
+        "shot" "Reader message switching"
+        "shotDesc" "Add a Reader screenshot showing message switching or the heading structure."
+      )
+    )
+    "zhShot" "阅读器主界面 + 选区动作"
+    "enShot" "Reader interface + selection actions"
+    "zhShotDesc" "需要一张阅读器截图：正文里同时出现公式、代码和标题结构，最好还能露出局部复制或灵动注释的浮层。"
+    "enShotDesc" "Add a Reader screenshot with body text, formulas, code, headings, and ideally the partial copy or annotation action visible."
+  )
+  (dict
+    "icon" "copy"
+    "zhMeta" "Formula"
+    "enMeta" "Formula"
+    "zhTitle" "公式复制/导出"
+    "enTitle" "Formula copy/export"
+    "zhDesc" "遇到单个公式时，不需要从整段 Markdown 里一点点抠。公式悬浮动作可以直接复制 LaTeX，也可以导出 PNG、SVG 或 MathML，写论文、做课件、整理笔记时会省很多手工清理。"
+    "enDesc" "When you only need one formula, you should not have to dig it out of a whole Markdown block. Formula actions let you copy LaTeX or export PNG, SVG, and MathML for papers, slides, and notes."
+    "zhBullets" (slice "复制 LaTeX 源码。" "导出 PNG / SVG。" "保留 MathML。")
+    "enBullets" (slice "Copy LaTeX source." "Export PNG or SVG." "Keep MathML available.")
+    "zhShot" "公式悬浮菜单"
+    "enShot" "Formula hover menu"
+    "zhShotDesc" "需要一张公式 hover 后的菜单截图，展示 LaTeX、PNG、SVG、MathML 等动作。"
+    "enShotDesc" "Add a screenshot of the formula hover menu showing LaTeX, PNG, SVG, and MathML actions."
+  )
+  (dict
+    "icon" "bookmark"
+    "zhMeta" "Bookmark"
+    "enMeta" "Bookmark"
+    "zhTitle" "书签保存"
+    "enTitle" "Bookmarks"
+    "zhDesc" "AI 对话里真正有价值的内容，最怕过两天找不到。书签保存会留下回答内容和来源位置，支持分类、搜索、预览，也能回到原 ChatGPT 对话里的那一处。"
+    "enDesc" "Useful AI answers are easy to lose a few days later. Bookmarks keep the answer and its source position, with folders, search, preview, and a path back to the original spot in ChatGPT."
+    "zhBullets" (slice "文件夹分类。" "搜索与预览。" "回到原位置。")
+    "enBullets" (slice "Folder organization." "Search and preview." "Jump back to source.")
+    "zhShot" "书签面板"
+    "enShot" "Bookmark panel"
+    "zhShotDesc" "需要一张书签面板截图，展示文件夹、搜索、预览和返回来源的入口。"
+    "enShotDesc" "Add a bookmark panel screenshot showing folders, search, preview, and the source-jump entry."
+  )
+  (dict
+    "icon" "download"
+    "zhMeta" "Export"
+    "enMeta" "Export"
+    "zhTitle" "批量导出"
+    "enTitle" "Batch export"
+    "zhDesc" "截图、复制、另存、整理，本来会散在很多动作里。AI-MarkDone 把常用导出收进一个流程：Markdown、PDF、PNG、多图 ZIP，以及 Save Messages 这类批量保存方式。"
+    "enDesc" "Screenshots, copying, saving, and cleanup usually become separate chores. AI-MarkDone brings common export paths together: Markdown, PDF, PNG, multi-image ZIP, and Save Messages for batch saving."
+    "zhBullets" (slice "Markdown 可继续编辑。" "PDF / PNG 适合归档。" "ZIP 和 Save Messages 处理多条内容。")
+    "enBullets" (slice "Markdown stays editable." "PDF and PNG archive cleanly." "ZIP and Save Messages handle batches.")
+    "zhShot" "导出弹窗"
+    "enShot" "Export dialog"
+    "zhShotDesc" "需要一张导出弹窗截图，展示 Markdown、PDF、PNG、ZIP 或 Save Messages 流程。"
+    "enShotDesc" "Add an export dialog screenshot showing Markdown, PDF, PNG, ZIP, or the Save Messages flow."
+  )
+  (dict
+    "icon" "cloud"
+    "zhMeta" "Backup"
+    "enMeta" "Backup"
+    "zhTitle" "Google Drive 云备份"
+    "enTitle" "Google Drive backup"
+    "zhDesc" "书签积累多了，本地也需要一份更稳的备份。你可以主动连接自己的 Google Drive，把 AI-MarkDone 的书签快照备份到云端；恢复时走安全合并，不会粗暴覆盖本地内容。"
+    "enDesc" "When bookmarks start to matter, local storage deserves a safer copy. Connect your own Google Drive to back up AI-MarkDone bookmark snapshots, then restore with safe merge instead of overwriting local data."
+    "zhBullets" (slice "主动连接 Google Drive。" "备份书签快照。" "安全合并恢复。")
+    "enBullets" (slice "Connect Google Drive yourself." "Back up bookmark snapshots." "Restore with safe merge.")
+    "zhShot" "Google Drive 备份设置"
+    "enShot" "Google Drive backup settings"
+    "zhShotDesc" "需要一张数据管理或 Google Drive 备份设置截图，展示连接状态、立即备份、管理备份或安全合并恢复入口。"
+    "enShotDesc" "Add a Data Management or Google Drive backup screenshot showing connection status, Back up now, Manage backups, or safe-merge restore."
+  )
+  (dict
+    "icon" "settings"
+    "zhMeta" "Settings"
+    "enMeta" "Settings"
+    "zhTitle" "设置"
+    "enTitle" "Settings"
+    "zhDesc" "我不喜欢把所有按钮都硬塞到用户眼前，所以 AI-MarkDone 尽量做成能自己裁剪的样子。你可以调整工具栏、公式动作、Reader 宽度、字号、主题色和导出图片宽度，把常用的留下，不常用的藏起来。"
+    "enDesc" "AI-MarkDone is meant to be trimmed to your habits instead of pushing every button into view. You can tune the toolbar, formula actions, Reader width, font size, theme color, and export image width so the tools you actually use stay close."
+    "zhBullets" (slice "裁剪工具栏。" "调整 Reader 外观。" "设置公式和导出动作。")
+    "enBullets" (slice "Trim the toolbar." "Tune Reader appearance." "Set formula and export actions.")
+    "zhShot" "设置页"
+    "enShot" "Settings page"
+    "zhShotDesc" "需要一张设置页截图，展示工具栏开关、公式动作、Reader 选项和导出图片设置。"
+    "enShotDesc" "Add a settings screenshot showing toolbar switches, formula actions, Reader options, and export image settings."
+  )
+}}
+{{ $trust := slice
+  (dict "icon" "target" "zhTitle" "专注 ChatGPT 原页面" "enTitle" "Built around ChatGPT" "zhDesc" "目录、Reader、复制、注释和导出都围绕 ChatGPT 的真实使用流打磨。" "enDesc" "Directory, Reader, copy, annotation, and export are shaped around real ChatGPT use.")
+  (dict "icon" "hard-drive" "zhTitle" "本地优先" "enTitle" "Local-first" "zhDesc" "整理动作尽量在浏览器本地完成。只有你主动保存书签时，相关内容才写入扩展存储。" "enDesc" "Work happens in the browser. Related content is written to extension storage only when you choose to save a bookmark.")
+  (dict "icon" "server-off" "zhTitle" "没有自有服务器" "enTitle" "No owned server" "zhDesc" "AI-MarkDone 没有自建后端承接你的 ChatGPT 内容，也不做使用分析管线。" "enDesc" "AI-MarkDone has no owned backend receiving your ChatGPT content and no usage analytics pipeline.")
+  (dict "icon" "code-2" "zhTitle" "免费开源" "enTitle" "Free and open source" "zhDesc" "项目保持免费、开源。代码、问题反馈和构建说明都在 GitHub 上公开。" "enDesc" "The project stays free and open source, with code, issues, and build notes visible on GitHub.")
+}}
+<section class="amd-hero amd-hero-product amd-home-hub">
+  <div class="amd-container amd-hero-center">
+    <div class="amd-hero-mark">
+      {{ partial "ai-markdone/app-mark.html" . }}
+    </div>
+    <div class="amd-hero-copy">
+      <h1>AI-MarkDone</h1>
+      <p class="amd-hero-tagline">
+        {{ if $isEN }}Make ChatGPT feel built for serious work.{{ else }}颠覆你的 ChatGPT 使用范式{{ end }}
+      </p>
+      <p class="amd-lede amd-home-summary">
+        {{ if $isEN }}
+          AI-MarkDone adds Reader mode, partial Markdown copy, formula copy/export, bookmarks, batch export, and precise annotations to ChatGPT.
+        {{ else }}
+          AI-MarkDone 把你的 ChatGPT 武装到牙齿：阅读模式、局部 Markdown 复制、公式复制/导出、书签保存、批量导出和灵动注释，这些功能让ChatGPT从未如此丝滑。
+        {{ end }}
+      </p>
+      <div class="amd-hero-action-row">
+        {{ partial "ai-markdone/browser-downloads.html" (dict "isEN" $isEN "variant" "hero" "class" "amd-hero-downloads") }}
+        <a class="amd-button amd-button-secondary amd-github-star-button" href="{{ $github }}" target="_blank" rel="noopener">
+          {{ partial "ai-markdone/icon.html" (dict "name" "github") }}
+          <span>GitHub Star</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="amd-section amd-core-section" id="features">
+  <div class="amd-container">
+    <div class="amd-section-heading amd-section-heading-tight">
+      <p class="amd-home-kicker">{{ if $isEN }}Feature guide{{ else }}功能导览{{ end }}</p>
+      <h2>{{ if $isEN }}Change how ChatGPT fits into your work.{{ else }}革新你的ChatGPT使用体验。{{ end }}</h2>
+      <p>{{ if $isEN }}AI-MarkDone is for heavy ChatGPT users, especially researchers and STEM workers. It brings scattered copying, screenshots, exports, and annotations into a more efficient ChatGPT workflow.{{ else }}AI-MarkDone 适合所有 ChatGPT 重度使用者，尤其是理工科科研工作者。把原本零散的复制、截图、导出和批注动作，收进一个更高效的 ChatGPT 工作流。{{ end }}</p>
+    </div>
+    <div class="amd-feature-story amd-home-feature-story">
+      {{ range $feature := $featureSections }}
+        <article class="amd-feature-row amd-home-feature-row">
+          <div class="amd-feature-copy">
+            <div class="amd-feature-eyebrow">
+              <span class="amd-section-icon">{{ partial "ai-markdone/icon.html" (dict "name" $feature.icon) }}</span>
+              <span>{{ if $isEN }}{{ $feature.enMeta }}{{ else }}{{ $feature.zhMeta }}{{ end }}</span>
+            </div>
+            <h3>{{ if $isEN }}{{ $feature.enTitle }}{{ else }}{{ $feature.zhTitle }}{{ end }}</h3>
+            <p>{{ if $isEN }}{{ $feature.enDesc }}{{ else }}{{ $feature.zhDesc }}{{ end }}</p>
+            <ul class="amd-feature-point-list">
+              {{ range (cond $isEN $feature.enBullets $feature.zhBullets) }}
+                <li>{{ . }}</li>
+              {{ end }}
+            </ul>
+          </div>
+          <figure class="amd-feature-placeholder amd-home-feature-placeholder">
+            <span class="amd-feature-placeholder-label">{{ if $isEN }}Screenshot placeholder{{ else }}截图占位{{ end }}</span>
+            <div class="amd-feature-placeholder-frame" aria-hidden="true">
+              <div class="amd-feature-placeholder-bar"><i></i><i></i><i></i></div>
+              <div class="amd-feature-placeholder-canvas">
+                <span>{{ if $isEN }}{{ $feature.enShot }}{{ else }}{{ $feature.zhShot }}{{ end }}</span>
+              </div>
+            </div>
+            <figcaption>
+              <strong>{{ if $isEN }}Image to add later{{ else }}后续补图{{ end }}</strong>
+              <p>{{ if $isEN }}{{ $feature.enShotDesc }}{{ else }}{{ $feature.zhShotDesc }}{{ end }}</p>
+            </figcaption>
+          </figure>
+          {{ if or $feature.zhDetails $feature.enDetails }}
+            <details class="amd-reader-details">
+              <summary>
+                <span>{{ if $isEN }}More in Reader{{ else }}展开阅读器细节{{ end }}</span>
+                <span class="amd-reader-details-plus" aria-hidden="true"></span>
+              </summary>
+              <div class="amd-reader-detail-grid amd-reader-detail-sections">
+                {{ range (cond $isEN $feature.enDetails $feature.zhDetails) }}
+                  <section class="amd-reader-detail-section">
+                    <div class="amd-reader-detail-copy">
+                      <h4>{{ .title }}</h4>
+                      <p>{{ .desc }}</p>
+                    </div>
+                    <figure class="amd-reader-detail-visual">
+                      <span class="amd-feature-placeholder-label">{{ if $isEN }}Screenshot placeholder{{ else }}截图占位{{ end }}</span>
+                      <div class="amd-feature-placeholder-frame" aria-hidden="true">
+                        <div class="amd-feature-placeholder-bar"><i></i><i></i><i></i></div>
+                        <div class="amd-feature-placeholder-canvas">
+                          <span>{{ .shot }}</span>
+                        </div>
+                      </div>
+                      <figcaption>
+                        <strong>{{ if $isEN }}Image to add later{{ else }}后续补图{{ end }}</strong>
+                        <p>{{ .shotDesc }}</p>
+                      </figcaption>
+                    </figure>
+                  </section>
+                {{ end }}
+              </div>
+            </details>
+          {{ end }}
+        </article>
+      {{ end }}
+    </div>
+    <a class="amd-text-link" href="{{ $features | relURL }}">{{ if $isEN }}Open the full feature table{{ else }}查看完整功能表{{ end }}</a>
+  </div>
+</section>
+
+<section class="amd-section amd-trust-hub-section" id="trust">
+  <div class="amd-container">
+    <div class="amd-section-heading amd-section-heading-tight">
+      <p class="amd-home-kicker">{{ if $isEN }}Local-first trust{{ else }}本地优先与信任边界{{ end }}</p>
+      <h2>{{ if $isEN }}A focused extension, not another content platform.{{ else }}它是一个克制的扩展，不是另一个内容平台。{{ end }}</h2>
+      <p>{{ if $isEN }}The trust model is deliberately simple: focus on ChatGPT, do the work in the browser, avoid an owned backend, and keep the code public.{{ else }}信任边界尽量简单：专注 ChatGPT、在浏览器本地完成整理、避免自有后端承接内容，并保持代码公开。{{ end }}</p>
+    </div>
+    <div class="amd-trust-fact-band">
+      {{ range $trust }}
+        <div>
+          <span class="amd-trust-icon">{{ partial "ai-markdone/icon.html" (dict "name" .icon) }}</span>
+          <strong>{{ if $isEN }}{{ .enTitle }}{{ else }}{{ .zhTitle }}{{ end }}</strong>
+          <span>{{ if $isEN }}{{ .enDesc }}{{ else }}{{ .zhDesc }}{{ end }}</span>
+        </div>
+      {{ end }}
+    </div>
+    <a class="amd-text-link" href="{{ $privacy | relURL }}">{{ if $isEN }}Read privacy notes{{ else }}查看隐私说明{{ end }}</a>
+  </div>
+</section>
+
+<section class="amd-section amd-reviews-section" id="reviews">
+  <div class="amd-container">
+    <div class="amd-section-heading amd-section-heading-tight">
+      <p class="amd-home-kicker">{{ if $isEN }}User feedback{{ else }}用户好评{{ end }}</p>
+      <h2>{{ if $isEN }}3,000+ users are using AI-MarkDone.{{ else }}3,000+ 用户正在使用 AI-MarkDone。{{ end }}</h2>
+      <p>
+        {{ if $isEN }}
+          People who live in long ChatGPT threads are using it to read, copy, save, annotate, and export answers with less cleanup.
+        {{ else }}
+          那些经常在 ChatGPT 长对话里读资料、复制片段、保存回答、批注和导出内容的人，已经开始把它放进自己的工作流。
+        {{ end }}
+      </p>
+    </div>
+    <div class="amd-review-marquee" aria-label="{{ if $isEN }}User feedback cards{{ else }}用户反馈卡片{{ end }}">
+      <div class="amd-review-track">
+        {{ range seq 2 }}
+          {{ range $testimonialBlocks }}
+            <article class="amd-review-card">
+              <div class="amd-review-card-head">
+                <div>
+                  <strong>{{ .nickname }}</strong>
+                  <span>{{ .source }}</span>
+                </div>
+              </div>
+              <div class="amd-review-quote">{{ .quote | markdownify }}</div>
+            </article>
+          {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>

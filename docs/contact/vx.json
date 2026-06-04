@@ -1,0 +1,31 @@
+{
+    "created_time": "2025-05-28T00:14:53Z",
+    "files": [
+        {
+            "attachment_folder": "",
+            "created_time": "2025-05-28T00:14:53Z",
+            "id": "189",
+            "modified_time": "2025-05-28T00:14:53Z",
+            "name": "_index.md",
+            "signature": "4110542600354026877",
+            "tags": [
+            ]
+        },
+        {
+            "attachment_folder": "",
+            "created_time": "2025-05-28T00:14:53Z",
+            "id": "190",
+            "modified_time": "2025-05-28T00:14:53Z",
+            "name": "benko.md",
+            "signature": "18086560503038367101",
+            "tags": [
+            ]
+        }
+    ],
+    "folders": [
+    ],
+    "id": "188",
+    "modified_time": "2025-05-28T00:14:53Z",
+    "signature": "3743650860248749437",
+    "version": 3
+}

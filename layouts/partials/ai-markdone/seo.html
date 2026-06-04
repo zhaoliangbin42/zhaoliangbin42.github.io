@@ -1,0 +1,60 @@
+{{- $isEN := eq (.Params.amd_lang | default "zh") "en" -}}
+{{- $kind := .Params.page_kind | default "home" -}}
+{{- $homePath := cond $isEN "/ai-markdone/en/" "/ai-markdone/" -}}
+{{- $otherPath := .Params.translation_url | default (cond $isEN "/ai-markdone/" "/ai-markdone/en/") -}}
+{{- $homeURL := absURL $homePath -}}
+{{- $otherURL := absURL $otherPath -}}
+{{- $chromeURL := "https://chromewebstore.google.com/detail/ai-markdone/bmdhdihdbhjbkfaaainidcjbgidkbeoh" -}}
+{{- $firefoxURL := "https://addons.mozilla.org/en-US/firefox/addon/ai-markdone/" -}}
+{{- $githubURL := "https://github.com/zhaoliangbin42/AI-MarkDone" -}}
+{{- $manualURL := absURL (cond $isEN "/ai-markdone/en/manual/" "/ai-markdone/manual/") -}}
+{{- $faqURL := absURL (cond $isEN "/ai-markdone/en/faq/" "/ai-markdone/faq/") -}}
+{{- $privacyURL := absURL (cond $isEN "/ai-markdone/en/privacy/" "/ai-markdone/privacy/") -}}
+{{- $name := "AI-MarkDone" -}}
+{{- $description := cond $isEN "AI-MarkDone is a ChatGPT browser extension for reading, saving, copying, annotating, and exporting long AI answers without leaving the conversation flow." "AI-MarkDone 是专注 ChatGPT 的浏览器扩展，用来阅读、整理、复制、注释和导出长回答，同时尽量不打断原本的对话流程。" -}}
+
+<link rel="alternate" hreflang="{{ cond $isEN "en" "zh-CN" }}" href="{{ .Permalink }}" />
+<link rel="alternate" hreflang="{{ cond $isEN "zh-CN" "en" }}" href="{{ $otherURL }}" />
+<link rel="alternate" hreflang="x-default" href="{{ absURL "/ai-markdone/" }}" />
+<meta name="keywords" content="{{ if $isEN }}ChatGPT Markdown copy extension, ChatGPT reader extension, export ChatGPT to Markdown, export ChatGPT to PDF, export ChatGPT to PNG, ChatGPT bookmarks, ChatGPT LaTeX copy{{ else }}ChatGPT Markdown 复制, ChatGPT 阅读模式, ChatGPT Reader 扩展, ChatGPT LaTeX 复制, ChatGPT 回答导出 PDF PNG, ChatGPT 书签, 开源 ChatGPT 浏览器扩展{{ end }}" />
+
+{{- $person := dict "@type" "Person" "@id" (printf "%s#person" (absURL "/")) "name" "Liangbin Zhao" "url" (absURL "/") "sameAs" (slice "https://github.com/zhaoliangbin42") -}}
+{{- $website := dict "@type" "WebSite" "@id" (printf "%s#website" (absURL "/")) "name" "Liangbin's Notes" "url" (absURL "/") "publisher" (dict "@id" (printf "%s#person" (absURL "/"))) -}}
+{{- $software := dict "@type" "SoftwareApplication" "@id" (printf "%s#software" $homeURL) "name" $name "applicationCategory" "BrowserApplication" "operatingSystem" "Chrome, Firefox" "browserRequirements" "Chrome or Firefox browser extension support" "isAccessibleForFree" true "description" $description "url" $homeURL "downloadUrl" $chromeURL "codeRepository" $githubURL "sameAs" (slice $githubURL $chromeURL $firefoxURL) "offers" (dict "@type" "Offer" "price" "0" "priceCurrency" "USD" "availability" "https://schema.org/InStock") "author" (dict "@id" (printf "%s#person" (absURL "/"))) -}}
+{{- $breadcrumbItems := slice (dict "@type" "ListItem" "position" 1 "name" "AI-MarkDone" "item" $homeURL) -}}
+{{- if ne $kind "home" -}}
+  {{- $breadcrumbItems = $breadcrumbItems | append (dict "@type" "ListItem" "position" 2 "name" .Title "item" .Permalink) -}}
+{{- end -}}
+{{- $breadcrumb := dict "@type" "BreadcrumbList" "@id" (printf "%s#breadcrumb" .Permalink) "itemListElement" $breadcrumbItems -}}
+{{- $webpage := dict "@type" "WebPage" "@id" (printf "%s#webpage" .Permalink) "url" .Permalink "name" .Title "description" (.Description | default $description) "isPartOf" (dict "@id" (printf "%s#website" (absURL "/"))) "about" (dict "@id" (printf "%s#software" $homeURL)) "inLanguage" (cond $isEN "en" "zh-CN") "breadcrumb" (dict "@id" (printf "%s#breadcrumb" .Permalink)) -}}
+{{- $graph := slice $person $website $software $breadcrumb $webpage -}}
+
+{{- if eq $kind "faq" -}}
+  {{- $faqItems := slice -}}
+  {{- if $isEN -}}
+    {{- $faqItems = slice
+      (dict "@type" "Question" "name" "Which platforms does this extension support?" "acceptedAnswer" (dict "@type" "Answer" "text" "AI-MarkDone 4.5.0 supports ChatGPT as the only active AI page runtime."))
+      (dict "@type" "Question" "name" "What does the extension actually do, and where do I find each feature?" "acceptedAnswer" (dict "@type" "Answer" "text" "AI-MarkDone provides Reader, Copy Markdown, formula click-to-copy, bookmarks, export, word count, Dynamic Annotation, annotation copy and insert, bookmark management, Google Drive backup, and settings."))
+      (dict "@type" "Question" "name" "The original page already looks fine. Why make a Reader?" "acceptedAnswer" (dict "@type" "Answer" "text" "The original page is built for chatting, not necessarily for reading carefully. Reader gives you a calmer surface with fullscreen mode, message switching, heading outline, Sticky temporary excerpts, send actions, toolbar shortcuts, source-aware copy, and Dynamic Annotation."))
+      (dict "@type" "Question" "name" "What is Sticky inside Reader for?" "acceptedAnswer" (dict "@type" "Answer" "text" "Sticky is a temporary excerpt area inside Reader. Select a passage and click Stick to keep it beside the answer while comparing passages, collecting follow-up targets, or holding an important formula, list, or code fragment."))
+      (dict "@type" "Question" "name" "I heard there is something called Dynamic Annotation. What is it actually for?" "acceptedAnswer" (dict "@type" "Answer" "text" "Dynamic Annotation lets you select a sentence or paragraph in Reader, add a note, and export all annotations as one structured block that can be pasted or inserted back into ChatGPT."))
+      (dict "@type" "Question" "name" "I do not want to copy a whole message. Can I copy Markdown source for just part of it?" "acceptedAnswer" (dict "@type" "Answer" "text" "Yes. Inside Reader, selected ranges can be copied as source-aware Markdown instead of flattened rendered text."))
+      (dict "@type" "Question" "name" "Where does Google Drive backup save my bookmarks?" "acceptedAnswer" (dict "@type" "Answer" "text" "Backups are saved in your own Google Drive under AI-MarkDone/Backups/bookmarks. AI-MarkDone does not run a backup server, and the snapshot does not include OAuth tokens, passwords, or extension settings."))
+    -}}
+  {{- else -}}
+    {{- $faqItems = slice
+      (dict "@type" "Question" "name" "这个插件都支持哪些平台？" "acceptedAnswer" (dict "@type" "Answer" "text" "AI-MarkDone 4.5.0 之后，当前唯一支持的 AI 页面运行时是 ChatGPT。"))
+      (dict "@type" "Question" "name" "这个插件到底能做什么？入口都在哪？" "acceptedAnswer" (dict "@type" "Answer" "text" "AI-MarkDone 提供阅读器、源码复制、公式点击复制、书签保存、消息导出、字数统计、灵动注释、注释复制、注释插入、书签管理、Google Drive 备份和功能开关与配置。"))
+      (dict "@type" "Question" "name" "原网页不就挺好看的吗？为什么还要专门做一个阅读器？" "acceptedAnswer" (dict "@type" "Answer" "text" "原网页更适合聊天，不一定适合认真读。阅读器提供更安静、更沉浸的阅读环境，并接入全屏、消息切换、标题大纲、Sticky 临时摘录、发送消息、工具栏动作、局部源码复制和灵动注释。"))
+      (dict "@type" "Question" "name" "阅读器里的 Sticky 是做什么的？" "acceptedAnswer" (dict "@type" "Answer" "text" "Sticky 是阅读器里的临时摘录区。你可以在 Reader 里选中一段内容并点击 Stick，把选中的 Markdown 放进左侧 Sticky 面板，用来对照结论、暂存追问目标，或放置重要公式、列表和代码片段。"))
+      (dict "@type" "Question" "name" "听说这个插件有个“灵动注释”，它到底有什么用？" "acceptedAnswer" (dict "@type" "Answer" "text" "灵动注释允许你在阅读器里选中任意一句或一段，写下修改意见，再把所有注释整理成一份结构化文本，方便贴回或插入 ChatGPT。"))
+      (dict "@type" "Question" "name" "我不想整条复制，只想局部复制 Markdown 源码，可以吗？" "acceptedAnswer" (dict "@type" "Answer" "text" "可以。阅读器里的局部源码复制会尽量保持正确的 Markdown 逻辑，而不是只拿到一段渲染后的纯文本。"))
+      (dict "@type" "Question" "name" "Google Drive 备份会把书签保存到哪里？" "acceptedAnswer" (dict "@type" "Answer" "text" "备份文件会保存到你自己的 Google Drive：AI-MarkDone/Backups/bookmarks。AI-MarkDone 不运行备份服务器，快照里也不会包含 OAuth token、密码或扩展设置。"))
+    -}}
+  {{- end -}}
+  {{- $graph = $graph | append (dict "@type" "FAQPage" "@id" (printf "%s#faq" .Permalink) "mainEntity" $faqItems) -}}
+{{- end -}}
+
+<script type="application/ld+json">
+{{ dict "@context" "https://schema.org" "@graph" $graph | jsonify (dict "indent" "  ") | safeJS }}
+</script>

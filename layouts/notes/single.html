@@ -1,0 +1,267 @@
+{{ define "main" }}
+<section class="section pt-7">
+    <div class="container">
+        <!-- 文章布局容器 -->
+        <div class="article-layout-container">
+            <div class="article-layout-wrapper">
+                <!-- 面包屑导航 -->
+                {{ partial "breadcrumb.html" . }}
+                
+                <!-- 移动端 TOC -->
+                <div class="toc-mobile">
+                    {{ if .TableOfContents }}
+                    <div class="toc-mobile-wrapper">
+                        <button class="toc-mobile-toggle" onclick="toggleMobileTOC()">
+                            <span class="flex items-center">
+                                <i class="fa-solid fa-list mr-2"></i>
+                                <span>目录</span>
+                            </span>
+                            <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                        </button>
+                        <div class="toc-mobile-content hidden">
+                            {{ .TableOfContents }}
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+
+                <!-- 主要内容网格 -->
+                <div class="article-content-grid">
+                    <!-- 左侧：文章内容 -->
+                    <article class="article-main-content">
+                        {{ $image:= .Params.image }}
+                        {{ if $image }}
+                        <div class="mb-10">
+                            {{ partial "image" (dict "Src" $image "Context" .Page "Alt" .Title "Class" "w-full article-banner-image") }}
+                        </div>
+                        {{ end }}
+                        
+                        <h1 class="h2 mb-4 gradient-text">
+                            {{ .Title }}
+                        </h1>
+                        
+                        <!-- 文章摘要 -->
+                        {{ with .Params.summary }}
+                        <div class="article-summary">
+                            <div class="article-summary-icon">
+                                <i class="fa-solid fa-quote-left"></i>
+                            </div>
+                            <p class="article-summary-text">{{ . }}</p>
+                        </div>
+                        {{ end }}
+                        
+                        <!-- 文章元信息 -->
+                        <div class="article-meta-card">
+                            <div class="article-meta-item">
+                                <span class="meta-label">Author</span>
+                                <span class="meta-value">{{ .Params.author }}</span>
+                            </div>
+                            {{ $categories:= .Params.categories }}
+                            {{ if $categories }}
+                            <div class="article-meta-item">
+                                <span class="meta-label">Category</span>
+                                <span class="meta-value">
+                                    {{ range $i,$p:= $categories }}
+                                    <a href="{{ `categories/` | relLangURL }}{{ . | urlize | lower }}/" class="article-meta-link">
+                                        {{ . | humanize }}{{ if ne $i (sub (len $categories) 1) }}, {{ end }}
+                                    </a>
+                                    {{ end }}
+                                </span>
+                            </div>
+                            {{ end }}
+                            <div class="article-meta-item">
+                                <span class="meta-label">Date</span>
+                                <span class="meta-value">{{ time.Format "2006-01-02" .PublishDate }}</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Tags 行 -->
+                        {{ $tags:= .Params.tags }}
+                        {{ if $tags }}
+                        <div class="article-tags-header">
+                            <span class="article-tags-label">Tags</span>
+                            <div class="article-tags-inline">
+                                {{ range $tags }}
+                                <a href="{{ `tags/` | relLangURL }}{{ . | urlize | lower }}/" class="article-tag-item">
+                                    <i class="fa-solid fa-tag"></i>
+                                    {{ . }}
+                                </a>
+                                {{ end }}
+                            </div>
+                        </div>
+                        {{ end }}
+                        
+                        <div class="content mb-10">
+                            {{ .Content }}
+                        </div>
+                        
+                        <!-- 文章底部：标签和分享 -->
+                        <div class="article-footer">
+                            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                                <!-- 标签区域 -->
+                                {{ $tags:= .Params.tags }}
+                                {{ if $tags }}
+                                <div class="article-tags">
+                                    <h5 class="article-tags-title">标签</h5>
+                                    <div class="article-tags-list">
+                                        {{ range $tags }}
+                                        <a class="article-tag" href="{{ `tags/` | relLangURL }}{{ . | urlize | lower }}/">
+                                            {{ . }}
+                                        </a>
+                                        {{ end }}
+                                    </div>
+                                </div>
+                                {{ end }}
+                                
+                                <!-- 分享区域 -->
+                                <div class="article-share">
+                                    <h5 class="article-share-title">分享</h5>
+                                    <div class="article-share-buttons">
+                                        <button onclick="copyPageUrl()" class="share-btn" title="复制链接">
+                                            <i class="fa-solid fa-link"></i>
+                                        </button>
+                                        <button onclick="showQRCode()" class="share-btn" title="二维码分享">
+                                            <i class="fa-solid fa-qrcode"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 二维码弹窗 -->
+                        <div id="qrcode-popup" class="qrcode-modal hidden">
+                            <div class="qrcode-modal-content">
+                                <button onclick="hideQRCode()" class="qrcode-modal-close">
+                                    <i class="fa-solid fa-times"></i>
+                                </button>
+                                <h4 class="qrcode-modal-title">扫码分享</h4>
+                                <div id="qrcode-container" class="qrcode-container"></div>
+                            </div>
+                        </div>
+                        <!-- Giscus 评论区 -->
+                        <div class="comments-section">
+                            {{ partial "giscus.html" . }}
+                        </div>
+                    </article>
+
+                    <!-- 右侧：浮动 TOC -->
+                    {{ if .TableOfContents }}
+                    <aside class="article-toc-sidebar">
+                        <div class="toc-sticky-wrapper">
+                            <h4 class="toc-title">目录</h4>
+                            <nav class="toc-nav">
+                                {{ .TableOfContents }}
+                            </nav>
+                        </div>
+                    </aside>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+
+        <!-- Related posts -->
+        {{ $related := .Site.RegularPages.Related . | first 10 }}
+        {{ $related = $related | shuffle | first 3 }}
+        {{ with $related }}
+        <!-- <div class="section pb-0"> -->
+            <div class="related-posts-header pt-14">
+                <i class="fa-solid fa-layer-group"></i>
+                <h2 class="related-posts-title">{{ T "related_posts" }}</h2>
+            </div>
+            <div class="row">
+                {{ range . }}
+                <div class="lg:col-4 md:col-6 mb-8">
+                    {{ partial "components/blog-card" . }}
+                </div>
+                {{ end }}
+            </div>
+        <!-- </div> -->
+        {{ end }}
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+<script>
+    function toggleMobileTOC() {
+        const content = document.querySelector('.toc-mobile-content');
+        const icon = document.querySelector('.toggle-icon');
+        content.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+    }
+
+    // 高亮当前章节
+    document.addEventListener('DOMContentLoaded', function() {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                if (entry.intersectionRatio > 0) {
+                    document.querySelectorAll('.toc-nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    const activeLink = document.querySelector(`.toc-nav a[href="#${id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            });
+        }, { rootMargin: '-20% 0% -35% 0%' });
+
+        document.querySelectorAll('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]').forEach(section => {
+            observer.observe(section);
+        });
+    });
+
+    function copyPageUrl() {
+        const url = window.location.href;
+        navigator.clipboard.writeText(url).then(() => {
+            const toast = document.createElement('div');
+            toast.textContent = '✓ 链接已复制';
+            toast.className = 'copy-toast';
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateX(100%)';
+                setTimeout(() => document.body.removeChild(toast), 300);
+            }, 2000);
+        });
+    }
+
+    function showQRCode() {
+        const url = window.location.href;
+        const qrcodeContainer = document.getElementById('qrcode-container');
+        qrcodeContainer.innerHTML = '';
+
+        QRCode.toDataURL(url, { width: 200, margin: 2 }, function (err, dataUrl) {
+            if (err) {
+                console.error(err);
+                return;
+            }
+
+            const img = document.createElement('img');
+            img.src = dataUrl;
+            img.width = 200;
+            img.height = 200;
+            img.style.borderRadius = '8px';
+            qrcodeContainer.appendChild(img);
+        });
+
+        document.getElementById('qrcode-popup').classList.remove('hidden');
+    }
+
+    function hideQRCode() {
+        document.getElementById('qrcode-popup').classList.add('hidden');
+    }
+    
+    // 点击模态框背景关闭
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById('qrcode-popup');
+        if (modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    hideQRCode();
+                }
+            });
+        }
+    });
+</script>
+{{ end }}

@@ -17,6 +17,8 @@ navbar_fixed = true
 # theme-mode
 theme_switcher = true
 theme_default = "light" # available options [light/dark/system]
+# MathJax loads only on pages that set `math: true`.
+enableMathJax = false
 # Main Sections
 mainSections = ["Notes"]
 # contact form action

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520" role="img" aria-labelledby="title desc">
+  <title id="title">Local-first privacy model</title>
+  <desc id="desc">AI-MarkDone works in the browser, stores preferences and optional bookmarks locally, and has no owned server.</desc>
+  <rect width="960" height="520" rx="36" fill="#fafdff"/>
+  <rect x="42" y="42" width="876" height="436" rx="30" fill="#ffffff" stroke="#cce7ff"/>
+  <text x="82" y="102" fill="#0a0d12" font-family="Inter, system-ui, sans-serif" font-size="32" font-weight="700">Local-first privacy model</text>
+  <text x="82" y="136" fill="#535862" font-family="Inter, system-ui, sans-serif" font-size="17">The extension does not operate its own backend for your data.</text>
+  <g font-family="Inter, system-ui, sans-serif">
+    <rect x="96" y="206" width="222" height="158" rx="28" fill="#ebf5ff" stroke="#cce7ff"/>
+    <text x="132" y="252" fill="#181d27" font-size="19" font-weight="700">Browser tab</text>
+    <text x="132" y="284" fill="#535862" font-size="15">Supported ChatGPT page</text>
+    <text x="132" y="310" fill="#535862" font-size="15">Content parsed locally</text>
+    <path d="M338 285h70" stroke="#181d27" stroke-width="3" stroke-linecap="round"/>
+    <path d="m408 285-13-10v20z" fill="#181d27"/>
+    <rect x="430" y="190" width="230" height="190" rx="30" fill="#181d27"/>
+    <text x="468" y="242" fill="#ffffff" font-size="20" font-weight="700">AI-MarkDone</text>
+    <text x="468" y="276" fill="#d8e9ff" font-size="15">Reader, copy, export</text>
+    <text x="468" y="302" fill="#d8e9ff" font-size="15">Bookmarks on demand</text>
+    <text x="468" y="328" fill="#d8e9ff" font-size="15">Settings in storage</text>
+    <path d="M680 285h70" stroke="#181d27" stroke-width="3" stroke-linecap="round"/>
+    <path d="m750 285-13-10v20z" fill="#181d27"/>
+    <rect x="772" y="206" width="104" height="158" rx="28" fill="#f6f7f8" stroke="#cce7ff"/>
+    <text x="798" y="254" fill="#181d27" font-size="18" font-weight="700">No</text>
+    <text x="798" y="282" fill="#535862" font-size="15">owned</text>
+    <text x="798" y="306" fill="#535862" font-size="15">server</text>
+    <line x1="792" y1="332" x2="856" y2="230" stroke="#0069e0" stroke-width="5" stroke-linecap="round"/>
+  </g>
+</svg>

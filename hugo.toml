@@ -20,7 +20,7 @@ defaultContentLanguageInSubdir = false
 
 publishDir = "docs"
 
-enableMathJax = true
+enableMathJax = false
 ########################### Services #############################
 [services]
 [services.googleAnalytics]
@@ -32,7 +32,7 @@ ID = 'G-0TRYH6SRSY' # see https://gohugo.io/templates/internal/#configure-google
 
 ########################## Permalinks ############################
 [permalinks.page]
-"pages" = "/:slugorfilename/"
+"pages" = "/:slugorcontentbasename/"
 
 
 ########################## Pagination ############################

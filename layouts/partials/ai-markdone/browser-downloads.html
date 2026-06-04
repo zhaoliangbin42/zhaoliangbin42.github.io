@@ -1,0 +1,34 @@
+{{- $isEN := .isEN | default false -}}
+{{- $variant := .variant | default "compact" -}}
+{{- $class := .class | default "" -}}
+{{- $chromeURL := "https://chromewebstore.google.com/detail/ai-markdone/bmdhdihdbhjbkfaaainidcjbgidkbeoh" -}}
+{{- $firefoxURL := "https://addons.mozilla.org/en-US/firefox/addon/ai-markdone/" -}}
+{{- $chromeIcon := resources.Get "ai-markdone/icons/google-chrome.svg" -}}
+{{- $firefoxIcon := resources.Get "ai-markdone/icons/firefox-browser.svg" -}}
+{{- $isCompact := eq $variant "compact" -}}
+{{- $downloadClass := printf "amd-browser-downloads amd-browser-downloads-%s" $variant -}}
+{{- if $class -}}
+  {{- $downloadClass = printf "%s %s" $downloadClass $class -}}
+{{- end -}}
+<div class="{{ $downloadClass }}" aria-label="{{ if $isEN }}Install AI-MarkDone{{ else }}安装 AI-MarkDone{{ end }}">
+  <a class="amd-browser-download amd-download-chrome" href="{{ $chromeURL }}" target="_blank" rel="noopener" aria-label="{{ if $isEN }}Install from Chrome Web Store{{ else }}从 Chrome Web Store 安装{{ end }}">
+    {{- with $chromeIcon -}}<img class="amd-browser-logo" src="{{ .RelPermalink }}" width="24" height="24" alt="" aria-hidden="true">{{- end -}}
+    {{- if $isCompact -}}
+      <span class="amd-sr-only">{{ if $isEN }}Install from Chrome Web Store{{ else }}从 Chrome Web Store 安装{{ end }}</span>
+    {{- else -}}
+      <span class="amd-browser-label">
+        <span class="amd-browser-title">Chrome Web Store</span>
+      </span>
+    {{- end -}}
+  </a>
+  <a class="amd-browser-download amd-download-firefox" href="{{ $firefoxURL }}" target="_blank" rel="noopener" aria-label="{{ if $isEN }}Install from Firefox Add-ons{{ else }}从 Firefox Add-ons 安装{{ end }}">
+    {{- with $firefoxIcon -}}<img class="amd-browser-logo" src="{{ .RelPermalink }}" width="24" height="24" alt="" aria-hidden="true">{{- end -}}
+    {{- if $isCompact -}}
+      <span class="amd-sr-only">{{ if $isEN }}Install from Firefox Add-ons{{ else }}从 Firefox Add-ons 安装{{ end }}</span>
+    {{- else -}}
+      <span class="amd-browser-label">
+        <span class="amd-browser-title">Firefox Add-ons</span>
+      </span>
+    {{- end -}}
+  </a>
+</div>

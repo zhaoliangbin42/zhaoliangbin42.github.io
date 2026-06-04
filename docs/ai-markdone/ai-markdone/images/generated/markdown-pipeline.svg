@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520" role="img" aria-labelledby="title desc">
+  <title id="title">Source-aware Markdown and LaTeX copy pipeline</title>
+  <desc id="desc">Selection and formula actions reuse source-aware extraction before writing to clipboard or export.</desc>
+  <rect width="960" height="520" rx="36" fill="#fafdff"/>
+  <rect x="42" y="42" width="876" height="436" rx="30" fill="#ffffff" stroke="#cce7ff"/>
+  <text x="82" y="102" fill="#0a0d12" font-family="Inter, system-ui, sans-serif" font-size="32" font-weight="700">Source-aware copy pipeline</text>
+  <text x="82" y="136" fill="#535862" font-family="Inter, system-ui, sans-serif" font-size="17">Preserve useful structure instead of copying flattened screen text.</text>
+  <g font-family="Inter, system-ui, sans-serif" font-size="15">
+    <rect x="94" y="208" width="190" height="88" rx="22" fill="#ebf5ff" stroke="#cce7ff"/>
+    <text x="124" y="244" fill="#181d27" font-weight="700">User action</text>
+    <text x="124" y="270" fill="#535862">Copy, selection, formula</text>
+    <path d="M304 252h70" stroke="#181d27" stroke-width="3" stroke-linecap="round"/>
+    <path d="m374 252-13-10v20z" fill="#181d27"/>
+    <rect x="396" y="192" width="208" height="120" rx="24" fill="#ffffff" stroke="#cce7ff"/>
+    <text x="426" y="230" fill="#181d27" font-weight="700">Source mapping</text>
+    <text x="426" y="258" fill="#535862">Markdown boundaries</text>
+    <text x="426" y="282" fill="#535862">LaTeX extraction</text>
+    <path d="M624 252h70" stroke="#181d27" stroke-width="3" stroke-linecap="round"/>
+    <path d="m694 252-13-10v20z" fill="#181d27"/>
+    <rect x="716" y="208" width="150" height="88" rx="22" fill="#181d27"/>
+    <text x="746" y="244" fill="#ffffff" font-weight="700">Output</text>
+    <text x="746" y="270" fill="#d8e9ff">Clipboard or file</text>
+    <rect x="172" y="356" width="616" height="54" rx="18" fill="#f6f7f8" stroke="#cce7ff"/>
+    <text x="208" y="390" fill="#535862">Tables, code blocks, formulas, images, and selected ranges stay reusable.</text>
+  </g>
+</svg>

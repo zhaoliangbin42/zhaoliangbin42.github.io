@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+  <title id="title">Bookmark library concept</title>
+  <desc id="desc">A rose and plum concept diagram showing AI answers becoming an organized bookmark library.</desc>
+  <defs>
+    <linearGradient id="brand" x1="100" x2="840" y1="80" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ad5389"/>
+      <stop offset="1" stop-color="#3c1053"/>
+    </linearGradient>
+    <linearGradient id="soft" x1="0" x2="1">
+      <stop stop-color="#ad5389" stop-opacity=".13"/>
+      <stop offset="1" stop-color="#3c1053" stop-opacity=".13"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="560" rx="28" fill="#ffffff"/>
+  <rect x="48" y="52" width="864" height="456" rx="24" fill="url(#soft)" stroke="#ead7e7"/>
+  <text x="92" y="118" fill="#111827" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="32" font-weight="760">Bookmark library</text>
+  <text x="92" y="154" fill="#4b5563" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="17">Save useful AI answers as material you can find again.</text>
+  <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">
+    <rect x="126" y="230" width="168" height="168" rx="22" fill="#fff" stroke="#e5e7eb"/>
+    <path d="M174 266h72v92l-36-22-36 22z" fill="url(#brand)"/>
+    <text x="158" y="424" fill="#4b5563" font-size="15">valuable answer</text>
+    <path d="M326 314h88" stroke="url(#brand)" stroke-width="5" stroke-linecap="round"/>
+    <path d="m414 314-15-12v24z" fill="#3c1053"/>
+    <rect x="448" y="202" width="350" height="226" rx="24" fill="#fff" stroke="#d9c0d5"/>
+    <rect x="482" y="236" width="110" height="36" rx="12" fill="#f8f7fb" stroke="#e5e7eb"/>
+    <text x="506" y="260" fill="#3c1053" font-size="15" font-weight="700">Writing</text>
+    <rect x="610" y="236" width="140" height="36" rx="12" fill="#f8f7fb" stroke="#e5e7eb"/>
+    <text x="634" y="260" fill="#3c1053" font-size="15" font-weight="700">Research</text>
+    <rect x="482" y="300" width="268" height="22" rx="11" fill="#ead7e7"/>
+    <rect x="482" y="338" width="212" height="22" rx="11" fill="#ead7e7"/>
+    <rect x="482" y="376" width="238" height="22" rx="11" fill="#ead7e7"/>
+    <text x="520" y="462" fill="#111827" font-size="17" font-weight="700">preview · organize · jump back · export</text>
+  </g>
+</svg>

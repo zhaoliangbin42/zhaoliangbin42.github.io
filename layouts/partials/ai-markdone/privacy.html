@@ -1,0 +1,184 @@
+{{ $isEN := eq (.Params.amd_lang | default "zh") "en" }}
+{{ $otherLang := .Params.translation_url | default "/ai-markdone/privacy/" }}
+{{ $contact := cond $isEN "/ai-markdone/en/contact/" "/ai-markdone/contact/" }}
+
+<section class="amd-page-hero amd-privacy-hero">
+  <div class="amd-container amd-privacy-hero-grid">
+    <div class="amd-privacy-hero-copy">
+      <p class="amd-privacy-eyebrow">{{ if $isEN }}Privacy Policy{{ else }}隐私政策{{ end }}</p>
+      <h1>{{ if $isEN }}Clear boundaries for a local-first extension{{ else }}把边界说清楚，本地优先才有意义{{ end }}</h1>
+      <p>{{ if $isEN }}AI-MarkDone works on the ChatGPT page, stores user-triggered data in browser extension storage, and does not operate an owned server for receiving your ChatGPT content. Google Drive backup is optional and runs only after you connect your own account.{{ else }}AI-MarkDone 在 ChatGPT 原页面里工作，用户主动触发的数据保存在浏览器扩展存储中。AI-MarkDone 不运营用于接收 ChatGPT 内容的自有服务器；Google Drive 备份是可选功能，只有你主动连接自己的账号后才会使用。{{ end }}</p>
+      <div class="amd-privacy-meta">
+        <span>{{ if $isEN }}Applies to AI-MarkDone 4.5.0 and later{{ else }}适用于 AI-MarkDone 4.5.0 及之后版本{{ end }}</span>
+      </div>
+    </div>
+    <div class="amd-privacy-summary" aria-label="{{ if $isEN }}Privacy summary{{ else }}隐私摘要{{ end }}">
+      <article>
+        <span>{{ partial "ai-markdone/icon.html" (dict "name" "shield-check") }}</span>
+        <strong>{{ if $isEN }}No owned server for your content{{ else }}没有自有服务器接收内容{{ end }}</strong>
+        <p>{{ if $isEN }}Conversation content is not sent to an AI-MarkDone backend.{{ else }}ChatGPT 内容不会发送到 AI-MarkDone 自有后端。{{ end }}</p>
+      </article>
+      <article>
+        <span>{{ partial "ai-markdone/icon.html" (dict "name" "database") }}</span>
+        <strong>{{ if $isEN }}Browser storage by action{{ else }}按你的动作保存{{ end }}</strong>
+        <p>{{ if $isEN }}Settings and saved bookmarks live in extension storage.{{ else }}设置和主动保存的书签留在浏览器扩展存储中。{{ end }}</p>
+      </article>
+      <article>
+        <span>{{ partial "ai-markdone/icon.html" (dict "name" "cloud") }}</span>
+        <strong>{{ if $isEN }}Optional Drive backup{{ else }}可选云盘备份{{ end }}</strong>
+        <p>{{ if $isEN }}Bookmark snapshots go directly to your Google Drive.{{ else }}书签快照直接写入你授权的 Google Drive。{{ end }}</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="amd-section amd-privacy-section">
+  <div class="amd-container amd-privacy-layout">
+    <aside class="amd-privacy-toc" aria-label="{{ if $isEN }}Privacy sections{{ else }}隐私政策目录{{ end }}">
+      <a href="#scope">{{ if $isEN }}Scope{{ else }}适用范围{{ end }}</a>
+      <a href="#no-collection">{{ if $isEN }}What we do not collect{{ else }}不会收集什么{{ end }}</a>
+      <a href="#local-processing">{{ if $isEN }}Local processing{{ else }}本地处理{{ end }}</a>
+      <a href="#storage">{{ if $isEN }}Stored data{{ else }}保存的数据{{ end }}</a>
+      <a href="#google-drive">{{ if $isEN }}Google Drive{{ else }}Google Drive{{ end }}</a>
+      <a href="#permissions">{{ if $isEN }}Permissions{{ else }}权限用途{{ end }}</a>
+      <a href="#delete">{{ if $isEN }}Delete data{{ else }}删除与断开{{ end }}</a>
+      <a href="#contact">{{ if $isEN }}Contact{{ else }}联系{{ end }}</a>
+    </aside>
+
+    <article class="amd-privacy-policy">
+      <section id="scope">
+        <p class="amd-privacy-section-label">{{ if $isEN }}01{{ else }}01{{ end }}</p>
+        <h2>{{ if $isEN }}Scope{{ else }}适用范围{{ end }}</h2>
+        <p>{{ if $isEN }}This policy describes how AI-MarkDone handles data for its browser extension features: Reader, partial Markdown copy, formula copy/export, annotations, bookmarks, exports, settings, and optional Google Drive bookmark backup.{{ else }}本政策说明 AI-MarkDone 浏览器扩展在使用阅读器、局部 Markdown 复制、公式复制/导出、灵动注释、书签、导出、设置，以及可选 Google Drive 书签备份时如何处理数据。{{ end }}</p>
+        <p>{{ if $isEN }}AI-MarkDone is built for ChatGPT. It injects product UI only on the ChatGPT web pages declared in the extension manifest.{{ else }}AI-MarkDone 面向 ChatGPT 使用场景。扩展只会在 manifest 声明的 ChatGPT 网页中注入产品界面。{{ end }}</p>
+      </section>
+
+      <section id="no-collection">
+        <p class="amd-privacy-section-label">{{ if $isEN }}02{{ else }}02{{ end }}</p>
+        <h2>{{ if $isEN }}What AI-MarkDone does not collect{{ else }}AI-MarkDone 不会收集什么{{ end }}</h2>
+        <div class="amd-privacy-check-grid">
+          <div>{{ if $isEN }}No owned server receiving your ChatGPT content{{ else }}没有自有服务器接收你的 ChatGPT 内容{{ end }}</div>
+          <div>{{ if $isEN }}No browsing history collection{{ else }}不收集浏览历史{{ end }}</div>
+          <div>{{ if $isEN }}No usage analytics or tracking cookies{{ else }}不做使用分析，也不使用追踪 Cookie{{ end }}</div>
+          <div>{{ if $isEN }}No sale of user data and no advertising profile{{ else }}不出售用户数据，也不建立广告画像{{ end }}</div>
+        </div>
+      </section>
+
+      <section id="local-processing">
+        <p class="amd-privacy-section-label">{{ if $isEN }}03{{ else }}03{{ end }}</p>
+        <h2>{{ if $isEN }}Data processed locally{{ else }}在本地处理的数据{{ end }}</h2>
+        <p>{{ if $isEN }}When you use AI-MarkDone on ChatGPT, the extension may read the visible conversation structure in the page so it can render Reader, copy selected Markdown, copy formulas, create annotations, save bookmarks, or export content. This processing happens in your browser.{{ else }}当你在 ChatGPT 页面使用 AI-MarkDone 时，扩展可能读取当前页面中可见的对话结构，用来渲染阅读器、复制选区 Markdown、复制公式、创建注释、保存书签或导出内容。这些处理发生在你的浏览器里。{{ end }}</p>
+        <p>{{ if $isEN }}AI-MarkDone does not send this content to an AI-MarkDone backend. Content leaves the page only when you choose an action such as copying to the clipboard, saving a bookmark, exporting a file, or backing up bookmarks to your own Google Drive.{{ else }}AI-MarkDone 不会把这些内容发送到 AI-MarkDone 后端。只有当你主动选择复制到剪贴板、保存书签、导出文件，或把书签备份到自己的 Google Drive 时，相关内容才会离开当前页面上下文。{{ end }}</p>
+      </section>
+
+      <section id="storage">
+        <p class="amd-privacy-section-label">{{ if $isEN }}04{{ else }}04{{ end }}</p>
+        <h2>{{ if $isEN }}Data stored in browser extension storage{{ else }}保存在浏览器扩展存储中的数据{{ end }}</h2>
+        <div class="amd-privacy-table-wrap">
+          <table class="amd-privacy-table">
+            <thead>
+              <tr>
+                <th>{{ if $isEN }}Category{{ else }}类别{{ end }}</th>
+                <th>{{ if $isEN }}What may be stored{{ else }}可能保存什么{{ end }}</th>
+                <th>{{ if $isEN }}Why{{ else }}用途{{ end }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{ if $isEN }}Settings{{ else }}设置{{ end }}</td>
+                <td>{{ if $isEN }}Reader width, font size, theme color, formula actions, export preferences, language, and custom annotation copy templates.{{ else }}阅读器宽度、字号、主题色、公式动作、导出偏好、语言，以及你自定义的注释复制模板。{{ end }}</td>
+                <td>{{ if $isEN }}To keep the extension working the way you configured it.{{ else }}让扩展按你设置过的方式继续工作。{{ end }}</td>
+              </tr>
+              <tr>
+                <td>{{ if $isEN }}Bookmarks{{ else }}书签{{ end }}</td>
+                <td>{{ if $isEN }}Saved ChatGPT URL, message position, title, folder path, saved time, message id, and the user/assistant text you choose to save.{{ else }}保存的 ChatGPT URL、消息位置、标题、文件夹路径、保存时间、消息 ID，以及你选择保存的问题和回答内容。{{ end }}</td>
+                <td>{{ if $isEN }}To preview, search, organize, export, and return to useful answers later.{{ else }}用于之后预览、搜索、整理、导出，并回到有价值的回答位置。{{ end }}</td>
+              </tr>
+              <tr>
+                <td>{{ if $isEN }}Google Drive status{{ else }}Google Drive 状态{{ end }}</td>
+                <td>{{ if $isEN }}Connection status, last backup time, and account label such as email, display name, or photo URL returned by Google Drive.{{ else }}连接状态、最近备份时间，以及 Google Drive 返回的账号标签，例如邮箱、显示名称或头像链接。{{ end }}</td>
+                <td>{{ if $isEN }}To show which Drive account is connected and whether backup is working.{{ else }}用于在界面中显示当前连接的是哪个云盘账号，以及备份是否正常。{{ end }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="amd-privacy-note">{{ if $isEN }}Some settings may use the browser vendor's sync storage when the browser supports it and your browser account enables sync. That sync is provided by the browser vendor, not by an AI-MarkDone backend.{{ else }}部分设置可能使用浏览器厂商提供的同步存储，前提是浏览器支持且你的浏览器账号启用了同步。这个同步能力来自浏览器厂商，不是 AI-MarkDone 自有后端。{{ end }}</p>
+      </section>
+
+      <section id="google-drive">
+        <p class="amd-privacy-section-label">{{ if $isEN }}05{{ else }}05{{ end }}</p>
+        <h2>{{ if $isEN }}Optional Google Drive bookmark backup{{ else }}可选 Google Drive 书签备份{{ end }}</h2>
+        <div class="amd-privacy-callout">
+          <strong>{{ if $isEN }}This feature is opt-in.{{ else }}这是一个需要主动开启的功能。{{ end }}</strong>
+          <p>{{ if $isEN }}AI-MarkDone connects to Google Drive only after you choose the Google Drive backup feature and authorize your own Google account.{{ else }}只有当你在设置中选择 Google Drive 备份，并授权自己的 Google 账号后，AI-MarkDone 才会连接 Google Drive。{{ end }}</p>
+        </div>
+        <p>{{ if $isEN }}AI-MarkDone uses the Google Drive API scope <code>https://www.googleapis.com/auth/drive.file</code>. This scope lets the extension create and manage files it creates or that you open with it; AI-MarkDone does not request broad access to every file in your Drive.{{ else }}AI-MarkDone 使用 Google Drive API 权限范围 <code>https://www.googleapis.com/auth/drive.file</code>。这个权限用于创建和管理 AI-MarkDone 自己创建或你通过它打开的文件；AI-MarkDone 不申请访问整个 Google Drive 的广泛权限。{{ end }}</p>
+        <p>{{ if $isEN }}When you click backup, AI-MarkDone creates a bookmark snapshot file in your browser and uploads it directly to your Google Drive folder <code>AI-MarkDone/Backups/bookmarks</code>. The snapshot may include the bookmarks you saved, including ChatGPT URL, position, title, folder path, saved time, and saved conversation text. It does not include passwords, OAuth tokens, or extension settings.{{ else }}当你点击备份时，AI-MarkDone 会在浏览器中生成书签快照文件，并直接上传到你的 Google Drive 文件夹 <code>AI-MarkDone/Backups/bookmarks</code>。快照可能包含你保存的书签，包括 ChatGPT URL、消息位置、标题、文件夹路径、保存时间和已保存的对话文本；不包含密码、OAuth token 或扩展设置。{{ end }}</p>
+        <p>{{ if $isEN }}AI-MarkDone may read back the uploaded file to verify backup integrity, list existing AI-MarkDone backup files, download a selected backup for safe-merge restore, or move an AI-MarkDone backup file to Google Drive trash when you request deletion. These operations are used only to provide backup and restore.{{ else }}AI-MarkDone 可能会读回刚上传的文件以校验备份完整性，列出已有的 AI-MarkDone 备份文件，下载你选择的备份用于安全合并恢复，或在你请求删除时将 AI-MarkDone 备份文件移入 Google Drive 回收站。这些操作只用于提供备份与恢复功能。{{ end }}</p>
+        <p class="amd-privacy-limited-use">{{ if $isEN }}The use and transfer of information received from Google APIs by AI-MarkDone will adhere to the Chrome Web Store User Data Policy, including the Limited Use requirements.{{ else }}AI-MarkDone 对从 Google API 获得的信息的使用和转移，将遵守 Chrome Web Store User Data Policy，包括 Limited Use 要求。英文原文：The use and transfer of information received from Google APIs by AI-MarkDone will adhere to the Chrome Web Store User Data Policy, including the Limited Use requirements.{{ end }}</p>
+      </section>
+
+      <section id="permissions">
+        <p class="amd-privacy-section-label">{{ if $isEN }}06{{ else }}06{{ end }}</p>
+        <h2>{{ if $isEN }}Permissions and why they are used{{ else }}权限及其用途{{ end }}</h2>
+        <div class="amd-privacy-table-wrap">
+          <table class="amd-privacy-table">
+            <thead>
+              <tr>
+                <th>{{ if $isEN }}Permission{{ else }}权限{{ end }}</th>
+                <th>{{ if $isEN }}Use{{ else }}用途{{ end }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>storage</code></td>
+                <td>{{ if $isEN }}Store settings, saved bookmarks, bookmark indexes, and Google Drive backup status in browser extension storage.{{ else }}在浏览器扩展存储中保存设置、书签、书签索引和 Google Drive 备份状态。{{ end }}</td>
+              </tr>
+              <tr>
+                <td><code>clipboardWrite</code></td>
+                <td>{{ if $isEN }}Write Markdown, formulas, annotations, or exported text to the clipboard when you click a copy action.{{ else }}当你点击复制动作时，把 Markdown、公式、注释或导出文本写入剪贴板。{{ end }}</td>
+              </tr>
+              <tr>
+                <td><code>identity</code></td>
+                <td>{{ if $isEN }}Open the Google authorization flow for optional Google Drive bookmark backup.{{ else }}用于打开 Google 授权流程，为可选 Google Drive 书签备份提供登录能力。{{ end }}</td>
+              </tr>
+              <tr>
+                <td><code>https://chatgpt.com/*</code><br><code>https://chat.openai.com/*</code></td>
+                <td>{{ if $isEN }}Run AI-MarkDone UI and reading/export tools on ChatGPT pages.{{ else }}在 ChatGPT 页面运行 AI-MarkDone 的界面、阅读与导出工具。{{ end }}</td>
+              </tr>
+              <tr>
+                <td><code>https://www.googleapis.com/*</code><br><code>https://oauth2.googleapis.com/*</code></td>
+                <td>{{ if $isEN }}Upload, list, verify, restore, delete, and disconnect optional Google Drive bookmark backups.{{ else }}用于可选 Google Drive 书签备份的上传、列表读取、完整性校验、恢复、删除与断开授权。{{ end }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="sharing">
+        <p class="amd-privacy-section-label">{{ if $isEN }}07{{ else }}07{{ end }}</p>
+        <h2>{{ if $isEN }}Sharing, analytics, and advertising{{ else }}共享、统计与广告{{ end }}</h2>
+        <p>{{ if $isEN }}AI-MarkDone does not sell user data, does not share ChatGPT content with data brokers or advertising platforms, and does not use Google user data for ads, retargeting, credit decisions, or unrelated product analytics.{{ else }}AI-MarkDone 不出售用户数据，不把 ChatGPT 内容共享给数据经纪商或广告平台，也不会把 Google 用户数据用于广告、再营销、信用判断或无关的产品分析。{{ end }}</p>
+        <p>{{ if $isEN }}The only third-party transfer described in this policy is the optional, user-authorized transfer of bookmark backup files between your browser and your own Google Drive.{{ else }}本政策中描述的唯一第三方传输，是你主动授权后，浏览器与自己的 Google Drive 之间进行的可选书签备份传输。{{ end }}</p>
+      </section>
+
+      <section id="delete">
+        <p class="amd-privacy-section-label">{{ if $isEN }}08{{ else }}08{{ end }}</p>
+        <h2>{{ if $isEN }}Delete data or disconnect Google Drive{{ else }}删除数据或断开 Google Drive{{ end }}</h2>
+        <ol class="amd-privacy-steps">
+          <li>{{ if $isEN }}Delete saved bookmarks from the AI-MarkDone bookmarks panel when you no longer need them.{{ else }}不再需要某条书签时，可以在 AI-MarkDone 书签面板中删除。{{ end }}</li>
+          <li>{{ if $isEN }}Clear extension storage or uninstall AI-MarkDone to remove local extension data from the browser profile.{{ else }}清理扩展存储或卸载 AI-MarkDone，可以移除当前浏览器配置文件中的本地扩展数据。{{ end }}</li>
+          <li>{{ if $isEN }}Use the Google Drive backup settings to disconnect the account. AI-MarkDone clears its local connection state and attempts to revoke the current Google grant.{{ else }}在 Google Drive 备份设置中断开账号后，AI-MarkDone 会清理本地连接状态，并尝试撤销当前 Google 授权。{{ end }}</li>
+          <li>{{ if $isEN }}Delete remote backup files from Google Drive, or move them to trash from the AI-MarkDone backup manager. Local bookmarks are not changed by moving a Drive backup file to trash.{{ else }}远端备份文件可以在 Google Drive 中删除，也可以通过 AI-MarkDone 备份管理器移入回收站。把云盘备份文件移入回收站不会改变本地书签。{{ end }}</li>
+        </ol>
+      </section>
+
+      <section id="contact">
+        <p class="amd-privacy-section-label">{{ if $isEN }}09{{ else }}09{{ end }}</p>
+        <h2>{{ if $isEN }}Changes and contact{{ else }}政策变更与联系{{ end }}</h2>
+        <p>{{ if $isEN }}If AI-MarkDone changes how it accesses, uses, stores, or shares data, this policy will be updated before the changed behavior is released whenever practical.{{ else }}如果 AI-MarkDone 改变数据访问、使用、存储或共享方式，本政策会在条件允许时先于对应版本发布前更新。{{ end }}</p>
+        <p>{{ if $isEN }}For privacy questions, email <a href="mailto:zhaoliangbin42@gmail.com">zhaoliangbin42@gmail.com</a> or use the <a href="https://github.com/zhaoliangbin42/AI-MarkDone/issues">GitHub Issues</a> page. More support details are available on the <a href="{{ $contact | relURL }}">contact page</a>.{{ else }}隐私相关问题可以发送邮件到 <a href="mailto:zhaoliangbin42@gmail.com">zhaoliangbin42@gmail.com</a>，也可以通过 <a href="https://github.com/zhaoliangbin42/AI-MarkDone/issues">GitHub Issues</a> 反馈。更多反馈建议见<a href="{{ $contact | relURL }}">联系页面</a>。{{ end }}</p>
+      </section>
+    </article>
+  </div>
+</section>

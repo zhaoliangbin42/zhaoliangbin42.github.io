@@ -1,0 +1,284 @@
+<div
+  class="search-modal search-modal-rounded"
+  aria-hidden="true"
+  style="--color-primary: #121212">
+  <div data-target="close-search-modal" class="search-modal-overlay"></div>
+  <div
+    class="search-wrapper"
+    data-image="true"
+    data-description="true"
+    data-tags="true"
+    data-categories="true">
+    <div class="search-wrapper-header">
+      <label for="search-modal-input" style="margin-top:-1px">
+        <span class="sr-only">search icon</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          height="18"
+          width="18"
+          class="search-icon"
+          data-type="search">
+          <path
+            fill="currentColor"
+            d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          height="18"
+          width="18"
+          class="search-reset"
+          data-type="reset">
+          <path
+            fill="currentColor"
+            d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z" />
+        </svg>
+      </label>
+      <input
+        id="search-modal-input"
+        type="text"
+        data-search-input
+        autocomplete="off"
+        aria-label="Search"
+        placeholder="搜索文章..." />
+    </div>
+    <div class="search-wrapper-body">
+      <div class="search-result" data-search-result></div>
+      <span class="search-result-empty">
+        输入内容进行搜索..
+      </span>
+    </div>
+    <div class="search-wrapper-footer">
+      <span>
+        <kbd>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            fill="currentColor"
+            viewBox="0 0 16 16">
+            <path
+              d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z" />
+          </svg>
+        </kbd>
+        <kbd>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            fill="currentColor"
+            style="margin-top:1px;"
+            viewBox="0 0 16 16">
+            <path
+              d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
+          </svg>
+        </kbd>
+        导航
+      </span>
+      <span>
+        <kbd>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="12"
+            height="12"
+            fill="currentColor"
+            style="display:inline-block;"
+            viewBox="0 0 16 16">
+            <path
+              fill-rule="evenodd"
+              d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" />
+          </svg>
+        </kbd>
+        选择
+      </span>
+      <span class="search-result-info"></span>
+      <span data-target="close-search-modal">
+        <kbd>ESC</kbd> 关闭
+      </span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .search-modal-rounded .search-wrapper {
+    border-radius: 24px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 
+      0 20px 60px rgba(173, 83, 137, 0.15),
+      0 10px 30px rgba(60, 16, 83, 0.1);
+    border: 1px solid rgba(173, 83, 137, 0.1);
+  }
+
+  .search-modal-rounded .search-wrapper-header {
+    padding: 0;
+    margin-bottom: 4px;
+  }
+
+  .search-modal-rounded .search-wrapper-header input {
+    border-radius: 16px;
+    border: 2px solid rgba(173, 83, 137, 0.15);
+    height: 56px;
+    padding: 0 20px 0 52px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: rgba(173, 83, 137, 0.02);
+  }
+
+  .search-modal-rounded .search-wrapper-header input:focus {
+    border-color: #ad5389;
+    box-shadow: 0 0 0 4px rgba(173, 83, 137, 0.12);
+    background: white;
+    outline: none;
+  }
+
+  .search-modal-rounded .search-wrapper-header input::placeholder {
+    color: #999;
+  }
+
+  .search-modal-rounded .search-wrapper-header label {
+    left: 24px;
+  }
+
+  .search-modal-rounded .search-icon {
+    color: #ad5389;
+  }
+
+  .search-modal-rounded .search-reset {
+    color: #999;
+    transition: color 0.2s ease;
+  }
+
+  .search-modal-rounded .search-reset:hover {
+    color: #ad5389;
+  }
+
+  .search-modal-rounded .search-wrapper-body {
+    background: transparent;
+    box-shadow: none;
+    padding: 12px 0;
+    border-radius: 12px;
+    max-height: 400px;
+  }
+
+  .search-modal-rounded .search-result-empty {
+    background: transparent;
+    display: block;
+    padding: 40px 20px;
+    text-align: center;
+    color: #999;
+  }
+
+  .search-modal-rounded .search-wrapper-footer {
+    background: linear-gradient(135deg, rgba(173, 83, 137, 0.05), rgba(60, 16, 83, 0.05));
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin-top: 8px;
+  }
+
+  .search-modal-rounded .search-wrapper-footer kbd {
+    background: white;
+    border: 1px solid rgba(173, 83, 137, 0.2);
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    color: #666;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .search-modal-rounded .search-wrapper-footer span {
+    color: #666;
+    font-size: 0.875rem;
+  }
+
+  /* 暗黑模式 */
+  .dark .search-modal-rounded .search-wrapper {
+    background: #1c1c1c;
+    border-color: rgba(224, 145, 208, 0.35);
+    box-shadow: 
+      0 20px 60px rgba(224, 145, 208, 0.25),
+      0 10px 30px rgba(192, 132, 179, 0.2);
+  }
+
+  .dark .search-modal-rounded .search-wrapper-header input {
+    border-color: rgba(224, 145, 208, 0.4);
+    background: rgba(224, 145, 208, 0.08);
+    color: #fff;
+  }
+
+  .dark .search-modal-rounded .search-wrapper-header input:focus {
+    border-color: #e091d0;
+    box-shadow: 0 0 0 4px rgba(224, 145, 208, 0.25);
+    background: rgba(224, 145, 208, 0.12);
+  }
+
+  .dark .search-modal-rounded .search-wrapper-header input::placeholder {
+    color: #999;
+  }
+
+  .dark .search-modal-rounded .search-icon {
+    color: #e091d0;
+  }
+
+  .dark .search-modal-rounded .search-reset {
+    color: #999;
+  }
+
+  .dark .search-modal-rounded .search-reset:hover {
+    color: #e091d0;
+  }
+
+  .dark .search-modal-rounded .search-result-empty {
+    color: #999;
+  }
+
+  .dark .search-modal-rounded .search-wrapper-footer {
+    background: linear-gradient(135deg, rgba(224, 145, 208, 0.15), rgba(192, 132, 179, 0.15));
+  }
+
+  .dark .search-modal-rounded .search-wrapper-footer kbd {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(224, 145, 208, 0.4);
+    color: #bbb;
+  }
+
+  .dark .search-modal-rounded .search-wrapper-footer span {
+    color: #bbb;
+  }
+
+  /* 搜索结果项样式 */
+  .search-result-item {
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    border-radius: 12px;
+    border: 1px solid rgba(173, 83, 137, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .search-result-item:hover {
+    background: rgba(60, 16, 83, 1) !important;
+    border-color: rgba(173, 83, 137, 0.3);
+  }
+
+  /* 搜索关键字高亮 */
+  .search-modal-rounded mark {
+    background: linear-gradient(90deg, rgba(173, 83, 137, 0.2), rgba(60, 16, 83, 0.2)) !important;
+    color: #ad5389 !important;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  /* 暗黑模式 */
+  .dark .search-result-item:hover {
+    background: linear-gradient(135deg, rgba(224, 145, 208, 0.2), rgba(192, 132, 179, 0.2)) !important;
+    border-color: rgba(224, 145, 208, 0.5);
+  }
+
+  .dark .search-modal-rounded mark {
+    background: linear-gradient(90deg, rgba(224, 145, 208, 0.35), rgba(192, 132, 179, 0.35)) !important;
+    color: #e091d0 !important;
+  }
+</style>

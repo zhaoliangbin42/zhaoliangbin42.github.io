@@ -4,17 +4,14 @@ hero:
   enable: true
   greeting: "Hi, I'm"
   name: "Liangbin"
-  title: "北京理工大学"
+  title: "Beijing Institute of Technology"
   subtitle: "Ph.D Candidate in Wireless Communications"
-  description: "通信物理计算机，样样都想学；编程游泳羽毛球，样样学不好。"
+  description: "通信物理计算机，样样都想学；<br>编程游泳羽毛球，样样学不好。"
   image: "/images/banner.png"
   buttons:
     - label: "看看我的笔记"
       link: "notes"
       style: "primary"
-    - label: "逛逛我的代码"
-      link: "codes"
-      style: "outline"
 
 # About Section
 about:

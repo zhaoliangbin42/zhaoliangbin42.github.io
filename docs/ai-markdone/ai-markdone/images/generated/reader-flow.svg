@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520" role="img" aria-labelledby="title desc">
+  <title id="title">Reader workflow</title>
+  <desc id="desc">ChatGPT content is collected, reconstructed, rendered in Reader, and exported.</desc>
+  <rect width="960" height="520" rx="36" fill="#fafdff"/>
+  <rect x="42" y="42" width="876" height="436" rx="30" fill="#ffffff" stroke="#cce7ff"/>
+  <text x="82" y="102" fill="#0a0d12" font-family="Inter, system-ui, sans-serif" font-size="34" font-weight="700">Reader workflow</text>
+  <text x="82" y="136" fill="#535862" font-family="Inter, system-ui, sans-serif" font-size="17">From the native ChatGPT page to a quiet Markdown reading surface.</text>
+  <g font-family="Inter, system-ui, sans-serif">
+    <g transform="translate(82 206)">
+      <rect width="164" height="112" rx="24" fill="#ebf5ff" stroke="#cce7ff"/>
+      <text x="24" y="42" fill="#181d27" font-size="18" font-weight="700">ChatGPT page</text>
+      <text x="24" y="72" fill="#535862" font-size="14">Messages and</text>
+      <text x="24" y="92" fill="#535862" font-size="14">conversation turns</text>
+    </g>
+    <path d="M266 262h68" stroke="#181d27" stroke-width="3" stroke-linecap="round"/>
+    <path d="m334 262-13-10v20z" fill="#181d27"/>
+    <g transform="translate(356 206)">
+      <rect width="164" height="112" rx="24" fill="#ffffff" stroke="#cce7ff"/>
+      <text x="24" y="42" fill="#181d27" font-size="18" font-weight="700">Content script</text>
+      <text x="24" y="72" fill="#535862" font-size="14">Collects stable</text>
+      <text x="24" y="92" fill="#535862" font-size="14">Reader items</text>
+    </g>
+    <path d="M540 262h68" stroke="#181d27" stroke-width="3" stroke-linecap="round"/>
+    <path d="m608 262-13-10v20z" fill="#181d27"/>
+    <g transform="translate(630 206)">
+      <rect width="164" height="112" rx="24" fill="#181d27"/>
+      <text x="24" y="42" fill="#ffffff" font-size="18" font-weight="700">Reader</text>
+      <text x="24" y="72" fill="#d8e9ff" font-size="14">Markdown view</text>
+      <text x="24" y="92" fill="#d8e9ff" font-size="14">Actions stay close</text>
+    </g>
+    <path d="M712 330v46" stroke="#181d27" stroke-width="3" stroke-linecap="round"/>
+    <path d="m712 376-10-13h20z" fill="#181d27"/>
+    <g transform="translate(544 394)">
+      <rect width="336" height="54" rx="18" fill="#f6f7f8" stroke="#cce7ff"/>
+      <text x="24" y="35" fill="#181d27" font-size="16" font-weight="700">Copy, annotate, bookmark, export</text>
+    </g>
+  </g>
+</svg>

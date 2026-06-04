@@ -1,0 +1,14 @@
+[[items]]
+name = "早期赞助者"
+note_zh = "感谢每一位愿意支持免费开源工具继续打磨的人。"
+note_en = "Thanks to everyone who helps keep this free open-source tool moving."
+
+[[items]]
+name = "反馈贡献者"
+note_zh = "很多功能来自真实使用中的小痛点和耐心反馈。"
+note_en = "Many improvements began as patient feedback from real daily use."
+
+[[items]]
+name = "开源社区"
+note_zh = "感谢 issue、star、转发和每一次认真试用。"
+note_en = "Thanks for issues, stars, shares, and every thoughtful test run."

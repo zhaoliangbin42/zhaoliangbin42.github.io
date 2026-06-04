@@ -1,0 +1,24 @@
+# AI-MarkDone
+
+AI-MarkDone is a focused ChatGPT browser extension for reading, saving, copying, annotating, and exporting long AI answers without leaving the conversation flow.
+
+## Core Pages
+
+- https://zhaoliangbin42.github.io/ai-markdone/ - Chinese independent product site for AI-MarkDone, a ChatGPT-only browser extension with product navigation, centered install hero, feature sections, local-first trust notes, FAQ preview, and Chrome/Firefox install links.
+- https://zhaoliangbin42.github.io/ai-markdone/en/ - English independent product site for AI-MarkDone with the same ChatGPT-only positioning, product navigation, centered install hero, feature sections, trust notes, FAQ preview, and install CTA.
+- https://zhaoliangbin42.github.io/ai-markdone/features/ - Chinese full feature reference listing the real ChatGPT directory, Reader, Markdown/LaTeX copy, annotations, bookmarks, export, and settings capabilities in tables.
+- https://zhaoliangbin42.github.io/ai-markdone/en/features/ - English full feature reference with the same feature and settings tables.
+- https://zhaoliangbin42.github.io/ai-markdone/manual/ - Chinese one-page manual explaining why AI-MarkDone exists, where each real plugin control appears, and how Reader, Markdown/LaTeX copy, annotations, bookmarks, export, and settings are used.
+- https://zhaoliangbin42.github.io/ai-markdone/en/manual/ - English one-page manual with the same control reference and product-use explanations.
+- https://zhaoliangbin42.github.io/ai-markdone/faq/ - Chinese FAQ covering audience fit, ChatGPT focus, privacy, pricing, browser builds, and export formats.
+- https://zhaoliangbin42.github.io/ai-markdone/en/faq/ - English FAQ.
+- https://zhaoliangbin42.github.io/ai-markdone/privacy/ - Chinese privacy policy explaining local processing, browser extension storage, optional Google Drive bookmark backup, permissions, no owned server, no analytics, and Google API Limited Use commitments.
+- https://zhaoliangbin42.github.io/ai-markdone/en/privacy/ - English privacy policy with the same Google Drive backup, permissions, and Limited Use disclosures for review and user reference.
+- https://zhaoliangbin42.github.io/ai-markdone/contact/ - Chinese contact page for email feedback and GitHub Issues.
+- https://zhaoliangbin42.github.io/ai-markdone/en/contact/ - English contact page for email feedback and GitHub Issues.
+
+## External References
+
+- https://github.com/zhaoliangbin42/AI-MarkDone - Open-source repository.
+- https://chromewebstore.google.com/detail/ai-markdone/bmdhdihdbhjbkfaaainidcjbgidkbeoh - Chrome Web Store listing.
+- https://addons.mozilla.org/en-US/firefox/addon/ai-markdone/ - Firefox Add-ons listing.

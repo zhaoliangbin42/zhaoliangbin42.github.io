@@ -1,0 +1,68 @@
+{{ if site.Params.giscus.enable }}
+<div class="giscus-wrapper">
+  <div class="giscus-header">
+    <i class="fa-regular fa-comments"></i>
+    <h3>欢迎讨论</h3>
+  </div>
+  <div class="giscus-container" id="giscus-container"></div>
+</div>
+
+<script>
+  // 在加载 Giscus 前检测当前主题
+  (function() {
+    const isDark = document.documentElement.classList.contains('dark');
+    const theme = isDark ? 'dark' : 'light';
+    
+    // 动态创建 script 标签，使用正确的主题
+    const script = document.createElement('script');
+    script.src = 'https://giscus.app/client.js';
+    script.setAttribute('data-repo', '{{ site.Params.giscus.repo }}');
+    script.setAttribute('data-repo-id', '{{ site.Params.giscus.repoID }}');
+    script.setAttribute('data-category', '{{ site.Params.giscus.category }}');
+    script.setAttribute('data-category-id', '{{ site.Params.giscus.categoryID }}');
+    script.setAttribute('data-mapping', '{{ site.Params.giscus.mapping }}');
+    script.setAttribute('data-strict', '{{ site.Params.giscus.strict }}');
+    script.setAttribute('data-reactions-enabled', '{{ site.Params.giscus.reactionsEnabled }}');
+    script.setAttribute('data-emit-metadata', '{{ site.Params.giscus.emitMetadata }}');
+    script.setAttribute('data-input-position', '{{ site.Params.giscus.inputPosition }}');
+    script.setAttribute('data-theme', theme);  // 使用检测到的主题
+    script.setAttribute('data-lang', '{{ site.Params.giscus.lang }}');
+    script.setAttribute('data-loading', '{{ site.Params.giscus.loading }}');
+    script.crossOrigin = 'anonymous';
+    script.async = true;
+    
+    const container = document.getElementById('giscus-container');
+    if (container) {
+      container.appendChild(script);
+    }
+  })();
+
+  // 监听主题切换
+  function setGiscusTheme() {
+    const isDark = document.documentElement.classList.contains('dark');
+    const theme = isDark ? 'dark' : 'light';
+    
+    const iframe = document.querySelector('iframe.giscus-frame');
+    if (iframe) {
+      iframe.contentWindow.postMessage(
+        { giscus: { setConfig: { theme: theme } } },
+        'https://giscus.app'
+      );
+    }
+  }
+
+  // 使用 MutationObserver 监听主题切换
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.attributeName === 'class') {
+        setTimeout(setGiscusTheme, 100);
+      }
+    });
+  });
+  
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['class']
+  });
+</script>
+{{ end }}

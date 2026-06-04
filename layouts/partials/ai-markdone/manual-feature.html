@@ -1,0 +1,50 @@
+{{ $isEN := eq (.Params.amd_lang | default "zh") "en" }}
+{{ $manual := cond $isEN "/ai-markdone/en/manual/" "/ai-markdone/manual/" }}
+{{ $otherLang := .Params.translation_url | default $manual }}
+{{ $items := slice
+  (dict "id" "overview" "zh" "总览" "en" "Overview" "zhURL" "/ai-markdone/manual/" "enURL" "/ai-markdone/en/manual/")
+  (dict "id" "install" "zh" "安装" "en" "Install" "zhURL" "/ai-markdone/manual/install/" "enURL" "/ai-markdone/en/manual/install/")
+  (dict "id" "directory" "zh" "目录" "en" "Directory" "zhURL" "/ai-markdone/manual/directory/" "enURL" "/ai-markdone/en/manual/directory/")
+  (dict "id" "reader" "zh" "Reader" "en" "Reader" "zhURL" "/ai-markdone/manual/reader/" "enURL" "/ai-markdone/en/manual/reader/")
+  (dict "id" "copy-markdown" "zh" "复制" "en" "Copy" "zhURL" "/ai-markdone/manual/copy-markdown/" "enURL" "/ai-markdone/en/manual/copy-markdown/")
+  (dict "id" "formulas" "zh" "公式" "en" "Formulas" "zhURL" "/ai-markdone/manual/formulas/" "enURL" "/ai-markdone/en/manual/formulas/")
+  (dict "id" "annotations" "zh" "注释" "en" "Annotations" "zhURL" "/ai-markdone/manual/annotations/" "enURL" "/ai-markdone/en/manual/annotations/")
+  (dict "id" "bookmarks" "zh" "书签" "en" "Bookmarks" "zhURL" "/ai-markdone/manual/bookmarks/" "enURL" "/ai-markdone/en/manual/bookmarks/")
+  (dict "id" "export" "zh" "导出" "en" "Export" "zhURL" "/ai-markdone/manual/export/" "enURL" "/ai-markdone/en/manual/export/")
+  (dict "id" "settings" "zh" "设置" "en" "Settings" "zhURL" "/ai-markdone/manual/settings/" "enURL" "/ai-markdone/en/manual/settings/")
+}}
+
+<section class="amd-page-hero amd-manual-guide-hero">
+  <div class="amd-container amd-narrow">
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Description }}</p>
+  </div>
+</section>
+
+<section class="amd-section">
+  <div class="amd-container amd-doc-layout amd-guide-layout">
+    <aside class="amd-doc-toc amd-guide-toc">
+      {{ range $items }}
+        {{ $url := cond $isEN .enURL .zhURL }}
+        <a class="{{ if eq $.Params.manual_feature .id }}is-active{{ end }}" href="{{ $url | relURL }}">{{ cond $isEN .en .zh }}</a>
+      {{ end }}
+    </aside>
+    <article class="amd-doc amd-guide-doc">
+      <div class="amd-guide-content content">
+        {{ .Content }}
+      </div>
+
+      <div class="amd-doc-placeholder amd-guide-placeholder" role="img" aria-label="{{ .Params.screenshot_title }}">
+        <span>{{ if $isEN }}Screenshot placeholder{{ else }}截图占位{{ end }}</span>
+        <strong>{{ .Params.screenshot_title }}</strong>
+        <p>{{ .Params.screenshot_detail }}</p>
+      </div>
+
+      <div class="amd-doc-next amd-guide-next">
+        {{ with .Params.prev_url }}<a href="{{ . | relURL }}">{{ $.Params.prev_label }}</a>{{ end }}
+        <a href="{{ $manual | relURL }}">{{ if $isEN }}Back to manual overview{{ else }}回到教程总览{{ end }}</a>
+        {{ with .Params.next_url }}<a href="{{ . | relURL }}">{{ $.Params.next_label }}</a>{{ end }}
+      </div>
+    </article>
+  </div>
+</section>

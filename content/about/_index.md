@@ -33,8 +33,8 @@ lastmod: 2025-11-30
 
 ### 发表论文
 
-- **L. Zhao**, Z. Ni, Y. Feng, J. Li, X. Bu, and J. Andrew Zhang, "High-resolution uplink sensing in millimeter-wave {ISAC} systems," *IEEE Trans. Commun.*, vol. 73, no. 11, pp. 12680-12695, 2025.
-- **L. Zhao**, Y. Feng, Z. Ni, and X. Bu, "Passive sensing for multiple vehicles in bi-static {ISAC} systems," in *Proc. IEEE Veh. Technol. Conf. (VTC-Spring)*, 2025, pp. 1--6.
+- **L. Zhao**, Z. Ni, Y. Feng, J. Li, X. Bu, and J. Andrew Zhang, "High-resolution uplink sensing in millimeter-wave ISAC systems," *IEEE Trans. Commun.*, vol. 73, no. 11, pp. 12680-12695, 2025.
+- **L. Zhao**, Y. Feng, Z. Ni, and X. Bu, "Passive sensing for multiple vehicles in bi-static ISAC systems," in *Proc. IEEE Veh. Technol. Conf. (VTC-Spring)*, 2025, pp. 1--6.
 - P. Li, J. Wang, **L. Zhao**, X. Gao, F. Song, H. Sun, and J. Ma, “Scattering and eavesdropping in terahertz wireless link by wavy surfaces,” *IEEE Trans. Antennas Propag.*, vol. 71, no. 4, pp. 3590-3597, Apr. 2023.
 - Y. Sun, **L. Zhao**, J. Li, Z. Zhang, X. Yang, and X. Bu, “Design and implementation of a highly efficient quasi-cyclic low-density parity-check transceiving system using an overlapping decoder,” *Sensors*, vol. 23, no. 18, p. 7828, 2023.
 

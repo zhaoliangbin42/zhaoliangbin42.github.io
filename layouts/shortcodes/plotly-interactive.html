@@ -1,0 +1,156 @@
+{{/* 
+  用法示例:
+  {{< plotly-interactive 
+    func="Math.sin(x)" 
+    param="frequency" 
+    paramLabel="频率 ω" 
+    paramRange="0.5,1,1.5,2,2.5,3" 
+    title="y = sin(ωx)" 
+  >}}
+*/}}
+
+{{ $func := .Get "func" }}
+{{ $param := .Get "param" | default "frequency" }}
+{{ $paramLabel := .Get "paramLabel" | default "参数" }}
+{{ $paramRange := split (.Get "paramRange" | default "0.5,1,1.5,2,2.5,3") "," }}
+{{ $title := .Get "title" | default "函数可视化" }}
+{{ $xRange := .Get "xRange" | default "4*Math.PI" }}
+{{ $yRange := .Get "yRange" | default "auto" }}
+{{ $defaultIdx := .Get "defaultIdx" | default "0" }}
+
+{{ $id := printf "plot-%d" (now.UnixNano) }}
+
+<div id="{{ $id }}"
+     class="plotly-figure"
+     data-func="{{ $func }}" 
+     data-param="{{ $param }}"
+     data-paramlabel="{{ $paramLabel }}"
+     data-paramrange="{{ delimit $paramRange "," }}"
+     data-title="{{ $title }}"
+     data-xrange="{{ $xRange }}"
+     data-yrange="{{ $yRange }}"
+     data-defaultidx="{{ $defaultIdx }}"></div>
+
+<script>
+window.__liangbinPlotlyLoader = window.__liangbinPlotlyLoader || new Promise((resolve, reject) => {
+  if (window.Plotly) {
+    resolve(window.Plotly);
+    return;
+  }
+  const script = document.createElement('script');
+  script.src = 'https://cdn.plot.ly/plotly-2.27.0.min.js';
+  script.async = true;
+  script.onload = () => resolve(window.Plotly);
+  script.onerror = reject;
+  document.head.appendChild(script);
+});
+</script>
+<script>
+(function() {
+  const container = document.getElementById('{{ $id }}');
+  const isDark = document.documentElement.classList.contains('dark');
+  const brandColor = getComputedStyle(document.documentElement).getPropertyValue('--theme-color').trim() || '#ad5389';
+  const titleColor = isDark ? '#f7f3f8' : '#3c1053';
+  const gridColor = isDark ? '#3e3e46' : '#e8e8e8';
+  const zeroColor = isDark ? '#8f8794' : '#999';
+  const plotBg = isDark ? '#242328' : 'white';
+  const funcStr = container.dataset.func;
+  const param = container.dataset.param;
+  const paramLabel = container.dataset.paramlabel;
+  const paramRange = container.dataset.paramrange.split(',');
+  const title = container.dataset.title;
+  const xRangeStr = container.dataset.xrange;
+  const yRangeStr = container.dataset.yrange;
+  const defaultIdx = parseInt(container.dataset.defaultidx);
+  
+  const xRangeVal = eval(xRangeStr);
+  const x = Array.from({length: 500}, (_, i) => (i / 499) * xRangeVal);
+  const paramValues = paramRange.map(v => parseFloat(v));
+  
+  const traces = paramValues.map((paramVal, idx) => {
+    const y = x.map(xi => {
+      const evalScope = { x: xi };
+      evalScope[param] = paramVal;
+      return eval(`(function() { const x = ${xi}; const ${param} = ${paramVal}; return ${funcStr}; })()`);
+    });
+    
+    return {
+      x: x,
+      y: y,
+      mode: 'lines',
+      line: { color: brandColor, width: 3 },
+      name: paramLabel + ' = ' + paramVal,
+      visible: idx === defaultIdx
+    };
+  });
+  
+  let yaxis = {
+    title: 'y',
+    gridcolor: gridColor,
+    zeroline: true,
+    zerolinecolor: zeroColor,
+    zerolinewidth: 2
+  };
+  
+  if (yRangeStr !== 'auto') {
+    yaxis.range = yRangeStr.split(',').map(v => parseFloat(v));
+  }
+  
+  const layout = {
+    title: {
+      text: '<b>' + title + '</b>',
+      font: { size: 22, color: titleColor }
+    },
+    xaxis: {
+      title: 'x',
+      gridcolor: gridColor,
+      zeroline: true,
+      zerolinecolor: zeroColor,
+      zerolinewidth: 2
+    },
+    yaxis: yaxis,
+    font: { color: isDark ? '#d8d0dc' : '#4b5563' },
+    plot_bgcolor: plotBg,
+    paper_bgcolor: 'rgba(0,0,0,0)',
+    hovermode: 'x',
+    height: 500,
+    margin: { t: 60, b: 120, l: 60, r: 40 },
+    
+    sliders: [{
+      active: defaultIdx,
+      steps: paramValues.map((val, idx) => ({
+        label: String(val),
+        method: 'update',
+        args: [
+          { visible: traces.map((_, i) => i === idx) },
+          { 'title.text': '<b>' + title + '</b>' }
+        ]
+      })),
+      currentvalue: {
+        prefix: paramLabel + ' = ',
+        visible: true,
+        xanchor: 'right',
+        font: { size: 16, color: brandColor }
+      },
+      pad: { t: 50 },
+      len: 0.9,
+      x: 0.05,
+      xanchor: 'left',
+      y: 0,
+      yanchor: 'top'
+    }]
+  };
+  
+  const config = {
+    responsive: true,
+    displaylogo: false,
+    modeBarButtonsToRemove: ['select2d', 'lasso2d']
+  };
+  
+  window.__liangbinPlotlyLoader.then(() => {
+    Plotly.newPlot('{{ $id }}', traces, layout, config);
+  }).catch(() => {
+    container.textContent = 'Plotly failed to load.';
+  });
+})();
+</script>

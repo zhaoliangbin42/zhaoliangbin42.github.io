@@ -1,0 +1,62 @@
+{{ $isEN := eq (.Params.amd_lang | default "zh") "en" }}
+{{ $email := "zhaoliangbin42@gmail.com" }}
+{{ $issues := "https://github.com/zhaoliangbin42/AI-MarkDone/issues" }}
+
+<section class="amd-page-hero amd-contact-hero">
+  <div class="amd-container">
+    <p class="amd-page-kicker">{{ if $isEN }}Contact{{ else }}联系{{ end }}</p>
+    <h1>{{ if $isEN }}Your feedback makes AI-MarkDone better.{{ else }}有了你的反馈，AI-MarkDone 会更好。{{ end }}</h1>
+    <p>
+      {{ if $isEN }}
+        Every bug report, workflow note, and feature idea helps shape the next version. If something feels rough, missing, or surprisingly useful, I want to hear it.
+      {{ else }}
+        每一次报错、每一个使用场景、每一个功能想法，都会帮我把这个扩展继续打磨下去。如果哪里不顺手、哪里缺了一步，或者某个功能真的帮到了你，都欢迎告诉我。
+      {{ end }}
+    </p>
+  </div>
+</section>
+
+<section class="amd-section amd-contact-section">
+  <div class="amd-container">
+    <div class="amd-contact-grid">
+      <article class="amd-contact-card">
+        <span class="amd-section-icon">{{ partial "ai-markdone/icon.html" (dict "name" "message-square-text") }}</span>
+        <h2>{{ if $isEN }}Email{{ else }}邮件反馈{{ end }}</h2>
+        <p>
+          {{ if $isEN }}
+            Use email for private feedback, screenshots that should not be public, or a short note about how AI-MarkDone fits your workflow.
+          {{ else }}
+            如果反馈里有不方便公开的截图、个人工作流，或者只是想简单说一下使用感受，直接发邮件就好。
+          {{ end }}
+        </p>
+        <a class="amd-contact-email" href="mailto:{{ $email }}">{{ $email }}</a>
+      </article>
+
+      <article class="amd-contact-card">
+        <span class="amd-section-icon">{{ partial "ai-markdone/icon.html" (dict "name" "github") }}</span>
+        <h2>{{ if $isEN }}GitHub Issue{{ else }}GitHub Issue{{ end }}</h2>
+        <p>
+          {{ if $isEN }}
+            Use GitHub for bugs, feature requests, and cases where a public discussion can help other users follow the fix.
+          {{ else }}
+            Bug、功能建议，或者适合公开追踪的问题，建议发到 GitHub Issue。后续修复和讨论也更容易留档。
+          {{ end }}
+        </p>
+        <a class="amd-text-link" href="{{ $issues }}" target="_blank" rel="noopener">
+          {{ if $isEN }}Open issues{{ else }}打开 Issues{{ end }}
+        </a>
+      </article>
+
+      <article class="amd-contact-card">
+        <span class="amd-section-icon">{{ partial "ai-markdone/icon.html" (dict "name" "settings") }}</span>
+        <h2>{{ if $isEN }}What to include{{ else }}建议附上这些信息{{ end }}</h2>
+        <ul>
+          <li>{{ if $isEN }}Browser name and version.{{ else }}浏览器名称和版本。{{ end }}</li>
+          <li>{{ if $isEN }}AI-MarkDone extension version.{{ else }}AI-MarkDone 插件版本。{{ end }}</li>
+          <li>{{ if $isEN }}Screenshot or screen recording, if it helps.{{ else }}能说明问题的截图或录屏。{{ end }}</li>
+          <li>{{ if $isEN }}Steps to reproduce the issue.{{ else }}从哪里打开、点了什么、结果是什么。{{ end }}</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>

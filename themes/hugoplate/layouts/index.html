@@ -11,7 +11,7 @@
             <h1 class="home-hero-name">{{ .name }}</h1>
             <h2 class="home-hero-title">{{ .title }}</h2>
             <p class="home-hero-subtitle">{{ .subtitle }}</p>
-            <p class="home-hero-description">{{ .description }}</p>
+            <p class="home-hero-description">{{ .description | safeHTML }}</p>
             <div class="home-hero-buttons">
               {{ range .buttons }}
                 <a href="{{ .link | relLangURL }}" class="home-hero-btn {{ if eq .style `primary` }}home-hero-btn-primary{{ else }}home-hero-btn-outline{{ end }}">
@@ -461,6 +461,87 @@
       // 获取 GitHub Star 数量
       fetchGitHubStars();
     });
+
+      // 轮播图触控滑动支持 - 跟手效果
+      function addSliderTouchSupport(tabId) {
+        const sliderWrapper = document.querySelector(`[data-tab="${tabId}"]`).closest('.home-featured-slider-wrapper');
+        const slider = document.querySelector(`[data-tab="${tabId}"] .home-featured-grid`);
+        if (!slider || !sliderWrapper) return;
+        
+        let startX = 0;
+        let currentX = 0;
+        let dragging = false;
+        let startTransform = 0;
+        
+        function getTransformX(element) {
+          const style = window.getComputedStyle(element);
+          const matrix = new DOMMatrix(style.transform);
+          return matrix.m41;
+        }
+        
+        function onTouchStart(e) {
+          stopAutoPlay();
+          dragging = true;
+          startX = e.touches ? e.touches[0].clientX : e.clientX;
+          startTransform = getTransformX(slider);
+          slider.style.transition = 'none';
+          e.preventDefault();
+        }
+        
+        function onTouchMove(e) {
+          if (!dragging) return;
+          currentX = e.touches ? e.touches[0].clientX : e.clientX;
+          const deltaX = currentX - startX;
+          const newTransform = startTransform + deltaX;
+          slider.style.transform = `translateX(${newTransform}px)`;
+          e.preventDefault();
+        }
+        
+        function onTouchEnd(e) {
+          if (!dragging) return;
+          dragging = false;
+          
+          const deltaX = currentX - startX;
+          const threshold = 50;
+          const currentPage = parseInt(slider.getAttribute('data-current-page')) || 0;
+          const cardsPerPage = getCardsPerPage();
+          const totalCards = getActualCardCount(tabId);
+          const totalPages = Math.ceil(totalCards / cardsPerPage);
+          
+          let newPage = currentPage;
+          
+          if (Math.abs(deltaX) > threshold) {
+            if (deltaX < 0) {
+              newPage = Math.min(currentPage + 1, totalPages - 1);
+            } else {
+              newPage = Math.max(currentPage - 1, 0);
+            }
+          }
+          
+          slider.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+          goToPage(tabId, newPage);
+          
+          const activeContent = document.querySelector('.home-featured-content.active');
+          if (activeContent) {
+            setTimeout(() => startAutoPlay(activeContent.id), 100);
+          }
+        }
+        
+        sliderWrapper.addEventListener('touchstart', onTouchStart, {passive: false});
+        sliderWrapper.addEventListener('touchmove', onTouchMove, {passive: false});
+        sliderWrapper.addEventListener('touchend', onTouchEnd, {passive: true});
+        sliderWrapper.addEventListener('mousedown', onTouchStart);
+        sliderWrapper.addEventListener('mousemove', onTouchMove);
+        sliderWrapper.addEventListener('mouseup', onTouchEnd);
+        sliderWrapper.addEventListener('mouseleave', (e) => {
+          if (dragging) onTouchEnd(e);
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        addSliderTouchSupport('notes');
+        addSliderTouchSupport('papers');
+      });
 
     // 获取 GitHub Star 数量 (footer版本)
     function fetchGitHubStars() {

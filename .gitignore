@@ -1,12 +1,25 @@
+# Local/system noise
+.DS_Store
+**/.DS_Store
+.env
+*.log
 *.png
 *.webp
 *.svg
 *.html
 *.xml
-docs/
+
+# Dependency and editor caches
+node_modules/
 vx_notebook/
 .MWebMetaData/
-*.log
-.env
-.DS_Store
-**/.DS_Store
+resources/_gen*/
+
+# GitHub Pages output is intentionally kept in docs/.
+!docs/
+!docs/**
+
+# Hugo source overrides are real source files, even though they are HTML templates.
+!layouts/
+!layouts/**
+!DESIGN.md

@@ -1,0 +1,60 @@
+{{ $isEN := eq (.Params.amd_lang | default "zh") "en" }}
+{{ $home := cond $isEN "/ai-markdone/en/" "/ai-markdone/" }}
+{{ $features := cond $isEN "/ai-markdone/en/features/" "/ai-markdone/features/" }}
+{{ $manual := cond $isEN "/ai-markdone/en/manual/" "/ai-markdone/manual/" }}
+{{ $faq := cond $isEN "/ai-markdone/en/faq/" "/ai-markdone/faq/" }}
+{{ $privacy := cond $isEN "/ai-markdone/en/privacy/" "/ai-markdone/privacy/" }}
+{{ $contact := cond $isEN "/ai-markdone/en/contact/" "/ai-markdone/contact/" }}
+{{ $store := "https://chromewebstore.google.com/detail/ai-markdone/bmdhdihdbhjbkfaaainidcjbgidkbeoh" }}
+{{ $firefox := "https://addons.mozilla.org/en-US/firefox/addon/ai-markdone/" }}
+{{ $github := "https://github.com/zhaoliangbin42/AI-MarkDone" }}
+
+<footer class="amd-site-footer">
+  <div class="amd-container amd-footer-grid">
+    <div class="amd-footer-brand">
+      <a class="amd-site-brand" href="{{ $home | relURL }}">
+        {{ partial "ai-markdone/app-mark.html" . }}
+        <span>
+          <strong>AI-MarkDone</strong>
+          <small>{{ if $isEN }}Read, save, export. Stay in flow.{{ else }}Read, save, export. Stay in flow.{{ end }}</small>
+        </span>
+      </a>
+      <p>
+        {{ if $isEN }}
+          A ChatGPT-only browser extension for reading, saving, copying, annotating, and exporting long AI answers.
+        {{ else }}
+          专注 ChatGPT 的浏览器扩展，用来阅读、保存、复制、注释和导出长回答。
+        {{ end }}
+      </p>
+    </div>
+
+    <div class="amd-footer-links">
+      <strong>{{ if $isEN }}Product{{ else }}产品{{ end }}</strong>
+      <a href="{{ $features | relURL }}">{{ if $isEN }}Features{{ else }}功能{{ end }}</a>
+      <a href="{{ $manual | relURL }}">{{ if $isEN }}Manual{{ else }}手册{{ end }}</a>
+      <a href="{{ $faq | relURL }}">FAQ</a>
+      <a href="{{ $contact | relURL }}">{{ if $isEN }}Contact{{ else }}联系{{ end }}</a>
+      <a href="{{ $privacy | relURL }}">{{ if $isEN }}Privacy{{ else }}隐私{{ end }}</a>
+    </div>
+
+    <div class="amd-footer-links">
+      <strong>{{ if $isEN }}Learn{{ else }}了解{{ end }}</strong>
+      <a href="{{ $manual | relURL }}">{{ if $isEN }}Manual{{ else }}手册{{ end }}</a>
+      <a href="{{ $faq | relURL }}">FAQ</a>
+      <a href="{{ $privacy | relURL }}">{{ if $isEN }}Privacy{{ else }}隐私{{ end }}</a>
+      <a href="{{ "/" | relURL }}">{{ if $isEN }}Back to blog{{ else }}返回博客{{ end }}</a>
+    </div>
+
+    <div class="amd-footer-links">
+      <strong>{{ if $isEN }}Install{{ else }}安装{{ end }}</strong>
+      <a href="{{ $store }}" target="_blank" rel="noopener">Chrome Web Store</a>
+      <a href="{{ $firefox }}" target="_blank" rel="noopener">Firefox Add-ons</a>
+      <a href="{{ $github }}" target="_blank" rel="noopener">GitHub</a>
+      <span>{{ if $isEN }}Chrome and Firefox are the public install paths. Source code stays on GitHub.{{ else }}Chrome 和 Firefox 是公开安装入口，源码仍在 GitHub。{{ end }}</span>
+    </div>
+  </div>
+  <div class="amd-container amd-footer-meta">
+    <span>© {{ now.Format "2006" }} AI-MarkDone</span>
+    <span>{{ if $isEN }}Free and open source. Local-first by design.{{ else }}免费开源。本地优先。{{ end }}</span>
+  </div>
+</footer>

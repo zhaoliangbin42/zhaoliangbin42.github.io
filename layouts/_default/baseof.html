@@ -1,0 +1,65 @@
+<!doctype html>
+<html
+  itemscope
+  class="{{- if not site.Params.theme_switcher -}}
+    {{- site.Params.theme_default -}}
+  {{- end -}}"
+  lang="{{ site.LanguageCode | default `en-US` }}"
+  itemtype="http://schema.org/WebPage">
+  <head>
+    <!-- head (don't cache it) -->
+    {{ partial "essentials/head.html" . }}
+
+    {{ if eq .Type "ai-markdone" }}
+      {{ partial "ai-markdone/seo.html" . }}
+    {{ end }}
+
+
+    <!-- style (always cache it) -->
+    {{ partialCached "essentials/style.html" . }}
+
+  </head>
+
+  <body class="{{ if eq .Type "ai-markdone" }}amd-site{{ end }}">
+    <!-- cache partial only in production -->
+    {{ if hugo.IsProduction }}
+      {{ partialCached "preloader.html" . }}
+      {{ partialCached "gtm-noscript.html" . }}
+    {{ else }}
+      {{ partial "preloader.html" . }}
+
+
+      <!-- tailwind size indicator -->
+      {{ partial "components/tw-size-indicator.html" . }}
+    {{ end }}
+
+
+    {{ if eq .Type "ai-markdone" }}
+      {{ partial "ai-markdone/site-header.html" . }}
+      <main class="amd-site-main" id="content">
+        {{ block "main" . }}{{ end }}
+      </main>
+      {{ partial "ai-markdone/site-footer.html" . }}
+    {{ else }}
+      <!-- announcement -->
+      {{ partialCached "announcement.html" . }}
+
+
+      <!-- header (don't cache it) -->
+      {{ partial "essentials/header.html" . }}
+      {{ partial "search-modal.html" (dict "Context" . ) }}
+
+
+      <main>
+        {{ block "main" . }}{{ end }}
+      </main>
+
+      <!-- footer -->
+      {{ partial "essentials/footer.html" . }}
+    {{ end }}
+
+
+    <!-- script depends on page params such as math; do not cache it globally -->
+    {{ partial "essentials/script.html" . }}
+  </body>
+</html>
