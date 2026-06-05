@@ -528,8 +528,44 @@ assert(zhFeatureCss.includes(".amd-features-hero-grid"), "Built stylesheet must 
 assert(!zhFeatureCss.includes(".amd-feature-summary-panel"), "Built stylesheet must not contain the removed feature summary panel styles");
 assert(zhFeatureCss.includes(".amd-feature-table-card"), "Built stylesheet must contain feature table card styles");
 
+function localAssetPath(rawUrl) {
+  if (!rawUrl || rawUrl.startsWith("#") || rawUrl.startsWith("data:") || rawUrl.startsWith("mailto:") || rawUrl.startsWith("tel:")) {
+    return null;
+  }
+
+  let pathname;
+  try {
+    const parsed = new URL(rawUrl, "https://zhaoliangbin42.github.io");
+    if (parsed.origin !== "https://zhaoliangbin42.github.io") {
+      return null;
+    }
+    pathname = parsed.pathname;
+  } catch {
+    return null;
+  }
+
+  if (!/\.(?:css|js|png|jpe?g|webp|svg|ico|json|webmanifest)$/i.test(pathname)) {
+    return null;
+  }
+
+  return decodeURIComponent(pathname).replace(/^\/+/, "");
+}
+
+function assertLinkedAssetsExist(html, htmlFile) {
+  const attrPattern = /\b(?:href|src)=("[^"]+"|'[^']+'|[^'"\s>]+)/g;
+  for (const match of html.matchAll(attrPattern)) {
+    const rawValue = match[1].replace(/^['"]|['"]$/g, "");
+    const assetPath = localAssetPath(rawValue);
+    if (!assetPath) {
+      continue;
+    }
+    assert(fs.existsSync(path.join(root, "docs", assetPath)), `Missing linked asset from ${htmlFile}: /${assetPath}`);
+  }
+}
+
 for (const htmlFile of builtFiles) {
   const html = read(htmlFile);
+  assertLinkedAssetsExist(html, htmlFile);
   assert(html.includes("amd-site-header"), `${htmlFile} must render the AI-MarkDone product header`);
   assert(html.includes("amd-site-footer"), `${htmlFile} must render the AI-MarkDone product footer`);
   assert(html.includes("amd-language-toggle"), `${htmlFile} must keep the header language switch`);
