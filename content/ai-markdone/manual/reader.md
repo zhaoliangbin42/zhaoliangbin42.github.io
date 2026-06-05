@@ -1,6 +1,6 @@
 ---
-title: "Reader 阅读模式"
-description: "在 AI-MarkDone Reader 中阅读 ChatGPT 长回答，使用分页、标题大纲、Sticky 摘录和发送框继续追问。"
+title: "ChatGPT Reader 阅读模式"
+description: "在 AI-MarkDone Reader 中阅读 ChatGPT 长回答，使用 Markdown 渲染、消息切换、标题大纲、Sticky 摘录、灵动注释和发送框继续追问。"
 type: "ai-markdone"
 amd_lang: "zh"
 page_kind: "manual_feature"

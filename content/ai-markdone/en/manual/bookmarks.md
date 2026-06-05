@@ -1,6 +1,6 @@
 ---
-title: "Bookmarks and folders"
-description: "Save important ChatGPT answers in AI-MarkDone, organize them into folders, preview, copy, and jump back to the original conversation."
+title: "Save ChatGPT answers with bookmarks and folders"
+description: "Use AI-MarkDone bookmarks to save specific ChatGPT answers, organize them into folders, search, preview, copy, export, and jump back to the original conversation."
 type: "ai-markdone"
 amd_lang: "en"
 page_kind: "manual_feature"
@@ -50,4 +50,3 @@ Save material you expect to reuse. Do not save every answer. A selective bookmar
 ### Where is the data stored?
 
 Bookmarks stay in browser extension storage. AI-MarkDone does not run an owned server for your bookmark content.
-

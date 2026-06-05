@@ -1,6 +1,6 @@
 ---
-title: "Settings"
-description: "Hide unused actions and tune Reader, formula actions, exported images, backup, and interface preferences in AI-MarkDone Settings."
+title: "AI-MarkDone settings for Reader, export, formulas, and backup"
+description: "Tune AI-MarkDone settings for ChatGPT Reader width, formula actions, toolbar buttons, annotations, PNG export, Google Drive backup, language, and interface preferences."
 type: "ai-markdone"
 amd_lang: "en"
 page_kind: "manual_feature"

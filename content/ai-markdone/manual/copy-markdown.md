@@ -1,6 +1,6 @@
 ---
 title: "复制 ChatGPT 为 Markdown"
-description: "用 AI-MarkDone 复制完整 ChatGPT 回答，或在 Reader 中复制局部选区，并尽量保留公式、表格和代码块结构。"
+description: "用 AI-MarkDone 复制完整 ChatGPT 回答，或在 Reader 中局部复制 Markdown，并尽量保留公式、表格、代码块、列表和图片结构。"
 type: "ai-markdone"
 amd_lang: "zh"
 page_kind: "manual_feature"
@@ -50,4 +50,3 @@ Reader 能更稳定地知道你选中的内容属于哪个 Markdown 单元。原
 ### 所有内容都能完美还原吗？
 
 不能保证。AI-MarkDone 会尽量保留闭合单元的 Markdown 结构，但最终效果也取决于 ChatGPT 当前页面和目标编辑器。
-

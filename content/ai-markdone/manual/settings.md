@@ -1,6 +1,6 @@
 ---
-title: "设置裁剪"
-description: "在 AI-MarkDone Settings 中隐藏不常用按钮，调整 Reader、公式动作、导出图片和界面参数。"
+title: "AI-MarkDone 设置：Reader、导出、公式与备份"
+description: "在 AI-MarkDone 设置中调整 ChatGPT Reader 宽度、公式动作、工具栏按钮、灵动注释、PNG 导出、Google Drive 备份、语言和界面参数。"
 type: "ai-markdone"
 amd_lang: "zh"
 page_kind: "manual_feature"

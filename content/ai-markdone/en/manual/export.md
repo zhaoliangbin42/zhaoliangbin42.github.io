@@ -1,6 +1,6 @@
 ---
-title: "Export Markdown, PDF, PNG, and ZIP"
-description: "Export ChatGPT answers from AI-MarkDone as Markdown, PDF, PNG, or multi-image ZIP packages."
+title: "Export ChatGPT to Markdown, PDF, PNG, or ZIP"
+description: "Use AI-MarkDone Save Messages to export ChatGPT answers as editable Markdown, PDF documents, PNG images, or multi-image ZIP packages."
 type: "ai-markdone"
 amd_lang: "en"
 page_kind: "manual_feature"
@@ -51,4 +51,3 @@ If you are unsure, export Markdown first. It is the easiest format to edit later
 ### Can long PNG export stall?
 
 Dense content can take time. AI-MarkDone splits tall rendered content into safer chunks and shows progress, but very complex answers may still need patience.
-

@@ -2,8 +2,15 @@
 {{ $manual := cond $isEN "/ai-markdone/en/manual/" "/ai-markdone/manual/" }}
 {{ $faq := cond $isEN "/ai-markdone/en/faq/" "/ai-markdone/faq/" }}
 {{ $otherLang := .Params.translation_url | default "/ai-markdone/en/features/" }}
+{{ $readerGuide := cond $isEN "/ai-markdone/en/manual/reader/" "/ai-markdone/manual/reader/" }}
+{{ $copyGuide := cond $isEN "/ai-markdone/en/manual/copy-markdown/" "/ai-markdone/manual/copy-markdown/" }}
+{{ $formulaGuide := cond $isEN "/ai-markdone/en/manual/formulas/" "/ai-markdone/manual/formulas/" }}
+{{ $annotationGuide := cond $isEN "/ai-markdone/en/manual/annotations/" "/ai-markdone/manual/annotations/" }}
+{{ $bookmarkGuide := cond $isEN "/ai-markdone/en/manual/bookmarks/" "/ai-markdone/manual/bookmarks/" }}
+{{ $exportGuide := cond $isEN "/ai-markdone/en/manual/export/" "/ai-markdone/manual/export/" }}
+{{ $settingsGuide := cond $isEN "/ai-markdone/en/manual/settings/" "/ai-markdone/manual/settings/" }}
 {{ $featureGroups := slice
-  (dict "id" "reader" "icon" "book-open-text" "zhTitle" "Reader 阅读器" "enTitle" "Reader" "zhDesc" "原页面适合聊天，不一定适合盯着一段长回答读。Reader 把当前回答拿出来，读完还能回原位。" "enDesc" "The ChatGPT page is good for chatting. It is not always good for reading one dense answer. Reader gives that answer its own calmer surface, then lets you return." "rows" (slice
+  (dict "id" "reader" "icon" "book-open-text" "guide" $readerGuide "zhTitle" "Reader 阅读器" "enTitle" "Reader" "zhDesc" "原页面适合聊天，不一定适合盯着一段长回答读。Reader 把当前回答拿出来，读完还能回原位。" "enDesc" "The ChatGPT page is good for chatting. It is not always good for reading one dense answer. Reader gives that answer its own calmer surface, then lets you return." "rows" (slice
     (dict "zhFeature" "打开 Reader" "enFeature" "Open Reader" "zhEntry" "消息工具栏 -> 阅读器" "enEntry" "Message toolbar -> Reader" "zhState" "工具栏动作" "enState" "Toolbar action" "zhUse" "打开当前回答的阅读面。长段落、代码、表格、公式都适合先放进去看。" "enUse" "Open the current answer in Reader. Long paragraphs, code, tables, and formulas are easier to read there.")
     (dict "zhFeature" "Markdown 渲染与清洗" "enFeature" "Markdown rendering and cleanup" "zhEntry" "Reader 正文" "enEntry" "Reader body" "zhState" "自动处理" "enState" "Automatic" "zhUse" "标题、列表、表格、代码块和公式尽量保留；不安全 HTML 会被清掉。" "enUse" "Headings, lists, tables, code blocks, and formulas are preserved where possible. Unsafe HTML is removed.")
     (dict "zhFeature" "标题大纲" "enFeature" "Heading outline" "zhEntry" "设置 -> 阅读器 -> 显示标题大纲" "enEntry" "Settings -> Reader -> Show Heading Outline" "zhState" "默认开启" "enState" "On by default" "zhUse" "回答里标题很多时，右侧给一个页内小目录。" "enUse" "When an answer has several headings, Reader shows a small outline.")
@@ -18,7 +25,7 @@
     (dict "zhFeature" "Sticky 临时摘录" "enFeature" "Sticky temporary excerpts" "zhEntry" "Reader 选区 -> Stick" "enEntry" "Reader selection -> Stick" "zhState" "页面生命周期内保留" "enState" "Kept for the page lifetime" "zhUse" "把几段想对照的内容先钉在旁边。刷新页面后会清空。" "enUse" "Pin a few passages beside the Reader while you compare them. They clear after refresh.")
     (dict "zhFeature" "Sticky 面板整理" "enFeature" "Sticky panel organization" "zhEntry" "Reader 左侧 Sticky 面板" "enEntry" "Reader left Sticky panel" "zhState" "可收起、可删除、可拖拽排序" "enState" "Collapsible, deletable, draggable" "zhUse" "读到一半先搭一个临时材料区，之后再决定保存、复制或追问。" "enUse" "Build a temporary working set while reading, then decide what to save, copy, or ask about.")
   ))
-  (dict "id" "copy-formulas" "icon" "copy" "zhTitle" "复制与公式" "enTitle" "Copy and formulas" "zhDesc" "这里关心的是可复用源码：Markdown、LaTeX，以及不要断在半截的内容块。" "enDesc" "Copying should keep usable source: Markdown, LaTeX, and content blocks that do not break halfway." "rows" (slice
+  (dict "id" "copy-formulas" "icon" "copy" "guide" $copyGuide "secondaryGuide" $formulaGuide "zhTitle" "复制与公式" "enTitle" "Copy and formulas" "zhDesc" "这里关心的是可复用源码：Markdown、LaTeX，以及不要断在半截的内容块。" "enDesc" "Copying should keep usable source: Markdown, LaTeX, and content blocks that do not break halfway." "rows" (slice
     (dict "zhFeature" "复制当前消息 Markdown" "enFeature" "Copy current message Markdown" "zhEntry" "消息工具栏 -> 复制 Markdown" "enEntry" "Message toolbar -> Copy Markdown" "zhState" "工具栏动作" "enState" "Toolbar action" "zhUse" "只复制当前回答，避免顺手把整页或最后一条消息复制错。" "enUse" "Copy the current answer, not the whole page or the last visible message by accident.")
     (dict "zhFeature" "复制当前消息 PNG" "enFeature" "Copy current message as PNG" "zhEntry" "复制 Markdown 按钮的悬浮动作" "enEntry" "Hover action on Copy Markdown" "zhState" "按浏览器能力显示" "enState" "Shown when browser policy allows" "zhUse" "把单条回答变成一张图片，适合快速发给别人看。" "enUse" "Turn one answer into an image when that is easier to share.")
     (dict "zhFeature" "Reader 当前页复制" "enFeature" "Copy current Reader page" "zhEntry" "Reader -> Copy" "enEntry" "Reader -> Copy" "zhState" "Reader 动作" "enState" "Reader action" "zhUse" "复制 Reader 当前页，和消息工具栏走同一套内容语义。" "enUse" "Copy the current Reader page using the same content rules as toolbar copy.")
@@ -26,7 +33,7 @@
     (dict "zhFeature" "公式点击复制为 Markdown" "enFeature" "Formula click copies Markdown" "zhEntry" "点击公式；可在设置中关闭" "enEntry" "Click a formula; configurable in Settings" "zhState" "默认开启" "enState" "On by default" "zhUse" "点一下公式，拿到原始 LaTeX / Markdown，不用从渲染结果里抠。" "enUse" "Click a formula and get its LaTeX / Markdown source without digging through the rendered output.")
     (dict "zhFeature" "公式悬浮动作" "enFeature" "Formula hover actions" "zhEntry" "设置启用后，悬浮单个公式" "enEntry" "Hover a formula after enabling actions in Settings" "zhState" "默认全关" "enState" "All off by default" "zhUse" "需要时再打开 PNG、SVG、MathML 复制或保存，平时不打扰阅读。" "enUse" "Enable PNG, SVG, or MathML copy/save only when you need those assets.")
   ))
-  (dict "id" "annotations" "icon" "message-square-text" "zhTitle" "注释与追问" "enTitle" "Annotations and follow-up" "zhDesc" "读到某句想改、想追问，就贴着原文写。之后可以把这些注释整理成一段发回 ChatGPT。" "enDesc" "When one sentence needs a note or follow-up, write next to the source text. Later, turn those notes into a prompt." "rows" (slice
+  (dict "id" "annotations" "icon" "message-square-text" "guide" $annotationGuide "zhTitle" "注释与追问" "enTitle" "Annotations and follow-up" "zhDesc" "读到某句想改、想追问，就贴着原文写。之后可以把这些注释整理成一段发回 ChatGPT。" "enDesc" "When one sentence needs a note or follow-up, write next to the source text. Later, turn those notes into a prompt." "rows" (slice
     (dict "zhFeature" "添加注释" "enFeature" "Add annotation" "zhEntry" "Reader 选区 -> 注释" "enEntry" "Reader selection -> Annotate" "zhState" "Reader 选区动作" "enState" "Reader selection action" "zhUse" "直接给选中的句子或段落写意见，不用另开文档解释位置。" "enUse" "Comment on the selected sentence or paragraph without describing its location in another document.")
     (dict "zhFeature" "编辑 / 删除注释" "enFeature" "Edit / delete annotation" "zhEntry" "Reader 右侧锚点或注释浮层" "enEntry" "Reader gutter anchor or annotation popover" "zhState" "页面生命周期内保留" "enState" "Kept for the page lifetime" "zhUse" "边读边改。注释是临时工作区，刷新页面后会清空。" "enUse" "Revise notes while reading. They are temporary and clear after a full refresh.")
     (dict "zhFeature" "复制注释" "enFeature" "Copy annotations" "zhEntry" "Reader 顶部 -> 复制注释" "enEntry" "Reader header -> Copy annotations" "zhState" "有注释时可用" "enState" "Available when annotations exist" "zhUse" "把原文片段和你的意见按顺序整理成编号列表。" "enUse" "Build a numbered list from the source snippets and your notes.")
@@ -35,7 +42,7 @@
     (dict "zhFeature" "注释复制模板" "enFeature" "Annotations copy template" "zhEntry" "设置 -> 阅读器 -> 注释复制模板" "enEntry" "Settings -> Reader -> Annotations copy template" "zhState" "默认包含选中文字与用户注释占位符" "enState" "Default template includes selected source and user annotation tokens" "zhUse" "决定复制注释时的输出格式。" "enUse" "Decide the format used when annotations are copied.")
     (dict "zhFeature" "提示词位置" "enFeature" "Prompt position" "zhEntry" "设置 -> 阅读器 -> 将提示词放在注释下方" "enEntry" "Settings -> Reader -> Place prompt below annotations" "zhState" "默认放在上方" "enState" "Prompt on top by default" "zhUse" "按自己的习惯，把提示词放在注释前面或后面。" "enUse" "Put the prompt before or after the annotation list.")
   ))
-  (dict "id" "bookmarks" "icon" "bookmark" "zhTitle" "书签与资料管理" "enTitle" "Bookmarks and saved material" "zhDesc" "有些回答当下不一定马上用，但以后肯定会找。书签保存内容，也保存回去的路。" "enDesc" "Some answers are not needed right now, but you know you will look for them later. Bookmarks save the content and the way back." "rows" (slice
+  (dict "id" "bookmarks" "icon" "bookmark" "guide" $bookmarkGuide "zhTitle" "书签与资料管理" "enTitle" "Bookmarks and saved material" "zhDesc" "有些回答当下不一定马上用，但以后肯定会找。书签保存内容，也保存回去的路。" "enDesc" "Some answers are not needed right now, but you know you will look for them later. Bookmarks save the content and the way back." "rows" (slice
     (dict "zhFeature" "一键保存 / 取消书签" "enFeature" "Save / remove bookmark" "zhEntry" "消息工具栏或 Reader 顶部 -> 书签" "enEntry" "Message toolbar or Reader header -> Bookmark" "zhState" "工具栏动作" "enState" "Toolbar action" "zhUse" "保存关键回答，同时记录回到原文所需的位置。" "enUse" "Save an important answer and the location needed to return to it.")
     (dict "zhFeature" "保存弹窗与文件夹" "enFeature" "Save dialog and folders" "zhEntry" "保存书签时" "enEntry" "When saving a bookmark" "zhState" "可用" "enState" "Available" "zhUse" "给书签命名，放进项目、主题或写作任务对应的文件夹。" "enUse" "Name a bookmark and place it in a folder for a project, topic, or writing task.")
     (dict "zhFeature" "搜索与排序" "enFeature" "Search and sort" "zhEntry" "书签面板" "enEntry" "Bookmarks panel" "zhState" "排序支持时间与 A-Z" "enState" "Sort by time or A-Z" "zhUse" "按关键词、时间或字母顺序找回保存内容。" "enUse" "Find saved material by query, time, or alphabetic order.")
@@ -45,7 +52,7 @@
     (dict "zhFeature" "导入 / 导出备份" "enFeature" "Import / export backup" "zhEntry" "书签面板或数据与存储" "enEntry" "Bookmarks panel or Data & Storage" "zhState" "JSON 文件" "enState" "JSON file" "zhUse" "重装浏览器、换设备或大改动前，先导出一份。" "enUse" "Export a copy before reinstalling the browser, switching devices, or making big changes.")
     (dict "zhFeature" "仅保存部分文本" "enFeature" "Context-only save" "zhEntry" "设置 -> 工具栏与页面操作" "enEntry" "Settings -> Toolbar & Page Actions" "zhState" "默认关闭，保存 500 字符" "enState" "Off by default, keeps 500 chars" "zhUse" "想省存储空间时打开。预览会变短，但仍能跳回原文。" "enUse" "Turn it on to save storage. Previews are shorter, but source-page navigation still works.")
   ))
-  (dict "id" "export" "icon" "download" "zhTitle" "导出与分享" "enTitle" "Export and sharing" "zhDesc" "需要放进笔记、发给别人、归档到项目里时，再把 ChatGPT 消息导出去。" "enDesc" "When an answer needs to go into notes, a project archive, or someone else's inbox, export it." "rows" (slice
+  (dict "id" "export" "icon" "download" "guide" $exportGuide "zhTitle" "导出与分享" "enTitle" "Export and sharing" "zhDesc" "需要放进笔记、发给别人、归档到项目里时，再把 ChatGPT 消息导出去。" "enDesc" "When an answer needs to go into notes, a project archive, or someone else's inbox, export it." "rows" (slice
     (dict "zhFeature" "Save Messages" "enFeature" "Save Messages" "zhEntry" "消息工具栏 -> 导出 / 另存为" "enEntry" "Message toolbar -> Export / Save as" "zhState" "默认显示" "enState" "Shown by default" "zhUse" "打开导出弹窗，默认定位到当前回答，也可以手动多选。" "enUse" "Open the export dialog at the current answer, then select more messages if needed.")
     (dict "zhFeature" "Markdown 导出" "enFeature" "Markdown export" "zhEntry" "Save Messages -> Markdown" "enEntry" "Save Messages -> Markdown" "zhState" "可用" "enState" "Available" "zhUse" "适合放进笔记、仓库、文档，后面继续编辑也方便。" "enUse" "Use it for notes, repositories, documents, or any workflow where editing continues.")
     (dict "zhFeature" "PDF 导出" "enFeature" "PDF export" "zhEntry" "Save Messages -> PDF" "enEntry" "Save Messages -> PDF" "zhState" "浏览器打印链路" "enState" "Browser print flow" "zhUse" "适合交付定稿、保存长回答，或者保留阅读版式。" "enUse" "Useful for a finished handoff, archived long answers, or preserving a readable layout.")
@@ -111,6 +118,12 @@
             <div>
               <h2><span class="amd-heading-icon">{{ partial "ai-markdone/icon.html" (dict "name" $group.icon) }}</span>{{ if $isEN }}{{ $group.enTitle }}{{ else }}{{ $group.zhTitle }}{{ end }}</h2>
               <p>{{ if $isEN }}{{ $group.enDesc }}{{ else }}{{ $group.zhDesc }}{{ end }}</p>
+              <div class="amd-feature-guide-links">
+                <a href="{{ $group.guide | relURL }}">{{ if $isEN }}Read the guide{{ else }}阅读教程{{ end }}</a>
+                {{ with $group.secondaryGuide }}
+                  <a href="{{ . | relURL }}">{{ if $isEN }}Formula guide{{ else }}公式教程{{ end }}</a>
+                {{ end }}
+              </div>
             </div>
           </div>
           <div class="amd-feature-table-card">
@@ -150,6 +163,9 @@
                 日常使用默认值就够。想裁剪工具栏、调 Reader、改 PNG 导出或者改一点界面细节，再来这里找。
               {{ end }}
             </p>
+            <div class="amd-feature-guide-links">
+              <a href="{{ $settingsGuide | relURL }}">{{ if $isEN }}Read the settings guide{{ else }}阅读设置教程{{ end }}</a>
+            </div>
           </div>
         </div>
         <div class="amd-feature-table-card amd-settings-table-card">

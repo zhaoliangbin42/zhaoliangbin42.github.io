@@ -1,6 +1,6 @@
 ---
-title: "Reader mode"
-description: "Read long ChatGPT answers in AI-MarkDone Reader with pagination, heading outline, Sticky excerpts, and a send box for follow-up prompts."
+title: "ChatGPT Reader mode in AI-MarkDone"
+description: "Read long ChatGPT answers in AI-MarkDone Reader with cleaner Markdown rendering, message switching, heading outline, Sticky excerpts, annotations, and follow-up send actions."
 type: "ai-markdone"
 amd_lang: "en"
 page_kind: "manual_feature"

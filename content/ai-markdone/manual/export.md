@@ -1,6 +1,6 @@
 ---
-title: "导出 Markdown、PDF、PNG 和 ZIP"
-description: "用 AI-MarkDone 将 ChatGPT 回答导出为 Markdown、PDF、PNG，或将多条 PNG 打包为 ZIP。"
+title: "导出 ChatGPT 为 Markdown、PDF、PNG 和 ZIP"
+description: "用 AI-MarkDone 的 Save Messages 将 ChatGPT 回答导出为可编辑 Markdown、PDF 文档、PNG 图片或多图 ZIP。"
 type: "ai-markdone"
 amd_lang: "zh"
 page_kind: "manual_feature"
@@ -51,4 +51,3 @@ AI-MarkDone 把 Markdown、PDF、PNG 和多图 ZIP 放在同一条导出路径�
 ### PNG 很长时会卡吗？
 
 AI-MarkDone 会按内容复杂度和高度拆块渲染，并显示进度。特别复杂的消息仍然可能需要等待。
-

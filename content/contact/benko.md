@@ -52,7 +52,7 @@ Strike through uses two tildes. ~~Scratch this.~~
 
 [I'm a reference-style link][Arbitrary case-insensitive reference text]
 
-[I'm a relative reference to a repository file](../blob/master/LICENSE)
+[I'm a repository license link](https://github.com/zhaoliangbin42/zhaoliangbin42.github.io/blob/dev/LICENSE)
 
 [You can use numbers for reference-style link definitions][1]
 

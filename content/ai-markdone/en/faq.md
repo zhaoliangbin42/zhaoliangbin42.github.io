@@ -1,6 +1,6 @@
 ---
-title: "AI-MarkDone FAQ"
-description: "The built-in AI-MarkDone FAQ for Reader, Dynamic Annotation, Markdown copy, formula copy, bookmarks, export, Google Drive backup, and settings."
+title: "AI-MarkDone FAQ - ChatGPT Reader, Markdown Copy, Privacy, Backup"
+description: "Answers about AI-MarkDone for ChatGPT: Reader mode, partial Markdown copy, formula copy, bookmarks, export, Google Drive backup, privacy, pricing, and settings."
 type: "ai-markdone"
 amd_lang: "en"
 page_kind: "faq"

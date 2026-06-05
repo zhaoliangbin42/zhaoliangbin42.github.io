@@ -1,6 +1,6 @@
 ---
-title: "Copy ChatGPT as Markdown"
-description: "Copy a full ChatGPT answer, or copy a selected Reader range while preserving formulas, tables, and code blocks where possible."
+title: "Copy ChatGPT to Markdown with AI-MarkDone"
+description: "Copy a full ChatGPT answer or a selected Reader range as source-aware Markdown while preserving formulas, tables, code blocks, lists, and images where possible."
 type: "ai-markdone"
 amd_lang: "en"
 page_kind: "manual_feature"
@@ -50,4 +50,3 @@ Reader has a cleaner view of Markdown units. The original ChatGPT DOM is more co
 ### Is the result always perfect?
 
 No. AI-MarkDone tries to preserve closed Markdown units, but the final result still depends on the current ChatGPT page and the target editor.
-

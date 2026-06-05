@@ -1,6 +1,6 @@
 ---
-title: "Copy formulas as LaTeX, MathML, PNG, or SVG"
-description: "Copy a single formula source from ChatGPT, or use formula hover actions to copy or save image assets."
+title: "Copy ChatGPT formulas as LaTeX, MathML, PNG, or SVG"
+description: "Use AI-MarkDone to copy ChatGPT formulas as LaTeX source, MathML, PNG, or SVG assets for notes, papers, slides, and documents."
 type: "ai-markdone"
 amd_lang: "en"
 page_kind: "manual_feature"
@@ -49,4 +49,3 @@ Use LaTeX for Markdown notes, MathML for Office-like editors, and PNG or SVG for
 ### Why are some formula actions hidden by default?
 
 They add extra UI. AI-MarkDone keeps them off until you choose the actions you actually use.
-

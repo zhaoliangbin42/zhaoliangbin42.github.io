@@ -1,6 +1,6 @@
 ---
-title: "书签与文件夹"
-description: "用 AI-MarkDone 保存重要 ChatGPT 回答，按文件夹整理，预览、复制，并跳回原始对话位置。"
+title: "保存 ChatGPT 回答为书签与文件夹"
+description: "用 AI-MarkDone 书签保存具体 ChatGPT 回答，按文件夹整理，搜索、预览、复制、导出，并跳回原始对话位置。"
 type: "ai-markdone"
 amd_lang: "zh"
 page_kind: "manual_feature"
@@ -50,4 +50,3 @@ AI-MarkDone 的书签保存的是具体消息，并能回到原始对话位置�
 ### 数据存在哪里？
 
 书签保存在浏览器扩展存储里。AI-MarkDone 没有自有服务器接收你的书签内容。
-

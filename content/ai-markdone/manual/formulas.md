@@ -1,6 +1,6 @@
 ---
-title: "复制公式为 LaTeX、MathML、PNG 或 SVG"
-description: "用 AI-MarkDone 从 ChatGPT 回答中复制单个公式源码，或通过悬浮菜单保存公式图片资产。"
+title: "复制 ChatGPT 公式为 LaTeX、MathML、PNG 或 SVG"
+description: "用 AI-MarkDone 从 ChatGPT 回答中复制单个公式的 LaTeX 源码，或通过悬浮菜单保存 MathML、PNG、SVG 公式资产。"
 type: "ai-markdone"
 amd_lang: "zh"
 page_kind: "manual_feature"
@@ -49,4 +49,3 @@ Markdown 笔记用 LaTeX。Office 类编辑器优先试 MathML。视觉材料用
 ### 为什么有些公式动作默认不显示？
 
 公式悬浮动作会增加界面按钮。默认不全开，是为了让工具栏保持干净。
-

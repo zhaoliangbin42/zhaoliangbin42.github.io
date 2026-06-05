@@ -4,6 +4,7 @@ import path from "node:path";
 const root = process.cwd();
 
 const requiredFiles = [
+  ".agents/product-marketing.md",
   "AGENTS.md",
   "DESIGN.md",
   "content/ai-markdone/_index.md",
@@ -150,6 +151,22 @@ assert(agents.includes("independent product site") || agents.includes("独立产
 assert(agents.includes("返回博客") && agents.includes("Back to blog"), "AGENTS.md must require a return-to-blog entry");
 assert(agents.includes("docs/"), "AGENTS.md must warn against editing generated docs directly");
 
+const productMarketing = read(".agents/product-marketing.md");
+for (const needle of [
+  "ChatGPT-only",
+  "ChatGPT browser extension",
+  "Reader mode",
+  "source-aware Markdown copy",
+  "LaTeX formula copy",
+  "Google Drive bookmark backup",
+  "Heavy ChatGPT users",
+  "Words to avoid",
+  "Gemini, Claude, DeepSeek",
+  "SEO goal",
+]) {
+  assert(productMarketing.includes(needle), `Product marketing SSOT is missing ${needle}`);
+}
+
 for (const legacyFile of [
   "layouts/partials/ai-markdone/head.html",
   "layouts/partials/ai-markdone/header.html",
@@ -226,6 +243,7 @@ assert(css.includes(".amd-section-icon") && css.includes(".amd-heading-icon") &&
 assert(css.includes(".amd-hero-center") && css.includes(".amd-hero-mark"), "AI-MarkDone CSS must include the centered product hero");
 assert(css.includes(".amd-browser-downloads-compact") && css.includes(".amd-icon-link"), "AI-MarkDone CSS must include icon-only header actions");
 assert(css.includes(".amd-feature-row") && css.includes(".amd-feature-placeholder") && css.includes(".amd-feature-point-list"), "AI-MarkDone CSS must include the alternating homepage feature sections");
+assert(css.includes(".amd-feature-inline-link") && css.includes(".amd-feature-guide-links"), "AI-MarkDone CSS must include the internal SEO link treatments");
 assert(css.includes(".amd-reader-details") && css.includes(".amd-reader-details-plus") && css.includes(".amd-reader-detail-section"), "AI-MarkDone CSS must include the expandable Reader detail sections");
 assert(css.includes(".amd-contact-grid") && css.includes(".amd-contact-card"), "AI-MarkDone CSS must include the contact page layout");
 assert(css.includes(".amd-privacy-hero-grid") && css.includes(".amd-privacy-policy") && css.includes(".amd-privacy-table"), "AI-MarkDone CSS must include the formal privacy policy layout");
@@ -236,6 +254,7 @@ assert(css.includes(".amd-feature-reference-section"), "AI-MarkDone CSS must inc
 assert(css.includes(".amd-features-hero-grid"), "AI-MarkDone CSS must include the styled feature reference hero grid");
 assert(css.includes(".amd-feature-table"), "AI-MarkDone CSS must include feature reference tables");
 assert(css.includes(".amd-settings-table"), "AI-MarkDone CSS must include the settings reference table");
+assert(css.includes(".amd-faq-related"), "AI-MarkDone CSS must include the FAQ related-link treatment");
 assert(css.includes(".amd-feature-anchor-strip a.is-active"), "AI-MarkDone CSS must style the active feature anchor");
 assert(css.includes(".amd-site-links a.is-active"), "AI-MarkDone CSS must style the active product nav link");
 assert(!css.includes(".amd-feature-summary-panel") && !css.includes(".amd-feature-summary-grid"), "AI-MarkDone CSS must not keep the removed feature summary cards");
@@ -328,6 +347,10 @@ const seoPartial = read("layouts/partials/ai-markdone/seo.html");
 assert(seoPartial.includes("SoftwareApplication"), "AI-MarkDone SEO partial must emit SoftwareApplication schema");
 assert(seoPartial.includes("FAQPage"), "AI-MarkDone SEO partial must emit FAQPage schema for FAQ pages");
 assert(seoPartial.includes("hreflang"), "AI-MarkDone SEO partial must emit hreflang alternates");
+assert(seoPartial.includes('"/ai-markdone/en/"') && seoPartial.includes('hreflang="x-default"'), "AI-MarkDone SEO partial must use the English product homepage as x-default");
+assert(seoPartial.includes("featureList") && seoPartial.includes("Copy ChatGPT to Markdown") && seoPartial.includes("ChatGPT LaTeX formula copy"), "AI-MarkDone SoftwareApplication schema must expose feature search intents");
+assert(seoPartial.includes("readFile $faqFile"), "FAQPage schema must be generated from the same FAQ Markdown as the visible page");
+assert(seoPartial.includes("ChatGPT productivity extension") && seoPartial.includes("Google Drive backup ChatGPT extension"), "SEO keywords must cover product and backup search intents");
 
 const llms = read("static/llms.txt");
 assert(llms.includes("independent product site"), "llms.txt must describe AI-MarkDone as an independent product site");
@@ -336,6 +359,8 @@ assert(llms.includes("https://zhaoliangbin42.github.io/ai-markdone/features/"), 
 assert(llms.includes("Chrome Web Store"), "llms.txt must list the Chrome Web Store reference");
 assert(llms.includes("Firefox Add-ons"), "llms.txt must list the Firefox Add-ons reference");
 assert(llms.includes("one-page manual"), "llms.txt must describe the simplified manual as one page");
+assert(llms.includes("copy ChatGPT to Markdown") && llms.includes("ChatGPT LaTeX copy") && llms.includes("Google Drive backup"), "llms.txt must describe the SEO/GEO feature intents");
+assert(!llms.includes("real ChatGPT directory"), "llms.txt must not describe the retired directory as a primary feature");
 assert(!llms.includes("/ai-markdone/manual/reader/"), "llms.txt must not foreground the hidden manual feature tutorials");
 assert(!llms.includes("/ai-markdone/en/manual/reader/"), "llms.txt must not foreground the hidden English manual feature tutorials");
 
@@ -410,6 +435,9 @@ assert(zhHome.includes("amd-feature-row") && enHome.includes("amd-feature-row"),
 assert(zhHome.includes("amd-feature-placeholder") && enHome.includes("amd-feature-placeholder"), "Homepages must render bordered screenshot placeholders");
 assert(zhHome.includes("amd-reader-details") && enHome.includes("amd-reader-details"), "Homepages must render the expandable Reader detail module");
 assert(zhHome.includes("amd-reader-detail-section") && enHome.includes("amd-reader-detail-section"), "Homepages must render Reader detail sections");
+assert(zhHome.includes("/ai-markdone/features/#reader") && enHome.includes("/ai-markdone/en/features/#reader"), "Homepages must link feature sections to the feature reference anchors");
+assert(zhHome.includes("/ai-markdone/features/#copy-formulas") && enHome.includes("/ai-markdone/en/features/#copy-formulas"), "Homepages must link formula sections to the feature reference anchors");
+assert(zhHome.includes("/ai-markdone/features/#settings") && enHome.includes("/ai-markdone/en/features/#settings"), "Homepages must link settings and backup sections to the feature reference anchors");
 assert(zhHome.includes("选区复制浮层") && zhHome.includes("灵动注释浮层") && zhHome.includes("Reader 消息切换"), "Chinese homepage must render Reader detail screenshot placeholders");
 assert(enHome.includes("Selection copy popover") && enHome.includes("Annotation popover") && enHome.includes("Reader message switching"), "English homepage must render Reader detail screenshot placeholders");
 assert(!zhHome.includes("下载之前，先把几件事说透。"), "Chinese homepage must remove the old FAQ preview heading");
@@ -451,6 +479,9 @@ assert(zhHome.includes("application/ld+json"), "Chinese homepage must render JSO
 assert(enHome.includes("application/ld+json"), "English homepage must render JSON-LD");
 assert(zhHome.includes("hreflang=zh-CN"), "Chinese homepage must render zh-CN hreflang");
 assert(enHome.includes("hreflang=en"), "English homepage must render en hreflang");
+assert(zhHome.includes('hreflang=x-default href=https://zhaoliangbin42.github.io/ai-markdone/en/') || zhHome.includes('hreflang="x-default" href="https://zhaoliangbin42.github.io/ai-markdone/en/"'), "Chinese homepage must use English product homepage as x-default");
+assert(enHome.includes("ChatGPT productivity extension") && enHome.includes("Google Drive backup ChatGPT extension"), "English homepage must render expanded SEO keyword metadata");
+assert(enHome.includes("featureList") && enHome.includes("Copy ChatGPT to Markdown") && enHome.includes("ChatGPT LaTeX formula copy"), "English homepage must render expanded SoftwareApplication featureList schema");
 
 const zhFeatures = read("docs/ai-markdone/features/index.html");
 const enFeatures = read("docs/ai-markdone/en/features/index.html");
@@ -458,6 +489,10 @@ assert(zhFeatures.includes("功能一览") && zhFeatures.includes("amd-feature-r
 assert(enFeatures.includes("Feature reference") && enFeatures.includes("amd-feature-reference-section"), "English features page must render the feature reference");
 assert(zhFeatures.includes("data-amd-scrollspy") && enFeatures.includes("data-amd-scrollspy"), "Feature pages must render the scrollspy anchor navigation");
 assert(zhFeatures.includes("IntersectionObserver") && enFeatures.includes("IntersectionObserver"), "Feature pages must activate anchors with IntersectionObserver");
+assert(zhFeatures.includes("/ai-markdone/manual/reader/") && enFeatures.includes("/ai-markdone/en/manual/reader/"), "Feature pages must link to the Reader manual");
+assert(zhFeatures.includes("/ai-markdone/manual/copy-markdown/") && enFeatures.includes("/ai-markdone/en/manual/copy-markdown/"), "Feature pages must link to the Markdown copy manual");
+assert(zhFeatures.includes("/ai-markdone/manual/formulas/") && enFeatures.includes("/ai-markdone/en/manual/formulas/"), "Feature pages must link to the formula manual");
+assert(zhFeatures.includes("/ai-markdone/manual/settings/") && enFeatures.includes("/ai-markdone/en/manual/settings/"), "Feature pages must link to the settings manual");
 assert(zhFeatures.includes("aria-current=page>功能") || zhFeatures.includes("aria-current=\"page\">功能"), "Chinese feature page must highlight the product header nav");
 assert(enFeatures.includes("aria-current=page>Features") || enFeatures.includes("aria-current=\"page\">Features"), "English feature page must highlight the product header nav");
 assert(zhFeatures.includes("amd-features-hero-grid") && !zhFeatures.includes("amd-feature-summary-panel"), "Chinese features page must render the simplified feature hero without summary cards");
@@ -513,6 +548,8 @@ const enFaq = read("docs/ai-markdone/en/faq/index.html");
 assert(zhFaq.includes("FAQPage"), "Chinese FAQ must render FAQPage schema");
 assert(enFaq.includes("FAQPage"), "English FAQ must render FAQPage schema");
 assert(zhFaq.includes("amd-faq-accordion") && enFaq.includes("amd-faq-accordion"), "FAQ pages must render the accordion layout");
+assert(zhFaq.includes("/ai-markdone/features/") && zhFaq.includes("/ai-markdone/manual/") && zhFaq.includes("/ai-markdone/privacy/"), "Chinese FAQ must link to feature, manual, and privacy pages");
+assert(enFaq.includes("/ai-markdone/en/features/") && enFaq.includes("/ai-markdone/en/manual/") && enFaq.includes("/ai-markdone/en/privacy/"), "English FAQ must link to feature, manual, and privacy pages");
 assert((zhFaq.match(/<details class=(?:"amd-faq-item"|amd-faq-item)/g) || []).length >= 12, "Chinese FAQ must render plugin FAQ entries as details");
 assert((enFaq.match(/<details class=(?:"amd-faq-item"|amd-faq-item)/g) || []).length >= 12, "English FAQ must render plugin FAQ entries as details");
 assert(zhFaq.includes("原网页不就挺好看的吗？为什么还要专门做一个阅读器？"), "Chinese FAQ must use the plugin Reader FAQ");

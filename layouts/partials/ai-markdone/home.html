@@ -17,6 +17,7 @@
 {{ end }}
 {{ $featureSections := slice
   (dict
+    "anchor" "reader"
     "icon" "book-open-text"
     "zhMeta" "Reader"
     "enMeta" "Reader"
@@ -72,6 +73,7 @@
     "enShotDesc" "Add a Reader screenshot with body text, formulas, code, headings, and ideally the partial copy or annotation action visible."
   )
   (dict
+    "anchor" "copy-formulas"
     "icon" "copy"
     "zhMeta" "Formula"
     "enMeta" "Formula"
@@ -87,6 +89,7 @@
     "enShotDesc" "Add a screenshot of the formula hover menu showing LaTeX, PNG, SVG, and MathML actions."
   )
   (dict
+    "anchor" "bookmarks"
     "icon" "bookmark"
     "zhMeta" "Bookmark"
     "enMeta" "Bookmark"
@@ -102,6 +105,7 @@
     "enShotDesc" "Add a bookmark panel screenshot showing folders, search, preview, and the source-jump entry."
   )
   (dict
+    "anchor" "export"
     "icon" "download"
     "zhMeta" "Export"
     "enMeta" "Export"
@@ -117,6 +121,7 @@
     "enShotDesc" "Add an export dialog screenshot showing Markdown, PDF, PNG, ZIP, or the Save Messages flow."
   )
   (dict
+    "anchor" "settings"
     "icon" "cloud"
     "zhMeta" "Backup"
     "enMeta" "Backup"
@@ -132,6 +137,7 @@
     "enShotDesc" "Add a Data Management or Google Drive backup screenshot showing connection status, Back up now, Manage backups, or safe-merge restore."
   )
   (dict
+    "anchor" "settings"
     "icon" "settings"
     "zhMeta" "Settings"
     "enMeta" "Settings"
@@ -203,6 +209,9 @@
                 <li>{{ . }}</li>
               {{ end }}
             </ul>
+            <a class="amd-text-link amd-feature-inline-link" href="{{ printf "%s#%s" ($features | relURL) $feature.anchor }}">
+              {{ if $isEN }}Open this in the feature reference{{ else }}在功能表里查看这一项{{ end }}
+            </a>
           </div>
           <figure class="amd-feature-placeholder amd-home-feature-placeholder">
             <span class="amd-feature-placeholder-label">{{ if $isEN }}Screenshot placeholder{{ else }}截图占位{{ end }}</span>
