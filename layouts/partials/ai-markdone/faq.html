@@ -1,6 +1,5 @@
 {{ $isEN := eq (.Params.amd_lang | default "zh") "en" }}
 {{ $otherLang := .Params.translation_url | default "/ai-markdone/faq/" }}
-{{ $features := cond $isEN "/ai-markdone/en/features/" "/ai-markdone/features/" }}
 {{ $manual := cond $isEN "/ai-markdone/en/manual/" "/ai-markdone/manual/" }}
 {{ $privacy := cond $isEN "/ai-markdone/en/privacy/" "/ai-markdone/privacy/" }}
 {{ $faqFile := cond $isEN "assets/ai-markdone/faq.en.md" "assets/ai-markdone/faq.zh.md" }}
@@ -37,7 +36,6 @@
     {{ end }}
     <div class="amd-faq-related">
       <span>{{ if $isEN }}Need the next step?{{ else }}需要继续看？{{ end }}</span>
-      <a href="{{ $features | relURL }}">{{ if $isEN }}Feature reference{{ else }}功能一览{{ end }}</a>
       <a href="{{ $manual | relURL }}">{{ if $isEN }}Manual{{ else }}使用手册{{ end }}</a>
       <a href="{{ $privacy | relURL }}">{{ if $isEN }}Privacy policy{{ else }}隐私政策{{ end }}</a>
     </div>

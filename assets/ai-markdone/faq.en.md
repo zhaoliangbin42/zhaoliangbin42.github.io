@@ -19,21 +19,19 @@ AI-MarkDone 4.5.0 supports ChatGPT as the only active AI page runtime.
 - Bookmark management: click the extension icon -> bookmarks panel
 - Feature toggles and settings: bookmarks panel -> Settings
 
-## The original page already looks fine. Why make a Reader?
+## When should I open Reader?
 
-Because the original page is built for chatting, not necessarily for reading carefully.
-
-Once a conversation gets long, the page starts competing for your attention. Buttons, references, long scroll ranges, streaming UI, and side navigation all add up. Reader is meant to give you a calmer surface so you can actually read.
+Open Reader when an answer gets long, or when it mixes formulas, code, tables, and headings.
 
 To make that useful in practice, Reader also includes fullscreen mode, message switching, heading outline, Sticky temporary excerpts, send actions, and toolbar shortcuts. You do not have to keep bouncing back to the host page just to continue working.
 
-It also includes a few features I personally rely on a lot: source-aware copy, Dynamic Annotation, and Sticky excerpts for passages I want to keep beside the answer while reading.
+It also includes a few features I personally rely on a lot: source-aware copy, Dynamic Annotation, and Sticky excerpts for passages I want to keep beside the answer while reading. Those jobs often happen together when you are working through a serious answer.
 
 ## What is Sticky inside Reader for?
 
 Sticky is a temporary excerpt area inside Reader.
 
-Sometimes you are reading a long answer and you do not want to bookmark or export anything yet. You just want to keep a few passages beside the text while you compare them. In Reader, select a passage and click Stick. The selected Markdown goes into the left Sticky panel.
+Sometimes you are reading a long answer and a few passages need to stay beside the text while you compare them. In Reader, select a passage and click Stick. The selected Markdown goes into the left Sticky panel.
 
 Sticky is useful when you want to:
 
@@ -42,7 +40,7 @@ Sticky is useful when you want to:
 - collect a small working set while reading
 - hold an important formula, list, or code fragment beside the answer
 
-The Sticky panel can be shown or hidden. Excerpts can be deleted or reordered by dragging. Sticky is not permanent storage, and it clears after a refresh. Use bookmarks for anything you want to keep later.
+The Sticky panel can be shown or hidden. Excerpts can be deleted or reordered by dragging. Sticky is a temporary workspace for the current reading session, and it clears after a refresh. Use bookmarks for anything you want to keep later.
 
 ## I heard there is something called Dynamic Annotation. What is it actually for?
 
@@ -77,7 +75,7 @@ That usually gives the model the clearest context.
 
 ## When should I switch to Reader instead of staying on the original page?
 
-If you are only skimming, the original page is fine. But once you move into "I need to actually work with this" mode, Reader is usually the better place to be.
+Once you move into "I need to actually work with this" mode, Reader is usually the better place to be.
 
 Reader rebuilds the content from the page source and then renders it again in a more controlled surface. One practical upside is that formulas that fail to render cleanly on the host page can sometimes render correctly in Reader. I cannot promise that every time, but it does help in real use.
 
@@ -93,9 +91,7 @@ If you take notes, quote paragraphs, revise drafts, or only want part of a formu
 
 ## How do I use click-to-copy for formulas?
 
-This one is straightforward. You do not need to open Reader first.
-
-If all you want is a specific formula, just click the formula itself inside the original message. The extension will try to copy the corresponding LaTeX source, so you do not have to copy the whole block first and then dig the formula back out by hand.
+If all you want is a specific formula, just click the formula itself inside the original message. The extension will try to copy the corresponding LaTeX source, saving you from copying a whole block and digging the formula back out by hand.
 
 I use this a lot when I am taking notes or moving formulas into Typora, Obsidian, or other editors. It is much faster when the goal is just one formula, not an entire paragraph around it.
 
@@ -154,7 +150,7 @@ Yes.
 
 Click the extension icon to open the bookmarks panel, then go to Settings. From there you can turn individual features on or off. That includes toolbar actions as well as Reader and annotation-related options.
 
-I do not like tools that dump every feature on every user, so this part is meant to stay flexible.
+Hide the actions you rarely touch and keep your daily tools close.
 
 ## Where does Google Drive backup save my bookmarks?
 
@@ -176,7 +172,7 @@ You can manage backup JSON files from the Google Drive backup settings panel. Mo
 
 ## How does word count work?
 
-It is meant to be practically useful, not academically perfect.
+It is tuned as a practical reading signal.
 
 The current rules are:
 
@@ -192,14 +188,8 @@ One extra detail: if a message is basically code only, the toolbar will show `0 
 
 ## Is this extension paid?
 
-**It has to stay free.**
+**It stays free.**
 
-I built this project to solve problems I ran into all the time in my own daily use. As a graduate student, I spend a lot of time working with ChatGPT, and some of the missing pieces kept bothering me: copying source cleanly, annotating specific lines, exporting messages, saving useful content, and getting formulas into a format I actually want to keep.
+I built this project because I work with ChatGPT every day for research, writing, and code. Clean source copy, line-level annotation, message export, bookmarks, and formula handling may look like small things, but repeating them dozens of times a day adds up.
 
-Sometimes the copied math is not in the form I want. Sometimes there are strange line breaks. Sometimes rendering fails in the original page. And when I want ChatGPT to revise a long passage, the default workflow is awkward. There is no built-in way to annotate sentence by sentence and send those comments back in one structured pass. My old workaround was to copy each sentence manually and reply one by one. It worked, but it was slow and honestly kind of miserable.
-
-That is where AI-MarkDone came from.
-
-In a way, this extension is tailored to how I work. But I do not think I am the only person who works this way, so I would rather share it than keep it to myself.
-
-If you find it useful, you are very welcome to **buy me a coffee**, **drop by on social media and leave a like**, or **leave a kind review** on the extension page. Support like that really does keep me going. And if you run into bugs or have ideas, I would be happy to hear from you.
+AI-MarkDone will stay free and open source. If it saves you time, you are welcome to buy me a coffee, star the project on GitHub, or leave an honest review on the extension page. If you run into bugs or have ideas, I would be happy to hear from you.

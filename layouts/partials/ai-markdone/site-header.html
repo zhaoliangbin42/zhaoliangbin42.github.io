@@ -1,13 +1,13 @@
 {{ $isEN := eq (.Params.amd_lang | default "zh") "en" }}
 {{ $home := cond $isEN "/ai-markdone/en/" "/ai-markdone/" }}
-{{ $features := cond $isEN "/ai-markdone/en/features/" "/ai-markdone/features/" }}
+{{ $manual := cond $isEN "/ai-markdone/en/manual/" "/ai-markdone/manual/" }}
 {{ $faq := cond $isEN "/ai-markdone/en/faq/" "/ai-markdone/faq/" }}
 {{ $contact := cond $isEN "/ai-markdone/en/contact/" "/ai-markdone/contact/" }}
 {{ $otherLang := .Params.translation_url | default (cond $isEN "/ai-markdone/" "/ai-markdone/en/") }}
 {{ $github := "https://github.com/zhaoliangbin42/AI-MarkDone" }}
 {{ $current := .RelPermalink }}
 {{ $isHome := eq $current $home }}
-{{ $isFeatures := eq $current $features }}
+{{ $isManual := hasPrefix $current ($manual | relURL) }}
 {{ $isFaq := eq $current $faq }}
 {{ $isContact := eq $current $contact }}
 
@@ -26,7 +26,7 @@
 
     <div class="amd-site-links">
       <a href="{{ $home | relURL }}" class="{{ if $isHome }}is-active{{ end }}" {{ if $isHome }}aria-current="page"{{ end }}>{{ if $isEN }}Home{{ else }}首页{{ end }}</a>
-      <a href="{{ $features | relURL }}" class="{{ if $isFeatures }}is-active{{ end }}" {{ if $isFeatures }}aria-current="page"{{ end }}>{{ if $isEN }}Features{{ else }}功能{{ end }}</a>
+      <a href="{{ $manual | relURL }}" class="{{ if $isManual }}is-active{{ end }}" {{ if $isManual }}aria-current="page"{{ end }}>{{ if $isEN }}Manual{{ else }}手册{{ end }}</a>
       <a href="{{ $faq | relURL }}" class="{{ if $isFaq }}is-active{{ end }}" {{ if $isFaq }}aria-current="page"{{ end }}>FAQ</a>
       <a href="{{ $contact | relURL }}" class="{{ if $isContact }}is-active{{ end }}" {{ if $isContact }}aria-current="page"{{ end }}>{{ if $isEN }}Contact{{ else }}联系{{ end }}</a>
     </div>

@@ -1,0 +1,103 @@
+[[groups]]
+id = "reader"
+zh = "阅读器"
+en = "Reader"
+
+  [[groups.items]]
+  id = "reader"
+  zh = "Reader 阅读器"
+  en = "Reader"
+  zhURL = "/ai-markdone/manual/reader/"
+  enURL = "/ai-markdone/en/manual/reader/"
+
+  [[groups.items]]
+  id = "partial-copy"
+  zh = "局部复制"
+  en = "Partial copy"
+  zhURL = "/ai-markdone/manual/partial-copy/"
+  enURL = "/ai-markdone/en/manual/partial-copy/"
+
+  [[groups.items]]
+  id = "sticky"
+  zh = "Sticky 临时摘录"
+  en = "Sticky excerpts"
+  zhURL = "/ai-markdone/manual/sticky/"
+  enURL = "/ai-markdone/en/manual/sticky/"
+
+  [[groups.items]]
+  id = "annotations"
+  zh = "灵动注释"
+  en = "Annotations"
+  zhURL = "/ai-markdone/manual/annotations/"
+  enURL = "/ai-markdone/en/manual/annotations/"
+
+[[groups]]
+id = "toolbar"
+zh = "工具栏"
+en = "Toolbar"
+
+  [[groups.items]]
+  id = "copy-markdown"
+  zh = "复制 Markdown"
+  en = "Copy Markdown"
+  zhURL = "/ai-markdone/manual/copy-markdown/"
+  enURL = "/ai-markdone/en/manual/copy-markdown/"
+
+  [[groups.items]]
+  id = "formulas"
+  zh = "公式复制/导出"
+  en = "Formula copy/export"
+  zhURL = "/ai-markdone/manual/formulas/"
+  enURL = "/ai-markdone/en/manual/formulas/"
+
+  [[groups.items]]
+  id = "bookmarks"
+  zh = "书签保存"
+  en = "Bookmarks"
+  zhURL = "/ai-markdone/manual/bookmarks/"
+  enURL = "/ai-markdone/en/manual/bookmarks/"
+
+  [[groups.items]]
+  id = "export"
+  zh = "批量导出"
+  en = "Batch export"
+  zhURL = "/ai-markdone/manual/export/"
+  enURL = "/ai-markdone/en/manual/export/"
+
+[[groups]]
+id = "data-settings"
+zh = "数据与设置"
+en = "Data and settings"
+
+  [[groups.items]]
+  id = "settings"
+  zh = "配置项总览"
+  en = "Settings reference"
+  zhURL = "/ai-markdone/manual/settings/"
+  enURL = "/ai-markdone/en/manual/settings/"
+
+  [[groups.items]]
+  id = "privacy-storage"
+  zh = "导入与导出"
+  en = "Import and export"
+  zhURL = "/ai-markdone/manual/privacy-storage/"
+  enURL = "/ai-markdone/en/manual/privacy-storage/"
+
+  [[groups.items]]
+  id = "google-drive-backup"
+  zh = "Google Drive 备份"
+  en = "Google Drive backup"
+  zhURL = "/ai-markdone/manual/google-drive-backup/"
+  enURL = "/ai-markdone/en/manual/google-drive-backup/"
+
+[[groups]]
+id = "troubleshooting"
+zh = "问题排查"
+en = "Troubleshooting"
+
+  [[groups.items]]
+  id = "troubleshooting"
+  zh = "常见排查"
+  en = "Troubleshooting"
+  zhURL = "/ai-markdone/manual/troubleshooting/"
+  enURL = "/ai-markdone/en/manual/troubleshooting/"

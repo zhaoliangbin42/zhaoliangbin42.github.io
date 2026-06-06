@@ -13,22 +13,19 @@
 npm install
 
 # 启动开发服务器
-npm run dev  # 启动后可以在浏览器访问 http://localhost:3000
+npm run dev  # Hugo 默认会在 http://localhost:1313 启动本地站点
 
 # 构建网站
-npm run build  # 构建完成后的文件会生成在 dist/ 目录下
+npm run build  # 构建完成后的文件会生成在 docs/ 目录下
 
 # 预览构建后的网站
 npm run preview
-
-# 如果遇到构建问题，可以尝试清除缓存
-npm run clean && npm run build
 
 # Hugo相关命令
 hugo  # 构建网站
 hugo server  # 启动本地开发服务器
 hugo new content/notes/新笔记名.md  # 创建新笔记
-hugo --minify  # 构建并压缩网站，如果要上传至github，则应该运行这一段，完整编译构建项目
+hugo --minify  # 构建并压缩网站；发布前优先使用 npm run build，确保参数一致
 ```
 
 本网站构建之后，会自动生成一个`docs/`文件夹，该文件夹包含网页相关的所有静态文件，在上传github的时候，只需要上传该文件夹即可。后面会有部署到Github的操作流程。
@@ -172,29 +169,32 @@ draft: false             # 草稿状态，true则不会在生产环境显示
 
 ## 网站部署
 
-本网站通过GitHub Pages进行部署，整个部署过程已经通过`deploy.sh`脚本自动化：
+本网站通过 GitHub Pages 部署，当前仓库的生产静态文件输出在 `docs/` 目录。发布前使用仓库脚本完成构建和校验，然后把源码变更与生成后的 `docs/` 输出一起提交并推送。
 
 ```bash
-# 部署网站到GitHub Pages
-./deploy.sh
+npm run build
+
+# 如果本次包含 AI-MarkDone 页面变更，还需要运行：
+node scripts/verify-ai-markdone-site.mjs
 ```
 
 ### 部署流程说明
 
-1. 首先构建网站：`hugo --minify`（此步骤会在docs目录生成所有静态文件）
-2. 执行`deploy.sh`脚本，该脚本将：
-   - 进入docs目录
-   - 创建一个简单的README.md
-   - 初始化一个新的git仓库
-   - 添加并提交所有文件
-   - 强制推送到GitHub仓库的master分支
-   - 清理临时git目录
+1. 修改 `content/`、`layouts/`、`assets/`、`data/`、`static/` 或 `scripts/` 中的源文件。
+2. 如果页面结构、功能说明或发布流程变化，同步更新对应 SSOT，例如 `static/llms.txt`、`AGENTS.md` 或本 README。
+3. 运行 `npm run build`，让 Hugo 重新生成 `docs/`。
+4. AI-MarkDone 相关改动还需要运行 `node scripts/verify-ai-markdone-site.mjs`。
+5. 本地检查关键页面，例如 `/ai-markdone/`、`/ai-markdone/en/`、`/ai-markdone/manual/`、`/ai-markdone/en/manual/`。
+6. 检查 `git status --short`，确认源码和生成文件都在预期范围内。
+7. 提交并推送当前发布分支。
 
 ### 部署注意事项
 
 - 确保你有对`zhaoliangbin42/zhaoliangbin42.github.io`仓库的写入权限
 - 确保你的SSH密钥已添加到GitHub账户
-- 部署前先运行`hugo`命令构建最新版本
+- 部署前先运行 `npm run build` 构建最新版本
+- AI-MarkDone 页面发布前必须运行 `node scripts/verify-ai-markdone-site.mjs`
+- `docs/` 是生成输出目录，不要手工编辑；需要调整页面时应修改源文件后重新构建
 - 部署后等待几分钟，GitHub Pages需要一些时间来处理更新
 
 完成部署后，网站将在几分钟内在 https://zhaoliangbin42.github.io 更新。
@@ -273,7 +273,6 @@ A minimalist 3D render of **[Over-ear Headphones]**, floating directly in the ce
 
 ### Icon Images
 A cute, minimalist 3D render icon of **[a graduation cap]**, floating centrally in a seamless pure white studio space. The object has a smooth matte plastic texture with friendly, rounded edges and toy-like geometry. It is rendered in aesthetically pleasing, modern design colors chosen by the AI. Soft, diffused studio lighting from top-left creates gentle highlights. A soft, realistic ambient occlusion shadow is cast on the invisible white ground plane directly underneath the object, emphasizing that it is suspended in mid-air. Isometric view, sharp focus, high detailed 3D rendering, C4D style. Square aspect ratio (1:1).
-
 
 
 

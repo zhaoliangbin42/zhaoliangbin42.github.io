@@ -1,6 +1,5 @@
 {{ $isEN := eq (.Params.amd_lang | default "zh") "en" }}
 {{ $home := cond $isEN "/ai-markdone/en/" "/ai-markdone/" }}
-{{ $features := cond $isEN "/ai-markdone/en/features/" "/ai-markdone/features/" }}
 {{ $manual := cond $isEN "/ai-markdone/en/manual/" "/ai-markdone/manual/" }}
 {{ $faq := cond $isEN "/ai-markdone/en/faq/" "/ai-markdone/faq/" }}
 {{ $privacy := cond $isEN "/ai-markdone/en/privacy/" "/ai-markdone/privacy/" }}
@@ -30,7 +29,6 @@
 
     <div class="amd-footer-links">
       <strong>{{ if $isEN }}Product{{ else }}产品{{ end }}</strong>
-      <a href="{{ $features | relURL }}">{{ if $isEN }}Features{{ else }}功能{{ end }}</a>
       <a href="{{ $manual | relURL }}">{{ if $isEN }}Manual{{ else }}手册{{ end }}</a>
       <a href="{{ $faq | relURL }}">FAQ</a>
       <a href="{{ $contact | relURL }}">{{ if $isEN }}Contact{{ else }}联系{{ end }}</a>

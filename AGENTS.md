@@ -39,3 +39,14 @@ node scripts/verify-ai-markdone-site.mjs
 ```
 
 Then check `/ai-markdone/` and `/ai-markdone/en/` in the browser.
+
+## Release Flow
+
+Use this flow when publishing the site or preparing a release-ready push:
+
+1. Update source files first. For AI-MarkDone, keep product content, layouts, partials, data, images, and scripts inside the AI-MarkDone boundaries above whenever practical.
+2. Keep SSOT files in sync with user-visible changes. At minimum, update `static/llms.txt` for AI-MarkDone page/feature structure changes and update this file or `README.md` when the working or release process changes.
+3. Run `npm run build`. The production output is `docs/`; do not hand-edit generated files.
+4. Run `node scripts/verify-ai-markdone-site.mjs` for AI-MarkDone changes.
+5. Inspect `git status --short` before staging. Commit source changes and the generated `docs/` output together only when a release/publish output is explicitly requested.
+6. Push the current release branch after build and verification pass. This repository currently has no committed GitHub Actions workflow and no active `deploy.sh` flow, so the tracked `docs/` output is the publish artifact.

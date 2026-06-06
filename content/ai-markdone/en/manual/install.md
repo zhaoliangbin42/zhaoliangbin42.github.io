@@ -14,7 +14,7 @@ next_label: "Next: Reader"
 
 ## What this solves
 
-AI-MarkDone is a browser extension, not a separate web app. After installation, it needs to load a content script inside ChatGPT before it can read the conversation and mount its controls.
+AI-MarkDone installs in the browser and adds its toolbar to the ChatGPT page. After installation, the extension needs the current page to load again so it can recognize the conversation and message positions.
 
 If ChatGPT was already open when you installed the extension, the old page usually will not update until you refresh it.
 
@@ -33,7 +33,7 @@ Chrome users should install from the Chrome Web Store. Firefox users should inst
 
 1. Install AI-MarkDone from the Chrome Web Store or Firefox Add-ons.
 2. Return to your open ChatGPT tab.
-3. Refresh the page. You do not need to sign out.
+3. Refresh the page while staying signed in to ChatGPT.
 4. Wait for the conversation to load.
 5. Look for message actions such as Copy Markdown, Reader, bookmark, Save Messages, and Copy as PNG.
 6. If nothing appears, open the extension panel and check Settings.
@@ -46,4 +46,4 @@ Refresh ChatGPT first. Browser extensions usually attach to already-open pages a
 
 ### Do I need to sign in again?
 
-Usually no. AI-MarkDone does not own your ChatGPT login and does not move the conversation into another app.
+Usually you can stay signed in. AI-MarkDone only loads its toolbar into the browser page.

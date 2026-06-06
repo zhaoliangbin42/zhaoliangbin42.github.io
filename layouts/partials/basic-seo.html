@@ -50,13 +50,13 @@
   <meta name="author" content="{{ . }}" />
 {{ end }}
 
-{{ $description := .Summary }}
+{{ $description := site.Params.metadata.description }}
 {{ if .Params.meta_description }}
   {{ $description = .Params.meta_description }}
 {{ else if .Params.description }}
   {{ $description = .Params.description }}
-{{ else if site.Params.metadata.description }}
-  {{ $description = site.Params.metadata.description }}
+{{ else if .Plain }}
+  {{ $description = .Plain | plainify | truncate 160 }}
 {{ end }}
 
 {{ $imagePath := site.Params.metadata.image }}

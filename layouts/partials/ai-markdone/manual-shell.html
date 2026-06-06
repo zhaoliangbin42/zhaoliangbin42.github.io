@@ -1,0 +1,86 @@
+{{ $isEN := eq (.Params.amd_lang | default "zh") "en" }}
+{{ $manual := cond $isEN "/ai-markdone/en/manual/" "/ai-markdone/manual/" }}
+{{ $home := cond $isEN "/ai-markdone/en/" "/ai-markdone/" }}
+{{ $current := .RelPermalink }}
+{{ $isOverview := eq .Params.page_kind "manual" }}
+{{ $groups := site.Data.ai_markdone.manual_nav.groups }}
+{{ $currentItem := dict }}
+{{ $flat := slice }}
+{{ range $groups }}
+  {{ range .items }}
+    {{ $flat = $flat | append . }}
+  {{ end }}
+{{ end }}
+{{ range $flat }}
+  {{ $url := cond $isEN .enURL .zhURL }}
+  {{ if eq $current ($url | relURL) }}
+    {{ $currentItem = . }}
+  {{ end }}
+{{ end }}
+{{ $currentIndex := -1 }}
+{{ range $index, $item := $flat }}
+  {{ if eq $item.id (index $currentItem "id") }}
+    {{ $currentIndex = $index }}
+  {{ end }}
+{{ end }}
+{{ $prev := cond (gt $currentIndex 0) (index $flat (sub $currentIndex 1)) nil }}
+{{ $next := cond (and (ge $currentIndex 0) (lt (add $currentIndex 1) (len $flat))) (index $flat (add $currentIndex 1)) nil }}
+
+<section class="amd-section amd-docs-section">
+  <div class="amd-container amd-docs-layout">
+    <aside class="amd-docs-sidebar" aria-label="{{ if $isEN }}Manual navigation{{ else }}手册导航{{ end }}">
+      <a class="amd-docs-overview-link {{ if eq $current ($manual | relURL) }}is-active{{ end }}" href="{{ $manual | relURL }}">
+        {{ if $isEN }}Manual overview{{ else }}手册总览{{ end }}
+      </a>
+      {{ range $groups }}
+        <div class="amd-docs-nav-group">
+          <strong>{{ if $isEN }}{{ .en }}{{ else }}{{ .zh }}{{ end }}</strong>
+          {{ range .items }}
+            {{ $url := cond $isEN .enURL .zhURL }}
+            {{ $active := eq $current ($url | relURL) }}
+            <a class="{{ if $active }}is-active{{ end }}" href="{{ $url | relURL }}" {{ if $active }}aria-current="page"{{ end }}>
+              {{ if $isEN }}{{ .en }}{{ else }}{{ .zh }}{{ end }}
+            </a>
+          {{ end }}
+        </div>
+      {{ end }}
+    </aside>
+
+    <article class="amd-docs-article">
+      <header class="amd-docs-title">
+        <p class="amd-home-kicker">{{ if $isEN }}Manual{{ else }}手册{{ end }}</p>
+        <h1>{{ .Title }}</h1>
+        {{ with .Description }}<p>{{ . }}</p>{{ end }}
+      </header>
+      <div class="amd-docs-content content">
+        {{ .Content }}
+      </div>
+
+      {{ if or .Params.screenshot_title .Params.screenshot_detail }}
+        <figure class="amd-docs-placeholder" role="img" aria-label="{{ .Params.screenshot_title }}">
+          <span>{{ if $isEN }}Screenshot placeholder{{ else }}截图占位{{ end }}</span>
+          <strong>{{ .Params.screenshot_title }}</strong>
+          <p>{{ .Params.screenshot_detail }}</p>
+        </figure>
+      {{ end }}
+
+      {{ if not $isOverview }}
+        <nav class="amd-docs-next" aria-label="{{ if $isEN }}Manual next steps{{ else }}手册下一步{{ end }}">
+          {{ with $prev }}
+            {{ $prevURL := cond $isEN .enURL .zhURL }}
+            <a href="{{ $prevURL | relURL }}">{{ if $isEN }}Previous: {{ .en }}{{ else }}上一步：{{ .zh }}{{ end }}</a>
+          {{ else }}
+            <a href="{{ $home | relURL }}">{{ if $isEN }}Back to product overview{{ else }}回到产品首页{{ end }}</a>
+          {{ end }}
+          <a href="{{ $manual | relURL }}">{{ if $isEN }}Manual overview{{ else }}手册总览{{ end }}</a>
+          {{ with $next }}
+            {{ $nextURL := cond $isEN .enURL .zhURL }}
+            <a href="{{ $nextURL | relURL }}">{{ if $isEN }}Next: {{ .en }}{{ else }}下一步：{{ .zh }}{{ end }}</a>
+          {{ else }}
+            <a href="{{ cond $isEN "/ai-markdone/en/contact/" "/ai-markdone/contact/" | relURL }}">{{ if $isEN }}Send feedback{{ else }}反馈问题{{ end }}</a>
+          {{ end }}
+        </nav>
+      {{ end }}
+    </article>
+  </div>
+</section>

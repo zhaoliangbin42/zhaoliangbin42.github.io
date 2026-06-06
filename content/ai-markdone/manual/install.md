@@ -14,7 +14,7 @@ next_label: "下一步：Reader"
 
 ## 这个功能解决什么问题
 
-AI-MarkDone 是浏览器扩展，不是独立网页。安装以后，它需要在 ChatGPT 页面里加载内容脚本，才能读取当前对话并挂上自己的工具栏。
+AI-MarkDone 安装在浏览器里，并在 ChatGPT 页面加载自己的工具栏。安装完成后，扩展需要重新进入当前页面，才能识别对话内容和消息位置。
 
 如果你已经打开了 ChatGPT，再安装扩展，旧页面通常不会立刻出现按钮。刷新一次页面最省事。
 
@@ -33,7 +33,7 @@ Chrome 用户从 Chrome Web Store 安装，Firefox 用户从 Firefox Add-ons 安
 
 1. 打开 Chrome Web Store 或 Firefox Add-ons 的 AI-MarkDone 页面并安装扩展。
 2. 回到已经打开的 ChatGPT 页面。
-3. 刷新页面，不需要退出登录。
+3. 刷新页面，保持当前 ChatGPT 登录状态即可。
 4. 等页面内容加载完成。
 5. 在支持的消息附近查看工具栏动作，例如“复制 Markdown”“Reader”“书签”“Save Messages”“复制为 PNG”。
 6. 如果还是看不到，打开扩展面板，进入 Settings，确认相关动作没有被隐藏。
@@ -46,7 +46,7 @@ Chrome 用户从 Chrome Web Store 安装，Firefox 用户从 Firefox Add-ons 安
 
 ### 我需要重新登录 ChatGPT 吗？
 
-一般不需要。AI-MarkDone 不接管登录，也不要求你把对话搬到另一个页面。
+通常保持当前登录状态即可。AI-MarkDone 只在浏览器页面里加载工具栏。
 
 ### 为什么有些消息没有按钮？
 

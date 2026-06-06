@@ -17,6 +17,9 @@
 <link rel="alternate" hreflang="{{ cond $isEN "en" "zh-CN" }}" href="{{ .Permalink }}" />
 <link rel="alternate" hreflang="{{ cond $isEN "zh-CN" "en" }}" href="{{ $otherURL }}" />
 <link rel="alternate" hreflang="x-default" href="{{ absURL $defaultPath }}" />
+{{- if .Params.noindex }}
+<meta name="robots" content="noindex,follow" />
+{{- end }}
 <meta name="keywords" content="{{ if $isEN }}ChatGPT browser extension, ChatGPT productivity extension, ChatGPT Markdown copy extension, copy ChatGPT to Markdown, ChatGPT reader extension, ChatGPT Reader mode, export ChatGPT to Markdown, export ChatGPT to PDF, export ChatGPT to PNG, ChatGPT bookmarks, ChatGPT LaTeX copy, ChatGPT formula export, Google Drive backup ChatGPT extension, open source ChatGPT extension{{ else }}ChatGPT 浏览器扩展, ChatGPT 效率扩展, ChatGPT Markdown 复制, ChatGPT 阅读模式, ChatGPT Reader 扩展, ChatGPT LaTeX 复制, ChatGPT 公式导出, ChatGPT 回答导出 Markdown PDF PNG, ChatGPT 书签, Google Drive 备份, 开源 ChatGPT 浏览器扩展{{ end }}" />
 
 {{- $person := dict "@type" "Person" "@id" (printf "%s#person" (absURL "/")) "name" "Liangbin Zhao" "url" (absURL "/") "sameAs" (slice "https://github.com/zhaoliangbin42") -}}

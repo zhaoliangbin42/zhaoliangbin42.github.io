@@ -1,14 +1,57 @@
-[[items]]
-name = "早期赞助者"
-note_zh = "感谢每一位愿意支持免费开源工具继续打磨的人。"
-note_en = "Thanks to everyone who helps keep this free open-source tool moving."
+title_zh = "感谢赞助"
+title_en = "Thanks to Sponsors"
+description_zh = "每一份支持，都会变成 AI-MarkDone 继续更新的动力。"
+description_en = "Every bit of support makes AI-MarkDone easier to keep improving."
+aria_zh = "赞助感谢名单"
+aria_en = "Sponsor thank-you list"
 
-[[items]]
-name = "反馈贡献者"
-note_zh = "很多功能来自真实使用中的小痛点和耐心反馈。"
-note_en = "Many improvements began as patient feedback from real daily use."
+[[people]]
+name = "@匿名（Danke!）"
 
-[[items]]
-name = "开源社区"
-note_zh = "感谢 issue、star、转发和每一次认真试用。"
-note_en = "Thanks for issues, stars, shares, and every thoughtful test run."
+[[people]]
+name = "@匿名（看到书签按钮了，感谢你的更新）"
+
+[[people]]
+name = "@Z.."
+
+[[people]]
+name = "@甜甜林🌸"
+
+[[people]]
+name = "@Kayka.Z（很有用的软件，节省了我大量的时间）"
+
+[[people]]
+name = "@。（特别喜欢那个目录条功能，请你喝瓶水）"
+
+[[people]]
+name = "。（哥，你这个插件太好用了，我再请你喝个饮料。）"
+
+[[people]]
+name = "今天你学习了吗"
+
+[[people]]
+name = "w（感谢分享！）"
+
+[[people]]
+name = "匿名（十分感谢）"
+
+[[people]]
+name = "还房贷的钓鱼伐木工"
+
+[[people]]
+name = "淡定的喵（真的很棒，效率大大提高，世界因为有您这样的人而更美好，祝顺利）"
+
+[[people]]
+name = ":-)"
+
+[[people]]
+name = "匿名"
+
+[[people]]
+name = "花花牛（做得真棒！）"
+
+[[people]]
+name = "匿名（造福人类）"
+
+[[people]]
+name = "匿名（👍👍👍）"
