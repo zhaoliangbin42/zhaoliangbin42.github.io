@@ -1,4 +1,16 @@
 [[groups]]
+id = "overview"
+zh = "手册总览"
+en = "Manual overview"
+
+  [[groups.items]]
+  id = "architecture"
+  zh = "插件层级"
+  en = "Plugin architecture"
+  zhURL = "/ai-markdone/manual/architecture/"
+  enURL = "/ai-markdone/en/manual/architecture/"
+
+[[groups]]
 id = "reader"
 zh = "阅读器"
 en = "Reader"
@@ -32,6 +44,25 @@ en = "Reader"
   enURL = "/ai-markdone/en/manual/annotations/"
 
 [[groups]]
+id = "usability"
+zh = "易用性"
+en = "Usability"
+
+  [[groups.items]]
+  id = "message-position"
+  zh = "消息导航与位置"
+  en = "Message navigation"
+  zhURL = "/ai-markdone/manual/message-navigation/"
+  enURL = "/ai-markdone/en/manual/message-navigation/"
+
+  [[groups.items]]
+  id = "formulas"
+  zh = "公式复制/导出"
+  en = "Formula copy/export"
+  zhURL = "/ai-markdone/manual/formulas/"
+  enURL = "/ai-markdone/en/manual/formulas/"
+
+[[groups]]
 id = "toolbar"
 zh = "工具栏"
 en = "Toolbar"
@@ -42,13 +73,6 @@ en = "Toolbar"
   en = "Copy Markdown"
   zhURL = "/ai-markdone/manual/copy-markdown/"
   enURL = "/ai-markdone/en/manual/copy-markdown/"
-
-  [[groups.items]]
-  id = "formulas"
-  zh = "公式复制/导出"
-  en = "Formula copy/export"
-  zhURL = "/ai-markdone/manual/formulas/"
-  enURL = "/ai-markdone/en/manual/formulas/"
 
   [[groups.items]]
   id = "bookmarks"

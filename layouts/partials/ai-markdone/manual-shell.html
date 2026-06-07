@@ -13,7 +13,8 @@
 {{ end }}
 {{ range $flat }}
   {{ $url := cond $isEN .enURL .zhURL }}
-  {{ if eq $current ($url | relURL) }}
+  {{ $urlPath := replaceRE "#.*$" "" $url }}
+  {{ if and (not (in $url "#")) (eq $current ($urlPath | relURL)) }}
     {{ $currentItem = . }}
   {{ end }}
 {{ end }}
@@ -33,16 +34,28 @@
         {{ if $isEN }}Manual overview{{ else }}手册总览{{ end }}
       </a>
       {{ range $groups }}
-        <div class="amd-docs-nav-group">
-          <strong>{{ if $isEN }}{{ .en }}{{ else }}{{ .zh }}{{ end }}</strong>
+        {{ if eq .id "overview" }}
           {{ range .items }}
             {{ $url := cond $isEN .enURL .zhURL }}
-            {{ $active := eq $current ($url | relURL) }}
-            <a class="{{ if $active }}is-active{{ end }}" href="{{ $url | relURL }}" {{ if $active }}aria-current="page"{{ end }}>
+            {{ $urlPath := replaceRE "#.*$" "" $url }}
+            {{ $active := and (not (in $url "#")) (eq $current ($urlPath | relURL)) }}
+            <a class="amd-docs-overview-link {{ if $active }}is-active{{ end }}" href="{{ $url | relURL }}" {{ if $active }}aria-current="page"{{ end }}>
               {{ if $isEN }}{{ .en }}{{ else }}{{ .zh }}{{ end }}
             </a>
           {{ end }}
-        </div>
+        {{ else }}
+          <div class="amd-docs-nav-group">
+            <strong>{{ if $isEN }}{{ .en }}{{ else }}{{ .zh }}{{ end }}</strong>
+            {{ range .items }}
+              {{ $url := cond $isEN .enURL .zhURL }}
+              {{ $urlPath := replaceRE "#.*$" "" $url }}
+              {{ $active := and (not (in $url "#")) (eq $current ($urlPath | relURL)) }}
+              <a class="{{ if $active }}is-active{{ end }}" href="{{ $url | relURL }}" {{ if $active }}aria-current="page"{{ end }}>
+                {{ if $isEN }}{{ .en }}{{ else }}{{ .zh }}{{ end }}
+              </a>
+            {{ end }}
+          </div>
+        {{ end }}
       {{ end }}
     </aside>
 

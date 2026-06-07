@@ -72,7 +72,9 @@ Advanced Settings are mostly for people who use annotations often. If you are ju
 | Width value | Editable with Custom | Lets you edit the PNG width in pixels after choosing Custom. |
 | PNG image scale | 1x | Controls raster sharpness, up to 3x. Long exports may still be capped for stability. |
 
-## ChatGPT Settings
+## ChatGPT page behavior {#chatgpt-page-behavior}
+
+These options control reading position and message navigation on the ChatGPT page. The important one is Restore position after sending: when you send a new prompt while reading older messages, AI-MarkDone tries to bring you back to the spot you were reading instead of dropping you into the newest message.
 
 | Setting | Default | What it does |
 |---|---:|---|

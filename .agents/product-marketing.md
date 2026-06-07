@@ -1,6 +1,6 @@
 # Product Marketing Context
 
-*Last updated: 2026-06-05*
+*Last updated: 2026-06-07*
 
 ## Product Overview
 **One-liner:** AI-MarkDone is a ChatGPT-only browser extension for serious reading, Markdown copy, LaTeX formula copy, annotations, bookmarks, export, and Google Drive bookmark backup.
@@ -29,6 +29,7 @@
 - Save ChatGPT answers as bookmarks with folders, preview, search, and source jump-back.
 - Export ChatGPT answers as Markdown, PDF, PNG, or multi-image ZIP.
 - Back up bookmark snapshots to the user's own Google Drive.
+- Understand the extension workflow through the Plugin architecture manual, including discovery, Reader, copy, bookmarks, export, formulas, settings, backup, and message navigation.
 
 ## Problems & Pain Points
 **Core problem:** ChatGPT can produce useful long answers, but the original chat page is not always good for careful reading, exact copying, formula reuse, structured annotation, saving, or exporting.
@@ -103,6 +104,7 @@
 **Metrics:** 3,000+ users are using AI-MarkDone.
 
 **Public proof:** Chrome Web Store, Firefox Add-ons, GitHub repository, open-source code, visible privacy policy.
+**Documentation proof:** The manual includes a Plugin architecture chapter that explains how AI-MarkDone discovers ChatGPT content and routes it through Reader, copy, bookmarks, export, formulas, settings, backup, and message navigation.
 
 **Value themes:**
 | Theme | Proof |

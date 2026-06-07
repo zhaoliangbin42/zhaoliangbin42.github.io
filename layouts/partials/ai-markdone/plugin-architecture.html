@@ -1,0 +1,57 @@
+{{- $lang := .Get "lang" | default (.Page.Params.amd_lang | default "zh") -}}
+{{- $isEN := eq $lang "en" -}}
+{{- $script := resources.Get "ai-markdone/architecture/plugin-architecture.js" -}}
+
+<section class="amd-architecture" data-amd-architecture data-lang="{{ $lang }}">
+  <div class="amd-architecture-header">
+    <p class="amd-architecture-kicker">{{ if $isEN }}Interactive map{{ else }}交互图{{ end }}</p>
+    <h3>{{ if $isEN }}AI-MarkDone workflow, in layers{{ else }}按层看懂 AI-MarkDone 的工作链路{{ end }}</h3>
+    <p>
+      {{ if $isEN }}
+        This map shows how AI-MarkDone discovers ChatGPT content, prepares shared answer data, and lets Reader, copy, bookmarks, export, formulas, settings, and message navigation reuse the same pipeline.
+      {{ else }}
+        这张图把 AI-MarkDone 如何发现 ChatGPT 内容、如何整理回答数据、Reader、复制、书签、导出、公式、设置和消息导航如何复用同一套链路放在一起。
+      {{ end }}
+    </p>
+  </div>
+
+  <div class="amd-architecture-quick">
+    <span>{{ if $isEN }}Jump to a path{{ else }}你是否对这些感兴趣？点击直达{{ end }}</span>
+    <div class="amd-architecture-flows" data-amd-architecture-flows></div>
+  </div>
+
+  <div class="amd-architecture-shell">
+    <div class="amd-architecture-main">
+      <div class="amd-architecture-toolbar">
+        <button type="button" class="amd-architecture-back" data-amd-architecture-back hidden>
+          {{ if $isEN }}Back to overview{{ else }}返回总图{{ end }}
+        </button>
+        <p data-amd-architecture-caption>
+          {{ if $isEN }}Drag to move around. Scroll or pinch to zoom. Click a node for details.{{ else }}拖动图面查看，滚轮或双指缩放。点击节点可以看详情。{{ end }}
+        </p>
+      </div>
+
+      <div class="amd-architecture-stage">
+        <div class="amd-architecture-graph" data-amd-architecture-graph aria-label="{{ if $isEN }}AI-MarkDone plugin architecture graph{{ else }}AI-MarkDone 插件层级图{{ end }}"></div>
+        <div class="amd-architecture-controls" aria-label="{{ if $isEN }}Graph controls{{ else }}图形控制{{ end }}">
+          <button type="button" data-amd-architecture-home>{{ if $isEN }}Overview{{ else }}主视图{{ end }}</button>
+          <button type="button" data-amd-architecture-zoom-out aria-label="{{ if $isEN }}Zoom out{{ else }}缩小{{ end }}">−</button>
+          <input type="range" min="45" max="220" value="100" step="5" data-amd-architecture-zoom aria-label="{{ if $isEN }}Zoom level{{ else }}缩放比例{{ end }}">
+          <button type="button" data-amd-architecture-zoom-in aria-label="{{ if $isEN }}Zoom in{{ else }}放大{{ end }}">+</button>
+          <button type="button" data-amd-architecture-reset>{{ if $isEN }}Reset{{ else }}复位{{ end }}</button>
+          <button type="button" data-amd-architecture-fullscreen>{{ if $isEN }}Fullscreen{{ else }}全屏{{ end }}</button>
+        </div>
+      </div>
+    </div>
+
+    <aside class="amd-architecture-detail" data-amd-architecture-detail>
+      <span>{{ if $isEN }}Node detail{{ else }}节点说明{{ end }}</span>
+      <strong>{{ if $isEN }}Choose a node{{ else }}选择一个节点{{ end }}</strong>
+      <p>{{ if $isEN }}Click a node to see what it does and which path uses it.{{ else }}点击节点后，这里会显示它做什么、被哪条链路使用。{{ end }}</p>
+    </aside>
+  </div>
+</section>
+
+{{ with $script }}
+  <script defer src="{{ .RelPermalink }}"></script>
+{{ end }}

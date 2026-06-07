@@ -405,6 +405,9 @@
   .top-1\/2 {
     top: calc(1/2 * 100%);
   }
+  .left-0 {
+    left: calc(var(--spacing) * 0);
+  }
   .left-1\/2 {
     left: calc(1/2 * 100%);
   }
@@ -413,6 +416,9 @@
   }
   .z-30 {
     z-index: 30;
+  }
+  .z-50 {
+    z-index: 50;
   }
   .order-0 {
     order: 0;
@@ -1140,6 +1146,9 @@
   .w-4 {
     width: calc(var(--spacing) * 4);
   }
+  .w-\[30px\] {
+    width: 30px;
+  }
   .w-full {
     width: 100%;
   }
@@ -1148,6 +1157,9 @@
   }
   .col {
     flex: 1 0 0%;
+  }
+  .flex-grow {
+    flex-grow: 1;
   }
   .-translate-x-1\/2 {
     --tw-translate-x: calc(calc(1/2 * 100%) * -1);
@@ -1236,6 +1248,9 @@
   .bg-body {
     background-color: var(--color-body);
   }
+  .bg-gray-200 {
+    background-color: var(--color-gray-200);
+  }
   .bg-light {
     background-color: var(--color-light);
   }
@@ -1266,6 +1281,9 @@
   .py-10 {
     padding-block: calc(var(--spacing) * 10);
   }
+  .py-\[2\.5px\] {
+    padding-block: 2.5px;
+  }
   .pt-7 {
     padding-top: calc(var(--spacing) * 7);
   }
@@ -1294,6 +1312,12 @@
     font-size: var(--text-xl);
     line-height: var(--tw-leading, var(--text-xl--line-height));
   }
+  .text-\[12px\] {
+    font-size: 12px;
+  }
+  .text-black {
+    color: var(--color-black);
+  }
   .text-dark {
     color: var(--color-dark);
   }
@@ -1311,6 +1335,12 @@
   }
   .text-text-light {
     color: var(--color-text-light);
+  }
+  .uppercase {
+    text-transform: uppercase;
+  }
+  .italic {
+    font-style: italic;
   }
   .opacity-0 {
     opacity: 0%;
@@ -1357,10 +1387,25 @@
       grid-column: 12;
     }
   }
+  .sm\:block {
+    @media (width >= 40rem) {
+      display: block;
+    }
+  }
+  .sm\:hidden {
+    @media (width >= 40rem) {
+      display: none;
+    }
+  }
   .sm\:col-12 {
     @media (width >= 40rem) {
       flex: 0 0 auto;
       width: 100%;
+    }
+  }
+  .sm\:bg-red-200 {
+    @media (width >= 40rem) {
+      background-color: var(--color-red-200);
     }
   }
   .md\:order-2 {
@@ -1383,6 +1428,16 @@
       grid-column: 10;
     }
   }
+  .md\:block {
+    @media (width >= 48rem) {
+      display: block;
+    }
+  }
+  .md\:hidden {
+    @media (width >= 48rem) {
+      display: none;
+    }
+  }
   .md\:col-6 {
     @media (width >= 48rem) {
       flex: 0 0 auto;
@@ -1393,6 +1448,11 @@
     @media (width >= 48rem) {
       flex: 0 0 auto;
       width: 83.33333333333334%;
+    }
+  }
+  .md\:bg-yellow-200 {
+    @media (width >= 48rem) {
+      background-color: var(--color-yellow-200);
     }
   }
   .lg\:order-1 {
@@ -1443,6 +1503,11 @@
   .lg\:ml-0 {
     @media (width >= 64rem) {
       margin-left: calc(var(--spacing) * 0);
+    }
+  }
+  .lg\:block {
+    @media (width >= 64rem) {
+      display: block;
     }
   }
   .lg\:flex {
@@ -1530,6 +1595,11 @@
       border-right-width: 0px;
     }
   }
+  .lg\:bg-green-200 {
+    @media (width >= 64rem) {
+      background-color: var(--color-green-200);
+    }
+  }
   .lg\:pr-0 {
     @media (width >= 64rem) {
       padding-right: calc(var(--spacing) * 0);
@@ -1568,6 +1638,16 @@
       }
     }
   }
+  .xl\:block {
+    @media (width >= 80rem) {
+      display: block;
+    }
+  }
+  .xl\:hidden {
+    @media (width >= 80rem) {
+      display: none;
+    }
+  }
   .xl\:space-x-8 {
     @media (width >= 80rem) {
       :where(& > :not(:last-child)) {
@@ -1575,6 +1655,26 @@
         margin-inline-start: calc(calc(var(--spacing) * 8) * var(--tw-space-x-reverse));
         margin-inline-end: calc(calc(var(--spacing) * 8) * calc(1 - var(--tw-space-x-reverse)));
       }
+    }
+  }
+  .xl\:bg-blue-200 {
+    @media (width >= 80rem) {
+      background-color: var(--color-blue-200);
+    }
+  }
+  .\32 xl\:block {
+    @media (width >= 96rem) {
+      display: block;
+    }
+  }
+  .\32 xl\:hidden {
+    @media (width >= 96rem) {
+      display: none;
+    }
+  }
+  .\32 xl\:bg-pink-200 {
+    @media (width >= 96rem) {
+      background-color: var(--color-pink-200);
     }
   }
   .dark\:border-darkmode-border {
@@ -9539,6 +9639,8 @@ body.amd-site {
   vertical-align: top;
   line-height: 1.56;
   overflow-wrap: anywhere;
+  word-break: normal;
+  white-space: normal;
 }
 .amd-docs-content.content table thead th {
   color: rgba(44, 35, 43, 0.6);
@@ -9554,13 +9656,46 @@ body.amd-site {
 .amd-docs-content.content table tbody tr:hover td {
   background: rgba(147, 73, 112, 0.035) !important;
 }
+.amd-docs-content.content table:not(.amd-manual-matrix) tbody tr:hover td {
+  border-bottom-color: rgba(147, 73, 112, 0.24) !important;
+}
+.amd-docs-content.content table:not(.amd-manual-matrix) tbody tr {
+  transition: background 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+}
+.amd-docs-content.content table:not(.amd-manual-matrix) tbody tr:hover {
+  box-shadow: inset 0 0 0 1px rgba(147, 73, 112, 0.26);
+}
 .amd-docs-content.content table th:first-child, .amd-docs-content.content table td:first-child {
-  width: 25%;
+  width: auto;
 }
 .amd-docs-content.content table th:nth-child(2):not(:last-child), .amd-docs-content.content table td:nth-child(2):not(:last-child) {
-  width: 13%;
-  text-align: center !important;
-  white-space: nowrap;
+  width: auto;
+  text-align: left !important;
+  white-space: normal;
+}
+.amd-docs-content.content table tr > :first-child:nth-last-child(2) {
+  width: 32%;
+}
+.amd-docs-content.content table tr > :first-child:nth-last-child(2) ~ * {
+  width: 68%;
+}
+.amd-docs-content.content table tr > :first-child:nth-last-child(3) {
+  width: 22%;
+}
+.amd-docs-content.content table tr > :nth-child(2):nth-last-child(2) {
+  width: 30%;
+}
+.amd-docs-content.content table tr > :nth-child(3):last-child {
+  width: 48%;
+}
+.amd-docs-content.content table tr > :first-child:nth-last-child(4) {
+  width: 22%;
+}
+.amd-docs-content.content table tr > :nth-child(2):nth-last-child(3) {
+  width: 16%;
+}
+.amd-docs-content.content table tr > :nth-child(3):nth-last-child(2), .amd-docs-content.content table tr > :nth-child(4):last-child {
+  width: 31%;
 }
 .amd-docs-content.content table tr:last-child td {
   border-bottom: 0 !important;
@@ -9586,6 +9721,448 @@ body.amd-site {
   background: transparent;
   color: inherit;
   padding: 0;
+}
+.amd-architecture {
+  margin: 1.4rem 0 2.4rem;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(173, 83, 137, 0.065), rgba(60, 16, 83, 0.035)), #fff;
+  box-shadow: 0 18px 48px rgba(54, 34, 50, 0.08), 0 0 0 1px rgba(147, 73, 112, 0.1);
+  padding: clamp(1rem, 2.4vw, 1.35rem);
+}
+.amd-architecture-header {
+  max-width: 46rem;
+  margin-bottom: 1rem;
+}
+.amd-architecture-kicker, .amd-architecture-side span, .amd-architecture-detail span {
+  display: block;
+  color: var(--theme-color);
+  font-size: 0.76rem;
+  font-weight: 820;
+  letter-spacing: 0;
+  margin-bottom: 0.35rem;
+}
+.amd-architecture-header h3 {
+  color: rgba(46, 37, 45, 0.94);
+  font-size: clamp(1.28rem, 2vw, 1.65rem);
+  line-height: 1.2;
+  margin: 0;
+}
+.amd-architecture-header p {
+  color: rgba(64, 54, 63, 0.68);
+  line-height: 1.68;
+  margin: 0.55rem 0 0;
+}
+.amd-architecture-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.9rem;
+  align-items: stretch;
+}
+.amd-architecture-detail, .amd-architecture-main {
+  min-width: 0;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 0 0 1px rgba(147, 73, 112, 0.08);
+}
+.amd-architecture-side {
+  grid-row: span 2;
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: 0.9rem;
+}
+.amd-architecture-layers, .amd-architecture-flows {
+  display: grid;
+  gap: 0.42rem;
+}
+.amd-architecture-layers button, .amd-architecture-flows button, .amd-architecture-back, .amd-architecture-detail button {
+  appearance: none;
+  border: 1px solid rgba(147, 73, 112, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  color: rgba(46, 37, 45, 0.76);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 740;
+  line-height: 1.2;
+  padding: 0.46rem 0.62rem;
+  text-align: left;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+.amd-architecture-layers button:hover, .amd-architecture-flows button:hover, .amd-architecture-back:hover, .amd-architecture-detail button:hover {
+  border-color: rgba(173, 83, 137, 0.28);
+  background: rgba(173, 83, 137, 0.09);
+  color: var(--theme-color);
+  transform: translateY(-1px);
+}
+.amd-architecture-main {
+  overflow: hidden;
+}
+.amd-architecture-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-bottom: 1px solid rgba(147, 73, 112, 0.08);
+  padding: 0.72rem 0.85rem;
+}
+.amd-architecture-toolbar p {
+  color: rgba(64, 54, 63, 0.58);
+  font-size: 0.82rem;
+  line-height: 1.42;
+  margin: 0;
+  min-width: 11rem;
+}
+.amd-architecture-back[hidden] {
+  display: none;
+}
+.amd-architecture-controls {
+  align-items: center;
+  bottom: 0.9rem;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.42rem;
+  padding: 0;
+  position: absolute;
+  right: 0.9rem;
+  z-index: 5;
+}
+.amd-architecture-controls button {
+  align-items: center;
+  appearance: none;
+  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(147, 73, 112, 0.12);
+  border-radius: 999px;
+  box-shadow: 0 12px 24px rgba(54, 34, 50, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.76);
+  color: rgba(46, 37, 45, 0.72);
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 780;
+  height: 1.92rem;
+  justify-content: center;
+  min-width: 1.92rem;
+  padding: 0 0.62rem;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+  white-space: nowrap;
+}
+.amd-architecture-controls button:hover {
+  background: rgba(255, 248, 252, 0.88);
+  border-color: rgba(173, 83, 137, 0.25);
+  color: var(--theme-color);
+}
+.amd-architecture-controls input[type="range"] {
+  accent-color: var(--theme-color);
+  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(147, 73, 112, 0.1);
+  border-radius: 999px;
+  box-shadow: 0 12px 24px rgba(54, 34, 50, 0.08);
+  cursor: pointer;
+  inline-size: clamp(5.6rem, 9vw, 7.8rem);
+  padding: 0 0.46rem;
+}
+.amd-architecture-stage {
+  position: relative;
+  min-height: clamp(500px, 58vw, 680px);
+}
+.amd-architecture-graph {
+  position: absolute;
+  inset: 0;
+  --amd-architecture-lane-pane-width: clamp(9.4rem, 18vw, 13rem);
+  display: grid;
+  grid-template-columns: var(--amd-architecture-lane-pane-width) minmax(0, 1fr);
+  background: radial-gradient(circle at 18px 18px, rgba(147, 73, 112, 0.12) 1px, transparent 1.5px), linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.96));
+  background-size: 32px 32px, auto;
+}
+.amd-architecture-graph::before {
+  content: attr(data-current-graph);
+  position: absolute;
+  top: 0.8rem;
+  left: calc(var(--amd-architecture-lane-pane-width) + 0.8rem);
+  z-index: 2;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.86);
+  color: rgba(46, 37, 45, 0.62);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.32rem 0.62rem;
+  pointer-events: none;
+  box-shadow: 0 0 0 1px rgba(147, 73, 112, 0.08);
+}
+.amd-architecture.is-missing-library .amd-architecture-graph::after {
+  content: "Architecture graph failed to load.";
+  display: grid;
+  place-items: center;
+  height: 100%;
+  color: rgba(64, 54, 63, 0.68);
+}
+.amd-architecture-detail {
+  display: grid;
+  align-content: start;
+  gap: 0.5rem;
+  padding: 0.95rem;
+}
+.amd-architecture-detail strong {
+  color: rgba(46, 37, 45, 0.92);
+  font-size: 1rem;
+  line-height: 1.32;
+}
+.amd-architecture-detail p {
+  color: rgba(64, 54, 63, 0.68);
+  font-size: 0.9rem;
+  line-height: 1.62;
+  margin: 0;
+}
+.amd-architecture-detail small {
+  display: grid;
+  gap: 0.25rem;
+  color: rgba(64, 54, 63, 0.58);
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+.amd-architecture-detail code {
+  border: 0;
+  border-radius: 8px;
+  background: rgba(147, 73, 112, 0.075);
+  color: rgba(74, 32, 60, 0.88);
+  padding: 0.36rem 0.44rem;
+  white-space: normal;
+}
+.amd-architecture-detail button {
+  justify-self: start;
+  margin-top: 0.15rem;
+}
+.amd-architecture-quick {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0 0 0.9rem;
+}
+.amd-architecture-quick > span {
+  color: rgba(64, 54, 63, 0.62);
+  font-size: 0.82rem;
+  font-weight: 760;
+}
+.amd-architecture-shell {
+  grid-template-columns: minmax(0, 1fr);
+}
+.amd-architecture-layers {
+  gap: 0;
+  overflow: hidden;
+  position: relative;
+}
+.amd-architecture-layers button {
+  display: grid;
+  align-content: center;
+  min-height: 154px;
+  border: 0;
+  border-radius: 0;
+  border-top: 1px solid rgba(147, 73, 112, 0.09);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0.56));
+  padding: 1rem 1rem;
+  text-align: left;
+}
+.amd-architecture-layers button:first-child {
+  border-top: 0;
+}
+.amd-architecture-layers button strong {
+  color: rgba(46, 37, 45, 0.92);
+  font-size: 0.95rem;
+  font-weight: 820;
+  line-height: 1.22;
+}
+.amd-architecture-layers button span {
+  color: rgba(64, 54, 63, 0.58);
+  font-size: 0.76rem;
+  font-weight: 620;
+  line-height: 1.42;
+  margin: 0.34rem 0 0;
+}
+.amd-architecture-layers button.is-active, .amd-architecture-layers button:hover {
+  background: linear-gradient(180deg, rgba(173, 83, 137, 0.12), rgba(173, 83, 137, 0.04));
+  color: inherit;
+  transform: none;
+}
+.amd-architecture-flows {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+.amd-architecture-flows button {
+  text-align: center;
+}
+.amd-architecture-flows button.is-active {
+  border-color: rgba(173, 83, 137, 0.35);
+  background: rgba(173, 83, 137, 0.11);
+  color: var(--theme-color);
+}
+.amd-architecture-main {
+  grid-column: auto;
+}
+.amd-architecture-detail {
+  grid-column: auto;
+}
+.amd-architecture-stage {
+  min-height: clamp(540px, 58vw, 780px);
+}
+.amd-architecture-graph {
+  overflow: hidden;
+}
+.amd-architecture-lane-pane, .amd-architecture-canvas-pane {
+  min-width: 0;
+  overflow: hidden;
+  position: relative;
+}
+.amd-architecture-lane-pane {
+  z-index: 2;
+  border-right: 1px solid rgba(147, 73, 112, 0.14);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(255, 250, 253, 0.62));
+  box-shadow: 14px 0 28px rgba(54, 34, 50, 0.035);
+}
+.amd-architecture-lane-track {
+  position: absolute;
+  inset: 0;
+}
+.amd-architecture-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  user-select: none;
+}
+.amd-architecture-svg:active {
+  cursor: grabbing;
+}
+.amd-architecture-lane rect {
+  fill: rgba(255, 255, 255, 0.5);
+}
+.amd-architecture-lane:nth-child(odd) rect {
+  fill: rgba(173, 83, 137, 0.035);
+}
+.amd-architecture-lane-label {
+  appearance: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.58));
+  border: 0;
+  border-top: 1px solid rgba(147, 73, 112, 0.1);
+  color: rgba(46, 37, 45, 0.78);
+  cursor: pointer;
+  display: grid;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "Noto Sans", Helvetica, Arial, sans-serif;
+  line-height: 1.28;
+  margin: 0;
+  padding: 1rem 1.05rem;
+  place-content: center start;
+  position: absolute;
+  text-align: left;
+  transform: translateY(0);
+  transform-origin: top left;
+  transition: background 160ms ease, color 160ms ease, transform 120ms ease, height 120ms ease;
+  width: 100%;
+}
+.amd-architecture-lane-label:first-child {
+  border-top: 0;
+}
+.amd-architecture-lane-label.is-alt {
+  background: linear-gradient(180deg, rgba(173, 83, 137, 0.045), rgba(255, 255, 255, 0.55));
+}
+.amd-architecture-lane-label strong {
+  color: rgba(46, 37, 45, 0.94);
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 820;
+  line-height: 1.22;
+}
+.amd-architecture-lane-label span {
+  color: rgba(64, 54, 63, 0.58);
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 620;
+  line-height: 1.42;
+  margin-top: 0.34rem;
+}
+.amd-architecture-lane-label:hover, .amd-architecture-lane-label.is-active {
+  background: linear-gradient(180deg, rgba(173, 83, 137, 0.14), rgba(173, 83, 137, 0.045));
+}
+.amd-architecture-lane-divider {
+  fill: none;
+  stroke: rgba(147, 73, 112, 0.1);
+  stroke-width: 1;
+}
+.amd-architecture-svg marker path {
+  fill: rgba(80, 52, 72, 0.36);
+}
+.amd-architecture-edge {
+  fill: none;
+  stroke: rgba(80, 52, 72, 0.26);
+  stroke-linecap: round;
+  stroke-width: 1.65;
+  transition: opacity 160ms ease, stroke 160ms ease, stroke-width 160ms ease;
+}
+.amd-architecture-edge.is-active {
+  stroke: rgba(173, 83, 137, 0.86);
+  stroke-width: 2.6;
+}
+.amd-architecture-edge.is-muted {
+  opacity: 0.12;
+}
+.amd-architecture-node {
+  align-items: center;
+  appearance: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.88));
+  border: 1px solid rgba(92, 54, 78, 0.28);
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(54, 34, 50, 0.045), inset 0 1px 0 rgba(255, 255, 255, 0.86);
+  color: rgba(46, 37, 45, 0.92);
+  cursor: pointer;
+  display: flex;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "Noto Sans", Helvetica, Arial, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 780;
+  height: 100%;
+  justify-content: center;
+  line-height: 1.18;
+  margin: 0;
+  overflow: hidden;
+  padding: 0.42rem 0.6rem;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+.amd-architecture-node span {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.amd-architecture-node i {
+  color: var(--theme-color);
+  font-style: normal;
+  line-height: 1;
+  position: absolute;
+  right: 0.46rem;
+  top: 0.38rem;
+}
+.amd-architecture-node:hover, .amd-architecture-node.is-active, .amd-architecture-node.is-selected {
+  border-color: rgba(173, 83, 137, 0.64);
+  background: linear-gradient(180deg, rgba(255, 248, 252, 1), rgba(255, 255, 255, 0.9));
+  box-shadow: 0 12px 24px rgba(173, 83, 137, 0.12), 0 0 0 2px rgba(173, 83, 137, 0.08);
+  color: rgba(60, 16, 83, 0.94);
+}
+.amd-architecture-node.is-muted {
+  opacity: 0.22;
+}
+.amd-architecture.is-missing-library .amd-architecture-stage::after {
+  bottom: 0.85rem;
+  color: rgba(64, 54, 63, 0.58);
+  content: "Graph pan/zoom is unavailable.";
+  font-size: 0.78rem;
+  left: 0.95rem;
+  position: absolute;
+  z-index: 3;
 }
 .amd-docs-placeholder {
   display: grid;
@@ -9665,6 +10242,12 @@ body.amd-site {
 .dark .amd-docs-content.content table tbody tr:hover td {
   background: rgba(224, 145, 208, 0.055);
 }
+.dark .amd-docs-content.content table:not(.amd-manual-matrix) tbody tr:hover td {
+  border-bottom-color: rgba(224, 145, 208, 0.24) !important;
+}
+.dark .amd-docs-content.content table:not(.amd-manual-matrix) tbody tr:hover {
+  box-shadow: inset 0 0 0 1px rgba(224, 145, 208, 0.26);
+}
 .dark .amd-docs-content table, .dark .amd-docs-placeholder, .dark .amd-docs-next a {
   background: rgba(36, 35, 40, 0.78);
 }
@@ -9673,6 +10256,91 @@ body.amd-site {
 }
 .dark .amd-docs-content code, .dark .amd-docs-content a, .dark .amd-docs-placeholder span {
   color: var(--color-brand-rose-dark);
+}
+.dark .amd-architecture {
+  background: linear-gradient(135deg, rgba(224, 145, 208, 0.08), rgba(60, 16, 83, 0.14)), rgba(28, 28, 30, 0.96);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.32), 0 0 0 1px rgba(224, 145, 208, 0.12);
+}
+.dark .amd-architecture-side, .dark .amd-architecture-detail, .dark .amd-architecture-main, .dark .amd-architecture-graph::before {
+  background: rgba(36, 35, 40, 0.82);
+  box-shadow: 0 0 0 1px rgba(224, 145, 208, 0.12);
+}
+.dark .amd-architecture-header h3, .dark .amd-architecture-detail strong {
+  color: rgba(255, 250, 253, 0.9);
+}
+.dark .amd-architecture-header p, .dark .amd-architecture-toolbar p, .dark .amd-architecture-detail p, .dark .amd-architecture-detail small, .dark .amd-architecture-graph::before {
+  color: rgba(235, 229, 236, 0.68);
+}
+.dark .amd-architecture-layers button, .dark .amd-architecture-flows button, .dark .amd-architecture-back, .dark .amd-architecture-detail button, .dark .amd-architecture-lane-label {
+  border-color: rgba(224, 145, 208, 0.16);
+  background: rgba(36, 35, 40, 0.82);
+  color: rgba(235, 229, 236, 0.74);
+}
+.dark .amd-architecture-controls button {
+  background: rgba(36, 35, 40, 0.72);
+  border-color: rgba(224, 145, 208, 0.15);
+  color: rgba(235, 229, 236, 0.74);
+}
+.dark .amd-architecture-controls input[type="range"] {
+  background: rgba(36, 35, 40, 0.68);
+  border-color: rgba(224, 145, 208, 0.13);
+}
+.dark .amd-architecture-layers button:hover, .dark .amd-architecture-flows button:hover, .dark .amd-architecture-back:hover, .dark .amd-architecture-detail button:hover, .dark .amd-architecture-controls button:hover, .dark .amd-architecture-lane-label:hover, .dark .amd-architecture-lane-label.is-active {
+  border-color: rgba(224, 145, 208, 0.34);
+  background: rgba(224, 145, 208, 0.12);
+  color: var(--color-brand-rose-dark);
+}
+.dark .amd-architecture-lane-label strong {
+  color: rgba(255, 250, 253, 0.9);
+}
+.dark .amd-architecture-lane-label span {
+  color: rgba(235, 229, 236, 0.64);
+}
+.dark .amd-architecture-toolbar {
+  border-color: rgba(224, 145, 208, 0.1);
+}
+.dark .amd-architecture-graph {
+  background: radial-gradient(circle at 18px 18px, rgba(224, 145, 208, 0.12) 1px, transparent 1.5px), linear-gradient(180deg, rgba(36, 35, 40, 0.82), rgba(28, 28, 30, 0.96));
+  background-size: 32px 32px, auto;
+}
+.dark .amd-architecture-lane-pane {
+  background: linear-gradient(180deg, rgba(36, 35, 40, 0.86), rgba(36, 35, 40, 0.7));
+  border-color: rgba(224, 145, 208, 0.12);
+  box-shadow: 14px 0 28px rgba(0, 0, 0, 0.16);
+}
+.dark .amd-architecture-detail code {
+  background: rgba(224, 145, 208, 0.12);
+  color: rgba(255, 220, 248, 0.9);
+}
+.amd-architecture-shell.is-fullscreen, .amd-architecture-shell:fullscreen {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 0.8rem;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: clamp(0.8rem, 1.5vw, 1.2rem);
+  background: radial-gradient(circle at 18px 18px, rgba(147, 73, 112, 0.08) 1px, transparent 1.5px), #fff;
+  background-size: 32px 32px, auto;
+}
+.amd-architecture-shell.is-fullscreen .amd-architecture-main, .amd-architecture-shell:fullscreen .amd-architecture-main {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  min-height: 0;
+}
+.amd-architecture-shell.is-fullscreen .amd-architecture-stage, .amd-architecture-shell:fullscreen .amd-architecture-stage {
+  min-height: 0 !important;
+}
+.amd-architecture-shell.is-fullscreen .amd-architecture-detail, .amd-architecture-shell:fullscreen .amd-architecture-detail {
+  max-height: 24vh;
+  overflow: auto;
+}
+.amd-architecture-shell.is-fullscreen .amd-architecture-graph, .amd-architecture-shell:fullscreen .amd-architecture-graph {
+  --amd-architecture-lane-pane-width: clamp(10.5rem, 15vw, 14rem);
+}
+.dark .amd-architecture-shell.is-fullscreen, .dark .amd-architecture-shell:fullscreen {
+  background: radial-gradient(circle at 18px 18px, rgba(224, 145, 208, 0.1) 1px, transparent 1.5px), rgba(28, 28, 30, 0.98);
+  background-size: 32px 32px, auto;
 }
 @media (max-width: 980px) {
   .amd-docs-layout {
@@ -9691,32 +10359,117 @@ body.amd-site {
   .amd-docs-overview-link {
     grid-column: 1 / -1;
   }
+  .amd-architecture-shell {
+    grid-template-columns: 1fr;
+  }
+  .amd-architecture-main, .amd-architecture-detail {
+    grid-column: auto;
+  }
+  .amd-architecture-layers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+  .amd-architecture-layers button {
+    min-height: auto;
+    border-left: 1px solid rgba(147, 73, 112, 0.09);
+    padding: 0.75rem;
+  }
+  .amd-architecture-stage {
+    min-height: 520px;
+  }
 }
 @media (max-width: 640px) {
   .amd-docs-sidebar, .amd-docs-next {
     grid-template-columns: 1fr;
   }
-  .amd-docs-content.content table {
+  .amd-architecture {
+    border-radius: 14px;
+    margin-inline: -0.2rem;
+    padding: 0.85rem;
+  }
+  .amd-architecture-graph::before {
+    left: calc(var(--amd-architecture-lane-pane-width) + 0.55rem);
+  }
+  .amd-architecture-layers {
+    grid-template-columns: 1fr;
+  }
+  .amd-architecture-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .amd-architecture-controls {
+    bottom: 0.65rem;
+    gap: 0.2rem;
+    max-width: calc(100% - 1.3rem);
+    right: 0.65rem;
+  }
+  .amd-architecture-controls input[type="range"] {
+    inline-size: 5.4rem;
+  }
+  .amd-architecture-stage {
+    min-height: 460px;
+  }
+  .amd-architecture-graph {
+    --amd-architecture-lane-pane-width: 7.2rem;
+  }
+  .amd-architecture-layers, .amd-architecture-flows {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .amd-docs-content.content table:not(.amd-manual-matrix) {
     display: block;
+    border-radius: 0;
+    background: transparent !important;
+    box-shadow: none !important;
+    overflow: visible;
+    font-size: 0.94rem;
+  }
+  .amd-docs-content.content table:not(.amd-manual-matrix) thead {
+    display: none;
+  }
+  .amd-docs-content.content table:not(.amd-manual-matrix) tbody {
+    display: grid;
+    gap: 0.78rem;
+    width: 100%;
     min-width: 0;
-    overflow-x: auto;
-    font-size: 0.92rem;
   }
-  .amd-docs-content.content table thead, .amd-docs-content.content table tbody {
-    display: table;
-    min-width: 620px;
+  .amd-docs-content.content table:not(.amd-manual-matrix) tr {
+    display: grid;
+    gap: 0;
     width: 100%;
+    min-width: 0;
+    border: 1px solid rgba(147, 73, 112, 0.12);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.88);
+    overflow: hidden;
   }
-  .amd-docs-content.content table tr {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
+  .amd-docs-content.content table:not(.amd-manual-matrix) tr:hover {
+    border-color: rgba(147, 73, 112, 0.34);
+    box-shadow: 0 0 0 1px rgba(147, 73, 112, 0.18);
   }
-  .amd-docs-content.content table th:first-child, .amd-docs-content.content table td:first-child {
-    width: 10.5rem;
+  .amd-docs-content.content table:not(.amd-manual-matrix) th, .amd-docs-content.content table:not(.amd-manual-matrix) td {
+    display: block;
+    width: 100% !important;
+    min-width: 0;
+    border: 0 !important;
+    border-bottom: 1px solid rgba(147, 73, 112, 0.08) !important;
+    padding: 0.68rem 0.78rem;
+    text-align: left !important;
+    white-space: normal;
   }
-  .amd-docs-content.content table th:nth-child(2):not(:last-child), .amd-docs-content.content table td:nth-child(2):not(:last-child) {
-    width: 5.5rem;
+  .amd-docs-content.content table:not(.amd-manual-matrix) tr > :last-child {
+    border-bottom: 0 !important;
+  }
+  .dark .amd-docs-content.content table:not(.amd-manual-matrix) tr {
+    border-color: rgba(224, 145, 208, 0.14);
+    background: rgba(36, 35, 40, 0.86);
+  }
+  .dark .amd-docs-content.content table:not(.amd-manual-matrix) tr:hover {
+    border-color: rgba(224, 145, 208, 0.34);
+    box-shadow: 0 0 0 1px rgba(224, 145, 208, 0.18);
+  }
+  .dark .amd-docs-content.content table:not(.amd-manual-matrix) th, .dark .amd-docs-content.content table:not(.amd-manual-matrix) td {
+    border-bottom-color: rgba(224, 145, 208, 0.1) !important;
+    background: rgba(36, 35, 40, 0.86) !important;
   }
 }
 .amd-manual-overview-grid {
@@ -9790,11 +10543,7 @@ body.amd-site {
 }
 .amd-manual-matrix-wrap {
   margin: clamp(1.8rem, 4vw, 2.7rem) 0 clamp(1.6rem, 3vw, 2rem);
-  overflow: hidden;
-  border: 1px solid rgba(147, 73, 112, 0.14);
-  border-radius: 16px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 253, 0.76)), rgba(255, 255, 255, 0.9);
-  box-shadow: 0 18px 44px rgba(69, 28, 55, 0.07);
+  overflow: visible;
 }
 .amd-docs-content .amd-manual-matrix {
   width: 100%;
@@ -9806,11 +10555,23 @@ body.amd-site {
   font-size: 0.92rem;
   table-layout: fixed;
 }
+.amd-docs-content .amd-manual-matrix-col-category {
+  width: 16%;
+}
+.amd-docs-content .amd-manual-matrix-col-need {
+  width: 54%;
+}
+.amd-docs-content .amd-manual-matrix-col-feature {
+  width: 30%;
+}
 .amd-docs-content .amd-manual-matrix th, .amd-docs-content .amd-manual-matrix td {
   border: 0;
   border-bottom: 1px solid rgba(147, 73, 112, 0.11);
   padding: 0.92rem 0.95rem;
+  width: auto !important;
+  text-align: left !important;
   vertical-align: top;
+  white-space: normal;
 }
 .amd-docs-content .amd-manual-matrix thead th {
   position: sticky;
@@ -9823,17 +10584,22 @@ body.amd-site {
   text-transform: none;
 }
 .amd-docs-content .amd-manual-matrix tbody th {
-  width: 16%;
   color: var(--theme-color);
   font-weight: 800;
 }
 .amd-docs-content .amd-manual-matrix td:nth-child(2) {
-  width: 54%;
   color: rgba(46, 37, 45, 0.88);
   font-weight: 650;
 }
+.amd-docs-content.content .amd-manual-matrix td:nth-child(2), .amd-docs-content.content .amd-manual-matrix th:nth-child(2):not(:last-child) {
+  text-align: left !important;
+  white-space: normal !important;
+}
+.amd-docs-content.content table.amd-manual-matrix th:nth-child(2):not(:last-child), .amd-docs-content.content table.amd-manual-matrix td:nth-child(2):not(:last-child) {
+  text-align: left !important;
+  white-space: normal !important;
+}
 .amd-docs-content .amd-manual-matrix td:nth-child(3) {
-  width: 30%;
   color: rgba(46, 37, 45, 0.82);
   font-weight: 740;
 }
@@ -10029,6 +10795,56 @@ body.amd-site {
   }
   .amd-manual-goal-grid {
     grid-template-columns: 1fr;
+  }
+  .amd-manual-matrix-wrap {
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  .amd-docs-content.content .amd-manual-matrix, .amd-docs-content.content .amd-manual-matrix thead, .amd-docs-content.content .amd-manual-matrix tbody, .amd-docs-content.content .amd-manual-matrix tr, .amd-docs-content.content .amd-manual-matrix th, .amd-docs-content.content .amd-manual-matrix td {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+  .amd-docs-content.content .amd-manual-matrix {
+    overflow: visible;
+    font-size: 0.94rem;
+    table-layout: auto;
+  }
+  .amd-docs-content.content .amd-manual-matrix thead {
+    display: none;
+  }
+  .amd-docs-content.content .amd-manual-matrix tbody {
+    display: grid;
+    gap: 0.82rem;
+  }
+  .amd-docs-content.content .amd-manual-matrix tr {
+    display: grid;
+    gap: 0.52rem;
+    border: 1px solid rgba(147, 73, 112, 0.14);
+    border-radius: 14px;
+    padding: 0.92rem;
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 12px 30px rgba(69, 28, 55, 0.06);
+  }
+  .amd-docs-content.content .amd-manual-matrix th, .amd-docs-content.content .amd-manual-matrix td {
+    border: 0;
+    padding: 0;
+  }
+  .amd-docs-content.content .amd-manual-matrix tbody th {
+    font-size: 0.8rem;
+  }
+  .amd-docs-content.content .amd-manual-matrix td:nth-child(2) {
+    line-height: 1.58;
+  }
+  .amd-docs-content.content .amd-manual-matrix td:nth-child(3) {
+    padding-top: 0.1rem;
+  }
+  .amd-docs-content.content .amd-manual-matrix a {
+    width: fit-content;
+    max-width: 100%;
   }
   .amd-home-feature-table th:first-child, .amd-home-feature-table td:last-child, .amd-home-feature-table th:last-child {
     width: auto;

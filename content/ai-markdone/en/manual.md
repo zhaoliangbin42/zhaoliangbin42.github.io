@@ -34,6 +34,11 @@ AI-MarkDone's core functions fall into four groups: readable, easy to capture, e
 
 <div class="amd-manual-matrix-wrap">
   <table class="amd-manual-matrix">
+    <colgroup>
+      <col class="amd-manual-matrix-col-category">
+      <col class="amd-manual-matrix-col-need">
+      <col class="amd-manual-matrix-col-feature">
+    </colgroup>
     <thead>
       <tr>
         <th>Group</th>
@@ -44,37 +49,37 @@ AI-MarkDone's core functions fall into four groups: readable, easy to capture, e
     <tbody>
       <tr>
         <th scope="row">Readable</th>
-        <td>ChatGPT answers are too long and the original page breaks your focus.</td>
+        <td>ChatGPT answers are too long, the page contains too many messages, and the original page gets sluggish.</td>
         <td><a href="/ai-markdone/en/manual/reader/">Reader</a></td>
       </tr>
       <tr>
         <th scope="row">Readable</th>
-        <td>You want to move quickly to the previous or next answer in a long thread.</td>
-        <td><a href="/ai-markdone/en/manual/reader/">Message switching</a></td>
+        <td>You want to switch quickly to the previous or next message.</td>
+        <td><a href="/ai-markdone/en/manual/message-navigation/">Message navigation</a></td>
       </tr>
       <tr>
         <th scope="row">Readable</th>
-        <td>An answer has many headings and you want the structure before the details.</td>
+        <td>For long messages, especially thinking/pro-level long answers, you want to see the full outline and jump to any heading at any time.</td>
         <td><a href="/ai-markdone/en/manual/reader/">Heading outline</a></td>
       </tr>
       <tr>
         <th scope="row">Readable</th>
-        <td>You want less page noise and more attention on the current answer.</td>
-        <td><a href="/ai-markdone/en/manual/reader/">Focused Reader surface</a></td>
+        <td>After sending a message, you want the window position to stay where it was.</td>
+        <td><a href="/ai-markdone/en/manual/message-navigation/">Keep position after sending</a></td>
       </tr>
       <tr>
         <th scope="row">Readable</th>
-        <td>You need to keep a few passages beside the answer while reading.</td>
+        <td>You have important content and want to pin it so you do not forget it while reading what comes next.</td>
         <td><a href="/ai-markdone/en/manual/sticky/">Sticky excerpts</a></td>
       </tr>
       <tr>
         <th scope="row">Easy to capture</th>
-        <td>You want a whole answer in Obsidian, Notion, Typora, or a Markdown file.</td>
+        <td>You want to paste a full answer directly into Obsidian, Notion, Typora, or similar tools while keeping the format correct.</td>
         <td><a href="/ai-markdone/en/manual/copy-markdown/">Copy Markdown</a></td>
       </tr>
       <tr>
         <th scope="row">Easy to capture</th>
-        <td>You only need one passage, not the entire answer.</td>
+        <td>You only want to copy a small part of an answer with formatting, including formulas and code blocks.</td>
         <td><a href="/ai-markdone/en/manual/partial-copy/">Partial copy</a></td>
       </tr>
       <tr>
@@ -99,53 +104,23 @@ AI-MarkDone's core functions fall into four groups: readable, easy to capture, e
       </tr>
       <tr>
         <th scope="row">Easy to ask</th>
-        <td>You want your notes turned into a clearer prompt.</td>
-        <td><a href="/ai-markdone/en/manual/annotations/">Copy annotation</a></td>
-      </tr>
-      <tr>
-        <th scope="row">Easy to ask</th>
-        <td>You do not want to scroll back to the input box while reading.</td>
-        <td><a href="/ai-markdone/en/manual/annotations/">Insert annotation into Reader send box</a></td>
-      </tr>
-      <tr>
-        <th scope="row">Easy to ask</th>
-        <td>You repeat the same kinds of follow-up prompts and want faster wording.</td>
-        <td><a href="/ai-markdone/en/manual/settings/">Annotation template / prompt prefix</a></td>
-      </tr>
-      <tr>
-        <th scope="row">Easy to ask</th>
-        <td>You want to keep reading while sending the next question to ChatGPT.</td>
+        <td>You want to turn annotations into a prompt and send it directly to the model for a follow-up, or reuse repeated follow-up patterns faster.</td>
         <td><a href="/ai-markdone/en/manual/reader/">Reader send box</a></td>
       </tr>
       <tr>
         <th scope="row">Easy to keep</th>
-        <td>You found an answer you will need again and do not want it buried.</td>
+        <td>You got an important answer and do not want to lose it later.</td>
         <td><a href="/ai-markdone/en/manual/bookmarks/">Bookmarks</a></td>
       </tr>
       <tr>
         <th scope="row">Easy to keep</th>
-        <td>You want to organize saved answers by topic.</td>
-        <td><a href="/ai-markdone/en/manual/bookmarks/">Bookmark folders</a></td>
+        <td>When you have many bookmarks, you want to classify them or search them quickly.</td>
+        <td><a href="/ai-markdone/en/manual/bookmarks/">Bookmark management</a></td>
       </tr>
       <tr>
         <th scope="row">Easy to keep</th>
-        <td>You remember a keyword but not the original thread.</td>
-        <td><a href="/ai-markdone/en/manual/bookmarks/">Bookmark search and preview</a></td>
-      </tr>
-      <tr>
-        <th scope="row">Easy to keep</th>
-        <td>You want to jump from a saved item back to the original ChatGPT message.</td>
-        <td><a href="/ai-markdone/en/manual/bookmarks/">Jump back to source</a></td>
-      </tr>
-      <tr>
-        <th scope="row">Easy to keep</th>
-        <td>You want several answers packaged as portable material.</td>
+        <td>You want to export many answers as Markdown, PDF, or PNG so they are easy to keep and share.</td>
         <td><a href="/ai-markdone/en/manual/export/">Batch export</a></td>
-      </tr>
-      <tr>
-        <th scope="row">Easy to keep</th>
-        <td>You need different export formats for different destinations.</td>
-        <td><a href="/ai-markdone/en/manual/export/">Markdown / PDF / PNG / ZIP export</a></td>
       </tr>
       <tr>
         <th scope="row">Easy to keep</th>
@@ -156,11 +131,12 @@ AI-MarkDone's core functions fall into four groups: readable, easy to capture, e
   </table>
 </div>
 
-<p class="amd-manual-next-copy">Start with Reader and see how AI-MarkDone turns a long ChatGPT answer into a surface you can read, copy, and organize.</p>
+<p class="amd-manual-next-copy">If you want the full picture first, start with Plugin architecture. If you want to use the extension right away, start with Reader.</p>
 
 <p class="amd-manual-config-copy">AI-MarkDone also includes rich configuration options. You can turn toolbar actions on or off and tune Reader, formulas, annotations, image export, backup, and interface preferences so the workbench fits your habits.</p>
 
 <div class="amd-manual-cta-row">
-  <a class="amd-manual-primary-cta" href="/ai-markdone/en/manual/reader/">Explore Reader</a>
+  <a class="amd-manual-primary-cta" href="/ai-markdone/en/manual/architecture/">Explore plugin architecture</a>
+  <a class="amd-manual-secondary-cta" href="/ai-markdone/en/manual/reader/">Explore Reader</a>
   <a class="amd-manual-secondary-cta" href="/ai-markdone/en/manual/settings/">View all settings</a>
 </div>

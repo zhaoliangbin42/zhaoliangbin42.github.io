@@ -19,10 +19,12 @@ const requiredFiles = [
   "content/ai-markdone/en/faq.md",
   "content/ai-markdone/en/privacy.md",
   "content/ai-markdone/en/contact.md",
+  "content/ai-markdone/manual/architecture.md",
   "content/ai-markdone/manual/reader.md",
   "content/ai-markdone/manual/partial-copy.md",
   "content/ai-markdone/manual/sticky.md",
   "content/ai-markdone/manual/partial-copy-sticky.md",
+  "content/ai-markdone/manual/message-navigation.md",
   "content/ai-markdone/manual/copy-markdown.md",
   "content/ai-markdone/manual/formulas.md",
   "content/ai-markdone/manual/annotations.md",
@@ -32,10 +34,12 @@ const requiredFiles = [
   "content/ai-markdone/manual/settings.md",
   "content/ai-markdone/manual/privacy-storage.md",
   "content/ai-markdone/manual/troubleshooting.md",
+  "content/ai-markdone/en/manual/architecture.md",
   "content/ai-markdone/en/manual/reader.md",
   "content/ai-markdone/en/manual/partial-copy.md",
   "content/ai-markdone/en/manual/sticky.md",
   "content/ai-markdone/en/manual/partial-copy-sticky.md",
+  "content/ai-markdone/en/manual/message-navigation.md",
   "content/ai-markdone/en/manual/copy-markdown.md",
   "content/ai-markdone/en/manual/formulas.md",
   "content/ai-markdone/en/manual/annotations.md",
@@ -55,6 +59,8 @@ const requiredFiles = [
   "layouts/partials/ai-markdone/manual.html",
   "layouts/partials/ai-markdone/manual-feature.html",
   "layouts/partials/ai-markdone/manual-shell.html",
+  "layouts/partials/ai-markdone/plugin-architecture.html",
+  "layouts/shortcodes/amd-plugin-architecture.html",
   "layouts/partials/ai-markdone/faq.html",
   "layouts/partials/ai-markdone/privacy.html",
   "layouts/partials/ai-markdone/contact.html",
@@ -66,6 +72,7 @@ const requiredFiles = [
   "assets/ai-markdone/icons/app-icon.png",
   "assets/ai-markdone/icons/google-chrome.svg",
   "assets/ai-markdone/icons/firefox-browser.svg",
+  "assets/ai-markdone/architecture/plugin-architecture.js",
   "assets/ai-markdone/images/home/ai-markdone-chatgpt-reader-toolbar.gif",
   "assets/ai-markdone/images/home/chatgpt-reader-heading-outline.png",
   "assets/ai-markdone/images/home/copy-chatgpt-selection-to-markdown.gif",
@@ -87,6 +94,8 @@ const builtFiles = [
   "docs/ai-markdone/en/features/index.html",
   "docs/ai-markdone/manual/index.html",
   "docs/ai-markdone/en/manual/index.html",
+  "docs/ai-markdone/manual/architecture/index.html",
+  "docs/ai-markdone/en/manual/architecture/index.html",
   "docs/ai-markdone/faq/index.html",
   "docs/ai-markdone/en/faq/index.html",
   "docs/ai-markdone/privacy/index.html",
@@ -98,6 +107,7 @@ const builtFiles = [
   "docs/ai-markdone/manual/partial-copy/index.html",
   "docs/ai-markdone/manual/sticky/index.html",
   "docs/ai-markdone/manual/partial-copy-sticky/index.html",
+  "docs/ai-markdone/manual/message-navigation/index.html",
   "docs/ai-markdone/manual/copy-markdown/index.html",
   "docs/ai-markdone/manual/formulas/index.html",
   "docs/ai-markdone/manual/annotations/index.html",
@@ -112,6 +122,7 @@ const builtFiles = [
   "docs/ai-markdone/en/manual/partial-copy/index.html",
   "docs/ai-markdone/en/manual/sticky/index.html",
   "docs/ai-markdone/en/manual/partial-copy-sticky/index.html",
+  "docs/ai-markdone/en/manual/message-navigation/index.html",
   "docs/ai-markdone/en/manual/copy-markdown/index.html",
   "docs/ai-markdone/en/manual/formulas/index.html",
   "docs/ai-markdone/en/manual/annotations/index.html",
@@ -176,21 +187,109 @@ assert(footer.includes("返回博客") && footer.includes("Back to blog"), "Foot
 assert(footer.includes("Chrome Web Store") && footer.includes("Firefox Add-ons") && footer.includes("GitHub"), "Footer must include install/source links");
 
 const manualNav = read("data/ai_markdone/manual_nav.toml");
-for (const needle of ["阅读器", "工具栏", "数据与设置", "问题排查", "Reader", "Toolbar", "Data and settings", "Troubleshooting"]) {
+for (const needle of ["插件层级", "阅读器", "工具栏", "数据与设置", "问题排查", "Plugin architecture", "Reader", "Toolbar", "Data and settings", "Troubleshooting"]) {
   assert(manualNav.includes(needle), `Manual nav is missing ${needle}`);
 }
-for (const needle of ["partial-copy", "sticky", "google-drive-backup", "privacy-storage", "troubleshooting"]) {
+for (const needle of ["architecture", "partial-copy", "sticky", "google-drive-backup", "privacy-storage", "troubleshooting"]) {
   assert(manualNav.includes(needle), `Manual nav is missing ${needle}`);
 }
+assert(manualNav.indexOf('id = "architecture"') < manualNav.indexOf('id = "reader"'), "Plugin architecture must appear above Reader in the manual nav");
 
 const manualShell = read("layouts/partials/ai-markdone/manual-shell.html");
 assert(manualShell.includes("site.Data.ai_markdone.manual_nav.groups"), "Manual shell must use the manual nav SSOT");
 assert(manualShell.includes("amd-docs-layout") && manualShell.includes("amd-docs-sidebar") && manualShell.includes("amd-docs-content"), "Manual shell must render docs layout, sidebar, and Markdown content");
 
+const readerZh = read("content/ai-markdone/manual/reader.md");
+const readerEn = read("content/ai-markdone/en/manual/reader.md");
+assert(!readerZh.includes("## 架构解析") && !readerZh.includes("amd-reader-architecture"), "Chinese Reader manual must no longer embed the architecture map");
+assert(!readerEn.includes("## Architecture map") && !readerEn.includes("amd-reader-architecture"), "English Reader manual must no longer embed the architecture map");
+
+const architectureZh = read("content/ai-markdone/manual/architecture.md");
+const architectureEn = read("content/ai-markdone/en/manual/architecture.md");
+assert(architectureZh.includes("amd-plugin-architecture") && architectureZh.includes("插件层级"), "Chinese plugin architecture manual must render the plugin architecture map");
+assert(architectureEn.includes("amd-plugin-architecture") && architectureEn.includes("Plugin architecture"), "English plugin architecture manual must render the plugin architecture map");
+for (const needle of ["内容发现", "Reader", "复制", "书签", "导出", "公式", "设置与备份", "消息导航"]) {
+  assert(architectureZh.includes(needle), `Chinese plugin architecture manual is missing ${needle}`);
+}
+for (const needle of ["Discovery", "Reader", "Copy", "Bookmarks", "Export", "Formulas", "Settings and backup", "Message navigation"]) {
+  assert(architectureEn.includes(needle), `English plugin architecture manual is missing ${needle}`);
+}
+
+const architecturePartial = read("layouts/partials/ai-markdone/plugin-architecture.html");
+assert(architecturePartial.includes("data-amd-architecture") && architecturePartial.includes("data-amd-architecture-graph"), "Plugin architecture partial must render the interactive graph shell");
+for (const needle of ["data-amd-architecture-home", "data-amd-architecture-zoom-out", "data-amd-architecture-zoom", "data-amd-architecture-zoom-in", "data-amd-architecture-reset", "data-amd-architecture-fullscreen"]) {
+  assert(architecturePartial.includes(needle), `Plugin architecture partial is missing graph control ${needle}`);
+}
+assert(!architecturePartial.includes("data-amd-architecture-status"), "Plugin architecture controls should not render a status pill");
+
+const architectureScript = read("assets/ai-markdone/architecture/plugin-architecture.js");
+for (const needle of ["用户动作层", "产品界面层", "内容与能力服务层", "站点适配与对话发现层", "浏览器与运行时层", "内容发现", "Reader", "复制", "书签", "导出", "公式", "设置与备份", "消息导航", "ChatGPT 页面", "页面适配器", "ChatGPTConversationEngine", "对话快照", "Reader 内容源", "ReaderItem", "MessageToolbarOrchestrator", "runtime protocol", "browser storage", "Google Drive provider", "GRAPHS", "setupArchitectureCamera", "clampCamera", "renderFrozenLanesMarkup", "renderGraphContentSvg", "baseWidth", "amd-architecture-lane-label", "setActiveLayer", "const graph = GRAPHS[graphId] || GRAPHS.overview", "Back to overview", "你是否对这些感兴趣？点击直达", "requestFullscreen", "exitFullscreen"]) {
+  assert(architectureScript.includes(needle), `Plugin architecture script is missing ${needle}`);
+}
+assert(!architectureScript.includes("amd-architecture-lanes-svg"), "Frozen architecture lanes must render as HTML text, not as a zoomed SVG image");
+for (const stale of ["Reader 总览链路", "Reader architecture, in layers", "内容发现层', '从 ChatGPT 页面找到当前对话", "内容整理层", "Reader 交互层", "数据与出口层"]) {
+  assert(!architectureScript.includes(stale), `Plugin architecture script still contains stale or Reader-only wording: ${stale}`);
+}
+
+function assertPluginArchitectureGeometry(script) {
+  const commonLanes = {};
+  for (const match of script.matchAll(/\n    (\w+): \{\n      lane: '([^']+)'/g)) {
+    commonLanes[match[1]] = match[2];
+  }
+  const graphsMatch = script.match(/const GRAPHS = \{([\s\S]*?)\n  \};\n\n  const LANE_LAYOUT/);
+  assert(graphsMatch, "Plugin architecture script must expose GRAPHS before LANE_LAYOUT");
+  const graphsText = graphsMatch[1];
+  const laneHeight = Number(script.match(/laneHeight: (\d+)/)?.[1]);
+  const labelWidth = Number(script.match(/labelWidth: (\d+)/)?.[1]);
+  const safeGap = Number(script.match(/safeGap: (\d+)/)?.[1]);
+  const nodeWidth = Number(script.match(/nodeWidth: (\d+)/)?.[1]);
+  const nodeHeight = Number(script.match(/nodeHeight: (\d+)/)?.[1]);
+  const viewWidth = Number(script.match(/viewWidth: (\d+)/)?.[1]);
+  assert(laneHeight && labelWidth && safeGap && nodeWidth && nodeHeight && viewWidth, "Plugin architecture layout constants are incomplete");
+  assert(labelWidth > safeGap, "Plugin architecture frozen lane must be wider than the safety gap");
+
+  for (const graphMatch of graphsText.matchAll(/\n    (\w+): \{([\s\S]*?)(?=\n    \w+: \{|\n  \})/g)) {
+    const graphId = graphMatch[1];
+    const body = graphMatch[2];
+    const lanes = (body.match(/lanes: \[([^\]]+)\]/)?.[1] || "").match(/'([^']+)'/g)?.map((item) => item.slice(1, -1)) || [];
+    const aliases = {};
+    for (const aliasMatch of body.matchAll(/\n        (\w+): \{\n          lane: '([^']+)'/g)) {
+      aliases[aliasMatch[1]] = aliasMatch[2];
+    }
+    const nodeBlock = body.match(/nodes: \{([\s\S]*?)\n      \}/)?.[1] || "";
+    const nodes = [];
+    for (const nodeMatch of nodeBlock.matchAll(/\n        (\w+): \[(\d+), (\d+)\]/g)) {
+      const id = nodeMatch[1];
+      const x = Number(nodeMatch[2]);
+      const y = Number(nodeMatch[3]);
+      const lane = aliases[id] || commonLanes[id];
+      const laneIndex = lanes.indexOf(lane);
+      assert(laneIndex >= 0, `Plugin architecture ${graphId}.${id} uses lane ${lane}, not in ${lanes.join(", ")}`);
+      const top = laneIndex * laneHeight;
+      const bottom = top + laneHeight;
+      assert(y >= top && y + nodeHeight <= bottom, `Plugin architecture ${graphId}.${id} overflows ${lane}: ${y}-${y + nodeHeight}, expected ${top}-${bottom}`);
+      assert(x >= labelWidth + safeGap, `Plugin architecture ${graphId}.${id} must stay outside the frozen lane safety area`);
+      assert(x + nodeWidth <= viewWidth, `Plugin architecture ${graphId}.${id} overflows the right content boundary`);
+      nodes.push({ id, x, y });
+    }
+    for (let i = 0; i < nodes.length; i += 1) {
+      for (let j = i + 1; j < nodes.length; j += 1) {
+        const a = nodes[i];
+        const b = nodes[j];
+        const overlapsX = Math.max(a.x, b.x) < Math.min(a.x + nodeWidth, b.x + nodeWidth) - 4;
+        const overlapsY = Math.max(a.y, b.y) < Math.min(a.y + nodeHeight, b.y + nodeHeight) - 4;
+        assert(!(overlapsX && overlapsY), `Plugin architecture ${graphId} has overlapping nodes: ${a.id} / ${b.id}`);
+      }
+    }
+  }
+}
+assertPluginArchitectureGeometry(architectureScript);
+
 const css = read("assets/css/custom.css");
-for (const needle of [".amd-docs-layout", ".amd-docs-sidebar", ".amd-docs-article", ".amd-docs-content", ".amd-docs-placeholder", ".amd-manual-overview-grid", ".amd-manual-goal-grid", ".amd-manual-matrix", ".amd-manual-primary-cta", ".amd-manual-secondary-cta", ".amd-feature-index-list", ".amd-feature-index-section", ".amd-features-moved-section", ".amd-sponsor-thanks-table"]) {
+for (const needle of [".amd-docs-layout", ".amd-docs-sidebar", ".amd-docs-article", ".amd-docs-content", ".amd-docs-placeholder", ".amd-architecture", ".amd-architecture-graph", ".amd-architecture-lane-pane", ".amd-architecture-canvas-pane", ".amd-architecture-lane-track", ".amd-architecture-lane-label", ".amd-architecture-detail", ".amd-architecture-shell:fullscreen", ".amd-manual-overview-grid", ".amd-manual-goal-grid", ".amd-manual-matrix", ".amd-manual-primary-cta", ".amd-manual-secondary-cta", ".amd-feature-index-list", ".amd-feature-index-section", ".amd-features-moved-section", ".amd-sponsor-thanks-table"]) {
   assert(css.includes(needle), `CSS missing ${needle}`);
 }
+assert(!/\.amd-architecture-controls\s*\{[^}]*background:/s.test(css), "Architecture controls container must not render a capsule background");
 for (const stale of [".amd-hero-grid", ".amd-problem-section", ".amd-showcase-section", ".amd-handbook-section", ".amd-product-visual", ".amd-workflow-grid", ".amd-mode-card", ".amd-workbench-preview", ".amd-preview-directory", ".amd-feature-anchor-strip"]) {
   assert(!css.includes(stale), `CSS still contains retired selector ${stale}`);
 }
@@ -323,6 +422,19 @@ assert(zhReader.includes("amd-docs-content") && zhReader.includes("amd-docs-plac
 assert(enReader.includes("amd-docs-content") && enReader.includes("amd-docs-placeholder"), "English Reader manual must render Markdown content and screenshot placeholder");
 assert(zhReader.includes("aria-current=page") || zhReader.includes('aria-current="page"'), "Chinese Reader manual must highlight the active sidebar item");
 assert(enReader.includes("aria-current=page") || enReader.includes('aria-current="page"'), "English Reader manual must highlight the active sidebar item");
+assert(!zhReader.includes("amd-reader-architecture") && !zhReader.includes("架构解析"), "Chinese Reader output must not include the old Reader architecture map");
+assert(!enReader.includes("amd-reader-architecture") && !enReader.includes("Architecture map"), "English Reader output must not include the old Reader architecture map");
+
+const zhArchitecture = read("docs/ai-markdone/manual/architecture/index.html");
+const enArchitecture = read("docs/ai-markdone/en/manual/architecture/index.html");
+assert(zhArchitecture.includes("amd-architecture") && zhArchitecture.includes("plugin-architecture.js") && zhArchitecture.includes("插件层级"), "Chinese plugin architecture page must render the interactive map");
+assert(enArchitecture.includes("amd-architecture") && enArchitecture.includes("plugin-architecture.js") && enArchitecture.includes("Plugin architecture"), "English plugin architecture page must render the interactive map");
+for (const needle of ["内容发现", "Reader", "复制", "书签", "导出", "公式", "设置与备份", "消息导航"]) {
+  assert(zhArchitecture.includes(needle), `Chinese plugin architecture output is missing ${needle}`);
+}
+for (const needle of ["Overview", "Discovery", "Reader", "Copy", "Bookmarks", "Export", "Formulas", "Settings and backup", "Message navigation"]) {
+  assert(enArchitecture.includes(needle), `English plugin architecture output is missing ${needle}`);
+}
 
 const zhTrouble = read("docs/ai-markdone/manual/troubleshooting/index.html");
 const enTrouble = read("docs/ai-markdone/en/manual/troubleshooting/index.html");

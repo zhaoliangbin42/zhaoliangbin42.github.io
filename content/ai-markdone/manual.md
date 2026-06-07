@@ -34,6 +34,11 @@ AI-MarkDone 的核心功能可以分成四类：好读、好记、好问、好�
 
 <div class="amd-manual-matrix-wrap">
   <table class="amd-manual-matrix">
+    <colgroup>
+      <col class="amd-manual-matrix-col-category">
+      <col class="amd-manual-matrix-col-need">
+      <col class="amd-manual-matrix-col-feature">
+    </colgroup>
     <thead>
       <tr>
         <th>类别</th>
@@ -44,37 +49,37 @@ AI-MarkDone 的核心功能可以分成四类：好读、好记、好问、好�
     <tbody>
       <tr>
         <th scope="row">好读</th>
-        <td>ChatGPT 回答太长，原页面读起来容易断线。</td>
+        <td>ChatGPT 回答太长，同一个页面内消息太多了，而且还卡顿。</td>
         <td><a href="/ai-markdone/manual/reader/">Reader 阅读器</a></td>
       </tr>
       <tr>
         <th scope="row">好读</th>
-        <td>想在长对话里快速切到上一条或下一条回答。</td>
-        <td><a href="/ai-markdone/manual/reader/">消息切换</a></td>
+        <td>想要快速切换上一条/下一条消息。</td>
+        <td><a href="/ai-markdone/manual/message-navigation/">消息导航与位置</a></td>
       </tr>
       <tr>
         <th scope="row">好读</th>
-        <td>回答里标题很多，想先看结构再细读。</td>
+        <td>对于长消息，特别是 thinking/pro 级别的长消息，我想看见完整的目录，并且随时跳转到对应的标题。</td>
         <td><a href="/ai-markdone/manual/reader/">标题大纲</a></td>
       </tr>
       <tr>
         <th scope="row">好读</th>
-        <td>想减少 ChatGPT 原页面的干扰，只专注当前回答。</td>
-        <td><a href="/ai-markdone/manual/reader/">Reader 专注阅读面</a></td>
+        <td>发送消息之后，希望保持窗口位置不变。</td>
+        <td><a href="/ai-markdone/manual/message-navigation/">发送后保持位置</a></td>
       </tr>
       <tr>
         <th scope="row">好读</th>
-        <td>读到一半想先收几段在旁边对照。</td>
+        <td>有重要内容，我想固定住，避免看到下文的时候遗忘。</td>
         <td><a href="/ai-markdone/manual/sticky/">Sticky 临时摘录</a></td>
       </tr>
       <tr>
         <th scope="row">好记</th>
-        <td>想把整条回答放进 Obsidian、Notion、Typora 或 Markdown 文件。</td>
+        <td>想把整一条回答都直接粘进 Obsidian、Notion、Typora 等软件内，并且保证格式正确。</td>
         <td><a href="/ai-markdone/manual/copy-markdown/">复制 Markdown</a></td>
       </tr>
       <tr>
         <th scope="row">好记</th>
-        <td>只想复制回答中的某一小段，而不是整条回答。</td>
+        <td>我只想带格式地复制回答中的某一小部分内容，包括公式、代码块。</td>
         <td><a href="/ai-markdone/manual/partial-copy/">局部复制</a></td>
       </tr>
       <tr>
@@ -99,53 +104,23 @@ AI-MarkDone 的核心功能可以分成四类：好读、好记、好问、好�
       </tr>
       <tr>
         <th scope="row">好问</th>
-        <td>想把自己的批注意见整理成更清楚的 prompt。</td>
-        <td><a href="/ai-markdone/manual/annotations/">注释复制</a></td>
-      </tr>
-      <tr>
-        <th scope="row">好问</th>
-        <td>不想来回滚动到输入框，想边读边组织下一轮问题。</td>
-        <td><a href="/ai-markdone/manual/annotations/">注释插入 Reader 发送框</a></td>
-      </tr>
-      <tr>
-        <th scope="row">好问</th>
-        <td>经常重复某类追问方式，希望更快组织表达。</td>
-        <td><a href="/ai-markdone/manual/settings/">注释模板 / 提示词头</a></td>
-      </tr>
-      <tr>
-        <th scope="row">好问</th>
-        <td>想在阅读当前回答时直接继续向 ChatGPT 发送追问。</td>
+        <td>想将注释的内容整理成 Prompt，直接发送给大模型，完成追问。亦或者经常重复某类追问方式，希望更快组织表达。</td>
         <td><a href="/ai-markdone/manual/reader/">Reader 发送框</a></td>
       </tr>
       <tr>
         <th scope="row">好存</th>
-        <td>得到一条以后还会反复用的回答，不想让它沉到对话里。</td>
+        <td>得到一条重要的回答，不想以后找不到了。</td>
         <td><a href="/ai-markdone/manual/bookmarks/">书签保存</a></td>
       </tr>
       <tr>
         <th scope="row">好存</th>
-        <td>想按主题整理保存过的回答。</td>
-        <td><a href="/ai-markdone/manual/bookmarks/">书签文件夹</a></td>
+        <td>针对大量的书签，想要进行分类整理或者快速检索。</td>
+        <td><a href="/ai-markdone/manual/bookmarks/">书签管理</a></td>
       </tr>
       <tr>
         <th scope="row">好存</th>
-        <td>记得关键词，但不记得在哪个对话里。</td>
-        <td><a href="/ai-markdone/manual/bookmarks/">书签搜索与预览</a></td>
-      </tr>
-      <tr>
-        <th scope="row">好存</th>
-        <td>想从保存记录跳回 ChatGPT 原始位置。</td>
-        <td><a href="/ai-markdone/manual/bookmarks/">回到原文位置</a></td>
-      </tr>
-      <tr>
-        <th scope="row">好存</th>
-        <td>想把多条回答整理成一个可带走的资料包。</td>
+        <td>把好多条回答导出成 Markdown、PDF 或 PNG 格式，易于保存，也易于分享。</td>
         <td><a href="/ai-markdone/manual/export/">批量导出</a></td>
-      </tr>
-      <tr>
-        <th scope="row">好存</th>
-        <td>想导出成不同格式，适配不同使用场景。</td>
-        <td><a href="/ai-markdone/manual/export/">Markdown / PDF / PNG / ZIP 导出</a></td>
       </tr>
       <tr>
         <th scope="row">好存</th>
@@ -156,11 +131,12 @@ AI-MarkDone 的核心功能可以分成四类：好读、好记、好问、好�
   </table>
 </div>
 
-<p class="amd-manual-next-copy">从阅读器开始，了解 AI-MarkDone 如何把一条 ChatGPT 长回答变成可阅读、可复制、可整理的工作面。</p>
+<p class="amd-manual-next-copy">如果你想先看清楚整套插件如何运转，可以从插件层级开始；如果你更想直接上手，就从 Reader 开始。</p>
 
 <p class="amd-manual-config-copy">AI-MarkDone 也提供丰富的配置选项。你可以按需开关工具栏功能，调整 Reader、公式、注释、导出图片、备份和界面偏好，让这个工作台更贴合自己的使用习惯。</p>
 
 <div class="amd-manual-cta-row">
-  <a class="amd-manual-primary-cta" href="/ai-markdone/manual/reader/">了解 Reader 阅读器</a>
+  <a class="amd-manual-primary-cta" href="/ai-markdone/manual/architecture/">了解插件层级</a>
+  <a class="amd-manual-secondary-cta" href="/ai-markdone/manual/reader/">了解 Reader 阅读器</a>
   <a class="amd-manual-secondary-cta" href="/ai-markdone/manual/settings/">了解所有配置项</a>
 </div>
