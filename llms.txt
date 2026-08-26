@@ -1,0 +1,30 @@
+# AI-MarkDone
+
+AI-MarkDone is a focused ChatGPT browser extension for Reader mode, source-aware Markdown copy, LaTeX formula copy/export, Dynamic Annotation, bookmarks, Google Drive bookmark backup, and Markdown/PDF/PNG export without leaving the original ChatGPT workflow.
+
+## Core Pages
+
+- https://zhaoliangbin42.github.io/ai-markdone/ - Chinese independent product site for AI-MarkDone, a ChatGPT browser extension with centered install hero, tools.cafe featured badge, detailed feature sections, a compact feature guide table, message switching, Reader, local-first trust notes, user feedback, and Chrome/Firefox install links.
+- https://zhaoliangbin42.github.io/ai-markdone/en/ - English independent product site for AI-MarkDone with the same ChatGPT positioning, tools.cafe featured badge, detailed feature sections, compact feature guide, message switching, Reader, Markdown copy, LaTeX formula copy/export, bookmarks, export, Google Drive backup, trust notes, and install CTA.
+- https://zhaoliangbin42.github.io/ai-markdone/manual/ - Chinese manual overview introducing AI-MarkDone as a ChatGPT workbench, with four goal cards, a need-to-feature matrix, and Reader/settings CTAs before the detailed manual sections.
+- https://zhaoliangbin42.github.io/ai-markdone/en/manual/ - English manual overview with the same four goal cards, need-to-feature matrix, and Reader/settings CTAs before the detailed manual sections.
+- https://zhaoliangbin42.github.io/ai-markdone/manual/architecture/ - Chinese plugin architecture manual centered on one interactive workflow map that shows how AI-MarkDone discovers ChatGPT content, prepares shared answer data, and routes it into Reader, copy, bookmarks, export, formulas, settings, backup, and message navigation.
+- https://zhaoliangbin42.github.io/ai-markdone/en/manual/architecture/ - English plugin architecture manual with the same single interactive workflow map and no separate path index.
+- https://zhaoliangbin42.github.io/ai-markdone/manual/message-navigation/ - Chinese manual page for message navigation, lower-right message buttons, arrow-key switching, and restoring the reading position after sending.
+- https://zhaoliangbin42.github.io/ai-markdone/en/manual/message-navigation/ - English manual page for message navigation, lower-right message buttons, arrow-key switching, and restoring the reading position after sending.
+- https://zhaoliangbin42.github.io/ai-markdone/manual/copy-markdown/ - Chinese manual page for Copy Markdown, covering full-answer copy, Reader partial copy, the Markdown conversion path, cleanup rules, and supported Markdown syntax.
+- https://zhaoliangbin42.github.io/ai-markdone/en/manual/copy-markdown/ - English manual page for Copy Markdown, covering full-answer copy, Reader partial copy, the Markdown conversion path, cleanup rules, and supported Markdown syntax.
+- https://zhaoliangbin42.github.io/ai-markdone/features/ - Chinese feature reference page with quick links into the current manual.
+- https://zhaoliangbin42.github.io/ai-markdone/en/features/ - English feature reference page with quick links into the current manual.
+- https://zhaoliangbin42.github.io/ai-markdone/faq/ - Chinese FAQ covering ChatGPT support, Reader, partial Markdown copy, formulas, Dynamic Annotation, bookmarks, export, Google Drive backup, privacy, pricing, and settings.
+- https://zhaoliangbin42.github.io/ai-markdone/en/faq/ - English FAQ covering ChatGPT support, Reader mode, partial Markdown copy, formulas, Dynamic Annotation, bookmarks, export, Google Drive backup, privacy, pricing, and settings.
+- https://zhaoliangbin42.github.io/ai-markdone/privacy/ - Chinese privacy policy explaining local processing, browser extension storage, optional Google Drive bookmark backup, permissions, no owned server, no analytics, and Google API Limited Use commitments.
+- https://zhaoliangbin42.github.io/ai-markdone/en/privacy/ - English privacy policy with the same Google Drive backup, permissions, and Limited Use disclosures for review and user reference.
+- https://zhaoliangbin42.github.io/ai-markdone/contact/ - Chinese contact page for email feedback and GitHub Issues.
+- https://zhaoliangbin42.github.io/ai-markdone/en/contact/ - English contact page for email feedback and GitHub Issues.
+
+## External References
+
+- https://github.com/zhaoliangbin42/AI-MarkDone - Open-source repository.
+- https://chromewebstore.google.com/detail/ai-markdone/bmdhdihdbhjbkfaaainidcjbgidkbeoh - Chrome Web Store listing.
+- https://addons.mozilla.org/en-US/firefox/addon/ai-markdone/ - Firefox Add-ons listing.

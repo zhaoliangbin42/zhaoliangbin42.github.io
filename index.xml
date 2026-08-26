@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Liangbin's Notes</title><link>https://zhaoliangbin42.github.io/</link><description>Recent content on Liangbin's Notes</description><generator>Hugo</generator><language>zh</language><lastBuildDate>Mon, 01 Dec 2025 00:00:00 +0800</lastBuildDate><atom:link href="https://zhaoliangbin42.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>小电驴博弈趣事</title><link>https://zhaoliangbin42.github.io/notes/ebike-gaming/</link><pubDate>Mon, 01 Dec 2025 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/notes/ebike-gaming/</guid><description>在城市道路上，小电驴是一种很神奇的存在。它既不是车，也不是人，介于秩序与混乱之间，像是现代交通体系中的野生动物，靠直觉与勇气闯荡。在北京，十里之内，电驴最快的事实，也让小电驴保有量急剧扩张，随之而来的就是小电驴与原有道路交通之间的各种顶级博弈行为。这些博弈行为让我感慨：人工智能想要模仿，还道阻且长。</description></item><item><title>Hey, I am Liangbin!</title><link>https://zhaoliangbin42.github.io/about/20251201_index_bak/</link><pubDate>Sun, 30 Nov 2025 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/about/20251201_index_bak/</guid><description>&lt;hr&gt;
+&lt;h2 id="个人简介"&gt;个人简介&lt;/h2&gt;
+&lt;p&gt;赵良斌，2019年毕业于北京理工大学信息与电子学院通信工程专业，获工学学士学位；2020年至今于北京理工大学信息与电子学院攻读博士学位（信息与通信工程专业），师从&lt;a href="https://cnet.bit.edu.cn/sztd/js/b103673.htm"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;卜祥元教授&lt;/a&gt;。
+自2023年起，以国家公派联合培养博士生身份赴澳大利亚麦考瑞大学（Macquarie University）计算机学院进行访问学习与合作研究，合作导师为&lt;a href="https://researchers.mq.edu.au/en/persons/yimeng-feng"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;Dr. Yimeng Feng&lt;/a&gt;和&lt;a href="https://profiles.uts.edu.au/Andrew.Zhang"
+
+
+
+
+ target="_blank"
+ 
+
+
+&gt;Prof. Andrew Zhang&lt;/a&gt;。&lt;/p&gt;</description></item><item><title>分享一些我用到的文生图Prompt资源</title><link>https://zhaoliangbin42.github.io/notes/prompt_txt2img/</link><pubDate>Sun, 30 Nov 2025 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/notes/prompt_txt2img/</guid><description>年初刚开始写博客的时候，用的GPT5的文生图，那个时候生成出来的还比较单调，正好我博客也因为科研繁忙，搁置了好长一段时间。现在Gemini 3的Nano Banana Pro又上了一个台阶，恰逢我时间稍微宽松点，就想着将之前的图全部换掉，看看Nano Banana能不能胜任此次工作，顺便在这里记录一下我用到的Prompt。大家如果觉得图片好看，也可以试试我这里的Prompt。</description></item><item><title>High-Resolution Uplink Sensing in Millimeter-Wave ISAC Systems</title><link>https://zhaoliangbin42.github.io/codes/ab2fm/</link><pubDate>Sun, 16 Nov 2025 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/codes/ab2fm/</guid><description>Simulation for paper &amp;ldquo;High-Resolution Uplink Sensing in Millimeter-Wave ISAC Systems&amp;rdquo;</description></item><item><title>Passive Sensing for Multiple Vehicles in Bi-static ISAC Systems</title><link>https://zhaoliangbin42.github.io/codes/swip_music/</link><pubDate>Tue, 30 Sep 2025 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/codes/swip_music/</guid><description>Simulation for paper &amp;ldquo;Passive Sensing for Multiple Vehicles in Bi-static ISAC Systems&amp;rdquo;, accepted by VTC-2025 Spring</description></item><item><title>远程服务器怎么用才顺手</title><link>https://zhaoliangbin42.github.io/notes/tutorial-how-to-use-server/</link><pubDate>Sun, 13 Jul 2025 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/notes/tutorial-how-to-use-server/</guid><description>科研党怎么样才能比较顺手地使用远程Ubuntu服务器跑程序？</description></item><item><title>吐槽微信公众号的推送模式</title><link>https://zhaoliangbin42.github.io/notes/reflection-wechat-official-account/</link><pubDate>Fri, 04 Jul 2025 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/notes/reflection-wechat-official-account/</guid><description>内容还是流量？脚踏实地还是投机取巧？</description></item><item><title>.pdf转.eps</title><link>https://zhaoliangbin42.github.io/notes/pdf-to-eps/</link><pubDate>Mon, 23 Jun 2025 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/notes/pdf-to-eps/</guid><description>IEEE论文被接收之后，上传的最终版中，图片要求是eps格式，而如果你前期的图片是pdf格式，那么如何快速转为eps格式呢？</description></item><item><title>在国外留学，如何更快速访问国内网站</title><link>https://zhaoliangbin42.github.io/notes/build-vpn/</link><pubDate>Fri, 20 Jun 2025 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/notes/build-vpn/</guid><description>推荐一个软件，帮助你在海外高校网络中提高连接国内网站的速度。</description></item><item><title>我的配色方案</title><link>https://zhaoliangbin42.github.io/notes/my-color/</link><pubDate>Tue, 20 May 2025 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/notes/my-color/</guid><description>一个普通工科生平时常用的一些配色方案。</description></item><item><title>BI-AWGN信道接收概率初始化</title><link>https://zhaoliangbin42.github.io/notes/bi-awgn-initialize/</link><pubDate>Sat, 07 Oct 2023 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/notes/bi-awgn-initialize/</guid><description>本文介绍了BI-AWGN信道中接收概率的初始化方法，详细推导了对数似然比(LLR)的计算过程和在不同信噪比表示形式下的数学表达式。</description></item><item><title>信道均衡算法</title><link>https://zhaoliangbin42.github.io/notes/equalization/</link><pubDate>Fri, 06 Oct 2023 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/notes/equalization/</guid><description>介绍了通信系统中经典的自适应信道均衡算法，包括Sato算法、CMA恒模算法、MMA多模算法、DD算法、MCMA改进恒模算法及CADAMA等算法原理。</description></item><item><title>定时同步算法</title><link>https://zhaoliangbin42.github.io/notes/timing-recovery/</link><pubDate>Wed, 03 Aug 2022 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/notes/timing-recovery/</guid><description>介绍了通信系统中经典的自适应信道均衡算法，包括Sato算法、CMA恒模算法、MMA多模算法、DD算法、MCMA改进恒模算法及CADAMA等算法原理。</description></item><item><title>基于多相滤波器技术的匹配滤波实现方法</title><link>https://zhaoliangbin42.github.io/notes/polyphase-matched-filtering/</link><pubDate>Sat, 28 May 2022 00:00:00 +0800</pubDate><guid>https://zhaoliangbin42.github.io/notes/polyphase-matched-filtering/</guid><description>介绍了通信系统中经典的自适应信道均衡算法，包括Sato算法、CMA恒模算法、MMA多模算法、DD算法、MCMA改进恒模算法及CADAMA等算法原理。</description></item><item><title/><link>https://zhaoliangbin42.github.io/works/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/works/</guid><description/></item><item><title>AI-MarkDone contact and feedback</title><link>https://zhaoliangbin42.github.io/ai-markdone/en/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/en/contact/</guid><description/></item><item><title>AI-MarkDone FAQ - ChatGPT Reader, Markdown Copy, Privacy, Backup</title><link>https://zhaoliangbin42.github.io/ai-markdone/en/faq/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/en/faq/</guid><description/></item><item><title>AI-MarkDone Features moved to the Manual</title><link>https://zhaoliangbin42.github.io/ai-markdone/en/features/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/en/features/</guid><description/></item><item><title>AI-MarkDone Manual</title><link>https://zhaoliangbin42.github.io/ai-markdone/en/manual/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/en/manual/</guid><description>&lt;p&gt;AI-MarkDone is a ChatGPT browser extension. It is built around the repeated pain points that show up in study, research, and work, with one direct goal: make ChatGPT dramatically more efficient to use.&lt;/p&gt;</description></item><item><title>AI-MarkDone Plugin architecture</title><link>https://zhaoliangbin42.github.io/ai-markdone/en/manual/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/en/manual/architecture/</guid><description>&lt;section class="amd-architecture" data-amd-architecture data-lang="en"&gt;
+ &lt;div class="amd-architecture-header"&gt;
+ &lt;p&gt;
+ 
+ This map helps you understand how AI-MarkDone discovers ChatGPT content, prepares shared answer data, and lets Reader, copy, bookmarks, export, formulas, settings, and message navigation reuse the same workflow. If you are curious about a feature, or you hit a bug and want to understand why it happens, following the path can help you locate the layer involved. Drag, zoom, or open fullscreen; click a node to see what it does.
+ 
+ &lt;/p&gt;</description></item><item><title>AI-MarkDone Privacy</title><link>https://zhaoliangbin42.github.io/ai-markdone/en/privacy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/en/privacy/</guid><description/></item><item><title>AI-MarkDone 插件层级</title><link>https://zhaoliangbin42.github.io/ai-markdone/manual/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/manual/architecture/</guid><description>&lt;section class="amd-architecture" data-amd-architecture data-lang="zh"&gt;
+ &lt;div class="amd-architecture-header"&gt;
+ &lt;p&gt;
+ 
+ 这张图用来快速看懂 AI-MarkDone 从 ChatGPT 页面发现内容、整理回答数据，再把同一条工作链路交给 Reader、复制、书签、导出、公式、设置与消息导航复用的过程。如果你对某个功能感兴趣，或者遇到问题后想知道原因，也可以顺着这条链路往下看，通常能更快定位它发生在哪一层。你可以拖动、缩放或全屏查看，点击节点查看说明。
+ 
+ &lt;/p&gt;</description></item><item><title>AI-MarkDone 常见问题 - ChatGPT Reader、Markdown 复制、隐私与备份</title><link>https://zhaoliangbin42.github.io/ai-markdone/faq/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/faq/</guid><description/></item><item><title>AI-MarkDone 功能页已并入手册</title><link>https://zhaoliangbin42.github.io/ai-markdone/features/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/features/</guid><description/></item><item><title>AI-MarkDone 联系与反馈</title><link>https://zhaoliangbin42.github.io/ai-markdone/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/contact/</guid><description/></item><item><title>AI-MarkDone 手册</title><link>https://zhaoliangbin42.github.io/ai-markdone/manual/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/manual/</guid><description>&lt;p&gt;AI-MarkDone 是一个 ChatGPT 浏览器插件。它围绕学习、科研、工作中反复出现的高频痛点而开发，目标很直接：让 ChatGPT 的使用效率得到极致提高。&lt;/p&gt;</description></item><item><title>AI-MarkDone 隐私说明</title><link>https://zhaoliangbin42.github.io/ai-markdone/privacy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/privacy/</guid><description/></item><item><title>ChatGPT Reader mode in AI-MarkDone</title><link>https://zhaoliangbin42.github.io/ai-markdone/en/manual/reader/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/en/manual/reader/</guid><description>&lt;h2 id="what-reader-does"&gt;What Reader does&lt;/h2&gt;
+&lt;p&gt;ChatGPT is good at answering. Long answers can feel cramped on the original page. Reader moves the current answer into a quieter panel, so you can stay with the text and read with fewer interruptions.&lt;/p&gt;</description></item><item><title>ChatGPT Reader 阅读模式</title><link>https://zhaoliangbin42.github.io/ai-markdone/manual/reader/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/manual/reader/</guid><description>&lt;h2 id="reader-是做什么的"&gt;Reader 是做什么的&lt;/h2&gt;
+&lt;p&gt;ChatGPT 很擅长回答问题，但长回答真正读起来时，原页面并不总是舒服。Reader 把当前回答放进一个更安静的阅读面板里，让你能更沉浸地进行阅读。&lt;/p&gt;</description></item><item><title>Copy ChatGPT formulas as LaTeX, MathML, PNG, or SVG</title><link>https://zhaoliangbin42.github.io/ai-markdone/en/manual/formulas/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/en/manual/formulas/</guid><description>&lt;h2 id="what-this-solves"&gt;What this solves&lt;/h2&gt;
+&lt;p&gt;Formula copy is easy to get wrong. You may need LaTeX for notes, MathML for Office, or an image asset for slides and documents.&lt;/p&gt;</description></item><item><title>Copy Markdown</title><link>https://zhaoliangbin42.github.io/ai-markdone/en/manual/copy-markdown/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/en/manual/copy-markdown/</guid><description>&lt;h2 id="what-this-solves"&gt;What this solves&lt;/h2&gt;
+&lt;p&gt;ChatGPT&amp;rsquo;s built-in copy action is fine for a quick paste. It gets messy when the answer has formulas, tables, code blocks, or citation marks.&lt;/p&gt;</description></item><item><title>Dynamic annotations</title><link>https://zhaoliangbin42.github.io/ai-markdone/en/manual/annotations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/en/manual/annotations/</guid><description>&lt;h2 id="what-this-solves"&gt;What this solves&lt;/h2&gt;
+&lt;p&gt;When asking ChatGPT to revise a long answer, &amp;ldquo;make it better&amp;rdquo; is usually too vague. You often know the exact sentence or paragraph that needs work.&lt;/p&gt;</description></item><item><title>Elements</title><link>https://zhaoliangbin42.github.io/contact/benko/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/contact/benko/</guid><description>&lt;details class="table-of-content "&gt;
+ &lt;summary&gt;
+ 
+ 目录
+ 
+ &lt;/summary&gt;
+ &lt;nav id="TableOfContents"&gt;
+ &lt;ul&gt;
+ &lt;li&gt;&lt;a href="#heading-1"&gt;Heading 1&lt;/a&gt;
+ &lt;ul&gt;
+ &lt;li&gt;&lt;a href="#heading-2"&gt;Heading 2&lt;/a&gt;
+ &lt;ul&gt;
+ &lt;li&gt;&lt;a href="#heading-3"&gt;Heading 3&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#emphasis"&gt;Emphasis&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#button"&gt;Button&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#link"&gt;Link&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#paragraph"&gt;Paragraph&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#ordered-list"&gt;Ordered List&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#unordered-list"&gt;Unordered List&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#notice"&gt;Notice&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#tab"&gt;Tab&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#accordions"&gt;Accordions&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#code-and-syntax-highlighting"&gt;Code and Syntax Highlighting&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#blockquote"&gt;Blockquote&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#tables"&gt;Tables&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#image"&gt;Image&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#gallery"&gt;Gallery&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#slider"&gt;Slider&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#youtube-video"&gt;Youtube video&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#custom-video"&gt;Custom video&lt;/a&gt;&lt;/li&gt;
+ &lt;/ul&gt;
+ &lt;/li&gt;
+ &lt;/ul&gt;
+ &lt;/li&gt;
+ &lt;/ul&gt;
+&lt;/nav&gt;
+&lt;/details&gt;
+
+&lt;p&gt;Here is an example of headings. You can use this heading by the following markdown rules. For example: use &lt;code&gt;#&lt;/code&gt; for heading 1 and use &lt;code&gt;######&lt;/code&gt; for heading 6.&lt;/p&gt;</description></item><item><title>Elements</title><link>https://zhaoliangbin42.github.io/elements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/elements/</guid><description>&lt;details class="table-of-content "&gt;
+ &lt;summary&gt;
+ 
+ 目录
+ 
+ &lt;/summary&gt;
+ &lt;nav id="TableOfContents"&gt;
+ &lt;ul&gt;
+ &lt;li&gt;&lt;a href="#heading-1"&gt;Heading 1&lt;/a&gt;
+ &lt;ul&gt;
+ &lt;li&gt;&lt;a href="#heading-2"&gt;Heading 2&lt;/a&gt;
+ &lt;ul&gt;
+ &lt;li&gt;&lt;a href="#heading-3"&gt;Heading 3&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#emphasis"&gt;Emphasis&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#button"&gt;Button&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#link"&gt;Link&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#paragraph"&gt;Paragraph&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#ordered-list"&gt;Ordered List&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#unordered-list"&gt;Unordered List&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#notice"&gt;Notice&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#tab"&gt;Tab&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#accordions"&gt;Accordions&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#code-and-syntax-highlighting"&gt;Code and Syntax Highlighting&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#blockquote"&gt;Blockquote&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#tables"&gt;Tables&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#image"&gt;Image&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#gallery"&gt;Gallery&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#slider"&gt;Slider&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#youtube-video"&gt;Youtube video&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#custom-video"&gt;Custom video&lt;/a&gt;&lt;/li&gt;
+ &lt;/ul&gt;
+ &lt;/li&gt;
+ &lt;/ul&gt;
+ &lt;/li&gt;
+ &lt;/ul&gt;
+&lt;/nav&gt;
+&lt;/details&gt;
+
+&lt;p&gt;Here is an example of headings. You can use this heading by the following markdown rules. For example: use &lt;code&gt;#&lt;/code&gt; for heading 1 and use &lt;code&gt;######&lt;/code&gt; for heading 6.&lt;/p&gt;</description></item><item><title>Export ChatGPT to Markdown, PDF, PNG, or ZIP</title><link>https://zhaoliangbin42.github.io/ai-markdone/en/manual/export/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/en/manual/export/</guid><description>&lt;h2 id="what-this-solves"&gt;What this solves&lt;/h2&gt;
+&lt;p&gt;Some answers need to leave ChatGPT: notes, shared documents, archives, or images. Each destination needs a different format.&lt;/p&gt;</description></item><item><title>Google Drive backup</title><link>https://zhaoliangbin42.github.io/ai-markdone/en/manual/google-drive-backup/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/en/manual/google-drive-backup/</guid><description>&lt;h2 id="use-this-when"&gt;Use this when&lt;/h2&gt;
+&lt;p&gt;Your bookmarks have become real working material, and you want a safer copy before reinstalling the browser, switching machines, or cleaning extension data.&lt;/p&gt;</description></item><item><title>Google Drive 备份</title><link>https://zhaoliangbin42.github.io/ai-markdone/manual/google-drive-backup/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/manual/google-drive-backup/</guid><description>&lt;h2 id="适合谁"&gt;适合谁&lt;/h2&gt;
+&lt;p&gt;你的书签已经开始像资料库了，重装浏览器、换设备或者清理扩展之前，希望先有一份更稳的备份。&lt;/p&gt;</description></item><item><title>Import and export</title><link>https://zhaoliangbin42.github.io/ai-markdone/en/manual/privacy-storage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/en/manual/privacy-storage/</guid><description>&lt;h2 id="use-this-when"&gt;Use this when&lt;/h2&gt;
+&lt;p&gt;You are reinstalling the browser, clearing extension data, moving to another device, or simply want a copy before reorganizing bookmarks.&lt;/p&gt;</description></item><item><title>Install and refresh ChatGPT</title><link>https://zhaoliangbin42.github.io/ai-markdone/en/manual/install/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/en/manual/install/</guid><description>&lt;h2 id="what-this-solves"&gt;What this solves&lt;/h2&gt;
+&lt;p&gt;AI-MarkDone installs in the browser and adds its toolbar to the ChatGPT page. After installation, the extension needs the current page to load again so it can recognize the conversation and message positions.&lt;/p&gt;</description></item><item><title>John Doe</title><link>https://zhaoliangbin42.github.io/projects/john-doe/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/projects/john-doe/</guid><description>&lt;p&gt;lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr navigation et dolore magna aliqua.&lt;/p&gt;</description></item><item><title>Message navigation</title><link>https://zhaoliangbin42.github.io/ai-markdone/en/manual/message-navigation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/en/manual/message-navigation/</guid><description>&lt;h2 id="use-this-when"&gt;Use this when&lt;/h2&gt;
+&lt;p&gt;You often read older answers inside a long ChatGPT thread. Once the thread gets long, scrolling becomes expensive. If you send a new prompt while reading, it is also easy to lose the exact spot you were using.&lt;/p&gt;</description></item><item><title>Old directory entry note</title><link>https://zhaoliangbin42.github.io/ai-markdone/en/manual/directory/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/en/manual/directory/</guid><description>&lt;h2 id="current-status"&gt;Current status&lt;/h2&gt;
+&lt;p&gt;AI-MarkDone no longer exposes the old right-side directory rail. This page stays in place for older links only; it is not part of the current feature path.&lt;/p&gt;</description></item><item><title>Partial copy</title><link>https://zhaoliangbin42.github.io/ai-markdone/en/manual/partial-copy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/en/manual/partial-copy/</guid><description>&lt;h2 id="use-this-when"&gt;Use this when&lt;/h2&gt;
+&lt;p&gt;You only need a small part of an answer, and you do not want code, tables, or formulas to break while copying.&lt;/p&gt;</description></item><item><title>Partial copy and Sticky have moved</title><link>https://zhaoliangbin42.github.io/ai-markdone/en/manual/partial-copy-sticky/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/en/manual/partial-copy-sticky/</guid><description>&lt;p&gt;This old entry stays here so previous links do not break.&lt;/p&gt;</description></item><item><title>Privacy</title><link>https://zhaoliangbin42.github.io/privacy-policy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/privacy-policy/</guid><description>&lt;h4 id="responsibility-of-contributors"&gt;Responsibility of Contributors&lt;/h4&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus. Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed&lt;/p&gt;</description></item><item><title>Sam Wilson</title><link>https://zhaoliangbin42.github.io/projects/sam-wilson/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/projects/sam-wilson/</guid><description>&lt;p&gt;lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr navigation et dolore magna aliqua.&lt;/p&gt;</description></item><item><title>Save ChatGPT answers with bookmarks and folders</title><link>https://zhaoliangbin42.github.io/ai-markdone/en/manual/bookmarks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/en/manual/bookmarks/</guid><description>&lt;h2 id="what-this-solves"&gt;What this solves&lt;/h2&gt;
+&lt;p&gt;Some answers are not ready to export immediately, but you know you will need them later. A browser bookmark saves the whole conversation, not the exact message.&lt;/p&gt;</description></item><item><title>Settings reference</title><link>https://zhaoliangbin42.github.io/ai-markdone/en/manual/settings/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/en/manual/settings/</guid><description>&lt;h2 id="use-this-when"&gt;Use this when&lt;/h2&gt;
+&lt;p&gt;You already know what AI-MarkDone can do and want to tune it to your habits. This page does not expose internal setting keys. It uses the real labels shown in Settings and explains what changes when you turn something on or off.&lt;/p&gt;</description></item><item><title>Sticky excerpts</title><link>https://zhaoliangbin42.github.io/ai-markdone/en/manual/sticky/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/en/manual/sticky/</guid><description>&lt;h2 id="use-this-when"&gt;Use this when&lt;/h2&gt;
+&lt;p&gt;You are reading a long answer and a few passages may matter, but you have not decided what to save, copy, or ask about yet.&lt;/p&gt;</description></item><item><title>Sticky 临时摘录</title><link>https://zhaoliangbin42.github.io/ai-markdone/manual/sticky/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/manual/sticky/</guid><description>&lt;h2 id="适合谁"&gt;适合谁&lt;/h2&gt;
+&lt;p&gt;你正在读一条长回答，里面有几段都可能有用，但还没决定哪段要保存、复制或继续追问。&lt;/p&gt;</description></item><item><title>Troubleshooting</title><link>https://zhaoliangbin42.github.io/ai-markdone/en/manual/troubleshooting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/en/manual/troubleshooting/</guid><description>&lt;h2 id="toolbar-does-not-appear"&gt;Toolbar does not appear&lt;/h2&gt;
+&lt;p&gt;Start with the simple checks:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Make sure you are on the ChatGPT page.&lt;/li&gt;
+&lt;li&gt;Refresh the ChatGPT tab.&lt;/li&gt;
+&lt;li&gt;Open the browser extension manager and confirm AI-MarkDone is enabled.&lt;/li&gt;
+&lt;li&gt;Check that the extension can access the current site.&lt;/li&gt;
+&lt;li&gt;If ChatGPT has just loaded or updated, wait for the page to settle and check again.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="copy-or-export-looks-wrong"&gt;Copy or export looks wrong&lt;/h2&gt;
+&lt;p&gt;The final result also depends on the editor you paste into. Check it this way:&lt;/p&gt;</description></item><item><title>William Jacob</title><link>https://zhaoliangbin42.github.io/projects/william-jacob/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/projects/william-jacob/</guid><description>&lt;p&gt;lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr navigation et dolore magna aliqua.&lt;/p&gt;</description></item><item><title>安装并刷新 ChatGPT</title><link>https://zhaoliangbin42.github.io/ai-markdone/manual/install/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/manual/install/</guid><description>&lt;h2 id="这个功能解决什么问题"&gt;这个功能解决什么问题&lt;/h2&gt;
+&lt;p&gt;AI-MarkDone 安装在浏览器里，并在 ChatGPT 页面加载自己的工具栏。安装完成后，扩展需要重新进入当前页面，才能识别对话内容和消息位置。&lt;/p&gt;</description></item><item><title>保存 ChatGPT 回答为书签与文件夹</title><link>https://zhaoliangbin42.github.io/ai-markdone/manual/bookmarks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/manual/bookmarks/</guid><description>&lt;h2 id="这个功能解决什么问题"&gt;这个功能解决什么问题&lt;/h2&gt;
+&lt;p&gt;有些 ChatGPT 回答不是马上导出，而是以后还会回来用。只靠浏览器收藏夹保存整条对话不够细，你仍然要重新滚动找那一段。&lt;/p&gt;</description></item><item><title>导出 ChatGPT 为 Markdown、PDF、PNG 和 ZIP</title><link>https://zhaoliangbin42.github.io/ai-markdone/manual/export/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/manual/export/</guid><description>&lt;h2 id="这个功能解决什么问题"&gt;这个功能解决什么问题&lt;/h2&gt;
+&lt;p&gt;有些回答需要离开 ChatGPT：放进笔记、发给别人、归档，或者作为图片分享。不同去向需要不同格式。&lt;/p&gt;</description></item><item><title>导入与导出</title><link>https://zhaoliangbin42.github.io/ai-markdone/manual/privacy-storage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/manual/privacy-storage/</guid><description>&lt;h2 id="适合谁"&gt;适合谁&lt;/h2&gt;
+&lt;p&gt;你准备重装浏览器、清理扩展、迁移设备，或者只是想在大改动前留一份书签备份。&lt;/p&gt;</description></item><item><title>复制 ChatGPT 公式为 LaTeX、MathML、PNG 或 SVG</title><link>https://zhaoliangbin42.github.io/ai-markdone/manual/formulas/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/manual/formulas/</guid><description>&lt;h2 id="这个功能解决什么问题"&gt;这个功能解决什么问题&lt;/h2&gt;
+&lt;p&gt;公式复制很容易出错。你可能需要 LaTeX 写进笔记，需要 MathML 粘到 Office，也可能只想把公式作为图片放进文档或幻灯片。&lt;/p&gt;</description></item><item><title>复制 Markdown</title><link>https://zhaoliangbin42.github.io/ai-markdone/manual/copy-markdown/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/manual/copy-markdown/</guid><description>&lt;h2 id="这个功能解决什么问题"&gt;这个功能解决什么问题&lt;/h2&gt;
+&lt;p&gt;ChatGPT 自带复制经常只适合临时粘一下。回答里一旦有公式、表格、代码块或引用，粘到 Obsidian、Notion、Typora 里就容易变脏。&lt;/p&gt;</description></item><item><title>旧目录入口说明</title><link>https://zhaoliangbin42.github.io/ai-markdone/manual/directory/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/manual/directory/</guid><description>&lt;h2 id="当前状态"&gt;当前状态&lt;/h2&gt;
+&lt;p&gt;AI-MarkDone 现在不再提供旧的右侧目录栏。这个页面只保留给早期链接，不再作为当前功能路径的一部分。&lt;/p&gt;</description></item><item><title>局部复制</title><link>https://zhaoliangbin42.github.io/ai-markdone/manual/partial-copy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/manual/partial-copy/</guid><description>&lt;h2 id="适合谁"&gt;适合谁&lt;/h2&gt;
+&lt;p&gt;你只需要回答里的一小段，不想复制整条消息，也不想把代码、表格或公式复制坏。&lt;/p&gt;</description></item><item><title>局部复制与 Sticky 已拆分</title><link>https://zhaoliangbin42.github.io/ai-markdone/manual/partial-copy-sticky/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/manual/partial-copy-sticky/</guid><description>&lt;p&gt;这个旧入口还保留着，主要是为了不让以前的链接失效。&lt;/p&gt;</description></item><item><title>灵动注释</title><link>https://zhaoliangbin42.github.io/ai-markdone/manual/annotations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/manual/annotations/</guid><description>&lt;h2 id="这个功能解决什么问题"&gt;这个功能解决什么问题&lt;/h2&gt;
+&lt;p&gt;让 ChatGPT 改一篇长回答时，单说“帮我改好一点”通常太粗。你真正想改的是某几句、某个段落、某个表达方式。&lt;/p&gt;</description></item><item><title>配置项总览</title><link>https://zhaoliangbin42.github.io/ai-markdone/manual/settings/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/manual/settings/</guid><description>&lt;h2 id="适合谁"&gt;适合谁&lt;/h2&gt;
+&lt;p&gt;你已经知道 AI-MarkDone 能做什么，现在想把它调成自己顺手的样子。这里不讲内部字段，只按 Settings 里的真实名称说明：这个选项在哪里、打开后会发生什么。&lt;/p&gt;</description></item><item><title>问题排查</title><link>https://zhaoliangbin42.github.io/ai-markdone/manual/troubleshooting/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/manual/troubleshooting/</guid><description>&lt;h2 id="工具栏不显示"&gt;工具栏不显示&lt;/h2&gt;
+&lt;p&gt;先做最简单的检查：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;确认你正在 ChatGPT 页面上使用。&lt;/li&gt;
+&lt;li&gt;刷新 ChatGPT 页面。&lt;/li&gt;
+&lt;li&gt;打开浏览器扩展管理页，确认 AI-MarkDone 已启用。&lt;/li&gt;
+&lt;li&gt;检查扩展是否有访问当前网站的权限。&lt;/li&gt;
+&lt;li&gt;如果 ChatGPT 页面刚更新，等页面加载完成后再看一次。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="复制或导出不符合预期"&gt;复制或导出不符合预期&lt;/h2&gt;
+&lt;p&gt;复制出来的结果，最后还会受目标编辑器影响。建议这样排查：&lt;/p&gt;</description></item><item><title>消息导航与位置</title><link>https://zhaoliangbin42.github.io/ai-markdone/manual/message-navigation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhaoliangbin42.github.io/ai-markdone/manual/message-navigation/</guid><description>&lt;h2 id="适合谁"&gt;适合谁&lt;/h2&gt;
+&lt;p&gt;你经常在一条很长的 ChatGPT 对话里来回看旧回答。消息一长，翻页会变得很奢侈；刚读到一半又发了新问题，也很容易被带到最新消息，刚才看的位置一下就没了。&lt;/p&gt;</description></item></channel></rss>
