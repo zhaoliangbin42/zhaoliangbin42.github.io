@@ -4,19 +4,17 @@
 
 <section class="amd-architecture" data-amd-architecture data-lang="{{ $lang }}">
   <div class="amd-architecture-header">
-    <p class="amd-architecture-kicker">{{ if $isEN }}Interactive map{{ else }}交互图{{ end }}</p>
-    <h3>{{ if $isEN }}AI-MarkDone workflow, in layers{{ else }}按层看懂 AI-MarkDone 的工作链路{{ end }}</h3>
     <p>
       {{ if $isEN }}
-        This map shows how AI-MarkDone discovers ChatGPT content, prepares shared answer data, and lets Reader, copy, bookmarks, export, formulas, settings, and message navigation reuse the same pipeline.
+        This map helps you understand how AI-MarkDone discovers ChatGPT content, prepares shared answer data, and lets Reader, copy, bookmarks, export, formulas, settings, and message navigation reuse the same workflow. If you are curious about a feature, or you hit a bug and want to understand why it happens, following the path can help you locate the layer involved. Drag, zoom, or open fullscreen; click a node to see what it does.
       {{ else }}
-        这张图把 AI-MarkDone 如何发现 ChatGPT 内容、如何整理回答数据、Reader、复制、书签、导出、公式、设置和消息导航如何复用同一套链路放在一起。
+        这张图用来快速看懂 AI-MarkDone 从 ChatGPT 页面发现内容、整理回答数据，再把同一条工作链路交给 Reader、复制、书签、导出、公式、设置与消息导航复用的过程。如果你对某个功能感兴趣，或者遇到问题后想知道原因，也可以顺着这条链路往下看，通常能更快定位它发生在哪一层。你可以拖动、缩放或全屏查看，点击节点查看说明。
       {{ end }}
     </p>
   </div>
 
   <div class="amd-architecture-quick">
-    <span>{{ if $isEN }}Jump to a path{{ else }}你是否对这些感兴趣？点击直达{{ end }}</span>
+    <span>{{ if $isEN }}Quick expand{{ else }}快速展开{{ end }}</span>
     <div class="amd-architecture-flows" data-amd-architecture-flows></div>
   </div>
 

@@ -208,11 +208,13 @@ const architectureZh = read("content/ai-markdone/manual/architecture.md");
 const architectureEn = read("content/ai-markdone/en/manual/architecture.md");
 assert(architectureZh.includes("amd-plugin-architecture") && architectureZh.includes("插件层级"), "Chinese plugin architecture manual must render the plugin architecture map");
 assert(architectureEn.includes("amd-plugin-architecture") && architectureEn.includes("Plugin architecture"), "English plugin architecture manual must render the plugin architecture map");
-for (const needle of ["内容发现", "Reader", "复制", "书签", "导出", "公式", "设置与备份", "消息导航"]) {
-  assert(architectureZh.includes(needle), `Chinese plugin architecture manual is missing ${needle}`);
+assert(!architectureZh.includes("hide_docs_title: true") && architectureZh.includes("hide_docs_next: true"), "Chinese plugin architecture manual must keep the standard docs title and hide the next-step footer");
+assert(!architectureEn.includes("hide_docs_title: true") && architectureEn.includes("hide_docs_next: true"), "English plugin architecture manual must keep the standard docs title and hide the next-step footer");
+for (const removed of ["## 这张图解决什么问题", "## 怎么使用这张图", "## 链路索引", "## 下一步", "screenshot_title"]) {
+  assert(!architectureZh.includes(removed), `Chinese plugin architecture manual must not include removed section ${removed}`);
 }
-for (const needle of ["Discovery", "Reader", "Copy", "Bookmarks", "Export", "Formulas", "Settings and backup", "Message navigation"]) {
-  assert(architectureEn.includes(needle), `English plugin architecture manual is missing ${needle}`);
+for (const removed of ["## What this map is for", "## How to use it", "## Path index", "## Next", "screenshot_title"]) {
+  assert(!architectureEn.includes(removed), `English plugin architecture manual must not include removed section ${removed}`);
 }
 
 const architecturePartial = read("layouts/partials/ai-markdone/plugin-architecture.html");
@@ -223,7 +225,7 @@ for (const needle of ["data-amd-architecture-home", "data-amd-architecture-zoom-
 assert(!architecturePartial.includes("data-amd-architecture-status"), "Plugin architecture controls should not render a status pill");
 
 const architectureScript = read("assets/ai-markdone/architecture/plugin-architecture.js");
-for (const needle of ["用户动作层", "产品界面层", "内容与能力服务层", "站点适配与对话发现层", "浏览器与运行时层", "内容发现", "Reader", "复制", "书签", "导出", "公式", "设置与备份", "消息导航", "ChatGPT 页面", "页面适配器", "ChatGPTConversationEngine", "对话快照", "Reader 内容源", "ReaderItem", "MessageToolbarOrchestrator", "runtime protocol", "browser storage", "Google Drive provider", "GRAPHS", "setupArchitectureCamera", "clampCamera", "renderFrozenLanesMarkup", "renderGraphContentSvg", "baseWidth", "amd-architecture-lane-label", "setActiveLayer", "const graph = GRAPHS[graphId] || GRAPHS.overview", "Back to overview", "你是否对这些感兴趣？点击直达", "requestFullscreen", "exitFullscreen"]) {
+for (const needle of ["用户动作层", "产品界面层", "内容与能力服务层", "站点适配与对话发现层", "浏览器与运行时层", "内容发现", "Reader", "复制", "书签", "导出", "公式", "设置与备份", "消息导航", "ChatGPT 页面", "页面适配器", "ChatGPTConversationEngine", "对话快照", "Reader 内容源", "ReaderItem", "MessageToolbarOrchestrator", "runtime protocol", "browser storage", "Google Drive provider", "GRAPHS", "setupArchitectureCamera", "clampCamera", "renderFrozenLanesMarkup", "renderGraphContentSvg", "baseWidth", "amd-architecture-lane-label", "setActiveLayer", "const graph = GRAPHS[graphId] || GRAPHS.overview", "Back to overview", "快速展开", "requestFullscreen", "exitFullscreen"]) {
   assert(architectureScript.includes(needle), `Plugin architecture script is missing ${needle}`);
 }
 assert(!architectureScript.includes("amd-architecture-lanes-svg"), "Frozen architecture lanes must render as HTML text, not as a zoomed SVG image");
@@ -307,6 +309,7 @@ assert(homePartial.includes("site.Data.ai_markdone.sponsors") && homePartial.inc
 assert(!homePartial.includes("Open this in the feature reference") && !homePartial.includes("在功能表里查看这一项"), "Homepage source must not point feature rows to old Features page");
 assert(homePartial.includes("消息切换") && homePartial.includes("Message switching"), "Homepage source must include current message switching copy");
 assert(homePartial.includes("Sticky 栏") && homePartial.includes("Sticky panel"), "Homepage source must include Reader Sticky panel copy");
+assert(homePartial.includes("https://tools.cafe") && homePartial.includes("https://tools.cafe/b/light.svg") && homePartial.includes("Featured on tools.cafe"), "Homepage source must render the tools.cafe featured badge");
 assert(!homePartial.includes("目录、Reader") && !homePartial.includes("Directory, Reader"), "Homepage source must not promote the retired directory surface");
 assert(homePartial.includes("/ai-markdone/manual/reader/") && homePartial.includes("/ai-markdone/manual/settings/"), "Homepage guide must link to Manual entries");
 assert(!homePartial.includes("Google Drive 云备份") && !homePartial.includes("Google Drive backup"), "Homepage must not present Google Drive backup as a feature section");
@@ -386,8 +389,8 @@ for (const altText of ["AI-MarkDone 在 ChatGPT 原页面提供 Reader 入口和
 for (const altText of ["AI-MarkDone Reader entry and answer toolbar on the original ChatGPT page", "AI-MarkDone Reader showing the in-conversation outline for a long ChatGPT answer", "AI-MarkDone Reader copying a selected ChatGPT passage as Markdown", "AI-MarkDone Reader adding a Dynamic Annotation to selected ChatGPT text", "AI-MarkDone bookmark manager showing ChatGPT answer folders search and preview", "AI-MarkDone Save Messages dialog for exporting ChatGPT to Markdown PDF and PNG", "AI-MarkDone settings page showing ChatGPT extension toolbar Reader and formula action options"]) {
   assert(enHome.includes(altText), `English homepage image alt missing ${altText}`);
 }
-assert(zhHome.includes("Chrome Web Store") && zhHome.includes("Firefox Add-ons") && zhHome.includes("GitHub Star"), "Chinese homepage must render install and GitHub actions");
-assert(enHome.includes("Chrome Web Store") && enHome.includes("Firefox Add-ons") && enHome.includes("GitHub Star"), "English homepage must render install and GitHub actions");
+assert(zhHome.includes("Chrome Web Store") && zhHome.includes("Firefox Add-ons") && zhHome.includes("GitHub Star") && zhHome.includes("Featured on tools.cafe"), "Chinese homepage must render install, GitHub, and featured badge actions");
+assert(enHome.includes("Chrome Web Store") && enHome.includes("Firefox Add-ons") && enHome.includes("GitHub Star") && enHome.includes("Featured on tools.cafe"), "English homepage must render install, GitHub, and featured badge actions");
 assert(zhHome.includes("application/ld+json") && enHome.includes("application/ld+json"), "Homepages must render JSON-LD");
 assert(enHome.includes("hreflang=en") && zhHome.includes("hreflang=zh-CN"), "Homepages must render hreflang");
 
@@ -429,11 +432,13 @@ const zhArchitecture = read("docs/ai-markdone/manual/architecture/index.html");
 const enArchitecture = read("docs/ai-markdone/en/manual/architecture/index.html");
 assert(zhArchitecture.includes("amd-architecture") && zhArchitecture.includes("plugin-architecture.js") && zhArchitecture.includes("插件层级"), "Chinese plugin architecture page must render the interactive map");
 assert(enArchitecture.includes("amd-architecture") && enArchitecture.includes("plugin-architecture.js") && enArchitecture.includes("Plugin architecture"), "English plugin architecture page must render the interactive map");
-for (const needle of ["内容发现", "Reader", "复制", "书签", "导出", "公式", "设置与备份", "消息导航"]) {
-  assert(zhArchitecture.includes(needle), `Chinese plugin architecture output is missing ${needle}`);
+assert(zhArchitecture.includes("amd-docs-title") && !zhArchitecture.includes("amd-docs-next") && !zhArchitecture.includes("amd-docs-placeholder"), "Chinese plugin architecture output must keep the default docs title and hide the next-step footer and screenshot placeholder");
+assert(enArchitecture.includes("amd-docs-title") && !enArchitecture.includes("amd-docs-next") && !enArchitecture.includes("amd-docs-placeholder"), "English plugin architecture output must keep the default docs title and hide the next-step footer and screenshot placeholder");
+for (const removed of ["链路索引", "截图占位", "交互式插件层级图"]) {
+  assert(!zhArchitecture.includes(removed), `Chinese plugin architecture output must not include removed content ${removed}`);
 }
-for (const needle of ["Overview", "Discovery", "Reader", "Copy", "Bookmarks", "Export", "Formulas", "Settings and backup", "Message navigation"]) {
-  assert(enArchitecture.includes(needle), `English plugin architecture output is missing ${needle}`);
+for (const removed of ["Path index", "Screenshot placeholder", "Interactive plugin architecture map"]) {
+  assert(!enArchitecture.includes(removed), `English plugin architecture output must not include removed content ${removed}`);
 }
 
 const zhTrouble = read("docs/ai-markdone/manual/troubleshooting/index.html");

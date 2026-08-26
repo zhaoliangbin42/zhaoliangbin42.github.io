@@ -60,11 +60,13 @@
     </aside>
 
     <article class="amd-docs-article">
-      <header class="amd-docs-title">
-        <p class="amd-home-kicker">{{ if $isEN }}Manual{{ else }}手册{{ end }}</p>
-        <h1>{{ .Title }}</h1>
-        {{ with .Description }}<p>{{ . }}</p>{{ end }}
-      </header>
+      {{ if not .Params.hide_docs_title }}
+        <header class="amd-docs-title">
+          <p class="amd-home-kicker">{{ if $isEN }}Manual{{ else }}手册{{ end }}</p>
+          <h1>{{ .Title }}</h1>
+          {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        </header>
+      {{ end }}
       <div class="amd-docs-content content">
         {{ .Content }}
       </div>
@@ -77,7 +79,7 @@
         </figure>
       {{ end }}
 
-      {{ if not $isOverview }}
+      {{ if and (not $isOverview) (not .Params.hide_docs_next) }}
         <nav class="amd-docs-next" aria-label="{{ if $isEN }}Manual next steps{{ else }}手册下一步{{ end }}">
           {{ with $prev }}
             {{ $prevURL := cond $isEN .enURL .zhURL }}

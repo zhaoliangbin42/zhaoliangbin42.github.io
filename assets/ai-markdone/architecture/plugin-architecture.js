@@ -3,7 +3,7 @@
     zh: {
       overview: '总览',
       back: '返回总图',
-      quickTitle: '你是否对这些感兴趣？点击直达',
+      quickTitle: '快速展开',
       hint: '拖动图面查看，滚轮或双指缩放。点击节点可以看详情。',
       nodeDetail: '节点说明',
       chooseNode: '选择一个节点',
@@ -57,7 +57,7 @@
     en: {
       overview: 'Overview',
       back: 'Back to overview',
-      quickTitle: 'Jump to a path',
+      quickTitle: 'Quick expand',
       hint: 'Drag to pan. Scroll or pinch to zoom. Click a node for details.',
       nodeDetail: 'Node detail',
       chooseNode: 'Choose a node',

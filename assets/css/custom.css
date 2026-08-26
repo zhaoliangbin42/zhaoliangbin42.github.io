@@ -5041,6 +5041,14 @@ body.amd-site {
   background: rgba(36, 35, 40, 0.9);
   color: var(--color-text-primary) !important;
 }
+.dark .amd-featured-badge {
+  border-color: rgba(224, 145, 208, 0.18);
+  background: rgba(36, 35, 40, 0.74);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+}
+.dark .amd-featured-badge:hover {
+  border-color: rgba(224, 145, 208, 0.32);
+}
 .dark .amd-browser-downloads-compact .amd-browser-download,
 .dark .amd-icon-link {
   border-color: transparent;
@@ -5441,6 +5449,31 @@ body.amd-site {
 .amd-hero-action-row {
   gap: 0.68rem;
   margin-top: 1.55rem;
+}
+.amd-featured-badge {
+  display: inline-flex;
+  width: min(256px, 100%);
+  margin-top: 1.25rem;
+  border: 1px solid rgba(173, 83, 137, 0.14);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 12px 28px rgba(54, 34, 50, 0.06);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+.amd-featured-badge:hover {
+  border-color: rgba(173, 83, 137, 0.28);
+  transform: translateY(-2px);
+  box-shadow: var(--amd-shadow-hover);
+}
+.amd-featured-badge img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 11px;
+  box-shadow: none;
 }
 .amd-browser-download,
 .amd-github-star-button,
@@ -6604,6 +6637,7 @@ expanded Reader sections */
   line-height: 1.2;
   margin: 0;
 }
+
 .amd-architecture-header p {
   color: rgba(64, 54, 63, 0.68);
   line-height: 1.68;
@@ -8014,5 +8048,198 @@ expanded Reader sections */
   }
 .amd-home-feature-row .amd-feature-copy {
     max-width: 680px;
+  }
+}
+
+
+/* Final responsive safety layer for AI-MarkDone manual tables and review rail. */
+.amd-review-marquee {
+  overflow: visible;
+  mask-image: none;
+  padding-block: 1rem;
+}
+
+.amd-review-marquee::before,
+.amd-review-marquee::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  width: clamp(2rem, 8vw, 4.8rem);
+  pointer-events: none;
+  content: "";
+}
+
+.amd-review-marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--color-page-bg), rgba(255, 255, 255, 0));
+}
+
+.amd-review-marquee::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--color-page-bg), rgba(255, 255, 255, 0));
+}
+
+.dark .amd-review-marquee::before {
+  background: linear-gradient(90deg, var(--color-night-bg), rgba(28, 28, 30, 0));
+}
+
+.dark .amd-review-marquee::after {
+  background: linear-gradient(270deg, var(--color-night-bg), rgba(28, 28, 30, 0));
+}
+
+@media (max-width: 760px) {
+  .amd-docs-content.content table,
+  .amd-docs-content.content table:not(.amd-manual-matrix),
+  .amd-docs-content.content .amd-manual-matrix {
+    display: block !important;
+    width: 100%;
+    max-width: 100%;
+    margin: 1rem 0 2rem;
+    padding: 0.42rem;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    border: 0 !important;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.88) !important;
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.82) inset,
+      0 10px 26px rgba(54, 34, 50, 0.055),
+      0 0 0 1px rgba(147, 73, 112, 0.08) !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-gutter: stable;
+  }
+
+  .amd-docs-content.content table thead,
+  .amd-docs-content.content table:not(.amd-manual-matrix) thead,
+  .amd-docs-content.content .amd-manual-matrix thead {
+    display: table-header-group !important;
+  }
+
+  .amd-docs-content.content table tbody,
+  .amd-docs-content.content table:not(.amd-manual-matrix) tbody,
+  .amd-docs-content.content .amd-manual-matrix tbody {
+    display: table-row-group !important;
+    width: auto !important;
+    min-width: 0 !important;
+  }
+
+  .amd-docs-content.content table tr,
+  .amd-docs-content.content table:not(.amd-manual-matrix) tr,
+  .amd-docs-content.content .amd-manual-matrix tr {
+    display: table-row !important;
+    width: auto !important;
+    min-width: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
+  .amd-docs-content.content table th,
+  .amd-docs-content.content table td,
+  .amd-docs-content.content table:not(.amd-manual-matrix) th,
+  .amd-docs-content.content table:not(.amd-manual-matrix) td,
+  .amd-docs-content.content .amd-manual-matrix th,
+  .amd-docs-content.content .amd-manual-matrix td {
+    display: table-cell !important;
+    min-width: 9rem;
+    border: 0 !important;
+    border-bottom: 1px solid rgba(147, 73, 112, 0.09) !important;
+    padding: 0.86rem 0.95rem !important;
+    background: #fff !important;
+    text-align: left !important;
+    vertical-align: top;
+    white-space: normal !important;
+  }
+
+  .amd-docs-content.content table thead th,
+  .amd-docs-content.content table:not(.amd-manual-matrix) thead th,
+  .amd-docs-content.content .amd-manual-matrix thead th {
+    background: #fbf7fa !important;
+    color: rgba(44, 35, 43, 0.62);
+    font-size: 0.78rem;
+    font-weight: 750;
+  }
+
+  .amd-docs-content.content table th:first-child,
+  .amd-docs-content.content table td:first-child,
+  .amd-docs-content.content table:not(.amd-manual-matrix) th:first-child,
+  .amd-docs-content.content table:not(.amd-manual-matrix) td:first-child,
+  .amd-docs-content.content .amd-manual-matrix th:first-child,
+  .amd-docs-content.content .amd-manual-matrix td:first-child {
+    min-width: 7.2rem;
+  }
+
+  .amd-docs-content.content table th:nth-child(2),
+  .amd-docs-content.content table td:nth-child(2),
+  .amd-docs-content.content .amd-manual-matrix th:nth-child(2),
+  .amd-docs-content.content .amd-manual-matrix td:nth-child(2) {
+    min-width: 14rem;
+  }
+
+  .amd-docs-content.content table th:last-child,
+  .amd-docs-content.content table td:last-child,
+  .amd-docs-content.content .amd-manual-matrix th:last-child,
+  .amd-docs-content.content .amd-manual-matrix td:last-child {
+    min-width: 10rem;
+    padding-right: 1.25rem !important;
+  }
+
+  .amd-docs-content.content table tr:last-child th,
+  .amd-docs-content.content table tr:last-child td,
+  .amd-docs-content.content .amd-manual-matrix tr:last-child th,
+  .amd-docs-content.content .amd-manual-matrix tr:last-child td {
+    border-bottom: 0 !important;
+  }
+
+  .dark .amd-docs-content.content table,
+  .dark .amd-docs-content.content table:not(.amd-manual-matrix),
+  .dark .amd-docs-content.content .amd-manual-matrix {
+    background: rgba(36, 35, 40, 0.78) !important;
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.05) inset,
+      0 12px 30px rgba(0, 0, 0, 0.24),
+      0 0 0 1px rgba(224, 145, 208, 0.12) !important;
+  }
+
+  .dark .amd-docs-content.content table th,
+  .dark .amd-docs-content.content table td,
+  .dark .amd-docs-content.content .amd-manual-matrix th,
+  .dark .amd-docs-content.content .amd-manual-matrix td {
+    border-bottom-color: rgba(224, 145, 208, 0.1) !important;
+    background: #242328 !important;
+  }
+
+  .dark .amd-docs-content.content table thead th,
+  .dark .amd-docs-content.content .amd-manual-matrix thead th {
+    background: #332f38 !important;
+  }
+
+  .amd-review-marquee {
+    overflow-x: auto;
+    overflow-y: visible;
+    margin-inline: max(-1rem, calc((100vw - 100%) / -2));
+    padding: 1rem max(1rem, env(safe-area-inset-left)) 1.35rem max(1rem, env(safe-area-inset-right));
+    mask-image: none;
+    scroll-padding-inline: 1rem;
+    scroll-snap-type: x proximity;
+  }
+
+  .amd-review-marquee::before,
+  .amd-review-marquee::after {
+    display: none;
+  }
+
+  .amd-review-track {
+    padding-inline: 0.15rem 1rem;
+  }
+
+  .amd-review-card {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.78),
+      0 18px 42px rgba(54, 34, 50, 0.09);
   }
 }
