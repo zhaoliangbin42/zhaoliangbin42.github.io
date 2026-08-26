@@ -14,6 +14,7 @@ rm -rf vx_notebook .MWebMetaData
 echo "My Blog. Please visit: https://zhaoliangbin42.github.io" > README.md
 
 git init
+git branch -M master
 git add -A
 git commit -m "Deploy: $(date +'%Y-%m-%d %H:%M:%S')"
 
