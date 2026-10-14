@@ -6,15 +6,13 @@ amd_lang: "zh"
 page_kind: "manual_feature"
 manual_feature: "settings"
 translation_url: "/ai-markdone/en/manual/settings/"
-screenshot_title: "后续这里放：Settings 页完整截图，展示平台、工具栏与页面操作、阅读器、高级设置、公式、ChatGPT 设置、外观、语言和数据备份。"
-screenshot_detail: "截图重点是设置页分组，让用户能对应到下面的表格。"
 prev_url: "/ai-markdone/manual/export/"
 prev_label: "上一步：导出"
 ---
 
 ## 适合谁
 
-你已经知道 AI-MarkDone 能做什么，现在想把它调成自己顺手的样子。这里不讲内部字段，只按 Settings 里的真实名称说明：这个选项在哪里、打开后会发生什么。
+按 Settings 中的分组查看各项设置的位置、默认状态和作用，选择适合自己的阅读与整理方式。
 
 ## 从哪里打开
 
@@ -93,7 +91,6 @@ ChatGPT 目录条目前已下架；消息导航现在使用右下角消息切换
 | 全局字号 | 调整 AI-MarkDone 界面文字大小。 |
 | 主题色 | 改变主按钮、链接、焦点环和选中状态使用的强调色。 |
 
-颜色名称没有必要死记。这里按照你看着舒服来选就行。
 
 ## 语言
 

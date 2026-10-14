@@ -1,0 +1,24 @@
+{{- $copy := index hugo.Data.signal.home .Language.Lang -}}
+<header class="site-header{{ if not .IsHome }} is-scrolled{{ end }}">
+  <div class="header-surface"></div>
+  <div class="header-inner">
+    <span class="header-name-anchor">{{ if not .IsHome }}<a class="header-brand" href="{{ site.Home.RelPermalink }}">Liangbin Zhao</a>{{ end }}</span>
+    <nav class="desktop-nav" aria-label="{{ cond (eq .Language.Lang "zh") "主要导航" "Main navigation" }}">
+      {{ range $copy.nav }}{{ $path := printf "/%s/" .id }}<a href="{{ $path | relLangURL }}"{{ if or (eq $.Section .id) (and (eq .id "writing") (eq $.Section "notes")) }} aria-current="page"{{ end }}>{{ .label }}</a>{{ end }}
+    </nav>
+    <div class="header-tools">
+      <div class="language-switch" aria-label="Language">
+        {{ $page := . }}{{ range slice "zh" "en" }}
+          {{ $lang := . }}{{ $target := "" }}
+          {{ range $page.AllTranslations }}{{ if eq .Language.Lang $lang }}{{ $target = .RelPermalink }}{{ end }}{{ end }}
+          {{ if $target }}<a href="{{ $target }}" lang="{{ $lang }}" hreflang="{{ $lang }}"{{ if eq $page.Language.Lang $lang }} aria-current="true"{{ end }}>{{ cond (eq $lang "zh") "中文" "EN" }}</a>{{ end }}
+          {{ if and (eq $lang "zh") (gt (len $page.AllTranslations) 1) }}<span aria-hidden="true">/</span>{{ end }}
+        {{ end }}
+      </div>
+      <button class="menu-toggle" aria-label="{{ cond (eq .Language.Lang "zh") "打开导航" "Open navigation" }}" aria-expanded="false" aria-controls="mobile-nav"><span class="icon-menu">{{ partial "signal/icon.html" "menu" }}</span><span class="icon-close">{{ partial "signal/icon.html" "x" }}</span></button>
+    </div>
+  </div>
+  <nav id="mobile-nav" class="mobile-nav" aria-label="{{ cond (eq .Language.Lang "zh") "手机导航" "Mobile navigation" }}" hidden>
+    {{ range $copy.nav }}<a href="{{ printf "/%s/" .id | relLangURL }}">{{ .label }}{{ partial "signal/icon.html" "arrow-up-right" }}</a>{{ end }}
+  </nav>
+</header>

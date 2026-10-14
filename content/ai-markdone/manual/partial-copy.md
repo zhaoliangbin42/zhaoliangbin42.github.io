@@ -6,8 +6,6 @@ amd_lang: "zh"
 page_kind: "manual_feature"
 manual_feature: "partial-copy"
 translation_url: "/ai-markdone/en/manual/partial-copy/"
-screenshot_title: "后续这里放：Reader 中选中文本后，直接复制 Markdown 片段的截图。"
-screenshot_detail: "截图重点是选区、复制动作，以及粘贴后仍保留 Markdown 结构的效果。"
 ---
 
 ## 适合谁

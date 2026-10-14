@@ -10,6 +10,9 @@ tags: ["Software"]
 summary: "推荐一个软件，帮助你在海外高校网络中提高连接国内网站的速度。"
 math: true
 draft: false
+
+translationKey: "notes-build-vpn"
+aliases: ["/writing/build-vpn/"]
 ---
 
 > 声明：本文只用来做技术交流，如果你有更便捷易用的方法，欢迎讨论。

@@ -3,7 +3,7 @@ title: "High-Resolution Uplink Sensing in Millimeter-Wave ISAC Systems"
 date: 2025-11-16
 image: "index.assets/banner.png"
 author: "Liangbin"
-summary: "Simulation for paper \"High-Resolution Uplink Sensing in Millimeter-Wave ISAC Systems\""
+summary: "论文《High-Resolution Uplink Sensing in Millimeter-Wave ISAC Systems》的仿真代码与实现说明。"
 updated_date: 2025-11-16
 paper_url: "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11071294"
 github_url: "https://github.com/zhaoliangbin42/UplinkSensing_mmWave"
@@ -14,24 +14,24 @@ github_url: "https://github.com/zhaoliangbin42/UplinkSensing_mmWave"
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![MATLAB](https://img.shields.io/badge/MATLAB-2025a-blue.svg)](https://www.mathworks.com/) [![ArXiv](https://img.shields.io/badge/ArXiv-2503.10107-green.svg)](https://arxiv.org/abs/2503.10107)
 
-## Introduction
+## 简介
 
-This repository provides a demonstrative implementation of the algorithms presented in the paper ["High-Resolution Uplink Sensing in Millimeter-Wave ISAC Systems"](https://arxiv.org/abs/2503.10107). The code simulates an uplink sensing framework based on millimeter-wave hybrid arrays, enabling high-precision target parameter estimation.
+本仓库提供论文 ["High-Resolution Uplink Sensing in Millimeter-Wave ISAC Systems"](https://arxiv.org/abs/2503.10107) 中算法的演示实现。代码仿真了一个基于毫米波混合阵列的上行感知框架，用于高精度目标参数估计。
 
 
-The simulation generates a scene with $L_s$ static targets and $L_d$ dynamic targets, each with different distances, velocities, and angles of arrival (AoA). The system first performs high-resolution AoA estimation followed by AoA-based 2D-FFT-MUSIC (AB2FM) for target parameter estimation.
+仿真生成一个包含 $L_s$ 个静态目标和 $L_d$ 个动态目标的场景，各目标具有不同的距离、速度和到达角（AoA）。系统首先进行高分辨率到达角估计，再使用基于到达角的二维 FFT-MUSIC（AB2FM）算法估计目标参数。
 
-Key features of this implementation include:
-1. **High-resolution AoA estimation** using MUSIC algorithm based on frequency domain smoothing.
-2. **Line-of-Sight (LoS) path detection**.
-3. **Multiple beamforming strategies**, including Bartlett beamformer, Null-Space method, SINR optimization method, and hybrid approaches.
-4. **AoA-based 2D-FFT-MUSIC (AB2FM)** algorithm for joint Doppler-delay estimation, enabling accurate recovery of all target parameters (angles, distances, velocities).
+本实现包含以下主要功能：
+1. 采用基于频域平滑的 MUSIC 算法进行**高分辨率到达角估计**。
+2. **视距（LoS）路径检测**。
+3. **多种波束形成策略**，包括 Bartlett 波束形成器、零空间方法、SINR 优化方法和混合方法。
+4. 使用**基于到达角的二维 FFT-MUSIC（AB2FM）算法**进行多普勒—时延联合估计，精确恢复目标的角度、距离和速度等参数。
 
-The implementation allows for flexible configuration of system parameters and scenario complexity.
+本实现支持灵活配置系统参数与场景复杂度。
 
-## Parameters
+## 参数设置
 
-Basic parameters are defined in `Main.m`
+基本参数在 `Main.m` 中定义：
 ```matlab
 Ls            = 2;              % Number of static paths
 Ld            = 3;              % Number of dynamic paths
@@ -40,7 +40,7 @@ EbN0_dB       = 10;             % Signal to noise ratio in dB
 BF_type       = 'SINR';         % Beamforming type: 'SINR', 'NULL', 'BART', 'HYBD'
 ```
 
-Advanced parameters are defined in `Params.m`
+高级参数在 `Params.m` 中定义：
 ```matlab
 Nr       = 24;     % Number of antennas
 Snap_AoA = 50;     % Number of snapshots for Angle of Arrival estimation
@@ -54,22 +54,22 @@ Ts       = 1 / D_f;    % Sampling interval (s), equal to symbol duration
 c        = 3e8;    % Speed of light (m/s)
 ```
 
-Note that `L` should be less than `Nr` and `K/2`.
+注意，`L` 应小于 `Nr` 和 `K/2`。
 
-## Result Visualization
+## 结果可视化
 
-### MUSIC Spectrum for AoA Estimation
+### 用于到达角估计的 MUSIC 谱
 ![AoA Spectrum](index.assets/MUSIC_AoA.svg)
 
-### Beam Pattern
+### 波束方向图
 ![Beamforming Pattern](index.assets/BF_Pattern.svg)
 
-### 2D-MUSIC Spectrum for Doppler-Delay Estimation
+### 用于多普勒—时延估计的二维 MUSIC 谱
 ![Doppler-Delay Spectrum](index.assets/AB2FM.svg)
 
-## Citation
+## 引用
 
-If you use this code in your research, please cite our paper:
+如果在研究中使用这些代码，请引用我们的论文：
 
 ```bibtex
 @ARTICLE{Zhao2025HighResolution,

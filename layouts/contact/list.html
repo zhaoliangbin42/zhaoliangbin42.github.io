@@ -1,0 +1,8 @@
+{{ define "main" }}
+  {{- $en := eq .Language.Lang "en" -}}
+  <div class="rp-page rp-contact-page">
+    <header class="rp-contact-intro"><span class="rp-eyebrow">CONTACT</span><h1>{{ .Params.heading | default .Title }}</h1><p class="rp-lede">{{ .Description }}</p></header>
+    <div class="rp-contact-content">{{ .Content }}</div>
+    <div class="rp-contact-back"><a class="rp-link" href="{{ `/about/` | relLangURL }}">{{ cond $en "About me" "关于我" }}{{ partial "signal/icon.html" "arrow-up-right" }}</a><a class="rp-link" href="{{ site.Home.RelPermalink }}">{{ cond $en "Back to home" "返回首页" }}{{ partial "signal/icon.html" "arrow-up-right" }}</a></div>
+  </div>
+{{ end }}

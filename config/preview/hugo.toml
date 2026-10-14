@@ -1,0 +1,4 @@
+# Local verification output stays outside the tracked publish artifact.
+publishDir = "/tmp/liangbin-site-preview"
+[build.buildStats]
+enable = false

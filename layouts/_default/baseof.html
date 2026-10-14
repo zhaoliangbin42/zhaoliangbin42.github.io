@@ -1,65 +1,13 @@
 <!doctype html>
-<html
-  itemscope
-  class="{{- if not site.Params.theme_switcher -}}
-    {{- site.Params.theme_default -}}
-  {{- end -}}"
-  lang="{{ site.LanguageCode | default `en-US` }}"
-  itemtype="http://schema.org/WebPage">
-  <head>
-    <!-- head (don't cache it) -->
-    {{ partial "essentials/head.html" . }}
-
-    {{ if eq .Type "ai-markdone" }}
-      {{ partial "ai-markdone/seo.html" . }}
-    {{ end }}
-
-
-    <!-- style (always cache it) -->
-    {{ partialCached "essentials/style.html" . }}
-
-  </head>
-
-  <body class="{{ if eq .Type "ai-markdone" }}amd-site{{ end }}">
-    <!-- cache partial only in production -->
-    {{ if hugo.IsProduction }}
-      {{ partialCached "preloader.html" . }}
-      {{ partialCached "gtm-noscript.html" . }}
-    {{ else }}
-      {{ partial "preloader.html" . }}
-
-
-      <!-- tailwind size indicator -->
-      {{ partial "components/tw-size-indicator.html" . }}
-    {{ end }}
-
-
-    {{ if eq .Type "ai-markdone" }}
-      {{ partial "ai-markdone/site-header.html" . }}
-      <main class="amd-site-main" id="content">
-        {{ block "main" . }}{{ end }}
-      </main>
-      {{ partial "ai-markdone/site-footer.html" . }}
-    {{ else }}
-      <!-- announcement -->
-      {{ partialCached "announcement.html" . }}
-
-
-      <!-- header (don't cache it) -->
-      {{ partial "essentials/header.html" . }}
-      {{ partial "search-modal.html" (dict "Context" . ) }}
-
-
-      <main>
-        {{ block "main" . }}{{ end }}
-      </main>
-
-      <!-- footer -->
-      {{ partial "essentials/footer.html" . }}
-    {{ end }}
-
-
-    <!-- script depends on page params such as math; do not cache it globally -->
-    {{ partial "essentials/script.html" . }}
-  </body>
-</html>
+{{- $product := eq .Type "ai-markdone" -}}
+{{- $lang := .Language.Lang -}}
+{{- if $product }}{{ $lang = .Params.amd_lang | default "zh" }}{{ end -}}
+<html lang="{{ cond (eq $lang "zh") "zh-CN" "en" }}" class="light">
+<head>{{ partial "signal/head.html" . }}</head>
+<body class="signal-site{{ if $product }} amd-site{{ else if .IsHome }} is-home-shell{{ end }}">
+<a class="skip-link" href="#main-content">{{ cond (eq $lang "zh") "跳到内容" "Skip to content" }}</a>
+{{ if $product }}{{ partial "ai-markdone/site-header.html" . }}{{ else }}{{ partial "signal/header.html" . }}{{ end }}
+<main id="main-content" tabindex="-1" class="site-main{{ if .IsHome }} is-home{{ end }}{{ if $product }} amd-site-main{{ end }}">{{ block "main" . }}{{ end }}</main>
+{{ if $product }}{{ partial "ai-markdone/site-footer.html" . }}{{ else }}{{ partial "signal/footer.html" . }}{{ end }}
+{{ partial "signal/scripts.html" . }}
+</body></html>

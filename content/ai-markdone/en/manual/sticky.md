@@ -6,8 +6,6 @@ amd_lang: "en"
 page_kind: "manual_feature"
 manual_feature: "sticky"
 translation_url: "/ai-markdone/manual/sticky/"
-screenshot_title: "Show this later: selected text in Reader being sent to the Sticky panel."
-screenshot_detail: "The screenshot should show the Sticky panel, several excerpts, and delete or drag handles."
 ---
 
 ## Use this when

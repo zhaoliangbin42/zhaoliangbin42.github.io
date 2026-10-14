@@ -1,13 +1,12 @@
 ---
 title: "安装并刷新 ChatGPT"
-description: "从 Chrome Web Store 安装 AI-MarkDone，刷新 ChatGPT，并确认工具栏和设置入口已经加载。"
+description: "从 Chrome Web Store 或 Firefox Add-ons 安装 AI-MarkDone，刷新 ChatGPT，并确认工具栏和设置入口已经加载。"
 type: "ai-markdone"
 amd_lang: "zh"
 page_kind: "manual_feature"
+aliases: ["/ai-markdone/guide/install/"]
 manual_feature: "install"
 translation_url: "/ai-markdone/en/manual/install/"
-screenshot_title: "后续这里放：Chrome Web Store 安装页、ChatGPT 刷新后的消息工具栏和扩展设置入口。"
-screenshot_detail: "截图需要能看清扩展安装完成后，AI-MarkDone 在 ChatGPT 页面上出现的位置。"
 next_url: "/ai-markdone/manual/reader/"
 next_label: "下一步：Reader"
 ---

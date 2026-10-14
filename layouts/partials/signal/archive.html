@@ -1,0 +1,2 @@
+{{ $zh := eq .Language.Lang "zh" }}
+<section class="signal-archive"><a class="text-link" href="{{ "/writing/" | relLangURL }}">{{ cond $zh "返回写作" "Back to writing" }}</a><div class="section-heading"><h1>{{ .Title }}</h1>{{ with .Description }}<p>{{ . }}</p>{{ end }}</div><div class="signal-archive-list">{{ range .Pages }}<a href="{{ .RelPermalink }}"><span>{{ .Title }}</span>{{ partial "signal/icon.html" "arrow-up-right" }}</a>{{ else }}<p>{{ cond $zh "这里暂时没有内容。" "Nothing here yet." }}</p>{{ end }}</div></section>

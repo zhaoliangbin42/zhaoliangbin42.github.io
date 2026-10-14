@@ -1029,6 +1029,18 @@
       controller.setZoomAt(state.zoom * factor, pointer);
     }, { passive: false });
 
+    // Fullscreen and responsive layouts change the SVG viewport independently
+    // of pointer gestures. Keep its camera aligned with the HTML lane labels.
+    const resizeObserver = typeof ResizeObserver === 'function'
+      ? new ResizeObserver(() => apply())
+      : null;
+    if (resizeObserver) resizeObserver.observe(contentSvg);
+    else window.addEventListener('resize', apply);
+    controller.destroy = () => {
+      resizeObserver?.disconnect();
+      if (!resizeObserver) window.removeEventListener('resize', apply);
+    };
+
     return controller;
   }
 
@@ -1080,6 +1092,7 @@
   }
 
   function render(instance, lang, graphId) {
+    instance._amdArchitecturePanZoom?.destroy?.();
     const graphEl = instance.querySelector('[data-amd-architecture-graph]');
     const stageEl = instance.querySelector('.amd-architecture-stage');
     const captionEl = instance.querySelector('[data-amd-architecture-caption]');

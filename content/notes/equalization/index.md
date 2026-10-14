@@ -10,6 +10,9 @@ tags: ["Signal Processing"]
 summary: "介绍了通信系统中经典的自适应信道均衡算法，包括Sato算法、CMA恒模算法、MMA多模算法、DD算法、MCMA改进恒模算法及CADAMA等算法原理。"
 math: true
 draft: false
+
+translationKey: "notes-equalization"
+aliases: ["/writing/equalization/"]
 ---
 
 > 参考文献：

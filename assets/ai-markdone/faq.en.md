@@ -2,7 +2,7 @@
 
 ## Which platforms does this extension support?
 
-AI-MarkDone 4.5.0 supports ChatGPT as the only active AI page runtime.
+AI-MarkDone currently supports ChatGPT.
 
 ## What does the extension actually do, and where do I find each feature?
 
@@ -85,7 +85,7 @@ The other reason is performance. Long ChatGPT threads can get sluggish fast. Rea
 
 Yes. That is one of the strongest Reader features.
 
-Inside Reader, I rebuilt the Markdown rendering path so the visible surface stays much closer to the underlying structure. In practice, that means you can select almost any range inside Reader and copy it as source-aware Markdown instead of getting a flattened chunk of rendered text.
+Select the content you need inside Reader and copy its Markdown. Headings, lists, formulas, code blocks, and tables are preserved where possible. Selecting complete paragraphs or content blocks usually gives a cleaner result.
 
 If you take notes, quote paragraphs, revise drafts, or only want part of a formula, list, or code example, this is much more usable than copying from the original page.
 
@@ -158,15 +158,15 @@ Open the bookmarks panel, go to Settings, then Data Management. The Google Drive
 
 Backups are saved in your own Google Drive under `AI-MarkDone/Backups/bookmarks`. AI-MarkDone does not run a backup server, and the snapshot does not include OAuth tokens, passwords, or extension settings.
 
-The OAuth client ID in the extension identifies AI-MarkDone as an app. It does not sign anyone into the developer's Google account. Each person authorizes the Google account already available in their own browser profile, or signs in with their own account during the Google consent flow.
+You authorize your own Google account. Choose an account already signed in through your browser, or sign into another account on the Google authorization page.
 
 The current version is a bookmark backup flow, not real-time two-way updating. Restoring from Drive first shows a safe merge preview: new Drive-only bookmarks can be added, local-only bookmarks are kept, duplicates are skipped, and conflicts keep the local copy by default.
 
-During backup, AI-MarkDone shows stage progress and a countdown for the operation timeout budget instead of byte-level upload speed. The Drive upload uses a resumable upload session, but this v1 flow sends the snapshot in one PUT request; it is not full chunked resume yet. If the browser closes or the extension unloads mid-upload, Google Drive may keep the backup folders or a JSON file that did not report success. After a completed upload, AI-MarkDone downloads the file back and verifies the snapshot id and payload hash; if that verification fails, it tries to delete the just-created Drive file and tells you if manual cleanup is needed.
+During backup, AI-MarkDone shows the current step and the remaining wait time. It checks the uploaded file before reporting success. If that check fails, it tries to remove the new file and tells you when manual cleanup is needed. Full upload resuming is not supported; closing the browser or uninstalling the extension during an upload can leave a file in Drive whose completion has not been confirmed.
 
-Clicking “Sign out” first asks Google to revoke AI-MarkDone’s current Drive OAuth grant, then clears the authorization state cached by the browser identity API for AI-MarkDone. The next sign-in action asks the browser to start Google sign-in or consent again as needed.
+Clicking “Sign out” asks Google to revoke the current authorization and clears the connection state saved by the extension. The next connection opens Google sign-in or authorization again when needed.
 
-If backup fails because the loaded build is missing OAuth pieces, AI-MarkDone shows the relevant diagnosis in the error message without starting sign-in. Remove old unpacked AI-MarkDone entries and reload the current build if the browser is still loading an incomplete manifest. If you see `invalid_request` or an invalid OAuth request message, compare the diagnostics redirect URI with the authorized redirect URIs and JavaScript origins in the Google Cloud Web OAuth client.
+If you cannot connect or a backup fails, read the error message and follow the [troubleshooting guide](/ai-markdone/en/manual/troubleshooting/). If the problem remains, use the [contact page](/ai-markdone/en/contact/) to report the error, browser version, and extension version.
 
 You can manage backup JSON files from the Google Drive backup settings panel. Moving a backup to Drive trash does not touch local bookmarks, and you can still clean up files directly in Google Drive if you prefer.
 

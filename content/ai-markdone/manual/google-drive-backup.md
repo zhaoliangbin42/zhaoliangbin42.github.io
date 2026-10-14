@@ -6,8 +6,6 @@ amd_lang: "zh"
 page_kind: "manual_feature"
 manual_feature: "google-drive-backup"
 translation_url: "/ai-markdone/en/manual/google-drive-backup/"
-screenshot_title: "后续这里放：Google Drive 备份设置，包含连接状态、立即备份、管理备份和恢复入口。"
-screenshot_detail: "截图重点是这是用户主动开启的备份功能，而不是默认上传。"
 ---
 
 ## 适合谁

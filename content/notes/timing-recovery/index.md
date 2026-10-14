@@ -10,6 +10,10 @@ tags: ["Signal Processing"]
 summary: "介绍了通信系统中经典的自适应信道均衡算法，包括Sato算法、CMA恒模算法、MMA多模算法、DD算法、MCMA改进恒模算法及CADAMA等算法原理。"
 math: true
 draft: false
+
+translationKey: "notes-timing-recovery"
+aliases: ["/writing/timing-recovery/"]
+reading_summary: "整理频域匹配滤波与 O&M 定时同步，并讨论 Gardner 算法的特点、误差公式与频偏影响。"
 ---
 
 ## 频域匹配滤波联合O&M算法定时同步

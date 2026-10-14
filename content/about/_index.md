@@ -1,62 +1,15 @@
 ---
-title: "Hey, I am Liangbin!"
-meta_title: "About"
-description: "this is meta description"
-image: "/images/avatar.png"
+title: "关于"
+description: "我是 Liangbin。研究无线通信与信号处理，也写文章，做一些自己的软件。"
+translationKey: "about"
 draft: false
-lastmod: 2025-11-30
+heading: ["想明白。","做出来。"]
+lead: "我是 Liangbin。研究无线通信与信号处理，也写文章，做一些自己的软件。"
+paragraph: "我关心通信信号如何帮助我们理解周围的世界。这个网站也留给研究之外的好奇心：一段推导、一个顺手的工具，或某个想弄明白的问题。"
+threads: "几条并行的线。"
+interests: [{"label":"研究","title":"从信号到环境。","text":"关注无线通信、信号处理与通信感知一体化。论文之外，也尽量把代码和过程留下来。","to":"/research/","action":"看看研究"},{"label":"写作","title":"想清楚，再写下来。","text":"记录推导、工具经验和日常观察。写作也是检查自己是否真正理解的一种方式。","to":"/writing/","action":"阅读文章"},{"label":"作品","title":"从自己的需要出发。","text":"AI-MarkDone 把好回答变成材料，好友迹是你的好友地图通讯录。做软件，也是另一种思考。","to":"/projects/","action":"看看作品"}]
+contact_title: "有想法，写封邮件吧。"
+contact_text: "研究交流、软件反馈，或一个有意思的问题。"
+elsewhere: "也在这里"
+source_label: "出处"
 ---
-
----
-
-## 个人简介
-
-赵良斌，2019年毕业于北京理工大学信息与电子学院通信工程专业，获工学学士学位；2020年至今于北京理工大学信息与电子学院攻读博士学位（信息与通信工程专业），师从[卜祥元教授](https://cnet.bit.edu.cn/sztd/js/b103673.htm)。
-自2023年起，以国家公派联合培养博士生身份赴澳大利亚麦考瑞大学（Macquarie University）计算机学院进行访问学习与合作研究，合作导师为[Dr. Yimeng Feng](https://researchers.mq.edu.au/en/persons/yimeng-feng)和[Prof. Andrew Zhang](https://profiles.uts.edu.au/Andrew.Zhang)。
-
-目前主要研究方向为无线通信（wireless communication）、信号处理（signal processing）以及通信感知一体化（integrated sensing and communication, ISAC）。
-
-## 教育背景
-
-- **博士研究生（2019–至今）**  
-  信息与通信工程，北京理工大学，信息与电子学院
-  导师：[卜祥元教授](https://cnet.bit.edu.cn/sztd/js/b103673.htm)
-
-- **联合培养博士生（2023–2025）**  
-  信息与通信工程，Macquarie University，School of Computing
-  合作导师：[Dr. Yimeng](https://researchers.mq.edu.au/en/persons/yimeng-feng)和[Prof. Andrew Zhang](https://profiles.uts.edu.au/Andrew.Zhang)
-
-- **学士（2015–2019）**  
-  通信工程，北京理工大学，信息与电子学院
-
-## 科研成果
-
-### 发表论文
-
-- **L. Zhao**, Z. Ni, Y. Feng, J. Li, X. Bu, and J. Andrew Zhang, "High-resolution uplink sensing in millimeter-wave ISAC systems," *IEEE Trans. Commun.*, vol. 73, no. 11, pp. 12680-12695, 2025.
-- **L. Zhao**, Y. Feng, Z. Ni, and X. Bu, "Passive sensing for multiple vehicles in bi-static ISAC systems," in *Proc. IEEE Veh. Technol. Conf. (VTC-Spring)*, 2025, pp. 1--6.
-- P. Li, J. Wang, **L. Zhao**, X. Gao, F. Song, H. Sun, and J. Ma, “Scattering and eavesdropping in terahertz wireless link by wavy surfaces,” *IEEE Trans. Antennas Propag.*, vol. 71, no. 4, pp. 3590-3597, Apr. 2023.
-- Y. Sun, **L. Zhao**, J. Li, Z. Zhang, X. Yang, and X. Bu, “Design and implementation of a highly efficient quasi-cyclic low-density parity-check transceiving system using an overlapping decoder,” *Sensors*, vol. 23, no. 18, p. 7828, 2023.
-
-<!-- #### 授权专利
-
-- **赵良斌**等. 一种基于CRC-16的高吞吐量并行循环冗余校验的方法[P]. 北京市：CN114726383A,2022-07-08.
-- **赵良斌**等. 一种基于O&M算法的高速时域并行定时同步方法[P]. 北京市：CN114938255A,2022-08-23. -->
-
-
-## 竞赛获奖
-
-- 2020: 第六届中国国际“互联网+”大学生创新创业大赛北京赛区二等奖
-- 2019: 北京理工大学第16届“世纪杯”竞赛——《基于嵌入式的图像识别系统》一等奖
-- 2018: 全国大学生嵌入式芯片与系统设计竞赛全国二等奖
-- 2018: 美国大学生数学建模竞赛（MCM）Meritorious Winner （约9%）
-- 2017: 全国大学生数学建模竞赛北京市二等奖
-- 2017: 美国大学生数学建模竞赛（MCM）Meritorious Winner （约7%）
-- 2017: 北京理工大学校运会1500米长跑第四名(4'45)
-- 2017: 北京理工大学越野跑第四名
-
-
-## 联系方式
-
-- 主页：[<i class="fab fa-github"></i> Github](https://github.com/zhaoliangbin42), [<i class="fas fa-graduation-cap"></i> Google Scholar](https://scholar.google.com/citations?user=O3RdaQ8AAAAJ&hl=zh-CN&oi=sra), [<i class="fab fa-orcid"></i> ORCID](https://orcid.org/0009-0002-2902-4543)
-- 邮箱：zhaoliangbin@bit.edu.cn

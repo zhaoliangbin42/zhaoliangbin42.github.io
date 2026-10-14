@@ -6,8 +6,6 @@ amd_lang: "en"
 page_kind: "manual_feature"
 manual_feature: "troubleshooting"
 translation_url: "/ai-markdone/manual/troubleshooting/"
-screenshot_title: "Show this later: extension management page, ChatGPT toolbar, and a browser console error screenshot."
-screenshot_detail: "The screenshot should show what information helps when reporting a problem."
 ---
 
 ## Toolbar does not appear

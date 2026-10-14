@@ -1,0 +1,10 @@
+{{ $zh := eq .Language.Lang "zh" }}
+<footer class="site-footer">
+  <span>{{ cond $zh "问题很多。慢慢来。" "Good questions take time." }}</span>
+  <div class="footer-routes">
+    <a href="{{ "/about/" | relLangURL }}">{{ cond $zh "关于" "About" }}</a>
+    <a href="{{ "/index.xml" | relLangURL }}">RSS</a>
+    <a href="mailto:zhaoliangbin@bit.edu.cn">Email</a>
+    <button data-back-top aria-label="{{ cond $zh "返回顶部" "Back to top" }}">{{ partial "signal/icon.html" "arrow-up" }}</button>
+  </div>
+</footer>

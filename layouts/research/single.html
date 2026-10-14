@@ -1,0 +1,46 @@
+{{ define "main" }}
+  {{- $lang := .Language.Lang -}}
+  {{- $copy := index hugo.Data.signal.research.copy $lang -}}
+  {{- $paper := index (where hugo.Data.signal.research.papers "id" .Params.paper) 0 -}}
+  {{- $authors := split $paper.authors "L. Zhao" -}}
+  {{- $arrow := `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>` | safeHTML -}}
+  {{- $right := `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>` | safeHTML -}}
+  <article class="rp-page rp-detail-page">
+    <a href="{{ `/research/` | relLangURL }}" class="rp-back-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"/></svg>{{ $copy.allResearch }}</a>
+    <div class="rp-detail-heading">
+      <div class="rp-detail-kicker"><span>{{ $paper.venueShort }}</span><span aria-hidden="true">/</span><time datetime="{{ $paper.year }}">{{ $paper.year }}</time><span class="rp-topic-tag">ISAC</span></div>
+      <h1>{{ $paper.title }}</h1>
+      <p class="rp-detail-question">{{ index $paper.question $lang }}</p>
+      <div class="rp-detail-actions">
+        <a href="{{ $paper.paperUrl }}" class="rp-link rp-primary-link" target="_blank" rel="noopener noreferrer">{{ $copy.readPaper }}{{ $arrow }}</a>
+        <a href="{{ $paper.codeUrl }}" class="rp-link" target="_blank" rel="noopener noreferrer">{{ $copy.code }}{{ $arrow }}</a>
+        {{ with $paper.preprintUrl }}<a href="{{ . }}" class="rp-link" target="_blank" rel="noopener noreferrer">{{ $copy.preprint }}{{ $arrow }}</a>{{ end }}
+      </div>
+    </div>
+    <dl class="rp-publication-details">
+      <div><dt>{{ $copy.publication }}</dt><dd>{{ $paper.venue }}<span>{{ $paper.publication }}</span></dd></div>
+      <div><dt>{{ $copy.authors }}</dt><dd>{{ index $authors 0 }}<strong>L. Zhao</strong>{{ index $authors 1 }}</dd></div>
+      <div><dt>DOI</dt><dd><a href="https://doi.org/{{ $paper.doi }}" target="_blank" rel="noopener noreferrer">{{ $paper.doi }}</a></dd></div>
+    </dl>
+    <section class="rp-overview" aria-labelledby="rp-overview-title"><h2 id="rp-overview-title">{{ $copy.overview }}</h2><p>{{ index $paper.overview $lang }}</p></section>
+    <section class="rp-method" aria-labelledby="rp-method-title">
+      <div class="rp-method-heading"><span class="rp-eyebrow">THE APPROACH</span><h2 id="rp-method-title">{{ $copy.approach }}</h2></div>
+      <ol class="rp-method-steps">{{ range $index, $step := $paper.steps }}<li><div class="rp-step-top"><span>{{ printf "%02d" (add $index 1) }}</span><span>{{ $step.label }}</span></div><h3>{{ index $step.title $lang }}</h3><p>{{ index $step.text $lang }}</p></li>{{ end }}</ol>
+    </section>
+    <section class="rp-materials" aria-labelledby="rp-materials-title">
+      <div><span class="rp-eyebrow">{{ $copy.materialsLabel }}</span><h2 id="rp-materials-title">{{ $copy.materials }}</h2></div>
+      <div><p>{{ index $paper.codeNote $lang }}</p><div class="rp-material-links"><a href="{{ $paper.codeUrl }}" class="rp-link" target="_blank" rel="noopener noreferrer"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6m6-14-4 16"/></svg>{{ $copy.repository }}{{ $arrow }}</a>{{ with $paper.materialsPath }}<a href="{{ . | relLangURL }}" class="rp-link">{{ $copy.implementation }}{{ $arrow }}</a>{{ end }}</div></div>
+    </section>
+    <section class="rp-citation" aria-labelledby="rp-citation-title">
+      <div class="rp-citation-heading">
+        <div><span class="rp-eyebrow">BIBTEX</span><h2 id="rp-citation-title">{{ $copy.citation }}</h2></div>
+        <button type="button" class="rp-copy-button" data-rp-copy-target="rp-bibtex" data-rp-copy-idle="{{ $copy.copy }}" data-rp-copy-done="{{ $copy.copied }}" data-rp-copy-success="{{ $copy.copiedStatus }}" data-rp-copy-error="{{ $copy.copyFailed }}" aria-describedby="rp-copy-status" hidden><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg><span data-rp-copy-label>{{ $copy.copy }}</span></button>
+      </div>
+      <pre tabindex="0" aria-label="BibTeX"><code id="rp-bibtex">{{ $paper.bibtex }}</code></pre>
+      <p class="rp-copy-status" id="rp-copy-status" role="status" aria-live="polite"></p>
+    </section>
+    {{ range where hugo.Data.signal.research.papers "detail" true }}{{ if ne .id $paper.id }}
+      <section class="rp-related" aria-labelledby="rp-related-label"><span class="rp-eyebrow" id="rp-related-label">{{ $copy.related }}</span><a href="{{ printf `/research/%s/` .id | relLangURL }}"><span>{{ .title }}</span>{{ $right }}</a></section>
+    {{ end }}{{ end }}
+  </article>
+{{ end }}

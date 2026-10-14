@@ -1,0 +1,18 @@
+{{ $files := slice "js/signal.js" }}
+{{ if .IsHome }}{{ $files = $files | append "js/signal-wave.js" }}{{ end }}
+{{ if ne .Type "ai-markdone" }}{{ $files = $files | append "js/signal-pages.js" "js/signal-reading.js" }}{{ end }}
+{{ range $files }}{{ with resources.Get . }}{{ $js := . | minify | fingerprint }}<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous" defer></script>{{ end }}{{ end }}
+{{ if or .Params.math .Params.enableMathJax }}
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']], processEscapes: true, processEnvironments: true, tags: 'ams' },
+  options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'], enableMenu: false },
+  chtml: { scale: 1, displayAlign: 'center' },
+  startup: { ready() { MathJax.startup.defaultReady(); MathJax.startup.promise.then(() => window.dispatchEvent(new Event('math-ready'))); } }
+};
+</script>
+<script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+{{ end }}
+{{ if .Store.Get "hasMermaid" }}
+<script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.esm.min.mjs'; mermaid.initialize({startOnLoad:true,securityLevel:'strict',theme:'neutral'});</script>
+{{ end }}

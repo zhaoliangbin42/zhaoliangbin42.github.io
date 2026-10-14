@@ -1,0 +1,19 @@
+{{ $isEN := eq (.Params.amd_lang | default "zh") "en" }}
+{{ $sponsors := hugo.Data.ai_markdone.sponsors }}
+<section class="amd-signal-supporters amd-container">
+  <details><summary><span>{{ if $isEN }}From the people who use it.{{ else }}来自使用者的支持。{{ end }}</span>{{ partial "ai-markdone/icon.html" (dict "name" "plus") }}</summary>
+    <div class="amd-signal-review-list">
+      {{ range split (readFile "assets/ai-markdone/testimonials.md") "\n---\n" }}
+        {{ $block := trim . " \n\r\t" }}
+        {{ if hasPrefix $block "## " }}
+          {{ $lines := split $block "\n" }}
+          {{ $name := replaceRE "^##\\s+" "" (index $lines 0 | plainify | strings.TrimSpace) }}
+          {{ $source := replaceRE "^source:\\s*" "" (index $lines 1 | plainify | strings.TrimSpace) }}
+          <figure><blockquote>{{ delimit (after 3 $lines) "\n" | markdownify }}</blockquote><figcaption>{{ $name }} · {{ $source }}</figcaption></figure>
+        {{ end }}
+      {{ end }}
+    </div>
+    <div class="amd-signal-sponsors"><h2>{{ if $isEN }}{{ $sponsors.title_en }}{{ else }}{{ $sponsors.title_zh }}{{ end }}</h2><p>{{ if $isEN }}{{ $sponsors.description_en }}{{ else }}{{ $sponsors.description_zh }}{{ end }}</p><ul>{{ range $sponsors.people }}<li>{{ .name }}</li>{{ end }}</ul></div>
+    <a class="amd-text-link" href="https://tools.cafe" target="_blank" rel="noopener">Featured on tools.cafe {{ partial "ai-markdone/icon.html" (dict "name" "arrow-up-right") }}</a>
+  </details>
+</section>

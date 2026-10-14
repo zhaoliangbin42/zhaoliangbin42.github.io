@@ -10,6 +10,9 @@ tags: ["Software"]
 summary: "IEEE论文被接收之后，上传的最终版中，图片要求是eps格式，而如果你前期的图片是pdf格式，那么如何快速转为eps格式呢？"
 math: true
 draft: false
+
+translationKey: "notes-pdf-to-eps"
+aliases: ["/writing/pdf-to-eps/"]
 ---
 
 > 这里讨论的方法是针对Mac的，但是如果你将本文复制，粘到ChatGPT里，让它给你提供其他系统下的方案，肯定没问题。

@@ -1,0 +1,262 @@
+{
+  "papers": [
+    {
+      "id": "uplink-sensing",
+      "topic": "isac",
+      "detail": true,
+      "title": "High-Resolution Uplink Sensing in Millimeter-Wave ISAC Systems",
+      "year": "2025",
+      "venue": "IEEE Transactions on Communications",
+      "venueShort": "IEEE TCOM",
+      "publication": "Vol. 73, No. 11 · pp. 12680–12695",
+      "authors": "L. Zhao, Z. Ni, Y. Feng, J. Li, X. Bu, and J. Andrew Zhang",
+      "doi": "10.1109/TCOMM.2025.3585582",
+      "paperUrl": "https://ieeexplore.ieee.org/document/11071294",
+      "preprintUrl": "https://arxiv.org/abs/2503.10107",
+      "codeUrl": "https://github.com/zhaoliangbin42/UplinkSensing_mmWave",
+      "summary": {
+        "zh": "从毫米波上行通信中，估计目标的角度、距离与速度。",
+        "en": "Estimating angles, ranges, and velocities from millimeter-wave uplink signals."
+      },
+      "question": {
+        "zh": "一段上行信号，能告诉我们多少环境信息？",
+        "en": "What can an uplink signal tell us about its surroundings?"
+      },
+      "overview": {
+        "zh": "混合阵列与收发端时钟不同步，会让毫米波上行感知变得复杂。这项研究结合频域平滑、参考信号构造与 AB2FM 算法，联合估计到达角、多普勒和时延，并保持参数之间的对应关系。",
+        "en": "Hybrid arrays and unsynchronized clocks complicate uplink sensing. This work combines frequency smoothing, reference-signal construction, and AB2FM to estimate arrival angles, Doppler shifts, and delays while preserving their association."
+      },
+      "steps": [
+        {
+          "label": "AoA",
+          "title": {
+            "zh": "先分清方向",
+            "en": "Resolve the directions"
+          },
+          "text": {
+            "zh": "通过波束扫描和频域平滑，估计静态与动态路径的到达角。",
+            "en": "Beam scanning and frequency smoothing resolve arrival angles for static and moving paths."
+          }
+        },
+        {
+          "label": "Reference",
+          "title": {
+            "zh": "处理时钟偏差",
+            "en": "Handle clock offsets"
+          },
+          "text": {
+            "zh": "构造参考信号，降低收发端时钟不同步对感知的影响。",
+            "en": "A constructed reference signal reduces the impact of unsynchronized transmitter and receiver clocks."
+          }
+        },
+        {
+          "label": "AB2FM",
+          "title": {
+            "zh": "再估计距离与速度",
+            "en": "Estimate delay and Doppler"
+          },
+          "text": {
+            "zh": "结合到达角与二维 FFT-MUSIC，联合估计多普勒和时延。",
+            "en": "AoA-based 2D-FFT-MUSIC jointly estimates Doppler and delay."
+          }
+        }
+      ],
+      "codeNote": {
+        "zh": "MATLAB 仿真包含角度估计、波束形成与时延—多普勒估计。Main.m 设置场景，Params.m 配置阵列和信号参数。",
+        "en": "The MATLAB simulation includes angle estimation, beamforming, and delay–Doppler estimation. Main.m sets up the scenario; Params.m configures the array and signal parameters."
+      },
+      "bibtex": "@ARTICLE{Zhao2025HighResolution,\n  author={Zhao, Liangbin and Ni, Zhitong and Feng, Yimeng and Li, Jianguo and Bu, Xiangyuan and Andrew Zhang, J.},\n  journal={IEEE Transactions on Communications},\n  title={High-Resolution Uplink Sensing in Millimeter-Wave ISAC Systems},\n  year={2025},\n  volume={73},\n  number={11},\n  pages={12680-12695},\n  doi={10.1109/TCOMM.2025.3585582}\n}",
+      "materialsPath": "/codes/ab2fm/"
+    },
+    {
+      "id": "passive-sensing",
+      "topic": "isac",
+      "detail": true,
+      "title": "Passive Sensing for Multiple Vehicles in Bi-Static ISAC Systems",
+      "year": "2025",
+      "venue": "IEEE Vehicular Technology Conference (VTC-Spring)",
+      "venueShort": "IEEE VTC-Spring",
+      "publication": "VTC2025-Spring · pp. 1–6",
+      "authors": "L. Zhao, Y. Feng, Z. Ni, and X. Bu",
+      "doi": "10.1109/VTC2025-Spring65109.2025.11174283",
+      "paperUrl": "https://ieeexplore.ieee.org/document/11174283",
+      "codeUrl": "https://github.com/zhaoliangbin42/VTC2025-SWIP-MUSIC",
+      "sourceUrl": "https://resourcecenter.vts.ieee.org/conferences/vtc-2025-spring/vts_con_vtc_zhao_061925",
+      "summary": {
+        "zh": "在时钟不同步的双基地系统中，感知多辆车的运动。",
+        "en": "Sensing multiple vehicles in a bistatic system with unsynchronized clocks."
+      },
+      "question": {
+        "zh": "两个不同步的基站，怎样一起感知车辆？",
+        "en": "How can two unsynchronized base stations sense moving vehicles?"
+      },
+      "overview": {
+        "zh": "双基地被动感知可以利用通信信号观察多辆车，但时钟偏差会干扰估计。这项研究通过快拍扩增、SWIP-MUSIC 时偏估计和残余相位对齐，再进行时延—多普勒联合估计。仿真考察了多目标场景下的方法表现。",
+        "en": "Bistatic passive sensing can observe multiple vehicles using communication signals, but clock offsets interfere with estimation. The method augments snapshots, estimates timing offsets with SWIP-MUSIC, and aligns residual phase before joint delay–Doppler estimation. Simulations examine its behavior with multiple targets."
+      },
+      "steps": [
+        {
+          "label": "Snapshots",
+          "title": {
+            "zh": "扩增观测",
+            "en": "Augment observations"
+          },
+          "text": {
+            "zh": "利用前后向平滑扩增快拍，支持协方差矩阵估计。",
+            "en": "Forward-backward smoothing augments snapshots for covariance estimation."
+          }
+        },
+        {
+          "label": "SWIP-MUSIC",
+          "title": {
+            "zh": "估计并对齐时偏",
+            "en": "Estimate and align offsets"
+          },
+          "text": {
+            "zh": "结合周期图与 MUSIC 估计复合时偏，再处理残余相位偏差。",
+            "en": "Periodogram and MUSIC estimates are combined to recover timing offsets, followed by residual phase alignment."
+          }
+        },
+        {
+          "label": "Delay–Doppler",
+          "title": {
+            "zh": "恢复车辆参数",
+            "en": "Recover vehicle parameters"
+          },
+          "text": {
+            "zh": "通过基于周期图的方法，联合估计目标的时延与多普勒。",
+            "en": "A periodogram-based method jointly estimates target delays and Doppler shifts."
+          }
+        }
+      ],
+      "codeNote": {
+        "zh": "从 main.m 运行仿真，在 params.m 中调整参数。仓库还包含会议演示的 LaTeX 源文件与 PDF。",
+        "en": "Run main.m to start the simulation and adjust parameters in params.m. The repository also includes the conference presentation as LaTeX source and PDF."
+      },
+      "bibtex": "@INPROCEEDINGS{Zhao2025PassiveSensing,\n  author={Zhao, Liangbin and Feng, Yimeng and Ni, Zhitong and Bu, Xiangyuan},\n  booktitle={2025 IEEE 101st Vehicular Technology Conference (VTC2025-Spring)},\n  title={Passive Sensing for Multiple Vehicles in Bi-Static ISAC Systems},\n  year={2025},\n  pages={1-6},\n  doi={10.1109/VTC2025-Spring65109.2025.11174283}\n}",
+      "materialsPath": "/codes/swip_music/"
+    },
+    {
+      "id": "terahertz-scattering",
+      "topic": "signal-processing",
+      "detail": false,
+      "title": "Scattering and Eavesdropping in Terahertz Wireless Link by Wavy Surfaces",
+      "year": "2023",
+      "venue": "IEEE Transactions on Antennas and Propagation",
+      "venueShort": "IEEE TAP",
+      "publication": "Vol. 71, No. 4 · pp. 3590–3597",
+      "authors": "P. Li, J. Wang, L. Zhao, X. Gao, F. Song, H. Sun, and J. Ma",
+      "paperUrl": "https://doi.org/10.1109/TAP.2023.3241333",
+      "summary": {
+        "zh": "研究起伏表面对太赫兹无线链路散射与窃听的影响。",
+        "en": "Studying scattering and eavesdropping in terahertz links with wavy surfaces."
+      }
+    },
+    {
+      "id": "overlapping-decoder",
+      "topic": "signal-processing",
+      "detail": false,
+      "title": "Design and Implementation of a Highly Efficient Quasi-Cyclic Low-Density Parity-Check Transceiving System Using an Overlapping Decoder",
+      "year": "2023",
+      "venue": "Sensors",
+      "venueShort": "Sensors",
+      "publication": "Vol. 23, No. 18 · Article 7828",
+      "authors": "Y. Sun, L. Zhao, J. Li, Z. Zhang, X. Yang, and X. Bu",
+      "paperUrl": "https://doi.org/10.3390/s23187828",
+      "summary": {
+        "zh": "把 QC-LDPC 编码结构与重叠译码结合，研究高效收发系统的实现。",
+        "en": "Combining QC-LDPC code structure and overlapping decoding in a transceiving system."
+      }
+    }
+  ],
+  "copy": {
+    "zh": {
+      "eyebrow": "RESEARCH",
+      "heading": ["信号里，", "还有更多信息。"],
+      "intro": "我研究无线通信与信号处理，关注如何让通信系统同时感知周围的世界。",
+      "collection": "论文与研究",
+      "topics": [
+        {
+          "id": "all",
+          "label": "全部"
+        },
+        {
+          "id": "isac",
+          "label": "ISAC"
+        },
+        {
+          "id": "signal-processing",
+          "label": "信号处理"
+        }
+      ],
+      "topicLabel": "按主题筛选论文",
+      "details": "研究详情",
+      "readPaper": "阅读论文",
+      "code": "代码",
+      "preprint": "预印本",
+      "allResearch": "全部研究",
+      "overview": "研究概述",
+      "approach": "方法，分三步。",
+      "materials": "继续读，或动手跑。",
+      "materialsLabel": "论文与代码",
+      "repository": "打开 GitHub 仓库",
+      "citation": "引用这项研究",
+      "copy": "复制 BibTeX",
+      "copied": "已复制",
+      "copyFailed": "暂时无法复制，请选中下方文本手动复制。",
+      "copiedStatus": "BibTeX 已复制到剪贴板。",
+      "related": "另一项研究",
+      "publication": "发表信息",
+      "authors": "作者",
+      "notFound": "这项研究还没有详情页。",
+      "scholar": "Google Scholar",
+      "scholarNote": "完整论文记录，也可以在这里找到。",
+      "countUnit": "篇论文",
+      "implementation": "实现与复现说明"
+    },
+    "en": {
+      "eyebrow": "RESEARCH",
+      "heading": ["More to a signal", "than a message."],
+      "intro": "I study wireless communications and signal processing, exploring how communication systems can also sense the world around them.",
+      "collection": "Papers & research",
+      "topics": [
+        {
+          "id": "all",
+          "label": "All"
+        },
+        {
+          "id": "isac",
+          "label": "ISAC"
+        },
+        {
+          "id": "signal-processing",
+          "label": "Signal processing"
+        }
+      ],
+      "topicLabel": "Filter papers by topic",
+      "details": "Explore the research",
+      "readPaper": "Read paper",
+      "code": "Code",
+      "preprint": "Preprint",
+      "allResearch": "All research",
+      "overview": "Research overview",
+      "approach": "The method, in three steps.",
+      "materials": "Read further. Try the code.",
+      "materialsLabel": "Paper & code",
+      "repository": "Open the GitHub repository",
+      "citation": "Cite this work",
+      "copy": "Copy BibTeX",
+      "copied": "Copied",
+      "copyFailed": "Copying is unavailable. Select the text below to copy it manually.",
+      "copiedStatus": "BibTeX copied to the clipboard.",
+      "related": "Another study",
+      "publication": "Publication",
+      "authors": "Authors",
+      "notFound": "There is no detail page for this study yet.",
+      "scholar": "Google Scholar",
+      "scholarNote": "You can also find my publication record here.",
+      "countUnit": "papers",
+      "implementation": "Implementation notes"
+    }
+  }
+}

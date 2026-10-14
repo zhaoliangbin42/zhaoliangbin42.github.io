@@ -23,3 +23,29 @@ resources/_gen*/
 !layouts/
 !layouts/**
 !DESIGN.md
+
+# Approved design assets and local typeface are production source.
+!static/images/signal/
+!static/images/signal/**
+!assets/ai-markdone/
+!assets/ai-markdone/**
+
+# Keep OS metadata excluded after source asset exceptions.
+**/.DS_Store
+
+# Article media and the favicon must survive a clean checkout.
+!content/notes/**/index.assets/*.png
+!content/notes/**/index.assets/*.webp
+!content/notes/**/index.assets/*.svg
+!content/codes/**/index.assets/*.png
+!content/codes/**/index.assets/*.webp
+!content/codes/**/index.assets/*.svg
+!assets/images/favicon.png
+
+# Build statistics and lock files are runtime state, not publication source.
+hugo_stats.json
+.hugo_build.lock
+
+# Local note-editor sidecars remain on disk, outside version control.
+**/vx.json
+content/vx*.json

@@ -1,0 +1,59 @@
+{{ define "main" }}
+  {{- $lang := .Language.Lang -}}
+  {{- $copy := index hugo.Data.signal.research.copy $lang -}}
+  {{- $papers := hugo.Data.signal.research.papers -}}
+  {{- $arrow := `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>` | safeHTML -}}
+  {{- $right := `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>` | safeHTML -}}
+  <div class="rp-page rp-research-page" data-rp-research>
+    <section class="rp-intro" aria-labelledby="rp-research-title">
+      <div class="rp-intro-copy">
+        <span class="rp-eyebrow">{{ $copy.eyebrow }}</span>
+        <h1 id="rp-research-title">{{ range $copy.heading }}<span>{{ . }}</span>{{ end }}</h1>
+        <p class="rp-lede">{{ $copy.intro }}</p>
+      </div>
+      <div class="rp-signal-art" aria-hidden="true">
+        <img src="{{ `images/signal/signal-field.webp` | relURL }}" alt="" width="1536" height="1024" />
+        <span>COMMUNICATION ↔ SENSING</span>
+      </div>
+    </section>
+    <section class="rp-collection" aria-labelledby="rp-collection-title">
+      <div class="rp-collection-heading">
+        <h2 id="rp-collection-title">{{ $copy.collection }}</h2>
+        <span class="rp-count" data-rp-count data-rp-count-unit="{{ $copy.countUnit }}" aria-live="polite" aria-atomic="true">{{ len $papers }} {{ $copy.countUnit }}</span>
+      </div>
+      <div class="rp-filters" data-rp-filters role="group" aria-label="{{ $copy.topicLabel }}" hidden>
+        {{ range $copy.topics }}
+          {{- $count := len (where $papers "topic" .id) -}}
+          {{- if eq .id "all" }}{{ $count = len $papers }}{{ end -}}
+          <button type="button" data-rp-filter="{{ .id }}" aria-pressed="{{ if eq .id `all` }}true{{ else }}false{{ end }}">{{ .label }}<span aria-hidden="true">{{ $count }}</span></button>
+        {{ end }}
+      </div>
+      <div class="rp-paper-list">
+        {{ range $index, $paper := $papers }}
+          {{- $authors := split $paper.authors "L. Zhao" -}}
+          {{- $detailURL := printf "/research/%s/" $paper.id | relLangURL -}}
+          <article class="rp-paper-row{{ if $paper.detail }} rp-paper-row-featured{{ end }}" data-rp-topic="{{ $paper.topic }}" aria-labelledby="rp-paper-{{ $paper.id }}">
+            <div class="rp-paper-side">
+              <span class="rp-paper-index">{{ printf "%02d" (add $index 1) }}</span>
+              <div class="rp-paper-publication"><span>{{ $paper.venueShort }}</span><time datetime="{{ $paper.year }}">{{ $paper.year }}</time></div>
+            </div>
+            <div class="rp-paper-body">
+              <div class="rp-paper-kind">{{ if eq $paper.topic "isac" }}ISAC{{ else }}{{ if eq $lang "en" }}Signal processing{{ else }}信号处理{{ end }}{{ end }}</div>
+              <h3 id="rp-paper-{{ $paper.id }}">
+                {{ if $paper.detail }}<a href="{{ $detailURL }}">{{ $paper.title }}</a>{{ else }}<a href="{{ $paper.paperUrl }}" target="_blank" rel="noopener noreferrer">{{ $paper.title }}</a>{{ end }}
+              </h3>
+              <p class="rp-paper-summary">{{ index $paper.summary $lang }}</p>
+              <p class="rp-authors">{{ index $authors 0 }}<strong>L. Zhao</strong>{{ index $authors 1 }}</p>
+              <div class="rp-paper-links">
+                {{ if $paper.detail }}<a href="{{ $detailURL }}" class="rp-link rp-link-accent">{{ $copy.details }}{{ $right }}</a>{{ end }}
+                <a href="{{ $paper.paperUrl }}" class="rp-link" target="_blank" rel="noopener noreferrer">{{ $copy.readPaper }}{{ $arrow }}</a>
+                {{ with $paper.codeUrl }}<a href="{{ . }}" class="rp-link" target="_blank" rel="noopener noreferrer">{{ $copy.code }}{{ $arrow }}</a>{{ end }}
+              </div>
+            </div>
+          </article>
+        {{ end }}
+      </div>
+    </section>
+    <aside class="rp-scholar-strip"><p>{{ $copy.scholarNote }}</p><a href="https://scholar.google.com/citations?user=O3RdaQ8AAAAJ" class="rp-link" target="_blank" rel="noopener noreferrer">{{ $copy.scholar }}{{ $arrow }}</a></aside>
+  </div>
+{{ end }}

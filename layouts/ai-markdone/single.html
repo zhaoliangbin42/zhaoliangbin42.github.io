@@ -1,6 +1,8 @@
 {{ define "main" }}
   <div class="amd-product">
-    {{ if eq .Params.page_kind "manual" }}
+    {{ if eq .Params.page_kind "workflow" }}
+      {{ partial "ai-markdone/workflow-page.html" . }}
+    {{ else if eq .Params.page_kind "manual" }}
       {{ partial "ai-markdone/manual.html" . }}
     {{ else if eq .Params.page_kind "features" }}
       {{ partial "ai-markdone/features.html" . }}

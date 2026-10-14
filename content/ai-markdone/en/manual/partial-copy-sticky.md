@@ -7,13 +7,9 @@ page_kind: "manual_feature"
 manual_feature: "partial-copy-sticky"
 translation_url: "/ai-markdone/manual/partial-copy-sticky/"
 noindex: true
-screenshot_title: "This legacy entry no longer needs a screenshot."
-screenshot_detail: "Open Partial copy or Sticky excerpts for the current instructions."
 ---
 
-This old entry stays here so previous links do not break.
-
-The two jobs now have separate pages:
+Partial copy and Sticky excerpts each have their own guide:
 
 - [Partial copy](/ai-markdone/en/manual/partial-copy/): select a passage and copy it as Markdown.
 - [Sticky excerpts](/ai-markdone/en/manual/sticky/): pin a few passages beside Reader while comparing and sorting ideas.

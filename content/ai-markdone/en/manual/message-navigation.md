@@ -6,8 +6,6 @@ amd_lang: "en"
 page_kind: "manual_feature"
 manual_feature: "message-position"
 translation_url: "/ai-markdone/manual/message-navigation/"
-screenshot_title: "Show this later: lower-right message buttons on ChatGPT and a before/after view of returning to the reading position after sending."
-screenshot_detail: "The screenshot should show the Previous / Next message buttons, an older message in a long thread, and the ChatGPT page behavior settings."
 ---
 
 ## Use this when

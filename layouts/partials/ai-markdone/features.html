@@ -4,7 +4,7 @@
 {{ $otherLang := .Params.translation_url | default (cond $isEN "/ai-markdone/features/" "/ai-markdone/en/features/") }}
 {{ $items := slice
   (dict "id" "reader" "zh" "Reader" "en" "Reader" "zhURL" "/ai-markdone/manual/reader/" "enURL" "/ai-markdone/en/manual/reader/" "zhUse" "阅读长回答，查看标题结构，分页切换消息。" "enUse" "Read long answers, use headings, and move between messages.")
-  (dict "id" "message-switching" "zh" "消息切换" "en" "Message switching" "zhURL" "/ai-markdone/manual/reader/" "enURL" "/ai-markdone/en/manual/reader/" "zhUse" "用右下角上一条/下一条，或可选方向键，在长对话里移动。" "enUse" "Use the lower-right previous/next controls, or optional arrow keys, to move through long threads.")
+  (dict "id" "message-switching" "zh" "消息切换" "en" "Message switching" "zhURL" "/ai-markdone/manual/message-navigation/" "enURL" "/ai-markdone/en/manual/message-navigation/" "zhUse" "用右下角上一条/下一条，或可选方向键，在长对话里移动。" "enUse" "Use the lower-right previous/next controls, or optional arrow keys, to move through long threads.")
   (dict "id" "partial-copy" "zh" "局部复制" "en" "Partial copy" "zhURL" "/ai-markdone/manual/partial-copy/" "enURL" "/ai-markdone/en/manual/partial-copy/" "zhUse" "复制选中的 Markdown 片段。" "enUse" "Copy selected Markdown passages.")
   (dict "id" "sticky" "zh" "Sticky 临时摘录" "en" "Sticky excerpts" "zhURL" "/ai-markdone/manual/sticky/" "enURL" "/ai-markdone/en/manual/sticky/" "zhUse" "把几段内容临时钉在 Reader 旁边对照。" "enUse" "Pin temporary excerpts beside Reader for comparison.")
   (dict "id" "copy-markdown" "zh" "复制 Markdown" "en" "Copy Markdown" "zhURL" "/ai-markdone/manual/copy-markdown/" "enURL" "/ai-markdone/en/manual/copy-markdown/" "zhUse" "复制整条回答，保留标题、列表、代码、表格和公式边界。" "enUse" "Copy one full answer with headings, lists, code, tables, and formulas.")

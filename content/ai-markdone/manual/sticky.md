@@ -6,8 +6,6 @@ amd_lang: "zh"
 page_kind: "manual_feature"
 manual_feature: "sticky"
 translation_url: "/ai-markdone/en/manual/sticky/"
-screenshot_title: "后续这里放：Reader 选中文本后点击 Stick，摘录进入 Sticky 面板的截图。"
-screenshot_detail: "截图重点是 Sticky 面板、多个摘录、删除或拖动排序入口。"
 ---
 
 ## 适合谁

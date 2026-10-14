@@ -10,6 +10,9 @@ tags: ["Reflections"]
 summary: "内容还是流量？脚踏实地还是投机取巧？"
 math: false
 draft: false
+
+translationKey: "notes-reflection-wechat-official-account"
+aliases: ["/writing/reflection-wechat-official-account/"]
 ---
 
 前段时间看见公众号“修明札记”的一篇文章“微信公众号已死！！！”。标题起的吸引眼球，里面主要的观点是“微信公众号死了！微信团队为了流量，东施效颦，将微信公众号变成了第二个今日头条，丧失自己的特色，微信公众号将不可避免的走向衰败！运营这样的公众号，已无意义。”

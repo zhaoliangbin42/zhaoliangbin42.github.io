@@ -10,6 +10,9 @@ tags: ["Resource"]
 summary: "一个普通工科生平时常用的一些配色方案。"
 math: true
 draft: false
+
+translationKey: "notes-my-color"
+aliases: ["/writing/my-color/"]
 ---
 
 > 分享一些色彩资源和个人想法，流水账式。欢迎讨论

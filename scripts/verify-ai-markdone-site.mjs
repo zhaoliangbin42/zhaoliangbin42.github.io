@@ -2,6 +2,8 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
+const outputDir = path.resolve(process.env.HUGO_DESTINATION || process.argv[2] || path.join(root, "docs"));
+const resolvePath = (file) => file.startsWith("docs/") ? path.join(outputDir, file.slice(5)) : path.join(root, file);
 
 const requiredFiles = [
   ".agents/product-marketing.md",
@@ -65,7 +67,7 @@ const requiredFiles = [
   "layouts/partials/ai-markdone/privacy.html",
   "layouts/partials/ai-markdone/contact.html",
   "layouts/partials/ai-markdone/seo.html",
-  "assets/css/custom.css",
+  "assets/ai-markdone/signal.css",
   "assets/ai-markdone/faq.zh.md",
   "assets/ai-markdone/faq.en.md",
   "assets/ai-markdone/testimonials.md",
@@ -135,11 +137,11 @@ const builtFiles = [
 ];
 
 function read(relativePath) {
-  return fs.readFileSync(path.join(root, relativePath), "utf8");
+  return fs.readFileSync(resolvePath(relativePath), "utf8");
 }
 
 function exists(relativePath) {
-  return fs.existsSync(path.join(root, relativePath));
+  return fs.existsSync(resolvePath(relativePath));
 }
 
 function assert(condition, message) {
@@ -162,14 +164,15 @@ for (const file of requiredFiles) {
 assert(!exists("content/ai-markdone/en/manual/partial-copy-sticky 2.md"), "Duplicate partial-copy-sticky 2 source must not exist");
 assert(!exists("docs/ai-markdone/en/manual/partial-copy-sticky-2/index.html"), "Duplicate partial-copy-sticky-2 output must not exist");
 
+const productionNotes = /产品界面宣传图|宣传合成图|产品实拍|Actual product capture|example content in Chinese|promotional composition|Product interface composition|screenshot_title|screenshot_detail|截图建议|Screenshot notes|Show this later/;
+for (const file of requiredFiles.filter(file => /^(content\/ai-markdone|layouts\/partials\/ai-markdone|assets\/ai-markdone\/(faq|testimonials))/.test(file))) {
+  assert(!productionNotes.test(read(file)), `${file} contains production notes intended only for the design process`);
+}
+
 const unsupportedPlatformPattern = /\b(?:Gemini|Claude|DeepSeek|DeepsGe|Safari)\b/;
 for (const file of requiredFiles.filter((file) => /^(content|layouts\/partials\/ai-markdone|static\/llms\.txt)/.test(file))) {
   assert(!unsupportedPlatformPattern.test(read(file)), `${file} must not mention unsupported AI platforms or Safari as a public product path`);
 }
-
-const menu = read("config/_default/menus.toml");
-assert(menu.includes('name = "AI-MarkDone"'), "Main menu is missing AI-MarkDone");
-assert(menu.includes('url = "/ai-markdone/en/"'), "AI-MarkDone menu must link to the English product site by default");
 
 const baseLayout = read("layouts/_default/baseof.html");
 assert(baseLayout.includes('eq .Type "ai-markdone"'), "Base layout must branch for AI-MarkDone");
@@ -193,10 +196,10 @@ for (const needle of ["插件层级", "阅读器", "工具栏", "数据与设置
 for (const needle of ["architecture", "partial-copy", "sticky", "google-drive-backup", "privacy-storage", "troubleshooting"]) {
   assert(manualNav.includes(needle), `Manual nav is missing ${needle}`);
 }
-assert(manualNav.indexOf('id = "architecture"') < manualNav.indexOf('id = "reader"'), "Plugin architecture must appear above Reader in the manual nav");
+assert(manualNav.indexOf('id = "architecture"') > manualNav.indexOf('id = "reader"'), "Advanced architecture belongs after the practical Reader guide");
 
 const manualShell = read("layouts/partials/ai-markdone/manual-shell.html");
-assert(manualShell.includes("site.Data.ai_markdone.manual_nav.groups"), "Manual shell must use the manual nav SSOT");
+assert(manualShell.includes("hugo.Data.ai_markdone.manual_nav.groups"), "Manual shell must use the manual nav SSOT");
 assert(manualShell.includes("amd-docs-layout") && manualShell.includes("amd-docs-sidebar") && manualShell.includes("amd-docs-content"), "Manual shell must render docs layout, sidebar, and Markdown content");
 
 const readerZh = read("content/ai-markdone/manual/reader.md");
@@ -287,15 +290,11 @@ function assertPluginArchitectureGeometry(script) {
 }
 assertPluginArchitectureGeometry(architectureScript);
 
-const css = read("assets/css/custom.css");
-for (const needle of [".amd-docs-layout", ".amd-docs-sidebar", ".amd-docs-article", ".amd-docs-content", ".amd-docs-placeholder", ".amd-architecture", ".amd-architecture-graph", ".amd-architecture-lane-pane", ".amd-architecture-canvas-pane", ".amd-architecture-lane-track", ".amd-architecture-lane-label", ".amd-architecture-detail", ".amd-architecture-shell:fullscreen", ".amd-manual-overview-grid", ".amd-manual-goal-grid", ".amd-manual-matrix", ".amd-manual-primary-cta", ".amd-manual-secondary-cta", ".amd-feature-index-list", ".amd-feature-index-section", ".amd-features-moved-section", ".amd-sponsor-thanks-table"]) {
-  assert(css.includes(needle), `CSS missing ${needle}`);
+const css = read("assets/ai-markdone/signal.css");
+for (const needle of [".amd-docs-layout", ".amd-docs-sidebar", ".amd-docs-content", ".amd-architecture", ".amd-site-header", ".amd-site-footer", "var(--ink,"]) {
+  assert(css.includes(needle), `Product stylesheet missing ${needle}`);
 }
-assert(!/\.amd-architecture-controls\s*\{[^}]*background:/s.test(css), "Architecture controls container must not render a capsule background");
-for (const stale of [".amd-hero-grid", ".amd-problem-section", ".amd-showcase-section", ".amd-handbook-section", ".amd-product-visual", ".amd-workflow-grid", ".amd-mode-card", ".amd-workbench-preview", ".amd-preview-directory", ".amd-feature-anchor-strip"]) {
-  assert(!css.includes(stale), `CSS still contains retired selector ${stale}`);
-}
-assert(css.includes("var(--color-brand-rose)") && css.includes(".amd-site-header") && css.includes(".amd-site-footer"), "CSS must keep shared design tokens and product shell styles");
+assert(read("layouts/partials/signal/head.html").includes("ai-markdone/signal.css"), "Product stylesheet must be loaded by the shared head");
 
 const sponsors = read("data/ai_markdone/sponsors.toml");
 for (const needle of ["感谢赞助", "Thanks to Sponsors", "每一份支持，都会变成 AI-MarkDone 继续更新的动力。", "@匿名（Danke!）", "淡定的喵（真的很棒，效率大大提高，世界因为有您这样的人而更美好，祝顺利）"]) {
@@ -303,18 +302,10 @@ for (const needle of ["感谢赞助", "Thanks to Sponsors", "每一份支持，�
 }
 
 const homePartial = read("layouts/partials/ai-markdone/home.html");
-assert(homePartial.includes("amd-feature-row") && homePartial.includes("amd-feature-placeholder"), "Homepage source must keep the detailed feature sections");
-assert(homePartial.includes("amd-feature-index-section") && homePartial.includes("amd-feature-index-list"), "Homepage source must render the compact feature guide list near the bottom");
-assert(homePartial.includes("site.Data.ai_markdone.sponsors") && homePartial.includes("amd-sponsor-thanks-section") && homePartial.includes("amd-sponsor-thanks-table"), "Homepage source must render the sponsor thanks section from data");
-assert(!homePartial.includes("Open this in the feature reference") && !homePartial.includes("在功能表里查看这一项"), "Homepage source must not point feature rows to old Features page");
-assert(homePartial.includes("消息切换") && homePartial.includes("Message switching"), "Homepage source must include current message switching copy");
-assert(homePartial.includes("Sticky 栏") && homePartial.includes("Sticky panel"), "Homepage source must include Reader Sticky panel copy");
-assert(homePartial.includes("https://tools.cafe") && homePartial.includes("https://tools.cafe/b/light.svg") && homePartial.includes("Featured on tools.cafe"), "Homepage source must render the tools.cafe featured badge");
-assert(!homePartial.includes("目录、Reader") && !homePartial.includes("Directory, Reader"), "Homepage source must not promote the retired directory surface");
-assert(homePartial.includes("/ai-markdone/manual/reader/") && homePartial.includes("/ai-markdone/manual/settings/"), "Homepage guide must link to Manual entries");
-assert(!homePartial.includes("Google Drive 云备份") && !homePartial.includes("Google Drive backup"), "Homepage must not present Google Drive backup as a feature section");
-assert(homePartial.includes("AI-MarkDone 把你的 ChatGPT 武装到牙齿：阅读模式、局部 Markdown 复制、公式复制/导出、书签保存、批量导出和灵动注释，这些功能让ChatGPT从未如此丝滑。"), "Chinese homepage source must keep the exact hero sentence");
-assert(homePartial.includes("AI-MarkDone 适合所有 ChatGPT 重度使用者，尤其是理工科科研工作者。把原本零散的复制、截图、导出和批注动作，收进一个更高效的 ChatGPT 工作流。"), "Chinese homepage source must keep the requested feature-guide body");
+for (const needle of ["amd-signal-hero", "ai-markdone/workflow.html", "amd-signal-feature-links", "ai-markdone/supporters.html", "ai-markdone-promo.png"]) {
+  assert(homePartial.includes(needle), `Product homepage is missing ${needle}`);
+}
+assert(!homePartial.includes("武装到牙齿"), "Homepage copy must follow the new concise editorial direction");
 
 const featuresPartial = read("layouts/partials/ai-markdone/features.html");
 assert(featuresPartial.includes("功能索引") && featuresPartial.includes("Feature reference"), "Features partial must render a positive feature reference page");
@@ -325,7 +316,7 @@ assert(seoPartial.includes("SoftwareApplication") && seoPartial.includes("FAQPag
 assert(seoPartial.includes("hreflang") && seoPartial.includes('hreflang="x-default"'), "SEO partial must keep hreflang and x-default");
 
 const llms = read("static/llms.txt");
-assert(llms.includes("compact feature guide table"), "llms.txt must describe the compact homepage feature guide");
+assert(llms.includes("workflow"), "llms.txt must describe the current workflow");
 assert(llms.includes("manual overview") && llms.includes("need-to-feature matrix"), "llms.txt must describe the Manual overview matrix");
 assert(llms.includes("feature reference page"), "llms.txt must describe Features as a feature reference page");
 assert(!llms.includes("one-page manual"), "llms.txt must not describe Manual as a one-page manual");
@@ -333,6 +324,7 @@ assert(!llms.includes("one-page manual"), "llms.txt must not describe Manual as 
 for (const file of builtFiles) {
   assert(exists(file), `Missing built output: ${file}`);
   assert(!unsupportedPlatformPattern.test(read(file)), `${file} must not render unsupported AI platforms or Safari as a public product path`);
+  assert(!productionNotes.test(read(file)), `${file} renders internal production notes`);
 }
 
 function localAssetPath(rawUrl) {
@@ -373,26 +365,20 @@ for (const htmlFile of builtFiles) {
 
 const zhHome = read("docs/ai-markdone/index.html");
 const enHome = read("docs/ai-markdone/en/index.html");
-assertOrdered(zhHome, ["amd-home-hub", "amd-core-section", "amd-trust-hub-section", "amd-feature-index-section", "amd-reviews-section", "amd-sponsor-thanks-section"], "Chinese homepage");
-assertOrdered(enHome, ["amd-home-hub", "amd-core-section", "amd-trust-hub-section", "amd-feature-index-section", "amd-reviews-section", "amd-sponsor-thanks-section"], "English homepage");
-assert(zhHome.includes("amd-feature-index-list") && enHome.includes("amd-feature-index-list"), "Homepages must render compact feature guide lists");
-assert(zhHome.includes("感谢赞助") && zhHome.includes("@匿名（Danke!）") && zhHome.includes("淡定的喵（真的很棒，效率大大提高，世界因为有您这样的人而更美好，祝顺利）"), "Chinese homepage must render real sponsor thanks");
-assert(enHome.includes("Thanks to Sponsors") && enHome.includes("@匿名（Danke!）"), "English homepage must render real sponsor thanks");
-assert(!zhHome.includes("/ai-markdone/manual/google-drive-backup/") && !enHome.includes("/ai-markdone/en/manual/google-drive-backup/"), "Home guide tables must not promote Google Drive backup");
-assert(zhHome.includes("amd-feature-row") && enHome.includes("amd-feature-row"), "Homepages must keep the detailed feature sections");
-for (const imageName of ["ai-markdone-chatgpt-reader-toolbar.gif", "chatgpt-reader-heading-outline.png", "copy-chatgpt-selection-to-markdown.gif", "chatgpt-reader-sticky-excerpts-pin-important-content.png", "chatgpt-reader-dynamic-annotation-prompt.gif", "chatgpt-reader-message-switching.png", "chatgpt-latex-formula-copy-export.png", "chatgpt-bookmark-manager-folders-search.png", "export-chatgpt-markdown-pdf-png.png", "ai-markdone-chatgpt-extension-settings.png"]) {
-  assert(zhHome.includes(imageName) && enHome.includes(imageName), `Homepages must render ${imageName}`);
+for (const [html, language] of [[zhHome, "zh-CN"], [enHome, "en"]]) {
+  assertOrdered(html, ["amd-signal-hero", "amd-signal-promo", "amd-signal-workflow", "amd-signal-trust", "amd-signal-feature-index"], `${language} homepage`);
+  assert(html.includes("chromewebstore.google.com") && html.includes("addons.mozilla.org") && html.includes("github.com/zhaoliangbin42/AI-MarkDone"), "Homepages must keep real installation and source links");
+  assert(html.includes("@匿名（Danke!）"), "Homepages retain the real sponsor acknowledgements");
+  assert(html.includes("SoftwareApplication") && html.includes("hreflang="), "Homepages keep structured data and alternate languages");
 }
-for (const altText of ["AI-MarkDone 在 ChatGPT 原页面提供 Reader 入口和回答工具栏", "AI-MarkDone Reader 中展示 ChatGPT 长回答的对话内目录条", "AI-MarkDone Reader 中选中文本并复制为 Markdown", "AI-MarkDone Reader Sticky 栏将 ChatGPT 重要公式和片段钉在左侧", "AI-MarkDone Reader 中对 ChatGPT 选中文本添加灵动注释", "AI-MarkDone 书签面板展示 ChatGPT 回答文件夹搜索和预览", "AI-MarkDone 将 ChatGPT 消息导出为 Markdown PDF PNG 的 Save Messages 弹窗", "AI-MarkDone 设置页展示 ChatGPT 扩展工具栏 Reader 和公式动作选项"]) {
-  assert(zhHome.includes(altText), `Chinese homepage image alt missing ${altText}`);
+for (const prefix of ["ai-markdone", "ai-markdone/en"]) {
+  const workflow = read(`docs/${prefix}/workflow/index.html`);
+  assert(workflow.includes("amd-signal-workflow") && workflow.includes("data-amd-step="), `${prefix} workflow has interactive step controls`);
+  for (const guide of ["install", "reader"]) {
+    const redirect = read(`docs/${prefix}/guide/${guide}/index.html`);
+    assert(redirect.includes(`/${prefix}/manual/${guide}/`), `Prototype ${guide} route must redirect to its canonical manual`);
+  }
 }
-for (const altText of ["AI-MarkDone Reader entry and answer toolbar on the original ChatGPT page", "AI-MarkDone Reader showing the in-conversation outline for a long ChatGPT answer", "AI-MarkDone Reader copying a selected ChatGPT passage as Markdown", "AI-MarkDone Reader adding a Dynamic Annotation to selected ChatGPT text", "AI-MarkDone bookmark manager showing ChatGPT answer folders search and preview", "AI-MarkDone Save Messages dialog for exporting ChatGPT to Markdown PDF and PNG", "AI-MarkDone settings page showing ChatGPT extension toolbar Reader and formula action options"]) {
-  assert(enHome.includes(altText), `English homepage image alt missing ${altText}`);
-}
-assert(zhHome.includes("Chrome Web Store") && zhHome.includes("Firefox Add-ons") && zhHome.includes("GitHub Star") && zhHome.includes("Featured on tools.cafe"), "Chinese homepage must render install, GitHub, and featured badge actions");
-assert(enHome.includes("Chrome Web Store") && enHome.includes("Firefox Add-ons") && enHome.includes("GitHub Star") && enHome.includes("Featured on tools.cafe"), "English homepage must render install, GitHub, and featured badge actions");
-assert(zhHome.includes("application/ld+json") && enHome.includes("application/ld+json"), "Homepages must render JSON-LD");
-assert(enHome.includes("hreflang=en") && zhHome.includes("hreflang=zh-CN"), "Homepages must render hreflang");
 
 const zhManual = read("docs/ai-markdone/manual/index.html");
 const enManual = read("docs/ai-markdone/en/manual/index.html");
@@ -421,8 +407,8 @@ assert(enSticky.includes("Sticky excerpts") && enSticky.includes("temporary"), "
 
 const zhReader = read("docs/ai-markdone/manual/reader/index.html");
 const enReader = read("docs/ai-markdone/en/manual/reader/index.html");
-assert(zhReader.includes("amd-docs-content") && zhReader.includes("amd-docs-placeholder"), "Chinese Reader manual must render Markdown content and screenshot placeholder");
-assert(enReader.includes("amd-docs-content") && enReader.includes("amd-docs-placeholder"), "English Reader manual must render Markdown content and screenshot placeholder");
+assert(zhReader.includes("amd-docs-content") && zhReader.includes("amd-docs-media"), "Chinese Reader manual must render Markdown content and real screenshots");
+assert(enReader.includes("amd-docs-content") && enReader.includes("amd-docs-media"), "English Reader manual must render Markdown content and real screenshots");
 assert(zhReader.includes("aria-current=page") || zhReader.includes('aria-current="page"'), "Chinese Reader manual must highlight the active sidebar item");
 assert(enReader.includes("aria-current=page") || enReader.includes('aria-current="page"'), "English Reader manual must highlight the active sidebar item");
 assert(!zhReader.includes("amd-reader-architecture") && !zhReader.includes("架构解析"), "Chinese Reader output must not include the old Reader architecture map");
@@ -443,7 +429,7 @@ for (const removed of ["Path index", "Screenshot placeholder", "Interactive plug
 
 const zhTrouble = read("docs/ai-markdone/manual/troubleshooting/index.html");
 const enTrouble = read("docs/ai-markdone/en/manual/troubleshooting/index.html");
-assert(zhTrouble.includes("工具栏不显示") && zhTrouble.includes("控制台错误") && zhTrouble.includes("GitHub Issue"), "Chinese troubleshooting page must include practical diagnosis steps");
+assert(zhTrouble.includes("工具栏不显示") && (zhTrouble.includes("控制台") && zhTrouble.includes("错误")) && zhTrouble.includes("GitHub Issue"), "Chinese troubleshooting page must include practical diagnosis steps");
 assert(enTrouble.includes("Toolbar does not appear") && enTrouble.includes("console error") && enTrouble.includes("GitHub Issues"), "English troubleshooting page must include practical diagnosis steps");
 
 const zhFeatures = read("docs/ai-markdone/features/index.html");
@@ -484,7 +470,7 @@ assert(zhPrivacy.includes("https://www.googleapis.com/auth/drive.file") && enPri
 assert(!zhPrivacy.includes("最后更新") && !enPrivacy.includes("Last updated"), "Privacy pages must not show last updated copy");
 
 const blogHome = read("docs/index.html");
-assert(blogHome.includes("/ai-markdone/en/"), "Blog homepage must link into the English AI-MarkDone product site by default");
+assert(blogHome.includes("/ai-markdone/"), "Chinese homepage must link into the Chinese AI-MarkDone product site");
 assert(!blogHome.includes("home-ai-markdone-card"), "Blog homepage must not render a duplicate AI-MarkDone product entry");
 
-console.log("AI-MarkDone site verification passed.");
+console.log(`AI-MarkDone site verification passed (${outputDir}).`);

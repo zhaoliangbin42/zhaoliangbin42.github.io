@@ -2,7 +2,7 @@
 
 ## 这个插件都支持哪些平台？
 
-AI-MarkDone 4.5.0 之后，当前唯一支持的 AI 页面运行时是 ChatGPT。
+AI-MarkDone 目前支持 ChatGPT。
 
 ## 这个插件到底能做什么？入口都在哪？
 
@@ -92,7 +92,7 @@ Sticky 面板可以展开或收起，里面的摘录可以删除，也可以拖�
 
 可以，而且这正是阅读器里的一个亮点功能。
 
-我把阅读器里的 Markdown 渲染链路重构了一遍，尽量把页面上的显示结果和底层结构对齐起来。结果就是，你在阅读器里选中任意范围的内容（包括闭合选框，例如公式、代码框之类的），复制出来时都能尽量保持正确的 Markdown 逻辑，而不是只拿到一段渲染后的纯文本。
+在 Reader 中选中需要的内容后，可以直接复制对应的 Markdown。标题、列表、公式、代码块和表格会尽量保留结构；选取完整的段落或内容块，通常能得到更干净的结果。
 
 如果你平时会做笔记、摘录段落、局部改写，或者需要只复制某一小段公式、代码、列表内容，这个功能会非常顺手。
 
@@ -163,15 +163,15 @@ Sticky 面板可以展开或收起，里面的摘录可以删除，也可以拖�
 
 备份文件会保存到你自己的 Google Drive：`AI-MarkDone/Backups/bookmarks`。AI-MarkDone 不运行备份服务器，快照里也不会包含 OAuth token、密码或扩展设置。
 
-扩展里的 OAuth client ID 只是 AI-MarkDone 这个应用的身份标识，不会让别人登录到开发者的 Google 账号。每个用户授权的是自己浏览器/profile 中已有的 Google 账号，或者在 Google 授权流程里登录自己的账号。
+连接时授权的是你自己的 Google 账号。你可以选择浏览器中已有的账号，也可以在 Google 授权页面登录其他账号。
 
 当前版本是书签备份，不会实时双向更新。从 Drive 恢复时会先显示安全合并预览：云端独有书签可以新增，本地独有书签会保留，重复项会跳过，冲突项默认保留本地版本。
 
-备份过程中，AI-MarkDone 会展示阶段进度和本次操作的超时预算倒计时，但不会显示真实字节级上传速度。当前 Drive 上传使用 resumable upload session，但 v1 会把快照通过一次 PUT 请求传完，还不是完整的分块断点续传。如果浏览器关闭或扩展在上传中途卸载，Google Drive 里可能会留下备份文件夹，或者留下一个已经上传但没有被报告成功的 JSON 文件。上传完成后，AI-MarkDone 会回读文件并校验 snapshot id 和 payload hash；如果校验失败，会尝试删除刚创建的 Drive 文件，并在清理失败时提示你手动处理。
+备份过程中会显示当前步骤和剩余等待时间。上传完成后，AI-MarkDone 会检查备份文件，确认完整后才报告成功；如果校验失败，会尝试删除刚创建的文件，并在需要时提示你手动清理。当前不支持完整的断点续传，上传中途关闭浏览器或卸载扩展，可能会在 Drive 中留下尚未确认完成的文件。
 
-点击“退出登录”会先请求 Google 撤销 AI-MarkDone 当前的 Drive OAuth 授权，再清除浏览器 identity API 为 AI-MarkDone 缓存的授权状态。再次登录时，浏览器会按需打开 Google 登录或授权页面。
+点击“退出登录”会请求 Google 撤销当前授权，并清除扩展保存的连接状态。下次连接时，浏览器会按需打开 Google 登录或授权页面。
 
-如果备份失败是因为当前加载的构建缺少 OAuth 配置，AI-MarkDone 会直接在错误提示里给出对应诊断，不会为了诊断而触发登录。如果浏览器仍在加载不完整的 manifest，请移除旧的未打包 AI-MarkDone，并重新加载当前构建。如果看到 `invalid_request` 或 OAuth 请求无效，请将诊断里显示的 redirect URI 与 Google Cloud Web OAuth client 中的 Authorized redirect URIs 和 Authorized JavaScript origins 对齐。
+如果无法连接或备份失败，请先查看错误提示，并按[问题排查指南](/ai-markdone/manual/troubleshooting/)检查。问题仍然存在时，将错误信息、浏览器版本和扩展版本通过[联系页面](/ai-markdone/contact/)反馈。
 
 你也可以在 Google Drive 备份设置面板中管理云端备份。把某个备份移到 Google Drive 回收站，不会影响本地书签；如果你更习惯直接在 Google Drive 里整理，也可以在那里手动清理这些 JSON 文件。
 

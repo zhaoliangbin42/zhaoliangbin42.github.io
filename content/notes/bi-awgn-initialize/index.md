@@ -10,6 +10,9 @@ tags: ["Signal Processing"]
 summary: "本文介绍了BI-AWGN信道中接收概率的初始化方法，详细推导了对数似然比(LLR)的计算过程和在不同信噪比表示形式下的数学表达式。"
 math: true
 draft: false
+
+translationKey: "notes-bi-awgn-initialize"
+aliases: ["/writing/bi-awgn-initialize/"]
 ---
 
 > 内容参考：《Iterative Error Correction Turbo, Low-Density》

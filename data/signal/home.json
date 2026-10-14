@@ -1,0 +1,161 @@
+{
+  "zh": {
+    "name": "Liangbin Zhao",
+    "nav": [
+      {
+        "id": "research",
+        "label": "研究"
+      },
+      {
+        "id": "writing",
+        "label": "写作"
+      },
+      {
+        "id": "projects",
+        "label": "作品"
+      },
+      {
+        "id": "about",
+        "label": "关于"
+      }
+    ],
+    "introLines": ["研究无线通信与信号处理。", "也写文章，做一些自己的软件。"],
+    "researchHeading": "研究",
+    "writingHeading": "写作",
+    "projectsHeading": "独立作品",
+    "aboutHeading": "关于",
+    "articles": [
+      {
+        "title": "定时同步算法",
+        "date": "2022-08-03",
+        "category": "研究笔记",
+        "url": "https://zhaoliangbin42.github.io/notes/timing-recovery/",
+        "language": "zh"
+      },
+      {
+        "title": "远程服务器怎么用才顺手",
+        "date": "2025-07-13",
+        "category": "工具与开发",
+        "url": "https://zhaoliangbin42.github.io/notes/tutorial-how-to-use-server/",
+        "language": "zh"
+      },
+      {
+        "title": "吐槽微信公众号的推送模式",
+        "date": "2025-07-04",
+        "category": "随笔",
+        "url": "https://zhaoliangbin42.github.io/notes/reflection-wechat-official-account/",
+        "language": "zh"
+      }
+    ],
+    "projects": [
+      {
+        "id": "ai-markdone",
+        "name": "AI-MarkDone",
+        "summary": "让 ChatGPT 对话更好读，也更方便整理和保存。",
+        "detail": "为 ChatGPT 加入 Reader 阅读、Markdown 与 LaTeX 复制、注释、书签和导出，方便把对话中的内容继续用于学习、研究与写作。",
+        "platform": "Chrome / Firefox 浏览器扩展"
+      },
+      {
+        "id": "mappamory",
+        "name": "好友迹",
+        "summary": "你的好友地图通讯录",
+        "detail": "围绕人物、地点和时间整理记录，用笔记与照片留下上下文，再从地图回看那些经历。以本地存储为基础，为自己的记忆留一个位置。",
+        "platform": "iOS 应用"
+      }
+    ],
+    "about": "我关心通信信号如何帮助我们理解周围的世界。研究之外，我把学习过程、工具经验和日常观察写在这里，也把自己的需要做成软件。",
+    "labels": {
+      "researchCta": "探索研究",
+      "writingCta": "阅读文章",
+      "paper": "论文",
+      "code": "代码",
+      "visit": "访问项目",
+      "more": "了解更多",
+      "close": "关闭",
+      "originalLanguage": "中文原文",
+      "independentWork": "独立作品",
+      "backToTop": "返回顶部"
+    }
+  },
+  "en": {
+    "name": "Liangbin Zhao",
+    "nav": [
+      {
+        "id": "research",
+        "label": "Research"
+      },
+      {
+        "id": "writing",
+        "label": "Writing"
+      },
+      {
+        "id": "projects",
+        "label": "Projects"
+      },
+      {
+        "id": "about",
+        "label": "About"
+      }
+    ],
+    "introLines": [
+      "I research wireless communications and signal processing.",
+      "I also write and build useful software."
+    ],
+    "researchHeading": "Research",
+    "writingHeading": "Writing",
+    "projectsHeading": "Independent projects",
+    "aboutHeading": "About",
+    "articles": [
+      {
+        "title": "Timing Synchronization Algorithms",
+        "date": "2022-08-03",
+        "category": "Research notes",
+        "url": "https://zhaoliangbin42.github.io/notes/timing-recovery/",
+        "language": "zh"
+      },
+      {
+        "title": "Making Remote Servers Easier to Work With",
+        "date": "2025-07-13",
+        "category": "Tools & development",
+        "url": "https://zhaoliangbin42.github.io/notes/tutorial-how-to-use-server/",
+        "language": "zh"
+      },
+      {
+        "title": "A Frustration with the WeChat Official Accounts Feed",
+        "date": "2025-07-04",
+        "category": "Reflections",
+        "url": "https://zhaoliangbin42.github.io/notes/reflection-wechat-official-account/",
+        "language": "zh"
+      }
+    ],
+    "projects": [
+      {
+        "id": "ai-markdone",
+        "name": "AI-MarkDone",
+        "summary": "Read, organize, and save more from your ChatGPT conversations.",
+        "detail": "Reader mode, Markdown and LaTeX copying, annotations, bookmarks, and exports for ChatGPT. Built to make conversation content easier to use in study, research, and writing.",
+        "platform": "Chrome / Firefox extension"
+      },
+      {
+        "id": "mappamory",
+        "name": "Mappamory",
+        "summary": "Your personal map of friends.",
+        "detail": "Keep records of people, places, and time, add context with notes and photos, and revisit those experiences on a map. A local-first app for your own memories.",
+        "platform": "iOS app"
+      }
+    ],
+    "about": "I am interested in how communication signals can help us understand the world around us. Beyond research, I write about what I learn, the tools I use, and everyday observations. I also build software from needs I encounter myself.",
+    "labels": {
+      "researchCta": "Research",
+      "writingCta": "Writing",
+      "paper": "Paper",
+      "code": "Code",
+      "visit": "Visit project",
+      "more": "Learn more",
+      "close": "Close",
+      "originalLanguage": "Written in Chinese",
+      "independentWork": "Independent projects",
+      "backToTop": "Back to top"
+    }
+  }
+}

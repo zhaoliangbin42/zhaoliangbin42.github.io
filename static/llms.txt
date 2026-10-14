@@ -2,10 +2,17 @@
 
 AI-MarkDone is a focused ChatGPT browser extension for Reader mode, source-aware Markdown copy, LaTeX formula copy/export, Dynamic Annotation, bookmarks, Google Drive bookmark backup, and Markdown/PDF/PNG export without leaving the original ChatGPT workflow.
 
+## Personal Website
+
+- https://zhaoliangbin42.github.io/ and https://zhaoliangbin42.github.io/en/ - Liangbin Zhao: research, writing, and independent software.
+- /research/ and /en/research/ - Publications, reproducible research and code.
+- /writing/ and /en/writing/ - Technical notes and essays. Chinese articles retain /notes/ URLs; full English translations use /en/notes/.
+- /projects/ and /en/projects/ - AI-MarkDone and Mappamory. Mappamory (好友迹, 你的好友地图通讯录) links to its standalone website at https://mappamory.com.
+
 ## Core Pages
 
-- https://zhaoliangbin42.github.io/ai-markdone/ - Chinese independent product site for AI-MarkDone, a ChatGPT browser extension with centered install hero, tools.cafe featured badge, detailed feature sections, a compact feature guide table, message switching, Reader, local-first trust notes, user feedback, and Chrome/Firefox install links.
-- https://zhaoliangbin42.github.io/ai-markdone/en/ - English independent product site for AI-MarkDone with the same ChatGPT positioning, tools.cafe featured badge, detailed feature sections, compact feature guide, message switching, Reader, Markdown copy, LaTeX formula copy/export, bookmarks, export, Google Drive backup, trust notes, and install CTA.
+- https://zhaoliangbin42.github.io/ai-markdone/ - Chinese independent product site for AI-MarkDone, a ChatGPT browser extension with a product interface composition, interactive read/extract/keep workflow, complete manual index, local-first trust notes, real user feedback and acknowledgements, and Chrome/Firefox install links.
+- https://zhaoliangbin42.github.io/ai-markdone/en/ - English independent product site for AI-MarkDone with the same ChatGPT positioning, read/extract/keep workflow, real product imagery, manual index, privacy disclosure, and install links.
 - https://zhaoliangbin42.github.io/ai-markdone/manual/ - Chinese manual overview introducing AI-MarkDone as a ChatGPT workbench, with four goal cards, a need-to-feature matrix, and Reader/settings CTAs before the detailed manual sections.
 - https://zhaoliangbin42.github.io/ai-markdone/en/manual/ - English manual overview with the same four goal cards, need-to-feature matrix, and Reader/settings CTAs before the detailed manual sections.
 - https://zhaoliangbin42.github.io/ai-markdone/manual/architecture/ - Chinese plugin architecture manual centered on one interactive workflow map that shows how AI-MarkDone discovers ChatGPT content, prepares shared answer data, and routes it into Reader, copy, bookmarks, export, formulas, settings, backup, and message navigation.
@@ -22,6 +29,10 @@ AI-MarkDone is a focused ChatGPT browser extension for Reader mode, source-aware
 - https://zhaoliangbin42.github.io/ai-markdone/en/privacy/ - English privacy policy with the same Google Drive backup, permissions, and Limited Use disclosures for review and user reference.
 - https://zhaoliangbin42.github.io/ai-markdone/contact/ - Chinese contact page for email feedback and GitHub Issues.
 - https://zhaoliangbin42.github.io/ai-markdone/en/contact/ - English contact page for email feedback and GitHub Issues.
+
+- https://zhaoliangbin42.github.io/ai-markdone/workflow/ - Chinese read, extract, and keep workflow.
+- https://zhaoliangbin42.github.io/ai-markdone/en/workflow/ - Corresponding English workflow.
+- /ai-markdone/guide/install/ and /ai-markdone/guide/reader/ (also /ai-markdone/en/guide/...) redirect to the existing manual pages.
 
 ## External References
 

@@ -6,8 +6,6 @@ amd_lang: "en"
 page_kind: "manual_feature"
 manual_feature: "privacy-storage"
 translation_url: "/ai-markdone/manual/privacy-storage/"
-screenshot_title: "Show this later: the Data Backup area in Settings with Local Backup, Export All, Import bookmarks, and Google Drive entry."
-screenshot_detail: "The screenshot should focus on local backup and user-triggered actions."
 ---
 
 ## Use this when

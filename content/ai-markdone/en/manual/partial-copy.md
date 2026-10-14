@@ -6,8 +6,6 @@ amd_lang: "en"
 page_kind: "manual_feature"
 manual_feature: "partial-copy"
 translation_url: "/ai-markdone/manual/partial-copy/"
-screenshot_title: "Show this later: selected text in Reader being copied as a Markdown passage."
-screenshot_detail: "The screenshot should show the selection, the copy action, and the pasted result keeping Markdown structure."
 ---
 
 ## Use this when

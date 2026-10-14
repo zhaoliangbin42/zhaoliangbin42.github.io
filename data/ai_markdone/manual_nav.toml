@@ -1,14 +1,14 @@
 [[groups]]
-id = "overview"
-zh = "手册总览"
-en = "Manual overview"
+id = "getting-started"
+zh = "开始使用"
+en = "Getting started"
 
   [[groups.items]]
-  id = "architecture"
-  zh = "插件层级"
-  en = "Plugin architecture"
-  zhURL = "/ai-markdone/manual/architecture/"
-  enURL = "/ai-markdone/en/manual/architecture/"
+  id = "install"
+  zh = "安装与开始"
+  en = "Installation"
+  zhURL = "/ai-markdone/manual/install/"
+  enURL = "/ai-markdone/en/manual/install/"
 
 [[groups]]
 id = "reader"
@@ -125,3 +125,15 @@ en = "Troubleshooting"
   en = "Troubleshooting"
   zhURL = "/ai-markdone/manual/troubleshooting/"
   enURL = "/ai-markdone/en/manual/troubleshooting/"
+
+[[groups]]
+id = "advanced"
+zh = "进阶资料"
+en = "Further reading"
+
+  [[groups.items]]
+  id = "architecture"
+  zh = "插件层级"
+  en = "Plugin architecture"
+  zhURL = "/ai-markdone/manual/architecture/"
+  enURL = "/ai-markdone/en/manual/architecture/"

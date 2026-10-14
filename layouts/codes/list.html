@@ -1,0 +1,23 @@
+{{ define "main" }}
+  {{- $en := eq .Language.Lang "en" -}}
+  {{- $pages := .RegularPages.ByDate.Reverse -}}
+  <div class="rp-page rp-codes-page">
+    <header class="rp-code-heading">
+      <a class="rp-back-link" href="{{ `/research/` | relLangURL }}"><span aria-hidden="true">←</span>{{ cond $en "Back to research" "返回研究" }}</a>
+      <span class="rp-eyebrow">RESEARCH CODE</span><h1>{{ .Title }}</h1><p class="rp-lede">{{ .Description }}</p>
+    </header>
+    <section aria-labelledby="rp-code-list-title">
+      <div class="rp-collection-heading"><h2 id="rp-code-list-title">{{ cond $en "Implementations & simulations" "实现与仿真" }}</h2><span class="rp-count">{{ len $pages }} {{ cond $en "projects" "项研究" }}</span></div>
+      <div class="rp-paper-list">{{ range $index, $page := $pages }}
+        <article class="rp-paper-row rp-paper-row-featured" aria-labelledby="rp-code-{{ $index }}">
+          <div class="rp-paper-side"><span class="rp-paper-index">{{ printf "%02d" (add $index 1) }}</span><div class="rp-paper-publication"><span>{{ cond $en "Implementation notes" "实现说明" }}</span><time datetime="{{ .Date.Format `2006-01-02` }}">{{ .Date.Format "2006-01-02" }}</time></div></div>
+          <div class="rp-paper-body"><h3 id="rp-code-{{ $index }}"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><p class="rp-paper-summary">{{ .Params.summary | default (.Summary | plainify) }}</p><div class="rp-paper-links">
+            <a class="rp-link rp-link-accent" href="{{ .RelPermalink }}">{{ cond $en "Read the notes" "阅读实现说明" }}{{ partial "signal/icon.html" "arrow-up-right" }}</a>
+            {{ with .Params.paper_url }}<a class="rp-link" href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ cond $en "Paper" "论文" }}{{ partial "signal/icon.html" "arrow-up-right" }}</a>{{ end }}
+            {{ with .Params.github_url }}<a class="rp-link" href="{{ . }}" target="_blank" rel="noopener noreferrer">GitHub{{ partial "signal/icon.html" "arrow-up-right" }}</a>{{ end }}
+          </div></div>
+        </article>
+      {{ end }}</div>
+    </section>
+  </div>
+{{ end }}

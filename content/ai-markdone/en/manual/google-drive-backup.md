@@ -6,8 +6,6 @@ amd_lang: "en"
 page_kind: "manual_feature"
 manual_feature: "google-drive-backup"
 translation_url: "/ai-markdone/manual/google-drive-backup/"
-screenshot_title: "Show this later: Google Drive backup settings with connection status, Back up now, Manage backups, and restore."
-screenshot_detail: "The screenshot should make it clear that Drive backup is opt-in, not automatic upload."
 ---
 
 ## Use this when

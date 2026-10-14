@@ -6,8 +6,6 @@ amd_lang: "zh"
 page_kind: "manual_feature"
 manual_feature: "privacy-storage"
 translation_url: "/ai-markdone/en/manual/privacy-storage/"
-screenshot_title: "后续这里放：Settings 页的数据备份区域，展示本地备份、导出全部、导入书签和 Google Drive 入口。"
-screenshot_detail: "截图重点是本地备份和用户主动操作。"
 ---
 
 ## 适合谁

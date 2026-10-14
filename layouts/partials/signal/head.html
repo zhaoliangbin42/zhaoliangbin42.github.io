@@ -1,0 +1,49 @@
+{{- $product := eq .Type "ai-markdone" -}}
+{{- $lang := .Language.Lang -}}
+{{- if $product }}{{ $lang = .Params.amd_lang | default "zh" }}{{ end -}}
+{{- $title := printf "%s · Liangbin Zhao" .Title -}}
+{{- if .IsHome }}{{ $title = "Liangbin Zhao · Research, writing & tools" }}{{ end -}}
+{{- if $product }}{{ $title = .Title }}{{ end -}}
+{{- $description := .Params.reading_summary | default .Description | default .Params.summary | default (cond (eq $lang "zh") "研究通信与感知，也写作、做软件。Liangbin Zhao 的研究、技术笔记与独立作品。" "Researching communications and sensing, writing things down, and building useful tools. Research, notes, and independent projects by Liangbin Zhao.") -}}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f9f8f5">
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $description | plainify }}">
+<link rel="canonical" href="{{ .Permalink }}">
+{{ if $product }}
+  {{ partial "ai-markdone/seo.html" . }}
+{{ else }}
+  {{ range .AllTranslations }}<link rel="alternate" hreflang="{{ cond (eq .Language.Lang "zh") "zh-CN" "en" }}" href="{{ .Permalink }}">{{ end }}
+  {{ range .AllTranslations }}{{ if eq .Language.Lang "zh" }}<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">{{ end }}{{ end }}
+{{ end }}
+{{ if or .Params.noindex (eq .Kind "404") }}<meta name="robots" content="noindex,follow">{{ end }}
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description | plainify }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:type" content="{{ if and .IsPage (in (slice "notes" "codes") .Section) }}article{{ else }}website{{ end }}">
+<meta property="og:locale" content="{{ cond (eq $lang "zh") "zh_CN" "en_US" }}">
+<meta property="og:image" content="{{ cond $product "images/signal/ai-markdone-promo.webp" "images/signal/signal-field.webp" | absURL }}">
+<meta name="twitter:card" content="summary_large_image">
+{{ with resources.Get site.Params.favicon }}<link rel="icon" href="{{ .RelPermalink }}" type="{{ .MediaType.Type }}">{{ end }}
+<link rel="preload" as="font" type="font/woff2" href="{{ "fonts/manrope-latin-wght-normal.woff2" | relURL }}" crossorigin>
+{{ if .IsHome }}<link rel="preload" as="image" href="{{ "images/signal/signal-field.webp" | relURL }}">{{ end }}
+{{ range .AlternativeOutputFormats }}{{ if eq .Name "RSS" }}<link rel="alternate" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $title }}">{{ end }}{{ end }}
+{{ $styles := slice (resources.Get "css/signal.css") (resources.Get "css/signal-syntax.css") }}
+{{ if $product }}
+  {{ with resources.Get "ai-markdone/signal.css" }}{{ $styles = $styles | append . }}{{ end }}
+{{ else }}
+  {{ with resources.Get "css/signal-pages.css" }}{{ $styles = $styles | append . }}{{ end }}
+  {{ with resources.Get "css/signal-reading.css" }}{{ $styles = $styles | append . }}{{ end }}
+{{ end }}
+{{ $path := cond $product "ai-markdone/site.css" "css/site.css" }}
+{{ $css := $styles | resources.Concat $path | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
+{{ if not $product }}
+  {{ $schema := dict "@context" "https://schema.org" "@type" "WebPage" "name" $title "description" $description "url" .Permalink "inLanguage" $lang "author" (dict "@type" "Person" "name" "Liangbin Zhao" "url" (absURL "/")) }}
+  {{ if and .IsPage (eq .Section "notes") }}{{ $schema = merge $schema (dict "@type" "BlogPosting" "headline" .Title "datePublished" (.PublishDate.Format "2006-01-02") "dateModified" (.Lastmod.Format "2006-01-02")) }}{{ end }}
+  <script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>
+{{ end }}
+
+{{ if hugo.IsProduction }}{{ template "_internal/google_analytics.html" . }}{{ end }}

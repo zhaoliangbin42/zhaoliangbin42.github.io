@@ -1,13 +1,12 @@
 ---
 title: "Install and refresh ChatGPT"
-description: "Install AI-MarkDone from the Chrome Web Store, refresh ChatGPT, and confirm that the toolbar and settings entry are loaded."
+description: "Install AI-MarkDone from the Chrome Web Store or Firefox Add-ons, refresh ChatGPT, and confirm that the toolbar and settings entry are loaded."
 type: "ai-markdone"
 amd_lang: "en"
 page_kind: "manual_feature"
+aliases: ["/ai-markdone/en/guide/install/"]
 manual_feature: "install"
 translation_url: "/ai-markdone/manual/install/"
-screenshot_title: "Show this later: Chrome Web Store install page, refreshed ChatGPT toolbar, and the extension settings entry."
-screenshot_detail: "The screenshot should show where AI-MarkDone appears inside the ChatGPT page after installation."
 next_url: "/ai-markdone/en/manual/reader/"
 next_label: "Next: Reader"
 ---

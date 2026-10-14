@@ -6,15 +6,13 @@ amd_lang: "en"
 page_kind: "manual_feature"
 manual_feature: "settings"
 translation_url: "/ai-markdone/manual/settings/"
-screenshot_title: "Show this later: the full Settings page with Platforms, Toolbar & Page Actions, Reader, Advanced Settings, Formula, ChatGPT Settings, Appearance, Language, and backup."
-screenshot_detail: "The screenshot should show the Settings groups so users can match them with the reference tables below."
 prev_url: "/ai-markdone/en/manual/export/"
 prev_label: "Previous: export"
 ---
 
 ## Use this when
 
-You already know what AI-MarkDone can do and want to tune it to your habits. This page does not expose internal setting keys. It uses the real labels shown in Settings and explains what changes when you turn something on or off.
+Find each setting by its group in Settings, check its default value, and see how it changes reading and organizing content.
 
 ## Where to open it
 
@@ -93,7 +91,6 @@ The AI-MarkDone ChatGPT directory is temporarily unavailable. Message navigation
 | Global font size | Adjust AI-MarkDone interface text size. |
 | Theme color | Choose the accent color used by primary actions, links, focus rings, and selected states. |
 
-You do not need to memorize the color names. Choose the one that feels comfortable.
 
 ## Language
 

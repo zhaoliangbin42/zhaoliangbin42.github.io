@@ -1,0 +1,10 @@
+{{- $pages := .RegularPagesRecursive -}}
+{{- if .IsHome }}{{ $pages = where site.RegularPages "Section" "notes" }}{{ end -}}
+{{- $pages = first 30 $pages.ByDate.Reverse -}}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>
+<title>{{ if .IsHome }}Liangbin Zhao — {{ cond (eq .Language.Lang "zh") "写作" "Writing" }}{{ else }}{{ .Title }}{{ end }}</title>
+<link>{{ .Permalink }}</link><description>{{ .Description | default "Research notes and everyday observations by Liangbin Zhao." }}</description><language>{{ cond (eq .Language.Lang "zh") "zh-CN" "en" }}</language>
+{{ with .OutputFormats.Get "RSS" }}<atom:link href="{{ .Permalink }}" rel="self" type="application/rss+xml"/>{{ end }}
+{{ range $pages }}<item><title>{{ .Title }}</title><link>{{ .Permalink }}</link><guid>{{ .Permalink }}</guid><pubDate>{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate><description>{{ .Params.reading_summary | default .Params.summary | default (.Summary | plainify) }}</description></item>{{ end }}
+</channel></rss>

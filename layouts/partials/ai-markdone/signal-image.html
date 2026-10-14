@@ -1,0 +1,7 @@
+{{- $image := resources.Get .path -}}
+{{- with $image -}}
+  {{- $width := $.width | default 1600 -}}
+  {{- $rendered := . -}}
+  {{- if and (ne .MediaType.SubType "gif") (gt .Width $width) -}}{{- $rendered = .Resize (printf "%dx webp q86" $width) -}}{{- end -}}
+  <img src="{{ $rendered.RelPermalink }}" width="{{ $rendered.Width }}" height="{{ $rendered.Height }}" alt="{{ $.alt }}" loading="{{ $.loading | default "lazy" }}" decoding="async"{{ with $.class }} class="{{ . }}"{{ end }}>
+{{- end -}}

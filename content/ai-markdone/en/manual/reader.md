@@ -4,10 +4,9 @@ description: "Read long ChatGPT answers in AI-MarkDone Reader with cleaner Markd
 type: "ai-markdone"
 amd_lang: "en"
 page_kind: "manual_feature"
+aliases: ["/ai-markdone/en/guide/reader/"]
 manual_feature: "reader"
 translation_url: "/ai-markdone/manual/reader/"
-screenshot_title: "Show this later: Reader panel, Markdown rendering, formulas, heading outline, pager, Sticky area, and send box."
-screenshot_detail: "The screenshot should show how Reader turns a long ChatGPT answer into a readable Markdown page."
 prev_url: "/ai-markdone/en/manual/architecture/"
 prev_label: "Previous: Plugin architecture"
 next_url: "/ai-markdone/en/manual/partial-copy/"
@@ -57,18 +56,6 @@ Reader opens the current answer. You can keep reading this message, or move to n
 
 8. Top-right tools
    The top-right area contains common Reader actions such as refresh, copy, settings, fullscreen, and close. The exact buttons depend on your settings.
-
-## Screenshot notes
-
-Add a Reader overview screenshot here later. Suggested callouts:
-
-1. Reader body
-2. Right-side outline
-3. Left-side Sticky area
-4. Bottom message switching
-5. Lower-left quick send entry
-6. Top-right tools
-7. Copy / annotate / Stick actions after selecting text
 
 ## Common questions
 

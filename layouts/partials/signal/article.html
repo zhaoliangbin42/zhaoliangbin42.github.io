@@ -1,0 +1,119 @@
+{{- $en := eq .Language.Lang "en" -}}
+{{- $copy := dict
+  "title" "写作" "intro" "一些推导，一些经验，一些日常观察。"
+  "all" "全部文章" "research" "研究笔记" "tools" "工具与开发" "reflections" "日常随笔"
+  "search" "搜索文章" "placeholder" "标题、内容或关键词" "clear" "清除搜索"
+  "topics" "按主题筛选" "count" "篇文章" "empty" "没有找到匹配的文章。"
+  "emptyHint" "换个关键词，或查看全部主题。" "reset" "清除筛选" "read" "阅读全文"
+  "back" "返回写作" "backResearch" "返回研究" "backHome" "返回首页"
+  "published" "发布于" "summary" "摘要" "toc" "本文目录" "body" "正文"
+  "language" "阅读语言" "links" "文章链接" "permalink" "永久链接"
+  "next" "继续阅读" "top" "返回文章顶部" "progress" "阅读进度"
+  "copyCode" "复制代码" "copied" "已复制" "copyError" "复制失败，请选中文本复制"
+  "imageError" "这张图片暂时无法显示。" "imageLink" "查看原图链接"
+  "paper" "论文" "code" "代码" "software" "研究代码"
+-}}
+{{- if $en -}}
+  {{- $copy = dict
+    "title" "Writing" "intro" "Derivations, useful discoveries, and everyday observations."
+    "all" "All writing" "research" "Research notes" "tools" "Tools & development" "reflections" "Reflections"
+    "search" "Search articles" "placeholder" "Title, text, or keyword" "clear" "Clear search"
+    "topics" "Filter by topic" "count" "articles" "empty" "No articles match this search."
+    "emptyHint" "Try another keyword or browse all topics." "reset" "Clear filters" "read" "Read article"
+    "back" "Back to writing" "backResearch" "Back to research" "backHome" "Back to home"
+    "published" "Published" "summary" "Summary" "toc" "On this page" "body" "Article"
+    "language" "Read in" "links" "Article links" "permalink" "Permalink"
+    "next" "Keep reading" "top" "Back to article top" "progress" "Reading progress"
+    "copyCode" "Copy code" "copied" "Copied" "copyError" "Could not copy. Select the code to copy it."
+    "imageError" "This image could not be displayed." "imageLink" "Open original image link"
+    "paper" "Paper" "code" "Code" "software" "Research software"
+  -}}
+{{- end -}}
+{{- $categoryLabels := dict "Communication" $copy.research "Tips" $copy.tools "Reflections" $copy.reflections -}}
+{{- $notes := (where (where .Site.RegularPages "Section" "notes") "Draft" false).ByDate.Reverse -}}
+
+{{- if .IsSection -}}
+<div class="wp-page wp-archive" data-wp-archive data-count-label="{{ $copy.count }}">
+  <header class="wp-archive-header">
+    <div><p class="wp-eyebrow">WRITING</p><h1>{{ $copy.title }}</h1><p class="wp-introduction">{{ $copy.intro }}</p></div>
+    <p class="wp-archive-count"><span>{{ printf "%02d" (len $notes) }}</span>{{ $copy.count }}{{ if $notes }}<small>{{ (index $notes (sub (len $notes) 1)).Date.Format "2006" }} — {{ (index $notes 0).Date.Format "2006" }}</small>{{ end }}</p>
+  </header>
+  <div class="wp-archive-tools">
+    <div class="wp-topics" role="group" aria-label="{{ $copy.topics }}">
+      <button type="button" data-wp-topic="all" aria-pressed="true">{{ $copy.all }}<span>{{ len $notes }}</span></button>
+      {{ range $category := slice "Communication" "Tips" "Reflections" }}
+        <button type="button" data-wp-topic="{{ $category }}" aria-pressed="false">{{ index $categoryLabels $category }}<span>{{ len (where $notes "Params.categories" "intersect" (slice $category)) }}</span></button>
+      {{ end }}
+    </div>
+    <div class="wp-search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
+      <label><span>{{ $copy.search }}</span><input data-wp-search type="search" placeholder="{{ $copy.placeholder }}" autocomplete="off"></label>
+      <button type="button" data-wp-clear aria-label="{{ $copy.clear }}" hidden>×</button>
+    </div>
+  </div>
+  <p class="wp-results-line" data-wp-count aria-live="polite" aria-atomic="true">{{ len $notes }} {{ $copy.count }}</p>
+  <div class="wp-card-grid">
+    {{ range $notes }}
+      {{ $category := index (.Params.categories | default (slice "Tips")) 0 }}
+      {{ $summary := .Params.reading_summary | default .Params.summary | default (.Summary | plainify) }}
+      <article class="wp-card" data-wp-card data-topic="{{ $category }}" data-search="{{ printf "%s %s %s %s" .Title $summary (delimit (.Params.tags | default slice) " ") .Plain | lower }}">
+        <a class="wp-card-link" href="{{ .RelPermalink }}">
+          <div class="wp-card-meta"><span>{{ index $categoryLabels $category | default $category }}</span><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time></div>
+          <h2>{{ .Title }}</h2><p class="wp-card-summary">{{ $summary }}</p>
+          <div class="wp-card-bottom"><span>{{ $copy.read }}</span><span aria-hidden="true">↗</span></div>
+        </a>
+      </article>
+    {{ end }}
+  </div>
+  <div class="wp-empty" data-wp-empty hidden><h2>{{ $copy.empty }}</h2><p>{{ $copy.emptyHint }}</p><button type="button" data-wp-reset>{{ $copy.reset }} <span aria-hidden="true">→</span></button></div>
+</div>
+{{- else -}}
+{{- $backURL := "writing/" | relLangURL -}}
+{{- $backLabel := $copy.back -}}
+{{- $category := "" -}}
+{{- if eq .Section "codes" -}}
+  {{- $backURL = "research/" | relLangURL -}}
+  {{- $backLabel = $copy.backResearch -}}
+  {{- $category = $copy.software -}}
+{{- else if ne .Section "notes" -}}
+  {{- $backURL = "" | relLangURL -}}
+  {{- $backLabel = $copy.backHome -}}
+{{- end -}}
+{{- with .Params.categories -}}
+  {{- $category = index $categoryLabels (index . 0) | default (index . 0) -}}
+{{- end -}}
+{{- $toc := replaceRE `<nav[^>]*>|</nav>` "" .TableOfContents | safeHTML -}}
+{{- $summary := .Params.reading_summary | default .Params.summary -}}
+{{- $body := .Content -}}
+{{- range .Resources.ByType "image" -}}
+  {{- /* Legacy raw HTML images do not pass through the Markdown image hook. */ -}}
+  {{- if strings.Contains $body (printf `src="%s"` .Name) -}}
+    {{- $body = replace $body (printf `src="%s"` .Name) (printf `src="%s"` .RelPermalink) -}}
+  {{- end -}}
+{{- end -}}
+<div class="wp-page wp-reading" data-wp-reading data-copy-code="{{ $copy.copyCode }}" data-copied="{{ $copy.copied }}" data-copy-error="{{ $copy.copyError }}" data-image-error="{{ $copy.imageError }}" data-image-link="{{ $copy.imageLink }}">
+  <div class="wp-reading-progress" role="progressbar" aria-label="{{ $copy.progress }}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+  <header class="wp-reading-header" id="article-top">
+    <a class="wp-back-link" href="{{ $backURL }}"><span aria-hidden="true">←</span>{{ $backLabel }}</a>
+    <div class="wp-reading-meta">{{ with $category }}<span>{{ . }}</span>{{ end }}{{ if not .Date.IsZero }}<span>{{ $copy.published }} <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time></span>{{ end }}</div>
+    <h1>{{ .Title }}</h1>
+    {{ with $summary }}<div class="wp-reading-summary"><span>{{ $copy.summary }}</span><p>{{ . }}</p></div>{{ end }}
+    {{ if .IsTranslated }}<p class="wp-reading-language"><span>{{ $copy.language }}:</span><span>{{ cond $en "English" "中文" }}</span>{{ range .Translations }}<a href="{{ .RelPermalink }}" hreflang="{{ .Language.Locale }}" lang="{{ .Language.Locale }}">{{ .Language.Label }}</a>{{ end }}</p>{{ end }}
+    {{ if or .Params.paper_url .Params.github_url }}<div class="wp-article-actions">{{ with .Params.paper_url }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ $copy.paper }} ↗</a>{{ end }}{{ with .Params.github_url }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ $copy.code }} ↗</a>{{ end }}</div>{{ end }}
+  </header>
+  <div class="wp-reading-layout">
+    <aside class="wp-toc-desktop"><nav aria-label="{{ $copy.toc }}" data-wp-toc><p>{{ $copy.toc }}</p><ul><li><a href="#article-body">{{ $copy.body }}</a></li></ul>{{ $toc }}</nav></aside>
+    <div class="wp-reading-column">
+      <details class="wp-toc-mobile" data-wp-mobile-toc><summary>{{ $copy.toc }}<span aria-hidden="true">⌄</span></summary><nav aria-label="{{ $copy.toc }}" data-wp-toc><ul><li><a href="#article-body">{{ $copy.body }}</a></li></ul>{{ $toc }}</nav></details>
+      <article class="wp-prose" id="article-body" lang="{{ .Language.Locale }}">{{ replaceRE `<(/?)h1(\s[^>]*)?>` `<${1}h2${2}>` $body | safeHTML }}</article>
+      <section class="wp-sources" id="article-sources"><h2>{{ $copy.links }}</h2><a class="wp-source-original" href="{{ .Permalink }}">{{ $copy.permalink }} <span aria-hidden="true">↗</span></a>{{ if .IsTranslated }}<ul>{{ range .Translations }}<li><a href="{{ .RelPermalink }}" hreflang="{{ .Language.Locale }}">{{ .Language.Label }} — {{ .Title }}</a></li>{{ end }}</ul>{{ end }}</section>
+      <div class="wp-reading-end"><a href="{{ $backURL }}">← {{ $backLabel }}</a><a href="#article-top">{{ $copy.top }} ↑</a></div>
+      <div class="wp-comments">{{ partial "giscus.html" . }}</div>
+    </div>
+  </div>
+  {{- if eq .Section "notes" -}}
+    {{- $related := first 2 (where $notes "RelPermalink" "ne" .RelPermalink) -}}
+    {{- with $related -}}<section class="wp-related"><h2>{{ $copy.next }}</h2><div class="wp-related-grid">{{ range . }}<article class="wp-card"><a class="wp-card-link" href="{{ .RelPermalink }}"><div class="wp-card-meta"><span>{{ index $categoryLabels (index (.Params.categories | default (slice "Tips")) 0) }}</span><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time></div><h3>{{ .Title }}</h3><p class="wp-card-summary">{{ .Params.reading_summary | default .Params.summary }}</p><div class="wp-card-bottom"><span>{{ $copy.read }}</span><span aria-hidden="true">↗</span></div></a></article>{{ end }}</div></section>{{- end -}}
+  {{- end -}}
+</div>
+{{- end -}}

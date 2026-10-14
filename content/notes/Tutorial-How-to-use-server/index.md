@@ -10,6 +10,9 @@ tags: ["Ubuntu"]
 summary: "科研党怎么样才能比较顺手地使用远程Ubuntu服务器跑程序？"
 math: false
 draft: false
+
+translationKey: "notes-tutorial-how-to-use-server"
+aliases: ["/writing/tutorial-how-to-use-server/"]
 ---
 
 ## 背景

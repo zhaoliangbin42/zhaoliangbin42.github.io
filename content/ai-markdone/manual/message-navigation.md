@@ -6,8 +6,6 @@ amd_lang: "zh"
 page_kind: "manual_feature"
 manual_feature: "message-position"
 translation_url: "/ai-markdone/en/manual/message-navigation/"
-screenshot_title: "后续这里放：ChatGPT 页面右下角消息切换按钮，以及发送消息后回到原阅读位置的对比截图。"
-screenshot_detail: "截图重点是右下角上一条 / 下一条按钮、长对话中的历史消息位置，以及 Settings 里的 ChatGPT 页面行为配置。"
 ---
 
 ## 适合谁

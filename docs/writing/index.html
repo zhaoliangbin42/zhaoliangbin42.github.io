@@ -1,0 +1,294 @@
+<!doctype html><html lang=zh-CN class=light><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light"><meta name=theme-color content="#f9f8f5"><title>写作 · Liangbin Zhao</title><meta name=description content="关于无线通信、信号处理、工具与日常观察的文章。"><link rel=canonical href=https://zhaoliangbin42.github.io/writing/><link rel=alternate hreflang=zh-CN href=https://zhaoliangbin42.github.io/writing/><link rel=alternate hreflang=en href=https://zhaoliangbin42.github.io/en/writing/><link rel=alternate hreflang=x-default href=https://zhaoliangbin42.github.io/writing/><meta property="og:title" content="写作 · Liangbin Zhao"><meta property="og:description" content="关于无线通信、信号处理、工具与日常观察的文章。"><meta property="og:url" content="https://zhaoliangbin42.github.io/writing/"><meta property="og:type" content="website"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://zhaoliangbin42.github.io/images/signal/signal-field.webp"><meta name=twitter:card content="summary_large_image"><link rel=icon href=/images/favicon.png type=image/png><link rel=preload as=font type=font/woff2 href=/fonts/manrope-latin-wght-normal.woff2 crossorigin><link rel=stylesheet href=/css/site.min.4b652f65069861068e2e9215dbcf89546adb939862632c2d118e43d945c17325.css integrity="sha256-S2UvZQaYYQaOLpIV28+JVGrbk5hiYywtEY5D2UXBcyU=" crossorigin=anonymous><script type=application/ld+json>{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Liangbin Zhao","url":"https://zhaoliangbin42.github.io/"},"description":"关于无线通信、信号处理、工具与日常观察的文章。","inLanguage":"zh","name":"写作 · Liangbin Zhao","url":"https://zhaoliangbin42.github.io/writing/"}</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-0TRYH6SRSY"></script><script>var doNotTrack=!1,dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes";if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-0TRYH6SRSY")}</script></head><body class=signal-site><a class=skip-link href=#main-content>跳到内容</a><header class="site-header is-scrolled"><div class=header-surface></div><div class=header-inner><span class=header-name-anchor><a class=header-brand href=/>Liangbin Zhao</a></span><nav class=desktop-nav aria-label=主要导航><a href=/research/>研究</a><a href=/writing/ aria-current=page>写作</a><a href=/projects/>作品</a><a href=/about/>关于</a></nav><div class=header-tools><div class=language-switch aria-label=Language><a href=/writing/ lang=zh hreflang=zh aria-current=true>中文</a>
+<span aria-hidden=true>/</span>
+<a href=/en/writing/ lang=en hreflang=en>EN</a></div><button class=menu-toggle aria-label=打开导航 aria-expanded=false aria-controls=mobile-nav><span class=icon-menu><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu signal-icon" aria-hidden="true" focusable="false"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg></span><span class=icon-close><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x signal-icon" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span></button></div></div><nav id=mobile-nav class=mobile-nav aria-label=手机导航 hidden><a href=/research/>研究<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right signal-icon" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a><a href=/writing/>写作<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right signal-icon" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a><a href=/projects/>作品<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right signal-icon" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a><a href=/about/>关于<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right signal-icon" aria-hidden="true" focusable="false"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></nav></header><main id=main-content tabindex=-1 class=site-main><div class="wp-page wp-archive" data-wp-archive data-count-label=篇文章><header class=wp-archive-header><div><p class=wp-eyebrow>WRITING</p><h1>写作</h1><p class=wp-introduction>一些推导，一些经验，一些日常观察。</p></div><p class=wp-archive-count><span>11</span>篇文章<small>2022 — 2025</small></p></header><div class=wp-archive-tools><div class=wp-topics role=group aria-label=按主题筛选><button type=button data-wp-topic=all aria-pressed=true>全部文章<span>11</span></button>
+<button type=button data-wp-topic=Communication aria-pressed=false>研究笔记<span>4</span></button>
+<button type=button data-wp-topic=Tips aria-pressed=false>工具与开发<span>5</span></button>
+<button type=button data-wp-topic=Reflections aria-pressed=false>日常随笔<span>2</span></button></div><div class=wp-search><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
+<label><span>搜索文章</span><input data-wp-search type=search placeholder=标题、内容或关键词 autocomplete=off></label>
+<button type=button data-wp-clear aria-label=清除搜索 hidden>×</button></div></div><p class=wp-results-line data-wp-count aria-live=polite aria-atomic=true>11 篇文章</p><div class=wp-card-grid><article class=wp-card data-wp-card data-topic=Reflections data-search="小电驴博弈趣事 在城市道路上，小电驴是一种很神奇的存在。它既不是车，也不是人，介于秩序与混乱之间，像是现代交通体系中的野生动物，靠直觉与勇气闯荡。在北京，十里之内，电驴最快的事实，也让小电驴保有量急剧扩张，随之而来的就是小电驴与原有道路交通之间的各种顶级博弈行为。这些博弈行为让我感慨：人工智能想要模仿，还道阻且长。 reflections 我有个朋友，跟我说了很多骑小电驴的趣事，很有意思。既然是我朋友说的，那么下面的第一人称转述的对象就都是我那个朋友。
+汽车 vs 小电驴 当你是汽车司机的时候，小电驴永远让你体验到“无能狂怒”。
+你开得好好的，前方突然冲出一辆电驴，速度之快、角度之诡异，让你不得不急刹一下，车里的乘客也跟着一起摇摆，嘴里不约而同冒出一句温暖的问候。
+但骂完你也知道没用，小电驴在路上那么多，保证你每次骂的对象都不重样。
+更讽刺的是，当你没有小电驴的时候，才会骂小电驴不守规矩；当你拥有了小电驴，你在那个场合下，内心想的一定是： “这里还有条缝，可以钻。” “后方汽车还有10米，前车可以超。”
+这是一场典型的不对称博弈（asymmetric game）：汽车承担高事故成本，而小电驴承担的是“拍一下屁股继续走”的成本。于是两个主体的最优策略自然不同：
+汽车的最佳策略趋向“让”， 小电驴的最佳策略趋向“抢”。 小电驴 vs 红绿灯 小电驴闯红灯的成本几乎为零。如果前方没有车，他们的行为往往只有一句话：“冲。”
+但是，这个“冲”背后所包含的博弈，自动驾驶5年内学不来，下面我来列举一二：
+预判型闯红灯： 当外卖小哥发现绿灯转黄灯了，他预判，到达路口的时候正好转红，小哥必冲。 他深知，此时所有车都停下，是最安全的窗口期。 对向车转绿至少还要 2 秒，对向车到达冲突点还需 5 秒，而这 5 秒，他已经跑出 50 米外。
+在每一个“红灯即将到来”的子状态中，小哥都选择让自己收益最大、风险最小的动作——冲。
+集体等待现象： 当你到一个路口，发现周围都没有汽车，而小电驴们都在规矩等红灯，这里面居然还包括外卖小哥。这时候你怎么博弈？必然不能冲，因为前面必有交警。
+这是非常典型的贝叶斯信念更新（bayesian updating）： 当你观察到“不符合常识的行为”——小电驴们居然自觉遵守规则，你就必须推断“路口存在隐性高风险（交警）”。 于是你的最优策略是：等。
+小电驴 vs 小电驴 “顺行要5分钟，逆行只要1分钟。”
+路上总免不了看到两个小电驴面对面抽搐的情况：一个正向行驶的小电驴遇上一个逆向行驶的小电驴，两人都极具礼貌，同时往左让行，发现不对，然后掉头往右让行，如此往复，走成一个 z 字型，宛如在马路上抽搐。
+这里面其实是典型的协调博弈（coordination game），双方都想让，但不知道对方要往哪边，让左、让右都是可行均衡，只是两人不断选错，导致陷入短暂的震荡均衡（oscillating equilibrium）。
+从外人看像抽搐，其实是双方在不断迭代最佳回应（best response），只是都算得有点慢。
+小电驴 vs 行人 与小电驴 vs 小电驴不同，当小电驴遇上行人，往往都是行人在原地等，由小电驴决定前进路径。 这是因为这里存在经典的顺序博弈（sequential game）：行人先动反而风险更高，而小电驴的策略集合更大——它可以左绕、右绕、擦边、或者倏忽停顿一下。 在这种信息结构下，行人的最优反应函数是：不动。 而小电驴则拥有“移动优势（first mover advantage）”，最终由它来决定整个路径如何演化。
+配图prompt： 构造一幅微观城市景观，风格模仿疯狂动物城2，里面的画面是：在一个路口，有好多电动摩托车在等红灯，每个人都戴着头盔。8k分辨率，比例4:3
+"><a class=wp-card-link href=/notes/ebike-gaming/><div class=wp-card-meta><span>日常随笔</span><time datetime=2025-12-01>2025-12-01</time></div><h2>小电驴博弈趣事</h2><p class=wp-card-summary>在城市道路上，小电驴是一种很神奇的存在。它既不是车，也不是人，介于秩序与混乱之间，像是现代交通体系中的野生动物，靠直觉与勇气闯荡。在北京，十里之内，电驴最快的事实，也让小电驴保有量急剧扩张，随之而来的就是小电驴与原有道路交通之间的各种顶级博弈行为。这些博弈行为让我感慨：人工智能想要模仿，还道阻且长。</p><div class=wp-card-bottom><span>阅读全文</span><span aria-hidden=true>↗</span></div></a></article><article class=wp-card data-wp-card data-topic=Tips data-search="分享一些我用到的文生图prompt资源 年初刚开始写博客的时候，用的gpt5的文生图，那个时候生成出来的还比较单调，正好我博客也因为科研繁忙，搁置了好长一段时间。现在gemini 3的nano banana pro又上了一个台阶，恰逢我时间稍微宽松点，就想着将之前的图全部换掉，看看nano banana能不能胜任此次工作，顺便在这里记录一下我用到的prompt。大家如果觉得图片好看，也可以试试我这里的prompt。 resources llm prompt 首页 悉尼歌剧院人物风景图 版本：google gemini 3 nano banana pro
+不要换脸，人物脸部稍微卡通化，但要保持高度一致性！整体都需要保持人脸相似度，略微内扣身体，拍摄角度为远处第三人拍摄，典型的日韩视觉自拍风格。简洁干净，进一步凸显人物主体。整体画面清晰度高，最终呈现出精致、时尚、略带的合影效果。要求人物实现无缝融进画面，视觉过渡自然，整体画面光线明亮且均匀，将人物置身于《疯狂动物城》风格的3d动物城市，在我身后是悉尼歌剧院和悉尼港大桥，保留原始图片中的人物，但转换为风格化的拟人化基础设施，8k 画质，比例1:1
+在实验室做实验的图 版本：google gemini 3 nano banana pro
+绘制一个3d渲染的图，参考图二的风格。图中有一台示波器以及旁边放着一台电脑，一名博士研究生在示波器前认真做实验。比例16:10
+笔记页 版本：google gemini 3 nano banana pro
+本页图标的prompt为：
+a minimalist 3d render of the logos of openai and google gemini, floating directly in the center against the background. the object features a smooth matte plastic texture and is rendered in beautiful, aesthetically pleasing colors suitable for high-end design. it is small scale, appearing tiny relative to the vast frame, leaving enormous amounts of negative space around it. soft diffused studio lighting. the background is a luxurious abstract fluid gradient, shades of [cyan, soft blue, and purple], blurred, elegant, tech vibe. ultra-detailed, 8k resolution &amp;ndash;ar 1:1 &amp;ndash;no background card, platform, podium
+代码页 版本：google gemini 3 nano banana pro
+代码页图标的prompt为：
+一个展示通信设备的微型立体模型。场景是一条高速公路，公路两侧有绿化，并且公路左右两侧各有一个基站，基站在发射信号。在公路中，有几辆小车在行驶，路上会有测速标志，比较cute。手工软陶造型，摄影棚微距照片，柔和的光线，浅景深，比例16:10
+推荐项目 我在推荐一个开源项目，我有一些灵感是借鉴里面的：
+awesome-nano-banana-images "><a class=wp-card-link href=/notes/prompt_txt2img/><div class=wp-card-meta><span>工具与开发</span><time datetime=2025-11-30>2025-11-30</time></div><h2>分享一些我用到的文生图Prompt资源</h2><p class=wp-card-summary>年初刚开始写博客的时候，用的GPT5的文生图，那个时候生成出来的还比较单调，正好我博客也因为科研繁忙，搁置了好长一段时间。现在Gemini 3的Nano Banana Pro又上了一个台阶，恰逢我时间稍微宽松点，就想着将之前的图全部换掉，看看Nano Banana能不能胜任此次工作，顺便在这里记录一下我用到的Prompt。大家如果觉得图片好看，也可以试试我这里的Prompt。</p><div class=wp-card-bottom><span>阅读全文</span><span aria-hidden=true>↗</span></div></a></article><article class=wp-card data-wp-card data-topic=Tips data-search="远程服务器怎么用才顺手 科研党怎么样才能比较顺手地使用远程ubuntu服务器跑程序？ ubuntu 背景 相信大家平时习惯用的都是windows系统和macos系统居多，用ubuntu这类的linux系统的机会可能相对少一些。但是，绝大多数的服务器装的其实都是linux系统。
+就我亲身经历而言，对于vivado这个软件，用linux系统相较于用windows系统做编译，在同样硬件条件下，测出来过高达5倍的速度提升。一个windows下30个小时才能编译出来的超大规模程序，在linux下可以做到6小时以内。另外，同等硬件下，matlab的计算效率在linux下也更高，尤其是并行计算时。
+正因如此，后续课题组内安装服务器的时候，我都会建议优先安装linux系统，虽然上手稍微难一点，但后续的效率提升所带来的收益，远大于前期的探索成本。
+本文不涉及可视化界面，因为很多场景下用可视化界面连接服务并不稳定，体验也并不好，仅通过ssh在很多计算场景下就能获得非常好的体验。另外，本文默认大家已经掌握通过命令行的ssh命令进入服务器的方法。以下内容聚焦于：
+如何方便地在自己电脑上对远程服务器上的文件进行访问、修改；
+如何查看远程服务器的系统资源消耗；
+如何通过创建会话，实现关闭终端而程序不中断。
+通过这三点，希望能帮助大家扫清最开始使用linux服务器的一些上手障碍。
+👨‍💻用vscode直接进行远程代码编写 为什么？ 相信很多同学都是先在本地对程序进行编写、调试，然后再通过sftp对文件进行上传，在远处直接执行。但是这会带来几个问题：
+本地写的代码会跟远程服务器上的代码有些许出入，比如执行次数、是否并行、是否采用gpu等，如果采用这个方法的话，每一次代码的改动都需要进行一次上传，效率降低； 整个流程需要多个软件配合使用，来回切换，效率降低； 如果中间过程还会产生log之类的文件，想要实时观测log内容，还需要反复同步，效率降低； 等等。 其实我们常用的vscode就完全可以做到“像本地文件一样”操作远程服务器上的代码，非常好用且高效。
+怎么做？ 先安装vscode，并在扩展市场中安装remote - ssh插件 修改配置文件，依次点击左下角的蓝色按钮——连接到主机——配置ssh主机——选择用户名下的那个配置文件。 在配置文件下，添加如下内容：
+host myserver hostname 192.168.x.x user myname identityfile ~/.ssh/id_rsa 这个本质上跟点击蓝色按钮——连接到主机之后输入ssh myname@192.168.x.x是一样的效果，不过保存成配置文件之后，以后连接就不需要反复输入这串命令了。另外，identityfile这一行不是必选，这个是进行密钥校验用的，具体可以去网上查一下“如何通过密钥连接服务器”，这一步可以跳过密码验证，如果没有这一行的话，每次连接的时候手动输入一下密码就行。
+配置完成，连接服务器：再次点击蓝色按钮——连接到主机，此时能看见刚刚配置的服务器名&amp;quot;myserver&amp;quot;，点击之后便进行连接。 连接之后选择打开文件夹，进入你想要的路径，接下来你的所有代码操作都可以在vscode中完成了，跟本地使用的方法是一样的。 还有一些需要注意的地方：
+远程服务器上的插件是需要重新安装一次的，点击这个云的按钮即可选择需要安装的插件 第一次连接速度会比较慢，因为有一系列东西vscode会自动进行安装，这个过程取决于网速 个人用例 我习惯了用vscode写程序，旁边放一个终端（vscode也自带终端，可以直接用），用ssh连接到远程服务器。用vscode修改程序并保存之后，直接通过终端在远程服务器上执行脚本查看输出。
+比如我用matlab的时候，我会先通过matlab -nodesktop进入无界面的matlab环境，接下来在里面执行脚本程序即可。
+查看系统资源消耗 为什么？ 我们登录服务器的时候，最常见的问题就是：现在这台机器忙不忙？能不能跑？跑的是什么？
+常用的有 top、htop 、glances这些命令，其中 glances 还支持web远程查看，这样我就可以用浏览器直接接入了。
+怎么做？ 看你喜欢哪一款，top是自带的，基本使用足够了，其他两款用命令行安装即可，具体看需求安装。注意，安装过程可能需要管理员权限，可以让管理员完成。安装命令分别如下：
+sudo apt install htop sudo apt install glances 其中，glances还支持浏览器直接访问，具体的安装过程问一下大模型即可，非常容易，如下：
+基本界面如下。如果你喜欢可以安装，如果基本功能就够了，那就直接用系统自带的top即可
+用byobu进行会话管理 为什么？ 场景非常常见：你开了一个远程终端，跑了一个模型训练，结果突然网络断了——程序直接终止，几个小时白跑。
+用 byobu 管理会话，就能避免这类跑到一半不敢退出的场景。 它允许你把当前终端“挂起来”，哪怕你断网了，任务照常运行，回来还能接着看输出。
+怎么做？ 安装：
+sudo apt install byobu 启动：
+byobu 常用操作（进入byobu之后）：
+功能 快捷键 创建新会话 ctrl + a → c 退出/删掉当前会话 输入 exit ，回车 上一个/下一个会话 ctrl + a → p/n detach 会话，即离开byobu环境，但是byobu在后台继续执行，可以随时重新进来 ctrl + a → d 重新连接 byobu attach 重命名当前会话为newname byobu rename-window newname 这里的意思是ctrl + a之后，ctrl键不要松，直接接下一个键
+其他用法
+启用状态栏显示会话名：
+byobu-status --enable-session-name 如果想每一次连接ssh都能直接进入byobu环境的话，可以执行
+byobu-enable 查看/选择后端（推荐使用tmux）
+byobu-select-backend 个人用例 我跑一个仿真，经常需要跑一整晚，甚至两三天。每次我都会先进入byobu环境，“创建一个新会话”，给这个会话改一个好记的名字（不然会话多了就忘了这个会话执行什么内容了）然后在里面运行训练脚本，再 ctrl + a d 挂起来。哪怕回宿舍关电脑，第二天一早 ssh 上去 byobu attach 一下，模型还在继续跑，日志全都在。妈妈再也不会担心仿真中断了。以下是界面示例：
+"><a class=wp-card-link href=/notes/tutorial-how-to-use-server/><div class=wp-card-meta><span>工具与开发</span><time datetime=2025-07-13>2025-07-13</time></div><h2>远程服务器怎么用才顺手</h2><p class=wp-card-summary>科研党怎么样才能比较顺手地使用远程Ubuntu服务器跑程序？</p><div class=wp-card-bottom><span>阅读全文</span><span aria-hidden=true>↗</span></div></a></article><article class=wp-card data-wp-card data-topic=Reflections data-search="吐槽微信公众号的推送模式 内容还是流量？脚踏实地还是投机取巧？ reflections 前段时间看见公众号“修明札记”的一篇文章“微信公众号已死！！！”。标题起的吸引眼球，里面主要的观点是“微信公众号死了！微信团队为了流量，东施效颦，将微信公众号变成了第二个今日头条，丧失自己的特色，微信公众号将不可避免的走向衰败！运营这样的公众号，已无意义。”
+我并不喜欢这种情绪输出这么直接的文章，但是我确实也意识到了微信近期在公众号推送模式上的改版有趋同“今日头条”之嫌，标题、流量大于内容本身，劣币驱逐良币，让人失望。因此，从自身角度，我是认同作者的观点的。
+很直观的一个感受是，我以前关注的公众号，尤其是一些更新频率不算太高或者我点进去频率不算太高的推送，越来越难出现在我的视野中了；取而代之的是那些从没关注过的，可能跟我兴趣点相关的，但我并不希望在微信里给我推，而是在我需要的时候再自行搜索的内容，越来越占据重要的版面。
+此外，微信多次更新之后，公众号列表也进行了大改版，从最初直接以列表形式能看见所有已关注公众号；到后来公众号以头像的形式在顶部横向滑动；到现在公众号列表入口，都往里藏了两三层。我关注的公众号百余个，但是似乎每天给我推送的就那么十几二十个。
+我电脑版微信的公众号页面，只有默认前面5条是我关注的公众号发的内容，从top stories开始，都是推荐算法给推送的。而推送的内容往往都只是标题符合我的兴趣，实质并没有什么深度。
+一直以来，我都有刷微信推送的习惯，与很多身边喜欢刷知乎等内容密度比较高的平台的朋友不同，我更偏向于通过微信公众号来获取高价值高密度的信息，顺便通过诸如“央视新闻”，“新华社”之类的新闻公众号来补齐我平时不看新闻软件所缺失的实时信息。于是乎，微信推送近乎是我唯一的信息来源。（细想了一下还真是，我不刷小红书、不刷知乎、不刷新闻软件，平时没事就刷微信，刷b站，而b站其实只是为了娱乐，微信就成为我近乎唯一的信息来源了。）
+我以前一直认为，微信在旧版的订阅制推送框架下，作者是会有主观意愿去生产高质量、有深度、有广度的内容的，并且公众号还有打赏功能，对作者的收入也能产生不少的提升，更加鼓励作者生产优质内容。
+在2016年左右，在读本科的我也在兴趣下开了一个公众号。回想起那个时候，我会花不少时间去想如何能写一点有意思的、有思考的内容，有人评论或点赞我也会非常开心，并且也有一些固定的产生共鸣的读者一起思考、一起讨论。尽管后来没做了，但是，我认为在“当时的那种场景”下，作为一个公众号作者，我会有意愿生产相对高质量的内容。
+我所认为的“当时的那种场景”这个概念虽然有点模糊，但我内心也有个大概的框架，那就是：
+已经积累的读者要能及时收到作者写的文章，及时阅读并产生讨论； 对那些标题党而本身没有高质量内容的文章，应该适当减轻他们的权重，不让他们从中吃香； 合适的让作者变现的机制； 整体创作氛围良好，让读者群体认可这个平台，而不是提到微信公众号就让人主动类比“百家号”，“uc震惊体”这类令人绕道的平台。 当然我不是微信的产品经理，我也好长时间没有写过公众号了，我所想的东西可能过于理想过于简单。但是我作为一个读者，我认为现在微信给我推送的内容在往哗众取宠、取悦读者、简化读者思考的方向走，而微信公众号一直以来的护城河，恰恰在于文章质量，如果文章质量大幅降低，流量大于内容，那么你相比“今日头条”、“百家号”来说，有什么区别呢？我从内心里希望微信团队能想出好的方案，让微信公众号的内容质量保持原有的水准，提高读者的阅读体验以及思想深度。
+除此之外，鉴于现在ai发展迅猛以及我对ai发展的想象，我认为当下的腾讯混元接入deepseek之后，能够直接检索公众号内容并做出回答，这本身也是一种护城河，现在网上绝大多数内容并不靠谱，而如果检索出来的内容来自微信公众号，并且点开一看是某知名作者的内容，那可信度自然较高，用户自然也更信任混元的输出，从长期发展来看，对腾讯整体的发展必定是有益的。
+p.s. 之所以写这些，是因为最近在top stories信息流中看见了一个让我不吐不快的标题党推送。反正我看完之后是气笑了，为那些踏踏实实写文章的人鸣不平，毕竟，别人想两个好标题就能轻松10万+，换你你怎么想呢？
+这个推送10万+，点开里面
+好一篇小学生作文，比喻的修辞手法用的很娴熟啊，哪个大模型写的？嗯？这个公众号叫“夏津融媒音乐”？不是应该讨论音乐吗？为什么会讲新闻啊？点开看看
+好家伙，全是新闻，好几条数万阅读量的，这个公众号虽然名字是音乐，想必平时就喜欢发新闻，并且粉丝数量不少吧？嗯？怎么只有9篇原创内容？这么容易就10w+吗？看看往期的内容是什么质量
+前一篇推送有133阅读量。。。
+微信，还是花点心思在公众号上吧。。。这么劣币驱逐良币，最终是会被反噬的。
+"><a class=wp-card-link href=/notes/reflection-wechat-official-account/><div class=wp-card-meta><span>日常随笔</span><time datetime=2025-07-04>2025-07-04</time></div><h2>吐槽微信公众号的推送模式</h2><p class=wp-card-summary>内容还是流量？脚踏实地还是投机取巧？</p><div class=wp-card-bottom><span>阅读全文</span><span aria-hidden=true>↗</span></div></a></article><article class=wp-card data-wp-card data-topic=Tips data-search=".pdf转.eps ieee论文被接收之后，上传的最终版中，图片要求是eps格式，而如果你前期的图片是pdf格式，那么如何快速转为eps格式呢？ software  这里讨论的方法是针对mac的，但是如果你将本文复制，粘到chatgpt里，让它给你提供其他系统下的方案，肯定没问题。
+基本转换方法 采用pdftops 采用ghostscript（pdftops和gs这两种方法都可以直接将pdf文件转成eps，但是我个人觉得不太满意，输出的eps是格栅化后的，放大之后能看见锯齿，但是本文主要就是提供这种方法的脚本） 用原来作图用的软件重新导出（效率最低，效果最佳，还是这种最好） 前两种方法应该是安装mactex之后命令行自带了，可以自行打开命令行，输入pdftops或者gs看看输出
+有输出就证明这两个软件可用了。下面提供利用ghostscript进行转换的批处理脚本。
+ghostscript批处理脚本 生成自chatgpt
+#!/bin/bash # 设置输出目录（可选） output_dir=&amp;#34;./eps_output&amp;#34; mkdir -p &amp;#34;$output_dir&amp;#34; # 遍历当前目录下所有 pdf 文件 for pdf_file in *.pdf; do # 提取文件名（不含扩展名） base_name=&amp;#34;${pdf_file%.pdf}&amp;#34; eps_file=&amp;#34;$output_dir/${base_name}.eps&amp;#34; echo &amp;#34;converting $pdf_file -&amp;gt; $eps_file&amp;#34; gs -dnopause -dbatch -dsafer \ -sdevice=eps2write \ -depscrop \ -soutputfile=&amp;#34;$eps_file&amp;#34; &amp;#34;$pdf_file&amp;#34; done echo &amp;#34;all conversions done.&amp;#34; 在你需要转换的pdf文件夹下，新建一个pdf2eps.sh文件，粘这部分内容进去，保存关闭。 运行命令行，修改该脚本的权限sudo chmod +x ./pdf2eps.sh 执行该脚本，./pdf2eps.sh即可完成该文件夹内的所有pdf文件转换 声明：转换之后请自行检查文件是否转换成功，别到时提交上去的时候发现有问题。
+"><a class=wp-card-link href=/notes/pdf-to-eps/><div class=wp-card-meta><span>工具与开发</span><time datetime=2025-06-23>2025-06-23</time></div><h2>.pdf转.eps</h2><p class=wp-card-summary>IEEE论文被接收之后，上传的最终版中，图片要求是eps格式，而如果你前期的图片是pdf格式，那么如何快速转为eps格式呢？</p><div class=wp-card-bottom><span>阅读全文</span><span aria-hidden=true>↗</span></div></a></article><article class=wp-card data-wp-card data-topic=Tips data-search="在国外留学，如何更快速访问国内网站 推荐一个软件，帮助你在海外高校网络中提高连接国内网站的速度。 software  声明：本文只用来做技术交流，如果你有更便捷易用的方法，欢迎讨论。
+背景 在国外高校（如 uts、macquarie university 等）学习时，常常会遇到访问中国国内网站速度缓慢的问题。例如，阿里系网站、国内高校官网等，加载速度令人抓狂，想查看一下学校通知都加载不出来，严重影响生产效率，亟需提速。
+原理解析：其实是学校把部分回国流量屏蔽了 学校的网络通常会通过防火墙对特定网站进行屏蔽或限制，尤其是针对某些地区的流量。为了绕过这些限制，我们需要在数据传输过程中对流量进行加密，使学校的防火墙无法识别具体内容。具体来说，我们的设备先将流量加密并发送到中转服务器（vps），由服务器代为请求目标网站，再将响应数据加密返回给我们。这样一来，学校的防火墙只能看到加密的数据流，无法判断我们访问了哪些网站，从而实现绕过限制的目的。其实，有很多高校是提供vpn方便校外学生访问学校内部资源的，借助vpn也能提高国内网站的连接速度，不过可惜的是，我所在的学校只提供webvpn了，标准的vpn需要找学校申请，有点麻烦，不如自己想办法解决。
+知道原理后，解决思路就比较清晰了，这里提供两种方案：
+用现成的网络安全加密类的工具，推荐warp 自己搭建一个服务器，构建一个加密通路 warp cloudflare提供了一个全平台的软件warp，下载下来直接可用。其核心功能是通过加密你设备与互联网之间的流量，提升上网的安全性和私密性，同时优化网络连接速度。warp 基于 cloudflare 全球分布的数据中心网络，能够有效减少延迟，让你访问网站时更加流畅。
+链接：warp 下载下来打开并开启即可。
+第二种方案门槛比较高，我自己也不会。
+"><a class=wp-card-link href=/notes/build-vpn/><div class=wp-card-meta><span>工具与开发</span><time datetime=2025-06-20>2025-06-20</time></div><h2>在国外留学，如何更快速访问国内网站</h2><p class=wp-card-summary>推荐一个软件，帮助你在海外高校网络中提高连接国内网站的速度。</p><div class=wp-card-bottom><span>阅读全文</span><span aria-hidden=true>↗</span></div></a></article><article class=wp-card data-wp-card data-topic=Tips data-search="我的配色方案 一个普通工科生平时常用的一些配色方案。 resource  分享一些色彩资源和个人想法，流水账式。欢迎讨论
+ppt、框图配色 在进行ppt制作或者进行框图绘制的时候，经常会头疼于颜色如何选取、搭配。你一定见识过大红大紫，饱和度拉满的ppt，也许别人比较注重内容了吧，但我希望我做出来的ppt不会是那样子的。作为一个大学生，我觉得基本的审美还是要有的，且不说高大上，起码看起来观众不会立马跑掉吧。
+都说一页ppt或者一张框图最多三四种配色，道理我都懂，但是到底怎么搭配啊？我简单看过一些设计相关的网站，比如谷歌的material design ，但是这种网站是为设计师准备的，主要是指导设计原则类的，似乎不是我这种懒人准备的。尽管页面里也有color resources ，但毕竟不是拿来就用。特别是对于我这样没有经过设计训练的人来说，看懂了也不是那么容易学得会的。
+其实还有很多色卡类网站
+color hunt colordrop grabient picular adobe color colorspace 等等 按理说足够用了，但是始终感觉还是不得劲。每个网页进去都是这样的
+也多少会有点选择困难。
+最近有人做了一个项目cnscolor ，里面可能会有一些指导性的配色方案，可以参考。
+后来，我发现了一些更简单的整套的配色方案——主题色。比如我们平时用vscode时所选用的theme，里面就会涉及到一整套的配色方案。在实践中，我发现nord theme 很好用，我也试过用这个主题色做过一个学术汇报的ppt（vtc 2025 presentation ），感觉还不错，可以试试。
+happy hues 也提供了不少的主题色，可以探索一下。
+matlab绘图 目前看到了colormap by pratiman 这是一个博客，里面提供了好多配色方案，用来绘制热力图之类的应该比较好用。
+"><a class=wp-card-link href=/notes/my-color/><div class=wp-card-meta><span>工具与开发</span><time datetime=2025-05-20>2025-05-20</time></div><h2>我的配色方案</h2><p class=wp-card-summary>一个普通工科生平时常用的一些配色方案。</p><div class=wp-card-bottom><span>阅读全文</span><span aria-hidden=true>↗</span></div></a></article><article class=wp-card data-wp-card data-topic=Communication data-search="bi-awgn信道接收概率初始化 本文介绍了bi-awgn信道中接收概率的初始化方法，详细推导了对数似然比(llr)的计算过程和在不同信噪比表示形式下的数学表达式。 signal processing  内容参考：《iterative error correction turbo, low-density》
+接收信号概率一般怎么衡量？ 用log likelihood ratios (llrs)对数似然比来衡量。llr定义如下：
+$$ l(x)=\log \frac{p(x=0)}{p(x=1)} $$其中$p(x=1)=1-p(x=0)$，log是以自然对数$e$为底的。若$p(x=0)>p(x=1)$，有$l(x)$为正。
+若给定llrs，可以利用下述公式反求概率值：
+$$ p(x=1)=\frac{p(x=1) / p(x=0)}{1+p(x=1) / p(x=0)}=\frac{e^{-l(x)}}{1+e^{-l(x)}} $$$$ p(x=0)=\frac{p(x=0) / p(x=1)}{1+p(x=0) / p(x=1)}=\frac{e^{l(x)}}{1+e^{l(x)}} $$用对数来表达概率值的一个好处是当概率之间需要用乘法的时候，换成对数就可以只用加法进行了，可以节省实现复杂度。
+bi-awgn信道接收概率初始化 binary-input additive white gaussian noise (bi-awgn)信道可以用方程描述如下：
+$$ y_{i}=\mu x_{i}+z_{i} $$其中，$x_i\in \{-1, +1\}$是第$i$个传输符号，$y_i$是第$i$个接收符号，$z_i$是服从均值为0，方差为$\delta^2$高斯随机分布的加性噪声。很多时候会写成$z_i=awgn(0, \delta)$的形式。
+$z$的概率密度函数为
+$$ p(z)=\frac{1}{\sqrt{2 \pi \sigma^{2}}} e^{-z^{2} / 2 \sigma^{2}} $$当在bi-awgn信道传输二进制码字时，码字比特$c_i\in \{0, 1\}$可以按以下两种方式映射为符号$x_i\in \{-1, +1\}$： $\{0 \rightarrow 1,1 \rightarrow-1\}$ 或 $\{0 \rightarrow-1,1 \rightarrow 1\}$。此处以$\{0 \rightarrow 1,1 \rightarrow-1\}$举例。
+bi-awgn信道接收到的llrs为
+$$ \begin{aligned} r_{i}=l\left(x_{i} \mid y_{i}\right) &=\log \frac{p\left(c_{i}=0 \mid y_{i}\right)}{p\left(c_{i}=1 \mid y_{i}\right)} \\\\ &=\log \frac{p\left(x_{i}=1 \mid y_{i}\right)}{p\left(x_{i}=-1 \mid y_{i}\right)} \\\\ &=\log \frac{p\left(y_{i} \mid x_{i}=1\right) p\left(x_{i}=1\right) / p\left(y_{i}\right)}{p\left(y_{i} \mid x_{i}=-1\right) p\left(x_{i}=-1\right) / p\left(y_{i}\right)} \\\\ &=\log \frac{p\left(y_{i} \mid x_{i}=1\right) p\left(x_{i}=1\right)}{p\left(y_{i} \mid x_{i}=-1\right) p\left(x_{i}=-1\right)} \end{aligned} $$其中用到了贝叶斯公式：$p\left(x_{i} \mid y_{i}\right)=p\left(x_{i}, y_{i}\right) / p\left(y_{i}\right)=p\left(y_{i} \mid x_{i}\right) p\left(x_{i}\right) / p\left(y_{i}\right)$，如果符号等概出现，即$p(x_i=-1)=p(x_i=1)$，则有
+$$ r_{i}=l\left(x_{i} \mid y_{i}\right)=\log \frac{p\left(y_{i} \mid x_{i}=1\right)}{p\left(y_{i} \mid x_{i}=-1\right)} $$对于bi_awgn信道来说，有
+$$ \begin{aligned} p\left(y_{i} \mid x_{i}=1\right) &=\frac{1}{\sqrt{2 \pi \sigma^{2}}} \exp \left(-\frac{\left(y_{i}-\mu\right)^{2}}{2 \sigma^{2}}\right) \\\\ p\left(y_{i} \mid x_{i}=-1\right) &=\frac{1}{\sqrt{2 \pi \sigma^{2}}} \exp \left(-\frac{\left(y_{i}+\mu\right)^{2}}{2 \sigma^{2}}\right) \end{aligned} $$则对llrs化简，有
+$$ \begin{aligned} r_{i}=l\left(x_{i} \mid y_{i}\right) &=\log \frac{\frac{1}{\sqrt{2 \pi \sigma^{2}}} \exp \left(-\frac{\left(y_{i}-\mu\right)^{2}}{2 \sigma^{2}}\right)}{\frac{1}{\sqrt{2 \pi \sigma^{2}}} \exp \left(-\frac{\left(y_{i}+\mu\right)^{2}}{2 \sigma^{2}}\right)} \\\\ &=\log \exp \left(-\frac{\left(y_{i}-\mu\right)^{2}}{2 \sigma^{2}}+\frac{\left(y_{i}+\mu\right)^{2}}{2 \sigma^{2}}\right) \\\\ &=\frac{1}{2 \sigma^{2}}\left(-\left(y_{i}^{2}-2 \mu y_{i}+\mu^{2}\right)+\left(y_{i}^{2}+2 \mu y_{i}+\mu^{2}\right)\right) \\\\ &=\frac{2 \mu}{\sigma^{2}} y_{i} \end{aligned} $$对于比特$c_i$的llr值，有时被称作$c_i$的软判决。$c_i$的硬判决指的是，当$r_i$为正值时，返回 $c_i=0$ 或 $x_i=1$，若$r_i$为负值时，返回 $c_i=1$ 或 $x_i=-1$。
+其他变形 若考虑bi-awgn信道噪声水平的相对值，将$\mu=1$并通过调节$\delta$来反映信道的噪声水平会方便一些，此时$r_i$可以写为：
+$$ r_{i}=\frac{2}{\sigma^{2}} y_{i} $$表示为$e_b/n_0$的形式
+噪声水平通常会通过每符号能量$e_s$与噪声谱密度$n_0$之比来表示：
+$$ \frac{e_{s}}{n_{0}}=\frac{\mu^{2}}{2 \sigma^{2}} $$之因此式$y_{i}=\mu x_{i}+z_{i}$有时会写成如下形式：
+$$ y_{i}=\sqrt{e_{s}} x_{i}+z_{i} $$对于bi-awgn信道，以$r$作为信息比特与传输比特之比，即码率，对于二进制输入，$e_s$代表的就是每传输比特的能量。
+对于使用了纠错编码的信道来说，噪声水平经常用$e_b/n_0$来表示，其中$e_b$是每信息比特的能量。
+有
+$$ \frac{e_{b}}{n_{0}}=\frac{1}{r} \frac{e_{s}}{n_{0}}=\frac{1}{r} \frac{\mu^{2}}{2 \sigma^{2}} $$则接收的llr表示为：
+$$ r_{i}=l\left(x_{i} \mid y_{i}\right)=4 \frac{\sqrt{e_{s}}}{n_{0}} y_{i}=4 \frac{\sqrt{r e_{b}}}{n_{0}} y_{i} $$当$\mu$为1时，有
+$$ r_{i}=\frac{4}{n_{0}} y_{i} $$其中，$e_b/n_0$还可以表示为db的形式：
+$$ \frac{e_{b}}{n_{0}}(\mathrm{~db})=10 \log _ {10} \frac{e_ {b}}{n_{0}}=10 \log _{10} \frac{\mu^{2}}{2 r \sigma^{2}} $$ 值得注意的是，$e_s$代表的是每传输符号（二进制输入则对应为比特）的能量，是传输符号而不是信息符号，而$e_b$代表的是每信息比特的能量，这两者隔了个码率。
+"><a class=wp-card-link href=/notes/bi-awgn-initialize/><div class=wp-card-meta><span>研究笔记</span><time datetime=2023-10-07>2023-10-07</time></div><h2>BI-AWGN信道接收概率初始化</h2><p class=wp-card-summary>本文介绍了BI-AWGN信道中接收概率的初始化方法，详细推导了对数似然比(LLR)的计算过程和在不同信噪比表示形式下的数学表达式。</p><div class=wp-card-bottom><span>阅读全文</span><span aria-hidden=true>↗</span></div></a></article><article class=wp-card data-wp-card data-topic=Communication data-search="信道均衡算法 介绍了通信系统中经典的自适应信道均衡算法，包括sato算法、cma恒模算法、mma多模算法、dd算法、mcma改进恒模算法及cadama等算法原理。 signal processing  参考文献： 《高阶qam信号盲均衡算法研究》 《algorithms for communications systems and their applications》 《hybrid methods for blind adaptive equalization: new results and comparisons》
+自适应均衡原理 自适应均衡器可以视为两部分组成：滤波子系统和自适应算法。所以本质上，均衡器也是一个滤波器，更严格地说，自适应均衡是自适应滤波器做补偿信道isi来讲的一种应用。
+自适应均衡问题建模 参考书籍：《algorithms for communications systems and their applications》 from the knowledge of the probability distribution of the channel input symbols $\lbrace a_k\rbrace$ and from the observation of the channel output sequence $\lbrace x_k\rbrace$, we want to ﬁnd an equalizer $c$ such that the overall system impulse response is inter-symbol interference (isi) free.
+假设一个非最小相位系统的有理传递函数为
+$$ h(z)=h_{0} \frac{p_{1}(z) p_{2}(z)}{p_{3}(z)} $$其中， $h_ 0$为增益， $p_ 3(z)$ 和 $p_ 1(z)$ 为在单位圆内有零点的一次多项式，而 $p_ 2(z)$ 为在单位圆外有零点的一次多项式。对 $p_ 1(z)$ 和 $p_ 2(z)$ 求逆并用劳伦变换表示，为
+$$ \begin{aligned} &amp;p_{1}^{-1}(z)=\sum_{n=0}^{+\infty} c_{1, n} z^{-n} \\ &amp;p_{2}^{-1}(z)=\sum_{n=-\infty}^{0} c_{2, n} z^{-n} \end{aligned} $$因此有
+$$ h^{-1}(z)=\frac{1}{h_{0}} p_{3}(z)\left(\sum_{n=0}^{+\infty} c_{1, n} z^{-n}\right)\left(\sum_{n=-\infty}^{0} c_{2, n} z^{-n}\right) $$由于输入信号是对称的，即 $\left\lbrace-a_{k}\right\rbrace$ 和 $\left\lbrace-a_{k}\right\rbrace$ 有相同的统计特性，因此，我们无法区分目标均衡器为 $h^{-1}$ 还是 $-h^{-1}$。所以均衡器的解为 $c=\pm h^{-1}$ ，这能令整个系统的响应为 $\psi=\pm i$。
+定理 如果输入符号是非高斯的，若输出符号
+$$ y_{k}=\sum_{n=-\infty}^{+\infty} c_{n} x_{k-n} $$的输入输出服从同分布，则系统$\psi=\pm i$。
+利用上述定理可以确定均衡器 $c$ 是否令输出分布收敛于输入分布。令代价函数为
+$$ j=e\left[\phi\left(y_{k}\right)\right] $$其中 $\phi$ 是选定的实数偶函数，则最优解为
+$$ c_{o p t}(z)=\arg \min _{c(z)} j $$这样就能找到$\pm h^{-1}$时的$c$值。
+假设均衡器系数长为$n$，则
+$$ \boldsymbol{c}_ {k}=\left[c_ {0, k}, c_{1, k}, \ldots, c_{n-1, k}\right]^{t} $$令输入为
+$$ \boldsymbol{x}_ {k}=\left[x_ {k}, x_{k-1}, \ldots, x_{k-(n-1)}\right]^{t} $$有输出
+$$ y_{k}=\sum_{n=0}^{n-1} c_{n, k} x_{k-n}=c_{k}^{t} \boldsymbol{x}_ {k} $$同理，可以将系数简化为
+$$ c_{o p t}=\arg \min_{c} j $$假设$\phi$的导数为$\theta$，$j$关于$c$的梯度为
+$$ \nabla_{c} j=e\left[\boldsymbol{x}_{k}\theta (y_k)\right] $$为了最小化$j$，使用随机梯度下降算法
+$$ c_{k+1}=c_{k}-\mu \theta\left(y_{k}\right) \boldsymbol{x}_{k} $$其中 $\mu$ 是自适应增益。值得注意的是，收敛到 $h^{-1}$ 还是 $-h^{-1}$ 取决于初始系数$c$的选择。
+均衡器迭代时所选择的代价函数 $\phi$ 很重要。
+pam系统中的sato算法 sato代价函数定义为：
+$$ j=e\left[\frac{1}{2} y_{k}^{2}-\gamma_{s}\left|y_{k}\right|\right] $$其中
+$$ \gamma_{s}=\frac{e\left[a_{k}^{2}\right]}{e\left[\left|a_{k}\right|\right]} $$$j$ 的梯度为
+$$ \nabla_{\boldsymbol{c}} j=e\left[\boldsymbol{x}_ {k}\left(y_{k}-\gamma_{s} \operatorname{sgn}\left(y_{k}\right)\right)\right] $$引入信号
+$$ \epsilon_{s, k}=y_{k}-\gamma_{s} \operatorname{sgn}\left(y_{k}\right) $$假设自训练时伪误差的期望替代最小均方(lms)判决算法中的误差项。其中，lms算法的误差信号为
+$$ e_{k}=y_{k}-\hat{a}_ {k} $$其中，$ \hat{a}_ {k}$为符号 $a_ k$的判决，这是对样本 $y_ k$ 通过阈值判决器判决出来的结果。下图展示了输出样本$y_ k$时伪误差$\epsilon_{s, k}$的函数。
+因此，sato算法系数更新过程为
+$$ \boldsymbol{c}_ {k+1}=\boldsymbol{c}_ {k}-\mu \epsilon_ {s, k} \boldsymbol{x}_ {k} $$通过证明可知，如果输出符号$\lbrace a_{k}\rbrace$是sub-gaussian的，那么sato代价函数在一定的滞后后能将系统导向唯一的$c=\pm h^{-1}$。
+sato算法的局限性 在得到sato代价函数最小时的唯一点的前提是假设输入符号的概率分布是连续的，如果概率分布是离散的，sato算法的收敛特性将会不理想； 在$c=\pm h^{-1}$时，伪误差$\epsilon_{s, k}$并不为零，除非系统是二进制传输系统； 伪误差的方差可以在期望解的邻域内为不可忽略的值。 值得一提的是，我们在最小化代价函数时，函数中有一项$e\left[\left|y_{k}\right|^{p}\right]$ ，其中$p\geq 2$ ，这意味着在代价函数中我们强调采样点幅值的贡献。
+qam系统中的自适应均衡 constant-modulus algorithm（cma，恒模算法） 最早由godard提出，其代价函数为：
+$$ j=e\left[\left(\left|\tilde{y}_ {k}\right|^{p}-r_{p}\right)^{2}\right]=e\left[\left(\left|y_{k}\right|^{p}-r_{p}\right)^{2}\right] $$其中，$p$是一个参数，通常有 $p=1$ 或 $p=2$ 。由于代价函数 $j$ 取决于均衡器输出的绝对值的 $p$ 次方，因此，cma不需要载波相位估计。下图是采用了cma均衡器接收机的框图。
+上式的梯度为
+$$ \nabla_{c} j=2 p e\left[\left(\left|\tilde{y}_ {k}\right|^{p}-r_{p}\right)\left|\tilde{y}_ {k}\right|^{p-2} \tilde{y}_ {k} \boldsymbol{x}_ {k}^{*}\right] $$常数$r_p$会选择成在均衡效果很好时令梯度为0的值，因此，有
+$$ r_{p}=\frac{e\left[\left|a_{k}\right|^{2 p}\right]}{e\left[\left|a_{k}\right|^{p}\right]} $$ 为啥这里需要用两个期望相除而不是相除后再求期望？ 因为相除后再求期望还有一项协方差需要求，而这两个随机变量都是$a_k$，协方差不为0，因此如果相除后再求期望的话就不是半径的$p$次方的期望了。
+以64qam星座图为例，利用上式，可以算出 $r_ 1 = 6.9$ 和 $r_ 2 = 58$。计算这两个半径的代码如下：
+p = 2; e1 = 0; e2 = 0; for i = 1:2:7 for j = 1:2:7 e1 = 1/16 * (sqrt(i^2+j^2) ^ p) + e1; e2 = 1/16 * (sqrt(i^2+j^2) ^ (2*p)) + e2; end end e2/e1 半径$r_ 1=6.9$的圆在64qam星座图中的相对位置如下：
+我们可以借助下式以利用梯度更新均衡器系数
+$$ \boldsymbol{c}_ {k+1}=\boldsymbol{c}_ {k}-\mu\left(\left|\tilde{y}_ {k}\right|^{p}-r_{p}\right)\left|\tilde{y}_ {k}\right|^{p-2} \tilde{y}_ {k} \boldsymbol{x}_ {k}^{* } $$对于 $p=1$ 的情况，上式化简成：
+$$ \boldsymbol{c}_ {k+1}=\boldsymbol{c}_ {k}-\mu\left(\left|\tilde{y}_ {k}\right|-r_{1}\right) \frac{\tilde{y}_ {k}}{\left|\tilde{y}_ {k}\right|} \boldsymbol{x}_ {k}^{*} $$这就是cma算法，而sato算法是cma算法的一个特例。
+cma算法的优缺点 优点
+鲁棒性好 复杂度低 使用广泛 可以在载波恢复之前 缺点
+time-to-convergence(ttc)较慢 收敛时会有一个常数相位偏移 multimodulus algorithm(mma)多模算法 参考文献：《hybrid methods for blind adaptive equalization: new results and comparisons》
+mma将均衡器的输出分为同相分量与正交分量，对于方形的qam星座图来说，mma误差为
+$$ \begin{array}{r} e_{n, r}^{m m a}=y_{n, r}\left(y_{n, r}^{2}-r_{m}\right) \\ e_{n, i}^{m m a}=y_{n, i}\left(y_{n, i}^{2}-r_{m}\right) \\ e_{n}^{m m a}=e_{n, r}^{m m a}+j \cdot e_{n, i}^{m m a} \end{array} $$$r$ 和 $i$ 分别代表实数和虚数分量，$r_m$ 是一个常数，定义为：
+$$ r_{m}=\frac{\mathrm{e}\left\lbrace a_{n}^{4}\right\rbrace}{\mathrm{e}\left\lbrace a_{n}^{2}\right\rbrace} $$mma算法优缺点 mma算法对比cma有更低的mse，并且不需要相位恢复。然而，收敛速率与cma是差不多的，并且鲁棒性更低。
+decision directed(dd)算法 dd算法在更新均衡抽头的时候用符号估计替换掉符号统计值。dd误差定义如下：
+$$ e_ {n}^{d d}=y_ {n}-\hat{s}_ {n} $$其中 $\hat{s}_ {n}$ 是符号点的估计。
+dd算法优缺点 dd算法有更低的mse和更低的抖动。然而，只有当mse低于一个固定的阈值的时候才会收敛，针对qam星座图，有论文推导过其阈值。
+modified-cma(mcma) 相比cma的误差函数，mcma算法增加了一个星座图匹配误差项(constellation matched error, cme)。这能够极大地降低ttc和mse。mcma误差定义为：
+$$ e_{n}^{m c m a}=y_{n}\left(\left|y_{n}\right|^{2}-r_{c}\right)+\beta \eta_{n} $$其中$\beta$ 是cme权重因子，$\eta_ n$是cme项，其定义为：
+$$ \eta_{n}=\left.\frac{d}{d x} g(x)\right|_ {x=y_ {n, r}}+\left.j \frac{d}{d x} g(x)\right|_ {x=y_ {n, i}} $$其中$g(x)$是cme函数，该函数对qam星座图来说在符号点上为0，$g(x)$定义为：
+$$ g(x)=1-\sin ^{2 p}\left(\frac{x \pi}{2 d}\right) $$其中，$p$是正整数，$d$ 是星座点间的距离。
+mcma算法优缺点 相比cma算法有更低的mse，更低的抖动以及更快的ttc。然而，该算法需要提前做相位恢复，并且复杂度更高，若cme项通过查找表实现的话，需要消耗大量面积。
+cma-mma cma-mma算法在代价函数中采用非对称的做法，在同相滤波器(in-phase filter)中使用cma误差，在正交滤波器(quadrature filter)中使用mma误差。cma-mma误差定义如下：
+$$ \begin{array}{r} e_{n, r}^{c m a-m m a}=y_{n, r}\left(\left|y_{n}\right|^{2}-r_{c}\right) \\ e_{n, i}^{c m a-m m a}=y_{n, i}\left(y_{n, i}^{2}-r_{m}\right) \\ e_{n}^{c m a-m m a}=e_{n, r}^{c m a-m m a}+j \cdot e_{n, i}^{c m a-m m a} \end{array} $$cma-mma算法优缺点 优点：
+相比cma算法有更低的mse 鲁棒性好 尽管mma误差项会导致星座图旋转，也不需要提前做相位恢复 缺点：
+收敛速率差不多 可能会导致较大的抖动 cma-assisted decision adjusted modulus algorithm(cadama) cadama是一种双模式算法，首先用cma来减小mse来让改进第二模式中的判决步骤。the decision adjusted modulus algorithm(dama)的代价函数对每个qam中的环来说都是0，将dama用在第二模式中，dama误差项定义为：
+$$ e_{n}^{d a m a}=\min _ {i}\left[y_ {n}\left(\left|y_{n}\right|^{2}-r_{i}\right)\right] $$其中，$1 \leq i \leq p$ 且 $\left\lbrace r_{i}\right\rbrace_{i=1}^{p}$ 是qam星座图中信号点对应的半径，$p$是大于1的整数。
+cadama算法的优缺点 优点：
+有更低的mse 比cma有更低的抖动 缺点：
+对于高阶qam星座图来说需要更多的判决区域，这增加了选区错误的可能性 在信道失真严重时，dama算法代价函数的错误率太大，dama算法不能收敛，因此在均衡的初始阶段，使用dama算法不可靠，不能冷启动dama算法 cma算法与dama算法之间的转换准则 cadama需要首先采用cma来实现均衡器的初始化调整，并且当幅度均衡完成之后，切换到dama模式。由于dama是使每个qam星座图中的圈对应的代价函数归为0来实现的，因此对于很多标准qam星座图来说，其抖动可以降低18到25db。
+cma与dama的切换准则：使用goodness-of-fit test来对观测间隔内的半径直方图与qam星座图的半径分布模板进行比较来指导切换的。
+qam星座图半径分布模板 令 $p_ i$ 代表信号点半径 $i$ 的模板概率，则有 $p_i = (\text{number of signal points on radius} \quad i)/m$，其中 $m$ 为调制阶数，且有$\sum_{i=1}^{\rho} p_{i}=1$。
+观测间隔 用 $n$ 来表示观测间隔，其与 $m$ 的关系为：$n=\kappa m$，观测间隔 $\kappa m$ 可以生成一个针对每个符号 $a_ m$ 的观测值 $k$。此处可以采用 $\kappa = 20$。
+盲均衡性能评价准则 收敛速度 一个具有较高收敛能力的算法通常冷启动能力比较强，即算法是“易于收敛”的。
+均方判决误差 均方误差mse的定义：
+$$ m s e=e\left\lbrace|d(n)-\mathrm{y}(n)|^{2}\right\rbrace $$其中，$d(n)$是期望信号，$y(n)$是均衡器输出。
+剩余isi 定义盲均衡算法的评价指数isi，表达式为：
+$$ \operatorname{isi}(n)=\frac{\sum\left|\mathbf{h}_ {w}(n)\right|^{2}-\max \left|\mathbf{h}_ {w}(n)\right|^{2}}{\max \left|\mathbf{h}_{w}(n)\right|^{2}} $$$\operatorname{isi}(n)$ 表示第 $n$ 次迭代后的剩余码间干扰， $\sum\left|\mathbf{h}_ {w}(n)\right|^{2}$ 表示对联合冲激响应 $\mathbf{h}_ {w}(n)$ 的所有 $n$ 求平方之和， $\max \left|\mathbf{h}_ {w}(n)\right|^{2}$ 表示联合冲激相应 $\mathbf{h}_{w}(n)$ 最大的一项的平方。
+误符号率 多数情况下，误符号率和盲均衡算法的均方判决误差以及剩余isi是一致的。
+"><a class=wp-card-link href=/notes/equalization/><div class=wp-card-meta><span>研究笔记</span><time datetime=2023-10-06>2023-10-06</time></div><h2>信道均衡算法</h2><p class=wp-card-summary>介绍了通信系统中经典的自适应信道均衡算法，包括Sato算法、CMA恒模算法、MMA多模算法、DD算法、MCMA改进恒模算法及CADAMA等算法原理。</p><div class=wp-card-bottom><span>阅读全文</span><span aria-hidden=true>↗</span></div></a></article><article class=wp-card data-wp-card data-topic=Communication data-search="定时同步算法 整理频域匹配滤波与 o&amp;m 定时同步，并讨论 gardner 算法的特点、误差公式与频偏影响。 signal processing 频域匹配滤波联合o&amp;amp;m算法定时同步 根据林长星的论文，可以在频域匹配滤波的时候使用延迟系数进行补偿，以达到定时同步的目标。其实现框图如下图所示。首先下变频后的数据会进行fft运算，在频域对匹配滤波器系数进行fft后的数值进行点乘，模拟时域的卷积运算，卷积完后的数据会与nco算出来的定时误差进行频域的系数相乘操作，以实现时域数据的偏移，之后做ifft得到最终匹配滤波与定时同步后的数据。定时同步后的数据会送入定时误差估计模块中，利用o&amp;amp;m算法进行定时误差的无偏估计，得到误差估计值$\hat{\varepsilon}$，该误差估计值$\hat{\varepsilon}$会被送入环路滤波器进行环路滤波，nco则会对环路滤波的输出数据$\varepsilon$进行溢出控制。
+o&amp;amp;m定时误差估计算法 o&amp;amp;m算法是由oerder和meyr由1988年提出的，这种算法需要至少4倍过采样，但是其误差估计值是真实值的无偏估计，在高信噪比下渐进等价于最大似然估计，而且算法对信噪比和载波频偏都不敏感，性能上会比gardner算法更好，其主要推导过程如下。
+假设接收到的通过信道后的信号为
+$$ \begin{equation} \begin{aligned} r(t) &=\sum_ {n=-\infty}^{\infty} a_ {n} g_ {t}(t-n t-\varepsilon(t) t)+n(t) \\ &=u(t)+n(t) . \end{aligned} \end{equation} $$其中，$a_ n$ 为复信号（若为qpsk，则取值为 $\pm 1, \pm i$ ，即4个点在坐标轴上），$g_t(t)$为传输信号的单位脉冲响应，$t$是符号持续时间，$n(t)$为信道噪声，这里假设为功率密度是$n_0$的高斯白噪声，定时误差$\varepsilon(t)$未知，且随时间变化缓慢。
+由于定时误差$\varepsilon$变化很慢，在数字实现的时候，可以将信号分片，对于每一片信号$\delta_m$，我们可以假设$\varepsilon$是一个常数，其估计值为$\hat{\varepsilon}$。该定时误差估计值需要与之前时刻的估计值进行结合（即需要进行滤波）以获得最佳估计值$\bar{\varepsilon}$，这个最佳估计值用于控制检测的采样器。
+假设接收端的冲激响应为$g_r(t)$，则接收到的信号为$\tilde{r}(t)=r(t) * g_{r}(t)$，设采样率为$n/t$，则接收端采样值为$\tilde{r}_ {k}=\tilde{r}(k t / n)$，则接收端序列取平方后有
+$$ \begin{equation} x_{k}=\left|\sum_{n=-\infty}^{\infty} a_{n} g\left(\frac{k t}{n}-n t-\varepsilon t\right)+\tilde{n}\left(\frac{k t}{n}\right)\right|^{2} \end{equation} $$其中$g(t)=g_ {t}(t) * g_{r}(t)$。上式代表对接收信号进行滤波以及平方之后的采样值，其频谱在$1/t$处有一个分量。
+对上述取平方后的序列以时长$lt$进行分片（即每个分片有$ln$个符号），对序列以符号速率求复傅里叶级数
+$$ x_{m}=\sum_{k=m l n}^{(m+1) l n-1} x_{k} e^{-j 2 \pi k / n} $$上述级数求归一化相位可得$\hat{\varepsilon}_ m=-1 / 2 \pi \arg \left(x_{m}\right)$，可以得出该归一化相位$\hat{\varepsilon}_m$是定时误差$\varepsilon$的无偏估计。证明请直接参考原文章。
+这里值得注意的是，$\arg()$算符并不等价于$\arctan()$算符，因为$\arctan()$的值域是$\left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$，但$\arg()$算符求的是当前的复向量的角相位，对应的值域是$\left(-\pi, \pi\right)$。
+思考：为何上式频谱会在$1/t$处有的分量？
+可以参考书籍《digital signal processing fundamentals and applications》fig. 4.3对于一个符号周期为$t$的信号，其频率为$f_0$，若以采样率$f_s=nf_0=n/t$进行采样，则其频谱应该会在0-$fs$（即0-$nf_0$）处有n个间隔为$f_0$的值，即上式一定会在$1/t$处有分量。这也证明了为何o&amp;amp;m算法需要大于2倍过采样，因为如果只有两倍过采样的话，在0-$f_s$频率范围内，只有n+1根谱线，分别为0, 1/t, 2/t这几根谱线，并且不满足奈奎斯特采样率，因此在1/t处会产生混叠，造成采集的数据不准确，影响后续的判断。
+o&amp;amp;m算法的特点 o&amp;amp;m算法的特点如下：
+至少需要4倍过采样 估算出来的定时误差$\hat{\varepsilon}$是真实定时误差的无偏估计 可以用于前馈也可以用于反馈结构 对频偏不敏感 对信噪比不敏感 前馈结构适用于突发通信 gardner算法 阅读论文《a bpsk/qpsk timing-error detector for sampled receivers》
+gardner算法基本公式
+$$ \begin{aligned} u_{t}(r)=y_{i}(r-\frac{1}{2})[&\left.y_{i}(r)-y_{i}(r-1)\right] \\\\ &+y_{q}(r-\frac{1}{2})\left[y_{q}(r)-y_{q}(r-1)\right] \end{aligned} $$其中，$y_i(r)$中的$r$ 代表符号索引，it is convenient to denote the strobe values of the $r$th symbol- as $y_i(r)$ and $y_q(r)$. 这里的strobe不太确定到底指的是采样值还是内插后的值。那么，在两个strobe之间的那个点的值就是$y_{i}(r-\frac{1}{2})$和 $y_{q}(r-\frac{1}{2})$。这就是利用采样点计算出来定时误差$u_t(r)$的gardner误差估计公式。
+gardner算法的特点 优点：
+只需要两倍过采样 缺点：
+需要40%-100%的额外带宽 为什么需要40%-100%的额外带宽呢？
+因为如果带宽过窄会引入自噪声。
+为什么会引入自噪声？自噪声哪里来的？
+看上图，如果$\alpha=1$的话，即频谱扩展100%，可以看见1.5t处为0，这个时候采样$y_{i}(r-\frac{1}{2})$和 $y_{q}(r-\frac{1}{2})$时不是处于过零点处，在计算定时误差时就会呈现散点的形式（而非零点），这种情况在求均值后是没问题的，关键就是如果只看局部，就会引入自噪声，而且随着$\alpha$的减小，自噪声也越大。
+gardner定时误差公式解释 这条公式看上去很简单，也有很多不同的解释，但直接对这条公式进行的解释都是浮于表面的，也无法得知公式到底是怎么被想出来的，不如我们直接对gardner的原文重新推导一遍，尝试得到原汁原味的思路。这里先给出gardner原文对公式的解释。
+a physical explanation can be ascribed. the detector samples the data stream midway between strobe locations in each of the $i$ and $q$ channels. if there is a transition between symbols, the average midway value should be zero, in the absence of timing error. a timing error gives a nonzero sample whose magnitude depends upon the amount of error, but either slope is equally likely at the midway point so there is no direction information in the sample alone.
+to sort out these different possibilities, the algorithm examines the two strobe values to either side of the midway sample. if there is no transition, the strobe values are the same, their difference is zero, and so the midway sample is rejected. (no timing information is available in the absence of a transition.)
+if a transition is present, the strobe values will be different; the difference between them will provide slope information. the product of the slope information and the midway sample provides timing-error information.
+按照我的理解尝试一下翻译过来，避免遗忘。检测器会对数据流的 $i$ 路和 $q$ 的符号采样值(strobe)间的中间点(midway)进行采样（即式中的$y(r-1/2)$）（这个strobe的意思大意就是符号的最佳采样点处，但其实对于这篇论文，当时gardner还没有提出定时同步环路，仅针对定时误差检测而言，此处的strobe不能直接理解为最佳采样点，而是一个正常的采样点，即该符号对应的其中一个采样点，为一个strobe，隔壁符号的对应的采样点，则为另一个strobe。举个例子，如果当前过采样倍数为4，若假设当前符号的第二个采样点为strobe，即 $y(r-1)$ ，则隔壁的strobe则在当前采样点往后顺延4个，即为下一个strobe， $y(r)$ 。midway的意思其实就是对于接收到的电平信号两个strobe之间的中点，还是以过采样倍数为4为例，如果当前采样序列的索引为1/2/3/4/5/6/7/8，若2为第一个strobe， $y(r-1)$ ，则4为midway， $y(r-1/2)$ ，6为第二个strobe， $y(r)$。而对于加了反馈环路的gardner环来说，这里的strobe其实就是内插出来的最佳采样点了，不然每次都是用采回来的点进行求解，定时误差永远都不会收敛）。如果两个符号间有跳变，则在没有定时误差的情况下，midway点的平均值应该为0。定时误差会导致midway点采样值不为0，而该值的幅度会取决于误差的大小，不过如果公式中只有中间点这一项的话，还没办法得到位置信息，即超前还是滞后。
+为了得到位置信息，算法对midway两端的符号采样值进行衡量，即式中的$y(r)-y(r-1)$，如果两个符号间没有跳变，则两个符号采样值应该是相同的，即差值为0，那么中间相就被消掉了，此时没有定时信息（即如果没有跳变的话，是无法获取定时误差信息的）。
+如果有跳变，则符号采样值会不一样，该差值会提供斜率信息。斜率信息与midway值相乘会提供定时误差信息。
+gardner定时误差公式的推导 先看图，
+线a给出了符号的边界，符号的持续时间为$t$。 线b给出了最佳采样点的位置，即每个符号间隔的中间点处。 线c给出了一个基带信号，该基带信号经过了成型以及匹配，并且满足奈奎斯特准则，是个带限信号，且成型系数用的100%。 如何通过数据流重建一个时钟波形呢？一个已经被证明过的方法是将信号通过一个简单的整流器，如果采用平方律整流器的话，其实就是将数据进行平方。如线d所示，平方完后的信号有如下好处：
+噪声性能将近最优，尤其是在低信噪比时； 如果一个纯sin信号输入，则输出为一个二倍频的sin信号； 平方运算是该方法中唯一的非线性操作，该非线性操作在数学上是易于处理的； 该平方律整流器在i路和q路将能独立恢复出载波相位的时钟波形，这在捕获阶段是比较重要的。 利用线d，可以将原型时钟(protoclock)生成出来，具体做法是，利用一个以符号速率为周期的纯sin波形，在数据非跳转处进行隔开，只在数据跳转处进行保留。这个原型时钟再通过一个窄带滤波器或者一个锁相环即可将想要的时钟线恢复出来，并且能消掉各种其他干扰，这就是模拟时钟恢复的方法。
+仔细分析可以发现，这个方法其实也可以用于数字系统中，但是并不方便，一个是运算量较大，另一个是仅两个采样点还不太够用，因为sin的周期等于符号周期，而sin一个周期仅两个采样点是不满足采样定律的，所以在数字系统，这个做法需要改进才能用。不过我们不是要重建原型时钟，而是要找到一个方法来计算定时误差，本质上是不需要重建原型时钟的。
+线e和线f对应一种预滤波方法(prefilter method)，由于gardner没用这个方法，此处不再赘述。这是为了改进线d用到的方法而被提出的，有文献可以参考。
+延迟差分方法（gardner用的方法）。
+令差分器能进行如下运算：
+$$ x_{d}(t)=x(t)-x\left(t-t_{d}\right) $$其中 $t_d$ 是一个预先算好的延迟时间。值得一提的是，假设 $t_d=t/2$ 则$x_d$的平均延时为$t/4$，即采样时刻与计算出来的定时误差时刻的时间偏移值（这里我理解还不够透彻，为什么平均延时为$t/4$，不过无伤大雅）（我的理解是，线d和线e算出来在时间上是与原信号对齐的，而用这个公式算出来会差$t/4$）。
+令 $t_d=t/2$ ，则线c进行延迟差分后可以得到线g。线g跟线e类似，不过线g并不是一个特定的信号波形（线e是一个sin信号）。这个线g有着跟线e几乎一样的周期特性。（这里为什么用 $t_d=t/2$ 而不是其他值暂时还没有想法，目前的想法是，间隔半个周期一个对标的是线d的形式，一个在上升沿则另一个会在下降沿，这么间隔 $t_d=t/2$ 求差之后就能比较好地反应出信号的跳变信息，但实际上仿真的时候可以看出，在 $t_d=t/4$ 到 $t_d=3t/4$ 之间似乎没有很大的区别）。
+从线g来看，能发现只有在初始信号有跳变的时候波形才会摆动，不然波形会归0。对线g进行平方，可以得到线h，可以看出，这样也生成了一个原型时钟，而定时误差信息可以通过计算 $e(r)$ 和 $l(r)$ 的差值获得。
+$$ u_{t}(r)=e(r)-l(r-1) $$其中，$e(r)$ 是第 $r$ 个符号的采样点，而 $l(r-1)$ 是第 $r-1$ 个符号的采样点，$e$ 对应的是提前的采样点， $l$ 对应的是滞后的采样点。
+接下来就是化简这个函数了。首先有
+$$ x_{d}(t)=x(t)-x(t-t / 2) $$平方后为
+$$ x_{d}^{2}(t)=x^{2}(t)+x^{2}(t-t / 2)-2 x(t) x(t-t / 2) $$在 $t=r t+\tau$ 和 $r t+\tau-t / 2$ 处采样，有
+$$ \begin{aligned} e(r)=& x_{d}^{2}(r t+\tau) \\\\ =& x^{2}(\tau+r t)+x^{2}(\tau+(r-1 / 2) t) \\\\ &-2 x(\tau+r t) x(\tau+(r-1 / 2) t) \end{aligned} $$和
+$$ \begin{aligned} &amp;l(r-1)=x^{2}(\tau+(r-1 / 2) t)+x^{2}(\tau+(r-1) t) \\\\ &-2 x(\tau+(r-1 / 2) t) x(\tau+(r-1) t) \end{aligned} $$令
+$$ u_{t}(r)=l(r-1)-e(r) $$将上式化简后可得
+$$ \begin{aligned} &amp;u_{t}(r)=x^{2}(\tau+(r-1) t)-x^{2}(\tau+r t) \\\\ &+2 x(\tau+(r-1 / 2) t)\{x(\tau+r t)-x(\tau+(r-1) t)\} \end{aligned} $$上式能不能作为定时误差项呢？其实可以了，因为包含了定时误差信息在里面了，不过还可以继续化简。对上式求均值，有
+$$ \begin{aligned} &amp;u_{t}(\tau)=\operatorname{avg}\lbrace x^{2}(\tau+(r-1) t)\rbrace-\operatorname{avg}\lbrace x^{2}(\tau+r t)\rbrace \\\\ &+2 \operatorname{avg}\{x(\tau+(r-1 / 2) t)(x(\tau+r t)-x(\tau+(r-1) t))\} \end{aligned} $$上式中第一项和第二项是相同的，因为是同一个信号不同延时而已，是周期平稳的随机信号，这两项可以直接消掉。对于输出信号来说，这两项$x^2(\cdot)$ 来说，其存在并不会影响到有用信号的输出均值。剩下后面一项，这一项可以写为
+$$ \begin{aligned} u_{t}(r) &=x(\tau+(r-1 / 2) t)\{x(\tau+r t)-x(\tau+(r-1) t)\} \\\\ &=x(r-1 / 2)\{x(r)-x(r-1)\} \end{aligned} $$这就是化简之后的gardner误差检测公式。
+我们接下来写程序仿真看看
+clc; clear; close all; rand(&amp;#39;seed&amp;#39;, 1); data = 2 * randi([0 1], 1, 20) - 1; % data = 2 * [1 0 1 0 1 1 0 0 0 1 0 1 1 1 1 0] - 1; span = 16; sps = 100; rrc = rcosdesign(1, span, sps); data_shape = conv(upsample(data, sps), rrc, &amp;#39;same&amp;#39;); data_match = conv(data_shape, rrc, &amp;#39;same&amp;#39;); data_diff = data_match(floor(sps/2)+1:end) - data_match(1:end-floor(sps/2)); data_diff2 = data_diff .^ 2; figure; subplot(5, 1, 1); plot(data_match); title(&amp;#39;data match&amp;#39;); grid on; subplot(5, 1, 2); plot(data_match(floor(sps/2)+1:end)); title(&amp;#39;data match 1&amp;#39;); grid on; subplot(5, 1, 3); plot(data_match(1:end-floor(sps/2))); title(&amp;#39;data match 2&amp;#39;); grid on; subplot(5, 1, 4); plot(data_diff); title(&amp;#39;data diff&amp;#39;); grid on; subplot(5, 1, 5); plot(data_diff2); title(&amp;#39;data diff2&amp;#39;); grid on; 上图中最后两个图分别对应线g和线h，采用的成型系数为1，如果用 $l$ 和 $e$ 直接采然后作差，其实就相当于与对原始信号按照 $x(r-1 / 2)\{x(r)-x(r-1)\}$ 求解。
+程序都写了，不如我们改一下成型滤波器的$\alpha$，看看自噪声这个东西到底长啥样吧。 直接将成型系数改为0.1，则有下图
+可以看出，成型系数变小之后，确实差了很多，引入了大量自噪声。
+gardner算法为何不受频偏影响？ 首先假设一个时间连续且通过了滤波器后的复信号：
+$$ w(t)=\{a(t)+j b(t)\} e^{j \delta \theta} $$该复信号拆分成实部与虚部分别为：
+$$ x_{r}(t)=a(t) \cos \delta \theta-b(t) \sin \delta \theta $$$$ x_{i}(t)=a(t) \sin \delta \theta+b(t) \cos \delta \theta $$其中$\delta \theta$ 是载波相位误差，此处是随机的。对于定时误差估计，其算法为：
+$$ \begin{aligned} u_{t}(t)&=x_{1}(t-t / 2)\left[x_{1}(t)-x_{1}(t-t)\right] \\\\ &+x_{2}(t-t / 2)\left[x_{2}(t)-x_{2}(t-t)\right] \end{aligned} $$将其展开，有
+$$ \begin{aligned} u_t(t)=&\left(a(t-\frac{t}{2})\cos(\delta\theta)-b(t-\frac{t}{2})\sin(\delta\theta)\right)\cdot \\\\ &\left[a(t)\cos(\delta\theta)-b(t)\sin(\delta\theta)-a(t-t)\cos(\delta\theta)+b(t-t)\sin(\delta\theta)\right] + \\\\ &\left(a(t-\frac{t}{2})\sin(\delta\theta)+b(t-\frac{t}{2})\cos(\delta\theta)\right)\cdot \\\\ &\left[a(t)\sin(\delta\theta)+b(t)\cos(\delta\theta)-a(t-t)\sin(\delta\theta)-b(t-t)\cos(\delta\theta)\right]\\\\ &=a(t-\frac{t}{2})\left[a(t)-a(t-t)\right] + b(t-\frac{t}{2})\left[b(t)-b(t-t)\right] \end{aligned} $$从化简后的公式可以看出，载波频偏并不影响gardner算法估计出来的定时误差。因此，gardner算法可以用在载波恢复之前。
+"><a class=wp-card-link href=/notes/timing-recovery/><div class=wp-card-meta><span>研究笔记</span><time datetime=2022-08-03>2022-08-03</time></div><h2>定时同步算法</h2><p class=wp-card-summary>整理频域匹配滤波与 O&amp;M 定时同步，并讨论 Gardner 算法的特点、误差公式与频偏影响。</p><div class=wp-card-bottom><span>阅读全文</span><span aria-hidden=true>↗</span></div></a></article><article class=wp-card data-wp-card data-topic=Communication data-search="基于多相滤波器技术的匹配滤波实现方法 整理变速率成型滤波的推导，以及基于多相结构的高速并行匹配滤波器实现。 signal processing  以毕业论文《柔性速率可变的宽带16qam16apsk调制解调器的设计与实现》为学习材料
+变速率成型滤波的实现 成型滤波的表达式 当基带系统的总特性等效为理想低通滤波器时，可实现无码间串扰，但理想的低通滤波器在实际中无法实现，因此在发射端利用根升余弦滤波器对发送信号进行成型滤波，在接收端也用根升余弦滤波器对接收信号进行匹配滤波，这样能使整个信道等效与与低通特性相近的滤波器，可以让系统在本码元的抽样时刻($t=0$)时的值最大，在其他码元抽样时刻($t=\pm k t_{s}$)为0。
+根升余弦滤波器的时域响应为 $$ h_{t}(t)=h_{r}(t)=4 \alpha \frac{\cos \left((1+\alpha) \pi t / t_{s}\right)+\frac{\sin \left((1-\alpha) \pi t / t_{s}\right)}{\left(4 \alpha t / t_{s}\right)}}{\pi \sqrt{t_{s}}\left(1-\left(4 \alpha t / t_{s}\right)^{2}\right)} $$基于数字重采样技术的速率转换方法的公式推导 什么是变速率，为什么要进行速率变换？为什么要进行高速并行可变符号速率调制？
+一般发射端da或者接收端ad的采样率会在设计之初便定下来，以保证程序的正常运行，但是，符号速率有可能会根据实际情况进行调整，这样在相同的采样率下，符号的过采样倍数就会不同，而且有时过采样的倍数可能为小数，这样成型滤波器就需要专门设计，并且保证速率可变，以适应不同速率的输入信号。 由于fpga内部处理时钟一般不超过200mhz，要实现高速信号gbps调制，必须使用全并行架构，这时候调制就需要并行架构了。 根据奈奎斯特采样定理，只要采样频率大于信号带宽的两倍，就可以从采样值$x(nt_s)$中恢复出原始信号$y(t)$ $$ y(t)=\sum_{n=-\infty}^{+\infty} x\left(n t_{s}\right) h\left(t-n t_{s}\right) $$ 这里$x(t)$为输入信号，$h(t)$为滤波器时域响应，$t_s$为符号周期。
+该公式的物理意义是：如果我当前要得到输出信号$y(t)$，那么我要对输入信号与滤波器进行卷积。而你会发现输入信号是离散的，其采样时刻为$nt_s$，而滤波器的时域响应是以$t$为原点的。这个公式非常的普通，但是必须要深入理解该公式才能理解后面的推导。
+如果对上面这个恢复的信号进行重采样，即我想获得某个我想要的点的信号，我会首先想到将上面公式中的$t$替换成我想要的点的时刻，比如$kt_{sp}$，有如下公式： $$ y\left(k t_{sp}\right)=\sum_{n=-\infty}^{+\infty} x\left(n t_{s}\right) h\left(k t_{sp}-n t_{s}\right)=\sum_{n=-\infty}^{+\infty} x\left(n t_{s}\right) h\left(t_{s}\left(\frac{k t_{sp}}{t_{s}}-n\right)\right) $$ 这里的$t_{sp}$可以理解成da的采样周期，其物理含义是我当前要对符号进行调制，给定了采样周期为$t_{sp}$，那么其通过上述公式可以求出其$y(kt_{sp})$，因为我当前的信息符号周期是$t_s$（偏慢），但是我da采样的时候其采样周期为$kt_{sp}$（偏快），所以我需要利用上述公式对速率偏慢的信息符号通过成型滤波生成速率较高的信号，然后给到da进行输出。
+可以看出，$x(nt_s)$是与$x(t_{sp})$无关的，只与$h(t)$有关。
+对上述公式进行化简，令$m_{k}=\left\lfloor\frac{k t_{sp}}{t_{s}}\right\rfloor$，$\mu_{k}=\frac{k t_{sp}}{t_{s}}-m_{k}$，代入上式可得： $$ y\left(k t_{sp}\right)=\sum_{n=-\infty}^{+\infty} x\left(n t_{s}\right) h\left(\left(m_{k}+\mu_{k}-n\right) t_{s}\right) $$ 再令$m=m_{k}-n$，可得： $$ y\left(k t_{sp}\right)=\sum_{m=-\infty}^{+\infty} x\left(\left(m_{k}-m\right) t_{s}\right) h\left(\left(\mu_{k}+m\right) t_{s}\right) $$ 这里通过化简，$y(kt_{sp})$只与$x\left(\left(m_{k}-m\right) t_{s}\right)$以及$h\left(\left(\mu_{k}+m\right) t_{s}\right)$有关，这里面涉及到的整数参数有$m_k, m$以及小数参数有$\mu_k$，对于$x(t)$，由于里面的索引要求是整数的，所以$m_k-m$符合要求，此时抽取的是正常的$x$序列，而对于$h$，由于其涉及到小数，所以我们会先对$h$进行过采样，然后再正常抽取，但是这个$m$所对应的是原本没有偏移的正确采样点的位置，加上$\mu_k$是偏移。
+疑问
+我个人觉得上面两条公式看上去是等价的，但是一旦把取值范围确定后，两条公式不是等价的吧？
+由于无法做到无穷项求和，所以可以将滤波器截短。 $$ \begin{aligned} y\left(k t_{sp}\right) &=\sum_{m=-i_{1}}^{i_{2}} x\left(\left(m_{k}-m\right) t_{s}\right) h\left(\left(\mu_{k}+m\right) t_{s}\right) \\\\ &=\sum_{m=-i_{1}}^{i_{2}} h_{t}\left(\mu_{k}+m\right) x\left(m_{k}-m\right) \end{aligned} $$ 由于$t_s$对于$x$和$h$来说都表示当前索引是在序列内抽取的，是一个倍数关系，所以这个倍数关系可以忽略掉，我们只要做好由$x((m_k-m)-t_s)$到$x(m_k-m)$的映射就可以了。
+可变速率成型滤波器设计 在fpga中，由于无法实时计算$h_{t}\left(\mu_{k}+m\right)$，因此采用查找表的形式来实现。过采样倍数决定了这里的$\mu_k$的精度，如果设定$\mu_k$的精度为$\frac{1}{2^{-12}}$，那么对于5gsps采样率来说，变速率的步进即为$1.22msps$。
+按照上一节的说法，假设当前符号前后间隔超过3个符号的影响可忽略不计，把滤波器截短可以得到： $$ y(kt_{sp})=\sum_{m=-3}^{+2} h_{t}\left(\mu_{k}+m\right) x\left(m_{k}-m\right) $$ 具体做法：
+用matlab 的 rcosdesign 函数生成一组 α=0.35,过采样倍数为 4096,双边 6 个符号的系数,将其量化为 12bit,然后按符号分为 6 组,每组 4096 个系数,分别存入6 个 rom 核中,rom 核宽度为 12,深度为 4096。这样，我们将$\mu_k$和$m$均扩大$2^{12}$倍作为索引地址，分别把运算所需的6个系数都求出来。
+假设当前采样率为5gsps，在200mhz及以下时钟频率下，要32路并行运算，可以将公式修改为 $$ y(32n+i) = \sum_{m=-3}^{+2}h_t(\mu_n(i)+m)x(m_n(i)-m) $$ 式中$n$为时刻值，$i$为并行的路数的序数。$m_{n}(i)=\left\lfloor\frac{(32 n+i) t_{s p}}{t_{s}}\right\rfloor$，$\mu_{n}(i)=\frac{(32 n+i) t_{s p}}{t_{s}}-m_{n}(i)$。
+整个模块的实现框图如下所示：输入的符号数据先通过fifo缓存，再输出给datacache，由coegen算出$m_n(i)$和$\mu_n(i)$，分别从datacache和filterrom中取出6对待内插成型的符号和滤波器系数，相乘求和即得到一路成型输出。
+可变速率成型滤波模块的一些参数讨论 本项目用到的最高采样率为$5gsps$，最高符号速率为$1200msps$，在这个条件下，有$\frac{32t_{sp}}{t_s}=7.68$，即在32路并行时，$m_n(1)$和$m_n(32)$最多相差8，因此，$m_n(i)$的取值区间为$[0, 7]$，再考虑上$m_{n}(1)-2$和$m_{n}(32)+3$，在32路并行成型滤波时，共需要13个符号参与运算。所以datacache需要对从fifo输入的8路并行符号数据缓存一拍，接到下一个时刻的数据之前，变成16路并行的数据，以满足滤波的速率要求。
+寄存器寻址方案，为了使精度能够满足设计的需要，我们用53位表示$\frac{(32 n+i) t_{s p}}{t_{s}}$，其中3位整数位，50位小数位，即$m_n(i)$取整数位3位，$\mu_n(i)$取高12小数位。
+还有fifo取数的策略，这个直接参考文献即可。
+高速并行匹配滤波器的实现 $z$变换 向系统输入$\delta(n)$得到脉冲响应$h(n)$，例如$h(n)=\left[\begin{array}{lll}1 & 2 & 1\end{array}\right]$
+这时候我们再向系统输入另外一个信号，例如：$x(n)=[1\quad 2\quad 1]=\delta(n)+2 \delta(n-1)+\delta(n-2)$
+那么输出信号就应该是$y(n)=[1\quad 4\quad 6\quad 4\quad 1]=h(n)+2 h(n-1)+h(n-2)=x(n)* h(n)$（卷积运算）
+经过观察可以发现，这其实就是$[1\quad 2\quad 1]$和$[1\quad 2\quad 1]$的多项式相乘！！！
+因此我们将信号$x(n)$改写成$x(z)=1+2 z^{-1}+z^{-2}$，同理，脉冲响应也写成$h(z)=1+2 z^{-1}+z^{-2}$，则有$y(z) = 1+4 z^{-1}+6 z^{-2}+4 z^{-3}+z^{-4} = x(z)h(z)$，这种变换就称为$z$变换。
+⭐️ $z^{-1}$对应的是下一个时钟周期（未来）的数据
+公式推导 一个n阶的 fir 滤波器在时域上可表示为： $$ y(n)=h(n) * x(n)=\sum_{i=0}^{n-1} h(i) x(n-i), \quad n=0,1,2, \ldots, \infty $$ 上式对应的z变换可以表示为： $$ y(z)=h(z) \cdot x(z)=\left(\sum_{n=0}^{n-1} h(n) z^{-n}\right) \cdot\left(\sum_{n=0}^{\infty} x(n) z^{-n}\right) $$ 根据论文，可以将序列$x(n)$和$h(n)$的$z$变换拆分成偶数时间序列和奇数时间序列的$z$变换： $$ \begin{aligned} x(z) &=x(0)+x(1) z^{-1}+x(2) z^{-2}+x(3) z^{-3}+\cdots+x(n) z^{-n} \\\\ &=\left[x(0)+x(2) z^{-2}+x(4) z^{-4}+x(6) z^{-6} \cdots\right] \\\\ &+z^{-1}\left[x(1)+x(3) z^{-2}+x(5) z^{-4}+x(7) z^{-6} \cdots\right] \\\\ &=x_{0}\left(z^{2}\right)+z^{-1} x_{1}\left(z^{2}\right) \end{aligned} $$ 同理，有 $$ h(z)=h_{0}\left(z^{2}\right)+z^{-1} h_{1}\left(z^{2}\right) $$则对应的$y(n)$序列也可以表示为偶数时间序列和奇数时间序列的求和： $$ y(z)=y_{0}\left(z^{2}\right)+z^{-1} y_{1}\left(z^{2}\right) $$$$ \begin{array}{c} y_{0}\left(z^{2}\right)=x_{0}\left(z^{2}\right) h_{0}\left(z^{2}\right)+\mathrm{z}^{-2}\left(x_{1}\left(z^{2}\right) h_{1}\left(z^{2}\right)\right) \\\\ y_{1}\left(z^{2}\right)=x_{0}\left(z^{2}\right) h_{1}\left(z^{2}\right)+x_{1}\left(z^{2}\right) h_{0}\left(z^{2}\right) \end{array} $$写成矩阵形式可有： $$ \left[\begin{array}{c} y_{0} \\\\ y_{1} \end{array}\right]=\left[\begin{array}{cc} h_{0} & z^{-2} h_{1} \\\\ h_{1} & h_{0} \end{array}\right] \cdot\left[\begin{array}{c} x_{0} \\\\ x_{1} \end{array}\right] $$ 假设l路并行，则可对其进行拓展： $$ \left[\begin{array}{c} y_{0} \\\\ y_{1} \\\\ \ldots \\\\ y_{l-1} \end{array}\right]=\left[\begin{array}{cccc} h_{0} & z^{-l} h_{l-1} & \ldots & z^{-l} h_{1} \\\\ h_{1} & h_{0} & \ldots & z^{-l} h_{2} \\\\ \ldots & \ldots & \ldots & \ldots \\\\ h_{l-1} & h_{l-2} & \ldots & h_{0} \end{array}\right] \cdot\left[\begin{array}{c} x_{0} \\\\ x_{1} \\\\ \ldots \\\\ x_{l-1} \end{array}\right] $$高速并行匹配滤波器的实现方法 此处采用32路并行，输入的iq数据各只有16路，滤波器的系数长度为25，即rcosdesign(0.35, 4, 6, 'sqrt')。
+为了简单，此处先假设滤波器系数长度为32，推导出其做法，再简化成滤波器系数长度为25的情况。对于i路来说，其输入$x(n)$只有偶数序列的形式，即只有$x(2k)$的情况下不为0，$x(2k+1)$的情况下恒等于0，但其依旧对应两组（每组长度16）的输出，分别为 $$ y_{2 k}=\left\lbrace\begin{array}{cc} \left(\sum_{i=0}^{k} h_{2 i} x_{2(k-i)}\right)+z^{-32}\left(\sum_{i=k+1}^{15} h_{2 i} x_{32+2(k-i)}\right), & 0 \leq k \leq 14 \\\\ \sum_{i=0}^{15} h_{2 i} x_{2(k-i)}, & k=15 \end{array}\right. $$$$ y_{2 k+1}=\left\lbrace\begin{array}{cc} \left(\sum_{i=0}^{k} h_{2 i+1} x_{2(k-i)}\right)+z^{-32}\left(\sum_{i=k+1}^{15} h_{2 i+1} x_{32+2(k-i)}\right), & 0 \leq k \leq 14 \\\\ \sum_{i=0}^{15} h_{2 i+1} x_{2(k-i)}, & k=15 \end{array}\right. $$其实也就是 $$ \left[\begin{array}{c} y_{0} \\\\ y_{1} \\\\ \ldots \\\\ y_{31} \end{array}\right]=\left[\begin{array}{cccc} h_{0} & z^{-32} h_{31} & \ldots & z^{-32} h_{1} \\\\ h_{1} & h_{0} & \ldots & z^{-32} h_{2} \\\\ \ldots & \ldots & \ldots & \ldots \\\\ h_{31} & h_{30} & \ldots & h_{0} \end{array}\right] \cdot\left[\begin{array}{c} x_{0} \\\\ 0 \\\\ x_{2}\\\\ 0\\\\ x_{3}\\\\ \ldots \\\\ x_{30}\\\\ 0 \end{array}\right] $$ 同理，对于q路也一样，为 $$ \left[\begin{array}{c} y_{0} \\\\ y_{1} \\\\ \ldots \\\\ y_{31} \end{array}\right]=\left[\begin{array}{cccc} h_{0} & z^{-32} h_{31} & \ldots & z^{-32} h_{1} \\\\ h_{1} & h_{0} & \ldots & z^{-32} h_{2} \\\\ \ldots & \ldots & \ldots & \ldots \\\\ h_{31} & h_{30} & \ldots & h_{0} \end{array}\right] \cdot\left[\begin{array}{c} 0\\\\ x_{1} \\\\ 0 \\\\ x_{3}\\\\ \ldots \\\\ 0\\\\ x_{31} \end{array}\right] $$$$ y_{2 k}=\left\lbrace\begin{array}{cc}z^{-32}\left(\sum_{i=0}^{15} h_{2 i+1} x_{31+2(k-i)}\right), & k=0 \\\\ \left(\sum_{i=0}^{k-1} h_{2 i+1} x_{2(k-i)-1}\right)+z^{-32}\left(\sum_{i=k}^{15} h_{2 i+1} x_{31+2(k-i)}\right), & 1 \leq k \leq 15\end{array}\right. $$$$ y_{2 k+1}=\left\lbrace\begin{array}{cc} \left(\sum_{i=0}^{k} h_{2 i} x_{2(k-i)+1}\right)+z^{-32}\left(\sum_{i=k+1}^{15} h_{2 i} x_{33+2(k-i)}\right), & 0 \leq k \leq 14 \\\\ \sum_{i=0}^{15} h_{2 i} x_{2(k-i)+1}, & k=15 \end{array}\right. $$如果对里面的元素全部分别相乘，可以看出，对于$h$矩阵的第一列，会分别与$x_0$相乘，对于$h$矩阵的第三列，会分别与$x_2$相乘，对于$h$矩阵的第31列，会分别与$x_{30}$相乘，乘出来待用的参数分别如下： $$ h_0x_0, \quad h_1x_0, \quad h_2x_0, \quad h_3x_0, \quad \cdots, \quad h_{31}x_0 $$$$ z^{-32}h_{30}x_2, \quad z^{-32}h_{31}x_2, \quad h_{0}x_2, \quad h_{1}x_2, \quad \cdots, \quad h_{29}x_2 $$$$ \cdots $$$$ z^{-32}h_{1}x_{30}, \quad z^{-32}h_{2}x_{30}, \quad z^{-32}h_{3}x_{30}, \quad z^{-32}h_{4}x_{30}, \quad \cdots, \quad h_{0}x_{30} $$由于滤波器参数是对称的，所以其实$h_0x_0$和$h_{31}x_0$是一样的，因此只需要一半的滤波器系数即可，而且由于矩阵中有一半的运算是通过延迟32个时钟（这里32路并行，相当于只需要延迟一个时钟周期即可）实现的，所以可以将结果分成两部分，一部分先延时，再输入流水相加模块，另一部分直接输入流水相加模块，进行流水线相加，实现整个低通滤波的过程，其具体实现框图如图所示：
+对于匹配滤波的实现，由于其同样是32路并行输入并且其阶数只有25，即$h_{25}-h_{31}$均为0，其余系数$h_0-h_{24}$非0，所以可以列出其算法： $$ \left[\begin{array}{c} y_{0} \\\\ y_{1} \\\\ \ldots \\\\ y_{31} \end{array}\right]=\left[\begin{array}{ccccc} h_{0} & 0 & 0 & \ldots & z^{-32} h_{1} \\\\ h_{1} & h_{0} & 0 & \ldots & z^{-32} h_{2} \\\\ \ldots & \ldots & \ldots & \ldots & \ldots \\\\ 0 & 0 & 0 & \ldots & h_{0} \end{array}\right] \cdot\left[\begin{array}{c} x_{0} \\\\ x_{1} \\\\ \ldots \\\\ x_{31} \end{array}\right] $$ 其实现过程与低通滤波器的实现过程几乎一致，只不过有不少空白的系数可以省去运算步骤。
+为了matlab实现时查找的方便，下面分别列出32路并行的i路和q路对应的矩阵表达式以及求和公式： $$ y_i= \left[\begin{array}{c} y_{0} \\\\ y_{1} \\\\ \ldots \\\\ y_{31} \end{array}\right]=\left[\begin{array}{ccccc} h_{0} & 0 & 0 & \ldots & z^{-32} h_{1} \\\\ h_{1} & h_{0} & 0 & \ldots & z^{-32} h_{2} \\\\ \ldots & \ldots & \ldots & \ldots & \ldots \\\\ 0 & 0 & 0 & \ldots & h_{0} \end{array}\right] \cdot\left[\begin{array}{c} x_{0} \\\\ 0 \\\\ x_{2}\\\\ 0\\\\ \ldots \\\\ x_{30}\\\\ 0 \end{array}\right] $$$$ y_{i(2 k)}=\left\lbrace\begin{array}{cc} \left(\sum_{i=0}^{k} h_{2 i} x_{2(k-i)}\right)+z^{-32}\left(\sum_{i=k+1}^{12} h_{2 i} x_{32+2(k-i)}\right), & 0 \leq k <12 \\\\ \sum_{i=0}^{12} h_{2 i} x_{2(k-i)}, & 12 \leq k \leq 15 \end{array}\right. $$$$ y_{i(2 k+1)}=\left\lbrace\begin{array}{cc} \left(\sum_{i=0}^{k} h_{2 i+1} x_{2(k-i)}\right)+z^{-32}\left(\sum_{i=k+1}^{11} h_{2 i+1} x_{32+2(k-i)}\right), & 0 \leq k \leq 11 \\\\ \sum_{i=0}^{11} h_{2 i+1} x_{2(k-i)}, & 11 \leq k \leq 15 \end{array}\right. $$$$ y_q= \left[\begin{array}{c} y_{0} \\\\ y_{1} \\\\ \ldots \\\\ y_{31} \end{array}\right]=\left[\begin{array}{ccccc} h_{0} & 0 & 0 & \ldots & z^{-32} h_{1} \\\\ h_{1} & h_{0} & 0 & \ldots & z^{-32} h_{2} \\\\ \ldots & \ldots & \ldots & \ldots & \ldots \\\\ 0 & 0 & 0 & \ldots & h_{0} \end{array}\right] \cdot\left[\begin{array}{c} 0 \\\\ x_{1} \\\\ 0\\\\ x_{3}\\\\ \ldots \\\\ 0\\\\ x_{31} \end{array}\right] $$$$ y_{q(2 k)}=\left\lbrace\begin{array}{cc} z^{-32}\left(\sum_{i=0}^{11} h_{2 i+1} x_{31+2(k-i)}\right), & k=0 \\\\ \left(\sum_{i=0}^{k-1} h_{2 i+1} x_{2(k-i)-1}\right)+z^{-32}\left(\sum_{i=k}^{11} h_{2 i+1} x_{31+2(k-i)}\right), & 0 < k \leq 12 \\\\ \left(\sum_{i=0}^{11} h_{2 i+1} x_{2(k-i)-1}\right), & 12 \leq k \leq 15 \end{array}\right. $$$$ y_{q(2 k+1)}=\left\lbrace\begin{array}{cc} \left(\sum_{i=0}^{k} h_{2 i} x_{2(k-i)+1}\right)+z^{-32}\left(\sum_{i=k+1}^{12} h_{2 i} x_{33+2(k-i)}\right), & 0 \leq k < 13 \\\\ \sum_{i=0}^{12} h_{2 i} x_{2(k-i)+1}, & 13 \leq k \leq 15 \end{array}\right. $$ 64路并行的也直接罗列于此： 对于i路，有
+$$ y_{i(2 k)}=\left\lbrace\begin{array}{cl} \left(\sum_{i=0}^{k} h_{2 i} x_{2(k-i)}\right)+z^{-64}\left(\sum_{i=k+1}^{31} h_{2 i} x_{64+2(k-i)}\right) & 0 \leq k \leq 30 \\\\ \sum_{i=0}^{31} h_{2 i} x_{2(k-i)} & , k=31 \end{array}\right. $$ $$ y_{i(2 k+1)}=\left\lbrace\begin{array}{cc} \left(\sum_{i=0}^{k} h_{2 i+1} x_{2(k-i)}\right)+z^{-64}\left(\sum_{i=k+1}^{31} h_{2 i+1} x_{64+2(k-i)}\right) & , 0 \leq k \leq 30 \\\\ \sum_{i=0}^{31} h_{2 i+1} x_{2(k-i)} & , k=31 \end{array}\right. $$对应的矩阵表示为：
+$$ \left[\begin{array}{c} y_{0} \\\\ y_{1} \\\\ \cdots \\\\ y_{63} \end{array}\right]=\left[\begin{array}{cccc} h_{0} & z^{-64} h_{63} & \cdots & z^{-64} h_{1} \\\\ h_{1} & h_{0} & \cdots & z^{-64} h_{2} \\\\ \cdots & \cdots & \cdots & \cdots \\\\ h_{63} & h_{62} & \cdots & h_{0} \end{array}\right]\left[\begin{array}{c} x_{0} \\\\ 0 \\\\ x_{2} \\\\ 0 \\\\ x_{4} \\\\ \cdots \\\\ x_{62} \\\\ 0 \end{array}\right] $$同理，q路为：
+$$ \left[\begin{array}{c} y_{0} \\\\ y_{1} \\\\ \cdots \\\\ y_{63} \end{array}\right]=\left[\begin{array}{cccc} h_{0} & z^{-64} h_{63} & \cdots & z^{-64} h_{1} \\\\ h_{1} & h_{0} & \cdots & z^{-64} h_{2} \\\\ \cdots & \cdots & \cdots & \cdots \\\\ h_{63} & h_{62} & \cdots & h_{0} \end{array}\right]\left[\begin{array}{c} 0 \\\\ x_{1} \\\\ 0 \\\\ x_{3} \\\\ 0 \\\\ x_{5} \\\\ \cdots \\\\ 0 \\\\ x_{63} \end{array}\right] $$"><a class=wp-card-link href=/notes/polyphase-matched-filtering/><div class=wp-card-meta><span>研究笔记</span><time datetime=2022-05-28>2022-05-28</time></div><h2>基于多相滤波器技术的匹配滤波实现方法</h2><p class=wp-card-summary>整理变速率成型滤波的推导，以及基于多相结构的高速并行匹配滤波器实现。</p><div class=wp-card-bottom><span>阅读全文</span><span aria-hidden=true>↗</span></div></a></article></div><div class=wp-empty data-wp-empty hidden><h2>没有找到匹配的文章。</h2><p>换个关键词，或查看全部主题。</p><button type=button data-wp-reset>清除筛选 <span aria-hidden=true>→</span></button></div></div></main><footer class=site-footer><span>问题很多。慢慢来。</span><div class=footer-routes><a href=/about/>关于</a>
+<a href=/index.xml>RSS</a>
+<a href=mailto:zhaoliangbin@bit.edu.cn>Email</a>
+<button data-back-top aria-label=返回顶部><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up signal-icon" aria-hidden="true" focusable="false"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg></button></div></footer><script src=/js/signal.min.c68ebb240572bb5bab272cc7d74631c826086eb488cc9c4645ef657217324fd7.js integrity="sha256-xo67JAVyu1urJyzH10YxyCYIbrSIzJxGRe9lchcyT9c=" crossorigin=anonymous defer></script><script src=/js/signal-pages.min.5e191479d98610379a7fe8d5be4e13402c44ccadd8619e78abdb7eedb5bb9458.js integrity="sha256-XhkUedmGEDeaf+jVvk4TQCxEzK3YYZ54q9t+7bW7lFg=" crossorigin=anonymous defer></script><script src=/js/signal-reading.min.ec5880cc106d7ab0d76804a6440bc28fbe47189f9f07020ec1b6733c29dfa4ba.js integrity="sha256-7FiAzBBterDXaASmRAvCj75HGJ+fBwIOwbZzPCnfpLo=" crossorigin=anonymous defer></script></body></html>

@@ -10,6 +10,10 @@ tags: ["Signal Processing"]
 summary: "介绍了通信系统中经典的自适应信道均衡算法，包括Sato算法、CMA恒模算法、MMA多模算法、DD算法、MCMA改进恒模算法及CADAMA等算法原理。"
 math: true
 draft: false
+
+translationKey: "notes-polyphase-matched-filtering"
+aliases: ["/writing/polyphase-matched-filtering/"]
+reading_summary: "整理变速率成型滤波的推导，以及基于多相结构的高速并行匹配滤波器实现。"
 ---
 
 > 以毕业论文《柔性速率可变的宽带16QAM16APSK调制解调器的设计与实现》为学习材料

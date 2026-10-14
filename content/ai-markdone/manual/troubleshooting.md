@@ -6,8 +6,6 @@ amd_lang: "zh"
 page_kind: "manual_feature"
 manual_feature: "troubleshooting"
 translation_url: "/ai-markdone/en/manual/troubleshooting/"
-screenshot_title: "后续这里放：浏览器扩展管理页、ChatGPT 页面工具栏、控制台错误截图的拼图。"
-screenshot_detail: "截图重点是用户反馈时需要提供哪些信息。"
 ---
 
 ## 工具栏不显示

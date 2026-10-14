@@ -1,0 +1,1 @@
+{{ define "main" }}<div class="not-found"><span>404</span><h1>{{ cond (eq .Language.Lang "zh") "这条路还没走通。" "Nothing down this path." }}</h1><a class="text-link" href="{{ site.Home.RelPermalink }}">{{ cond (eq .Language.Lang "zh") "回到首页" "Back home" }}{{ partial "signal/icon.html" "arrow-up-right" }}</a></div>{{ end }}

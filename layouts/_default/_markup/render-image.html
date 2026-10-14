@@ -1,0 +1,4 @@
+{{- $src := .Destination -}}
+{{- $image := .Page.Resources.GetMatch (printf "%s" (urls.Parse $src).Path) -}}
+{{- with $image }}{{ $src = .RelPermalink }}{{ end -}}
+<img src="{{ $src | safeURL }}" alt="{{ .PlainText }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ with $image }}{{ if eq .ResourceType "image" }}{{ if ne .MediaType.SubType "svg" }} width="{{ .Width }}" height="{{ .Height }}"{{ end }}{{ end }}{{ end }} loading="lazy" decoding="async">

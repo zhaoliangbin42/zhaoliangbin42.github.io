@@ -1,0 +1,6 @@
+# Markdown hard breaks, authored TeX/code and exported SVGs may retain line-end spaces.
+*.md whitespace=-blank-at-eol
+*.svg whitespace=-blank-at-eol
+
+# Review the Hugo source; docs is the reproducible GitHub Pages artifact.
+docs/** -whitespace linguist-generated=true

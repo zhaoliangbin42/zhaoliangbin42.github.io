@@ -48,12 +48,13 @@ window.__liangbinPlotlyLoader = window.__liangbinPlotlyLoader || new Promise((re
 <script>
 (function() {
   const container = document.getElementById('{{ $id }}');
-  const isDark = document.documentElement.classList.contains('dark');
-  const brandColor = getComputedStyle(document.documentElement).getPropertyValue('--theme-color').trim() || '#ad5389';
-  const titleColor = isDark ? '#f7f3f8' : '#3c1053';
-  const gridColor = isDark ? '#3e3e46' : '#e8e8e8';
-  const zeroColor = isDark ? '#8f8794' : '#999';
-  const plotBg = isDark ? '#242328' : 'white';
+  const isDark = false;
+  const tokens = getComputedStyle(document.documentElement);
+  const brandColor = tokens.getPropertyValue('--accent').trim() || '#a77c58';
+  const titleColor = tokens.getPropertyValue('--ink').trim() || '#242728';
+  const gridColor = tokens.getPropertyValue('--rule').trim() || '#deded8';
+  const zeroColor = tokens.getPropertyValue('--muted').trim() || '#797b7a';
+  const plotBg = tokens.getPropertyValue('--paper').trim() || '#f9f8f5';
   const funcStr = container.dataset.func;
   const param = container.dataset.param;
   const paramLabel = container.dataset.paramlabel;
@@ -109,7 +110,7 @@ window.__liangbinPlotlyLoader = window.__liangbinPlotlyLoader || new Promise((re
       zerolinewidth: 2
     },
     yaxis: yaxis,
-    font: { color: isDark ? '#d8d0dc' : '#4b5563' },
+    font: { color: titleColor },
     plot_bgcolor: plotBg,
     paper_bgcolor: 'rgba(0,0,0,0)',
     hovermode: 'x',

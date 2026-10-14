@@ -1,30 +1,35 @@
 {
-  "name": "hugoplate",
-  "description": "hugo tailwindcss boilerplate",
-  "version": "2.1.1",
+  "name": "liangbin-site",
+  "description": "Bilingual research, writing, and independent projects built with Hugo.",
+  "version": "1.0.0",
+  "private": true,
   "license": "MIT",
-  "author": "zeon.studio",
+  "author": "Liangbin Zhao",
   "scripts": {
-    "dev": "hugo server",
-    "build": "hugo --gc --minify --templateMetrics --templateMetricsHints --forceSyncStatic",
-    "preview": "hugo server --disableFastRender --navigateToChanged --templateMetrics --templateMetricsHints --watch --forceSyncStatic -e production --minify",
-    "dev:example": "cd exampleSite && hugo server",
-    "build:example": "cd exampleSite && hugo --gc --minify --templateMetrics --templateMetricsHints --forceSyncStatic",
-    "preview:example": "cd exampleSite && hugo server --disableFastRender --navigateToChanged --templateMetrics --templateMetricsHints --watch --forceSyncStatic -e production --minify",
-    "update-modules": "node ./scripts/clearModules.js && hugo mod clean --all && hugo mod get -u ./... && hugo mod tidy",
-    "remove-darkmode": "node ./scripts/removeDarkmode.js && yarn format",
-    "project-setup": "node ./scripts/projectSetup.js",
-    "theme-setup": "node ./scripts/themeSetup.js",
-    "update-theme": "node ./scripts/themeUpdate.js",
-    "format": "prettier -w ."
+    "dev": "hugo server --environment preview --disableFastRender",
+    "build": "hugo --gc --minify --forceSyncStatic",
+    "preview": "hugo server --environment preview --disableFastRender --minify",
+    "verify:site": "node scripts/verify-site.mjs",
+    "verify:ai-markdone": "node scripts/verify-ai-markdone-site.mjs",
+    "format": "prettier --write \"layouts/**/*.html\" \"assets/**/*.{css,js}\" \"data/**/*.json\" \"scripts/*.mjs\" package.json"
   },
   "devDependencies": {
-    "@tailwindcss/cli": "^4.1.3",
-    "@tailwindcss/forms": "^0.5.10",
-    "@tailwindcss/typography": "^0.5.16",
     "prettier": "^3.5.3",
-    "prettier-plugin-go-template": "0.0.15",
-    "prettier-plugin-tailwindcss": "^0.6.11",
-    "tailwindcss": "^4.1.3"
+    "prettier-plugin-go-template": "0.0.15"
+  },
+  "prettier": {
+    "plugins": [
+      "prettier-plugin-go-template"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "*.html"
+        ],
+        "options": {
+          "parser": "go-template"
+        }
+      }
+    ]
   }
 }

@@ -7,8 +7,6 @@ page_kind: "manual_feature"
 manual_feature: "directory"
 translation_url: "/ai-markdone/en/manual/directory/"
 noindex: true
-screenshot_title: ""
-screenshot_detail: ""
 prev_url: "/ai-markdone/manual/"
 prev_label: "返回手册"
 next_url: "/ai-markdone/manual/reader/"
