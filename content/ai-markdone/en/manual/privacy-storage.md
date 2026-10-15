@@ -1,6 +1,6 @@
 ---
-title: "Import and export"
-description: "Learn how AI-MarkDone handles local backup, bookmark import, bookmark export, Export All, and pre-restore checks."
+title: "Back up, import, and move your Library"
+description: "Distinguish full Library backups, selected-bookmark exports, message files, and settings files when moving saved bookmarks, highlights, annotations, and folders."
 type: "ai-markdone"
 amd_lang: "en"
 page_kind: "manual_feature"
@@ -8,33 +8,46 @@ manual_feature: "privacy-storage"
 translation_url: "/ai-markdone/manual/privacy-storage/"
 ---
 
-## Use this when
+Export the local Library before changing browsers, moving devices, or uninstalling the extension. A **Library backup** is different from exporting a reply as Markdown or PDF. The backup restores saved items; a message export is for reading or editing.
 
-You are reinstalling the browser, clearing extension data, moving to another device, or simply want a copy before reorganizing bookmarks.
+## Export the full Library
 
-## Where to open it
+1. Open the AI-MarkDone management panel.
+2. Go to **Settings → Data & backup → Local backup**.
+3. Click **Export all** and save the JSON file.
+4. Confirm the download completed and keep the file somewhere you trust.
 
-Open the AI-MarkDone extension panel, go to **Settings**, then find **Back up your data**. You will see **Local Backup** and **Google Drive Backup** entries.
+A full backup includes:
 
-## Local Backup
+- Saved bookmarks and bookmark folders, including empty folders.
+- Saved highlights and annotations.
+- Their folders and saved conversation information.
 
-| Action | What it is for | Suggestion |
-|---|---|---|
-| Export All | Export the current bookmark data to a local file. | Do this before reinstalling the browser, uninstalling the extension, clearing data, or reorganizing many bookmarks. |
-| Import bookmarks | Restore or merge bookmarks from a local backup file. | Check the source file first, especially when local bookmarks still matter. |
-| Export bookmarks | Export selected bookmarks or bookmark groups. | Use this when you only need to move or archive part of your material. |
+It excludes temporary annotations that have not been persistently saved, unsaved edits, Sticky excerpts, prompts, extension settings, and account credentials. If a bookmark contains only an excerpt, its backup contains that excerpt too; backing up does not fetch the missing full reply.
 
-Settings also warns that uninstalling the extension will delete all bookmarks. If those bookmarks matter, export a local backup first.
+## Import and inspect the result
 
-## Before importing
+1. Export the current local Library first to keep a copy of its state before importing.
+2. Choose **Import Library** in Library and open your JSON backup. Selecting the file starts import and merging.
+3. After import finishes, review the result and any duplicate or conflict messages.
+4. Check folders, search, previews, and a few important items in Library.
 
-- Make sure the backup file came from your own AI-MarkDone data.
-- If your current local bookmarks matter, export a fresh local backup first.
-- After importing, check folders, titles, search, and preview.
-- When moving devices, test the flow with a small export before importing everything.
+Normal merging adds new items from the file, retains local-only items, and skips duplicates. If the same item has conflicting content, the local version is kept rather than overwritten by the backup.
 
-## Local backup vs Google Drive Backup
+Older bookmark JSON files can still be imported, but they restore only bookmarks. They cannot restore highlights, annotations, or folder content that the old file never contained. If the format is unsupported or the file is damaged, keep the original and inspect the error instead of deleting fields to force an import.
 
-Local backup is direct: you keep the file yourself, which is useful for manual migration and archiving. Google Drive Backup is better for keeping verified bookmark snapshots over time and restoring with preview and safe merge.
+## Export only selected bookmarks
 
-Next, read [Google Drive backup](/ai-markdone/en/manual/google-drive-backup/).
+Exporting selected bookmarks creates a file containing only those bookmarks. To transfer highlights, annotations, and folders too, use Export all.
+
+## Move preferences separately
+
+Open **Settings → Data & backup → Settings files** to export or import a settings JSON file. Before importing, review changes by category. Use the recovery action there if you need to restore the previous preferences.
+
+A settings file includes appearance, button visibility and placement, reading preferences, and export options. It does not include Library content, conversations, prompts, custom annotation templates, Google account information, or authorization credentials. Move the Library and settings separately when changing devices.
+
+## Deletion, uninstallation, and cloud backups
+
+Saved data belongs to the current browser profile. Switching browsers or profiles, or uninstalling the extension, does not transfer it automatically. Confirm that your backup is saved before uninstalling or clearing extension storage.
+
+[Google Drive backup](/ai-markdone/en/manual/google-drive-backup/) can save the same full-Library scope, but must be started manually. It is not real-time synchronization. Local JSON and Drive backups may contain selected passages, your notes, and saved replies. Inspect the contents before sharing a file.

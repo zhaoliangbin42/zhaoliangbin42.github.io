@@ -2,33 +2,102 @@
 {{ $home := cond $isEN "/ai-markdone/en/" "/ai-markdone/" }}
 {{ $workflow := cond $isEN "/ai-markdone/en/workflow/" "/ai-markdone/workflow/" }}
 {{ $manual := cond $isEN "/ai-markdone/en/manual/" "/ai-markdone/manual/" }}
-{{ $faq := cond $isEN "/ai-markdone/en/faq/" "/ai-markdone/faq/" }}
 {{ $contact := cond $isEN "/ai-markdone/en/contact/" "/ai-markdone/contact/" }}
 {{ $otherLang := .Params.translation_url | default (cond $isEN "/ai-markdone/" "/ai-markdone/en/") }}
 {{ $items := slice
   (dict "url" $workflow "label" (cond $isEN "Workflow" "工作流") "active" (eq .Params.page_kind "workflow"))
   (dict "url" $manual "label" (cond $isEN "Manual" "手册") "active" (hasPrefix .RelPermalink $manual))
-  (dict "url" $faq "label" "FAQ" "active" (eq .Params.page_kind "faq"))
   (dict "url" $contact "label" (cond $isEN "Contact" "联系") "active" (eq .Params.page_kind "contact"))
 }}
 <header class="amd-site-header">
   <div class="amd-product-nav amd-container">
-    <a class="amd-site-brand" href="{{ $home | relURL }}" aria-label="{{ if $isEN }}AI-MarkDone home{{ else }}AI-MarkDone 首页{{ end }}">
+    <a
+      class="amd-site-brand"
+      href="{{ $home | relURL }}"
+      aria-label="{{ if $isEN }}
+        AI-MarkDone home
+      {{ else }}
+        AI-MarkDone 首页
+      {{ end }}"
+    >
       {{ partial "ai-markdone/app-mark.html" . }}<strong>AI-MarkDone</strong>
     </a>
-    <nav class="amd-site-links" aria-label="{{ if $isEN }}Product navigation{{ else }}产品导航{{ end }}">
-      {{ range $items }}<a href="{{ .url | relURL }}"{{ if .active }} aria-current="page"{{ end }}>{{ .label }}</a>{{ end }}
+    <nav
+      class="amd-site-links"
+      aria-label="{{ if $isEN }}
+        Product navigation
+      {{ else }}
+        产品导航
+      {{ end }}"
+    >
+      {{ range $items }}
+        <a
+          href="{{ .url | relURL }}"
+          {{ if .active }}aria-current="page"{{ end }}
+          >{{ .label }}</a
+        >
+      {{ end }}
     </nav>
     <div class="amd-site-actions">
-      <a class="amd-header-install" href="https://chromewebstore.google.com/detail/ai-markdone/bmdhdihdbhjbkfaaainidcjbgidkbeoh" target="_blank" rel="noopener">{{ if $isEN }}Install{{ else }}安装扩展{{ end }}{{ partial "ai-markdone/icon.html" (dict "name" "arrow-up-right") }}</a>
-      <a class="amd-icon-link amd-github-icon-link" href="https://github.com/zhaoliangbin42/AI-MarkDone" target="_blank" rel="noopener" aria-label="GitHub">{{ partial "ai-markdone/icon.html" (dict "name" "github") }}</a>
-      <a class="amd-language-toggle" href="{{ $otherLang | relURL }}" lang="{{ cond $isEN "zh-CN" "en" }}" aria-label="{{ if $isEN }}Switch to Chinese{{ else }}Switch to English{{ end }}">{{ if $isEN }}中{{ else }}EN{{ end }}</a>
+      <a
+        class="amd-header-install"
+        href="https://chromewebstore.google.com/detail/ai-markdone/bmdhdihdbhjbkfaaainidcjbgidkbeoh"
+        target="_blank"
+        rel="noopener"
+        >{{ if $isEN }}
+          Install
+        {{ else }}
+          安装扩展
+        {{ end }}{{ partial "ai-markdone/icon.html" (dict "name" "arrow-up-right") }}</a
+      >
+      <a
+        class="amd-icon-link amd-github-icon-link"
+        href="https://github.com/zhaoliangbin42/AI-MarkDone"
+        target="_blank"
+        rel="noopener"
+        aria-label="GitHub"
+        >{{ partial "ai-markdone/icon.html" (dict "name" "github") }}</a
+      >
+      <a
+        class="amd-language-toggle"
+        href="{{ $otherLang | relURL }}"
+        lang="{{ cond $isEN "zh-CN" "en" }}"
+        aria-label="{{ if $isEN }}
+          Switch to Chinese
+        {{ else }}
+          Switch to English
+        {{ end }}"
+        >{{ if $isEN }}中{{ else }}EN{{ end }}</a
+      >
     </div>
     <details class="amd-mobile-menu">
-      <summary aria-label="{{ if $isEN }}Product menu{{ else }}产品菜单{{ end }}"><span>{{ if $isEN }}Menu{{ else }}菜单{{ end }}</span>{{ partial "ai-markdone/icon.html" (dict "name" "menu") }}</summary>
-      <nav aria-label="{{ if $isEN }}Mobile product navigation{{ else }}移动端产品导航{{ end }}">
-        <a href="{{ $home | relURL }}">{{ if $isEN }}Home{{ else }}首页{{ end }}</a>
-        {{ range $items }}<a href="{{ .url | relURL }}"{{ if .active }} aria-current="page"{{ end }}>{{ .label }}{{ partial "ai-markdone/icon.html" (dict "name" "arrow-right") }}</a>{{ end }}
+      <summary
+        aria-label="{{ if $isEN }}
+          Product menu
+        {{ else }}
+          产品菜单
+        {{ end }}"
+      >
+        <span>{{ if $isEN }}Menu{{ else }}菜单{{ end }}</span
+        >{{ partial "ai-markdone/icon.html" (dict "name" "menu") }}
+      </summary>
+      <nav
+        aria-label="{{ if $isEN }}
+          Mobile product navigation
+        {{ else }}
+          移动端产品导航
+        {{ end }}"
+      >
+        <a href="{{ $home | relURL }}"
+          >{{ if $isEN }}Home{{ else }}首页{{ end }}</a
+        >
+        {{ range $items }}
+          <a
+            href="{{ .url | relURL }}"
+            {{ if .active }}aria-current="page"{{ end }}
+            >{{ .label }}{{ partial "ai-markdone/icon.html" (dict "name" "arrow-right") }}</a
+          >
+        {{ end }}
       </nav>
     </details>
   </div>

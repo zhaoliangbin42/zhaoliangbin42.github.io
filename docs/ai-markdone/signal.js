@@ -1,24 +1,4 @@
 (() => {
-  // Render every workflow step without JavaScript; enhance to a compact selector.
-  document.querySelectorAll("[data-amd-workflow]").forEach((root) => {
-    const buttons = [...root.querySelectorAll("[data-amd-step]")];
-    const panels = [...root.querySelectorAll("[data-amd-panel]")];
-    if (!buttons.length || buttons.length !== panels.length) return;
-    const select = (index) => {
-      buttons.forEach((button, current) =>
-        button.setAttribute("aria-pressed", String(current === index)),
-      );
-      panels.forEach((panel, current) => {
-        panel.hidden = current !== index;
-      });
-    };
-    buttons.forEach((button, index) =>
-      button.addEventListener("click", () => select(index)),
-    );
-    root.classList.add("is-enhanced");
-    select(0);
-  });
-
   // Keep the native mobile menu operable without JavaScript and dismiss it with Escape.
   document.querySelectorAll(".amd-mobile-menu").forEach((menu) => {
     menu.addEventListener("keydown", (event) => {

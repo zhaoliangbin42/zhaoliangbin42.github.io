@@ -1,5 +1,5 @@
 [[groups]]
-id = "getting-started"
+id = "start"
 zh = "开始使用"
 en = "Getting started"
 
@@ -11,30 +11,75 @@ en = "Getting started"
   enURL = "/ai-markdone/en/manual/install/"
 
 [[groups]]
-id = "reader"
-zh = "阅读器"
-en = "Reader"
+id = "reading"
+zh = "阅读与定位"
+en = "Reading and navigation"
 
   [[groups.items]]
   id = "reader"
-  zh = "Reader 阅读器"
+  zh = "阅读器"
   en = "Reader"
   zhURL = "/ai-markdone/manual/reader/"
   enURL = "/ai-markdone/en/manual/reader/"
 
   [[groups.items]]
+  id = "message-navigation"
+  zh = "消息目录与位置"
+  en = "Messages and reading position"
+  zhURL = "/ai-markdone/manual/message-navigation/"
+  enURL = "/ai-markdone/en/manual/message-navigation/"
+
+  [[groups.items]]
+  id = "sticky"
+  zh = "摘录区"
+  en = "Excerpts"
+  zhURL = "/ai-markdone/manual/sticky/"
+  enURL = "/ai-markdone/en/manual/sticky/"
+
+[[groups]]
+id = "copy-formulas"
+zh = "复制与公式"
+en = "Copying and formulas"
+
+  [[groups.items]]
+  id = "copy-markdown"
+  zh = "整条 Markdown 复制"
+  en = "Copy an answer"
+  zhURL = "/ai-markdone/manual/copy-markdown/"
+  enURL = "/ai-markdone/en/manual/copy-markdown/"
+
+  [[groups.items]]
   id = "partial-copy"
   zh = "局部复制"
-  en = "Partial copy"
+  en = "Copy a passage"
   zhURL = "/ai-markdone/manual/partial-copy/"
   enURL = "/ai-markdone/en/manual/partial-copy/"
 
   [[groups.items]]
-  id = "sticky"
-  zh = "Sticky 临时摘录"
-  en = "Sticky excerpts"
-  zhURL = "/ai-markdone/manual/sticky/"
-  enURL = "/ai-markdone/en/manual/sticky/"
+  id = "formulas"
+  zh = "回答中的公式"
+  en = "Formulas in answers"
+  zhURL = "/ai-markdone/manual/formulas/"
+  enURL = "/ai-markdone/en/manual/formulas/"
+
+  [[groups.items]]
+  id = "composer"
+  zh = "输入框公式"
+  en = "Formulas in the composer"
+  zhURL = "/ai-markdone/manual/composer/"
+  enURL = "/ai-markdone/en/manual/composer/"
+
+[[groups]]
+id = "marking"
+zh = "高亮与注释"
+en = "Highlights and annotations"
+
+  [[groups.items]]
+  id = "highlights"
+  zh = "内容高亮"
+  en = "Highlights"
+  zhURL = "/ai-markdone/manual/highlights/"
+  enURL = "/ai-markdone/en/manual/highlights/"
 
   [[groups.items]]
   id = "annotations"
@@ -44,66 +89,21 @@ en = "Reader"
   enURL = "/ai-markdone/en/manual/annotations/"
 
 [[groups]]
-id = "usability"
-zh = "易用性"
-en = "Usability"
-
-  [[groups.items]]
-  id = "message-position"
-  zh = "消息导航与位置"
-  en = "Message navigation"
-  zhURL = "/ai-markdone/manual/message-navigation/"
-  enURL = "/ai-markdone/en/manual/message-navigation/"
-
-  [[groups.items]]
-  id = "formulas"
-  zh = "公式复制/导出"
-  en = "Formula copy/export"
-  zhURL = "/ai-markdone/manual/formulas/"
-  enURL = "/ai-markdone/en/manual/formulas/"
-
-[[groups]]
-id = "toolbar"
-zh = "工具栏"
-en = "Toolbar"
-
-  [[groups.items]]
-  id = "copy-markdown"
-  zh = "复制 Markdown"
-  en = "Copy Markdown"
-  zhURL = "/ai-markdone/manual/copy-markdown/"
-  enURL = "/ai-markdone/en/manual/copy-markdown/"
+id = "library"
+zh = "资料库与备份"
+en = "Library and backups"
 
   [[groups.items]]
   id = "bookmarks"
-  zh = "书签保存"
-  en = "Bookmarks"
+  zh = "书签与资料库"
+  en = "Bookmarks and Library"
   zhURL = "/ai-markdone/manual/bookmarks/"
   enURL = "/ai-markdone/en/manual/bookmarks/"
 
   [[groups.items]]
-  id = "export"
-  zh = "批量导出"
-  en = "Batch export"
-  zhURL = "/ai-markdone/manual/export/"
-  enURL = "/ai-markdone/en/manual/export/"
-
-[[groups]]
-id = "data-settings"
-zh = "数据与设置"
-en = "Data and settings"
-
-  [[groups.items]]
-  id = "settings"
-  zh = "配置项总览"
-  en = "Settings reference"
-  zhURL = "/ai-markdone/manual/settings/"
-  enURL = "/ai-markdone/en/manual/settings/"
-
-  [[groups.items]]
   id = "privacy-storage"
-  zh = "导入与导出"
-  en = "Import and export"
+  zh = "本地备份与恢复"
+  en = "Local backup and restore"
   zhURL = "/ai-markdone/manual/privacy-storage/"
   enURL = "/ai-markdone/en/manual/privacy-storage/"
 
@@ -115,25 +115,20 @@ en = "Data and settings"
   enURL = "/ai-markdone/en/manual/google-drive-backup/"
 
 [[groups]]
-id = "troubleshooting"
-zh = "问题排查"
-en = "Troubleshooting"
+id = "help"
+zh = "设置与帮助"
+en = "Settings and help"
+
+  [[groups.items]]
+  id = "settings"
+  zh = "配置项总表"
+  en = "Settings reference"
+  zhURL = "/ai-markdone/manual/settings/"
+  enURL = "/ai-markdone/en/manual/settings/"
 
   [[groups.items]]
   id = "troubleshooting"
-  zh = "常见排查"
-  en = "Troubleshooting"
+  zh = "常见问题与排查"
+  en = "Questions and troubleshooting"
   zhURL = "/ai-markdone/manual/troubleshooting/"
   enURL = "/ai-markdone/en/manual/troubleshooting/"
-
-[[groups]]
-id = "advanced"
-zh = "进阶资料"
-en = "Further reading"
-
-  [[groups.items]]
-  id = "architecture"
-  zh = "插件层级"
-  en = "Plugin architecture"
-  zhURL = "/ai-markdone/manual/architecture/"
-  enURL = "/ai-markdone/en/manual/architecture/"

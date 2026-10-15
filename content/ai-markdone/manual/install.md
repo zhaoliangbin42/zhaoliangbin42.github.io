@@ -1,6 +1,6 @@
 ---
-title: "安装并刷新 ChatGPT"
-description: "从 Chrome Web Store 或 Firefox Add-ons 安装 AI-MarkDone，刷新 ChatGPT，并确认工具栏和设置入口已经加载。"
+title: "安装并开始使用"
+description: "从 Chrome Web Store 或 Firefox Add-ons 安装 AI-MarkDone，刷新 ChatGPT，找到回复工具栏、管理面板和设置。"
 type: "ai-markdone"
 amd_lang: "zh"
 page_kind: "manual_feature"
@@ -11,42 +11,38 @@ next_url: "/ai-markdone/manual/reader/"
 next_label: "下一步：Reader"
 ---
 
-## 这个功能解决什么问题
+AI-MarkDone 提供 Chrome 和 Firefox 桌面浏览器扩展。安装后在 ChatGPT 页面使用，不需要另注册一个 AI-MarkDone 账号。
 
-AI-MarkDone 安装在浏览器里，并在 ChatGPT 页面加载自己的工具栏。安装完成后，扩展需要重新进入当前页面，才能识别对话内容和消息位置。
+## 从官方商店安装
 
-如果你已经打开了 ChatGPT，再安装扩展，旧页面通常不会立刻出现按钮。刷新一次页面最省事。
+- [Chrome Web Store：AI-MarkDone](https://chromewebstore.google.com/detail/ai-markdone/bmdhdihdbhjbkfaaainidcjbgidkbeoh)
+- [Firefox Add-ons：AI-MarkDone](https://addons.mozilla.org/en-US/firefox/addon/ai-markdone/)
 
-## 什么时候用
+当前安装包声明的最低浏览器版本是 Chrome 111、Firefox 128。建议使用浏览器的当前稳定版。本站没有提供 Safari 或手机浏览器安装包。
 
-- 第一次安装扩展。
-- 更新扩展版本后，ChatGPT 页面还开着。
-- 工具栏没有出现。
-- 你刚刚在浏览器扩展管理页重新启用了 AI-MarkDone。
+## 第一次打开
 
-## 从哪里打开
+1. 在对应商店添加扩展，确认安装提示。
+2. 打开并登录 ChatGPT，进入一条已有回复的对话。
+3. 如果这个标签页在安装前就已打开，刷新一次页面。
+4. 在回复下方查看 AI-MarkDone 工具栏。鼠标移到 **更多** 可展开未固定的动作，例如 **Reader**、**书签** 和 **导出**。
+5. 点击浏览器工具栏里的 AI-MarkDone 扩展图标，打开管理面板；在里面进入 **设置**。
 
-Chrome 用户从 Chrome Web Store 安装，Firefox 用户从 Firefox Add-ons 安装。安装完成后回到 ChatGPT 对话页，刷新当前标签页。
+你也可以把扩展图标固定在浏览器工具栏，方便以后打开资料库和设置。新安装默认显示右侧消息目录，输入增强也可在设置中调整。
 
-## 具体怎么做
+## 先试一个操作
 
-1. 打开 Chrome Web Store 或 Firefox Add-ons 的 AI-MarkDone 页面并安装扩展。
-2. 回到已经打开的 ChatGPT 页面。
-3. 刷新页面，保持当前 ChatGPT 登录状态即可。
-4. 等页面内容加载完成。
-5. 在支持的消息附近查看工具栏动作，例如“复制 Markdown”“Reader”“书签”“Save Messages”“复制为 PNG”。
-6. 如果还是看不到，打开扩展面板，进入 Settings，确认相关动作没有被隐藏。
+- 保存可编辑文字：点击回复的 **复制 Markdown**，再粘到编辑器。
+- 阅读长回复：打开 **Reader**。
+- 保存以后还要看的内容：添加书签。
+- 在输入框写公式：查看[输入公式与编辑助手](/ai-markdone/manual/composer/)。
 
-## 常见问题
+## 更新后或没有看到按钮
 
-### 为什么安装后没有任何变化？
+1. 确认扩展在当前浏览器配置文件中已启用，并允许访问 ChatGPT。
+2. 刷新 ChatGPT；更新扩展时已打开的页面可能仍使用旧脚本。
+3. 等回复生成完成。没有普通回复、正在加载或尚未生成完的消息，不一定有完整动作。
+4. 到 **设置 → 按钮** 检查动作是否被隐藏，或是否收在 **更多** 中。
+5. 若仍不显示，记录浏览器和扩展版本，按[问题排查](/ai-markdone/manual/troubleshooting/)反馈。
 
-先刷新 ChatGPT。浏览器扩展通常要等页面刷新或重新导航后，才能把内容脚本挂到已经打开的网页上。
-
-### 我需要重新登录 ChatGPT 吗？
-
-通常保持当前登录状态即可。AI-MarkDone 只在浏览器页面里加载工具栏。
-
-### 为什么有些消息没有按钮？
-
-工具栏依赖 ChatGPT 当前页面结构和消息类型。隐藏消息、工具消息、非最终结构化消息可能不会显示完整动作。
+通常无需退出或重新登录 ChatGPT。不要先卸载来排查按钮：卸载可能清除本地资料库，先做好[备份](/ai-markdone/manual/privacy-storage/)。

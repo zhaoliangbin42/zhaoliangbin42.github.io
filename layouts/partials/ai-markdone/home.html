@@ -1,60 +1,147 @@
 {{ $isEN := eq (.Params.amd_lang | default "zh") "en" }}
-{{ $manual := cond $isEN "/ai-markdone/en/manual/" "/ai-markdone/manual/" }}
-{{ $workflow := cond $isEN "/ai-markdone/en/workflow/" "/ai-markdone/workflow/" }}
-{{ $privacy := cond $isEN "/ai-markdone/en/privacy/" "/ai-markdone/privacy/" }}
-{{ $faq := cond $isEN "/ai-markdone/en/faq/" "/ai-markdone/faq/" }}
-{{ $chrome := "https://chromewebstore.google.com/detail/ai-markdone/bmdhdihdbhjbkfaaainidcjbgidkbeoh" }}
-{{ $firefox := "https://addons.mozilla.org/en-US/firefox/addon/ai-markdone/" }}
-<section class="amd-signal-hero amd-container">
-  <div class="amd-signal-hero-copy">
-    <p class="amd-signal-eyebrow"><span class="amd-signal-status" aria-hidden="true"></span>AI-MARKDONE · FOR CHATGPT</p>
-    <h1>AI-MarkDone</h1>
-    <p class="amd-signal-lede amd-signal-tagline"><strong>{{ if $isEN }}Make ChatGPT feel built for serious work.{{ else }}颠覆你的 ChatGPT 使用范式{{ end }}</strong></p>
-    <p class="amd-signal-lede">{{ if $isEN }}AI-MarkDone adds Reader mode, partial Markdown copy, formula copy/export, bookmarks, batch export, and precise annotations to ChatGPT.{{ else }}AI-MarkDone 把你的 ChatGPT 武装到牙齿：阅读模式、局部 Markdown 复制、公式复制/导出、书签保存、批量导出和灵动注释，这些功能让ChatGPT从未如此丝滑。{{ end }}</p>
-    <div class="amd-actions"><a class="amd-button amd-button-primary" href="{{ $chrome }}" target="_blank" rel="noopener">Chrome Web Store{{ partial "ai-markdone/icon.html" (dict "name" "arrow-up-right") }}</a><a class="amd-text-link" href="{{ $firefox }}" target="_blank" rel="noopener">Firefox Add-ons{{ partial "ai-markdone/icon.html" (dict "name" "arrow-up-right") }}</a></div>
-    <p class="amd-signal-hero-note">{{ if $isEN }}Free and open source. Local-first by design.{{ else }}免费开源。本地优先。{{ end }}</p>
+{{ $lang := cond $isEN "en" "zh" }}
+{{ $copy := index ((resources.Get "ai-markdone/content/home.json") | transform.Unmarshal) $lang }}
+{{ $base := cond $isEN "/ai-markdone/en/" "/ai-markdone/" }}
+{{ $manual := printf "%smanual/" $base }}
+<section class="amd-intro amd-container">
+  <p class="amd-signal-eyebrow">{{ $copy.eyebrow }}</p>
+  <h1>{{ range split $copy.headline "\n" }}<span>{{ . }}</span>{{ end }}</h1>
+  <p class="amd-intro-description">{{ $copy.intro }}</p>
+  <div class="amd-actions">
+    <a
+      class="amd-button amd-button-primary"
+      href="https://chromewebstore.google.com/detail/ai-markdone/bmdhdihdbhjbkfaaainidcjbgidkbeoh"
+      target="_blank"
+      rel="noopener"
+      >{{ $copy.install }}{{ partial "ai-markdone/icon.html" (dict "name" "arrow-up-right") }}</a
+    ><a
+      class="amd-text-link"
+      href="https://addons.mozilla.org/en-US/firefox/addon/ai-markdone/"
+      target="_blank"
+      rel="noopener"
+      >{{ $copy.firefox }}{{ partial "ai-markdone/icon.html" (dict "name" "arrow-up-right") }}</a
+    >
   </div>
-  <div class="amd-signal-hero-aside" aria-hidden="true"><span>READER</span><i></i><span>MARKDOWN</span><i></i><span>BOOKMARKS</span></div>
+  <p class="amd-intro-note">{{ $copy.note }}</p>
+  <nav class="amd-feature-jumps" aria-label="{{ $copy.jump }}">
+    {{ range $copy.sections }}<a href="#{{ .id }}">{{ .label }}</a>{{ end }}
+  </nav>
 </section>
-<figure class="amd-signal-promo amd-container">
-  {{ partial "ai-markdone/signal-image.html" (dict "path" "ai-markdone/images/signal/ai-markdone-promo.png" "alt" (cond $isEN "AI-MarkDone Reader with a heading outline, bookmarks, and formula export tools" "AI-MarkDone Reader、标题大纲、书签与公式导出工具") "width" 1700 "loading" "eager") }}
-</figure>
-{{ partial "ai-markdone/workflow.html" (dict "page" .) }}
-<section class="amd-signal-scenarios"><div class="amd-container">
-  <div class="amd-signal-section-heading"><div><p class="amd-signal-eyebrow">Reader</p><h2>{{ if $isEN }}Designed around your ChatGPT workflow.{{ else }}贴着你的 ChatGPT 工作流来设计{{ end }}</h2></div></div>
-  <div class="amd-signal-scenario-grid">
-    <article><span>01</span><h3>{{ if $isEN }}Partial Markdown copy{{ else }}局部 Markdown 复制{{ end }}</h3><p>{{ if $isEN }}Select a passage and copy it as Markdown, with lists, code, and formulas kept as clean as possible.{{ else }}选中一段，直接复制成 Markdown。列表、代码和公式尽量保留结构。{{ end }}</p></article>
-    <article><span>02</span><h3>{{ if $isEN }}Precise annotations{{ else }}灵动注释{{ end }}</h3><p>{{ if $isEN }}Leave a note beside the exact sentence you want to question, rewrite, or turn into the next prompt.{{ else }}读到一句想追问，就把想法写在原句旁边。注释可以继续复制成下一轮 Prompt。{{ end }}</p></article>
-    <article><span>03</span><h3>{{ if $isEN }}Sticky panel{{ else }}Sticky 栏{{ end }}</h3><p>{{ if $isEN }}Pin key formulas, conclusions, or passages to the side so earlier context stays visible while you keep reading.{{ else }}把重要公式、结论或片段钉在左侧。读到后面时，前文还在手边，不用靠记忆硬撑。{{ end }}</p></article>
-  </div>
-</div></section>
-<section class="amd-signal-trust amd-container">
-  <div class="amd-signal-trust-symbol">{{ partial "ai-markdone/icon.html" (dict "name" "shield-check") }}</div>
-  <div><p class="amd-signal-eyebrow">{{ if $isEN }}Privacy Policy{{ else }}隐私政策{{ end }}</p><h2>{{ if $isEN }}Clear boundaries for a local-first extension{{ else }}把边界说清楚，本地优先才有意义{{ end }}</h2><p>{{ if $isEN }}AI-MarkDone works on the ChatGPT page, stores user-triggered data in browser extension storage, and does not operate an owned server for receiving your ChatGPT content. Google Drive backup is optional and runs only after you connect your own account.{{ else }}AI-MarkDone 在 ChatGPT 原页面里工作，用户主动触发的数据保存在浏览器扩展存储中。AI-MarkDone 不运营用于接收 ChatGPT 内容的自有服务器；Google Drive 备份是可选功能，只有你主动连接自己的账号后才会使用。{{ end }}</p><div class="amd-actions"><a class="amd-text-link" href="{{ $privacy | relURL }}">{{ if $isEN }}Read the privacy policy{{ else }}阅读隐私说明{{ end }}{{ partial "ai-markdone/icon.html" (dict "name" "arrow-right") }}</a><a class="amd-text-link" href="https://github.com/zhaoliangbin42/AI-MarkDone" target="_blank" rel="noopener">{{ if $isEN }}View the source on GitHub{{ else }}在 GitHub 查看源码{{ end }}{{ partial "ai-markdone/icon.html" (dict "name" "arrow-up-right") }}</a></div></div>
-</section>
-<section class="amd-signal-feature-index amd-container">
-  <div class="amd-signal-section-heading"><div><p class="amd-signal-eyebrow">{{ if $isEN }}Manual{{ else }}手册{{ end }}</p><h2>{{ if $isEN }}Capability overview{{ else }}能力速览{{ end }}</h2></div><a class="amd-text-link" href="{{ $manual | relURL }}">{{ if $isEN }}Open manual{{ else }}打开手册{{ end }}{{ partial "ai-markdone/icon.html" (dict "name" "arrow-right") }}</a></div>
-  <div class="amd-signal-feature-groups">
-    {{ range hugo.Data.ai_markdone.manual_nav.groups }}
-      {{ $items := where .items "id" "ne" "architecture" }}
-      {{ if $items }}
-        <section class="amd-signal-feature-group">
-          <h3>{{ if $isEN }}{{ .en }}{{ else }}{{ .zh }}{{ end }}</h3>
-          <div class="amd-signal-feature-links">
-            {{ range $items }}<a href="{{ cond $isEN .enURL .zhURL | relURL }}"><span>{{ if $isEN }}{{ .en }}{{ else }}{{ .zh }}{{ end }}</span>{{ partial "ai-markdone/icon.html" (dict "name" "arrow-up-right") }}</a>{{ end }}
+{{ range $index, $section := $copy.sections }}
+  <section class="amd-feature-section amd-feature-{{ .id }}" id="{{ .id }}">
+    <div
+      class="amd-container amd-feature-layout{{ if not .image }}
+        amd-feature-layout-text
+      {{ end }}"
+    >
+      <div class="amd-feature-copy">
+        <p class="amd-signal-eyebrow">{{ .label }}</p>
+        <h2>{{ .title }}</h2>
+        <p>{{ .body }}</p>
+        <ul>
+          {{ range .points }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        <a
+          class="amd-text-link"
+          href="{{ printf "%s%s/" $manual .slug | relURL }}"
+          >{{ .link }}{{ partial "ai-markdone/icon.html" (dict "name" "arrow-right") }}</a
+        >
+      </div>
+      {{ with .image }}
+        <figure class="amd-feature-visual">
+          {{ partial "ai-markdone/signal-image.html" (dict "path" (printf "ai-markdone/images/guide/%s" .) "alt" $section.alt "width" 1600) }}
+        </figure>
+      {{ else }}
+        <aside
+          class="amd-annotation-example"
+          aria-label="{{ if $isEN }}
+            Annotation example
+          {{ else }}
+            注释示例
+          {{ end }}"
+        >
+          <p class="amd-example-label">
+            {{ if $isEN }}Source text{{ else }}原文{{ end }}
+          </p>
+          <blockquote>
+            {{ if $isEN }}
+              The sample mean describes
+              <mark>the center of a set of measurements</mark>.
+            {{ else }}
+              样本均值用于描述<mark>一组测量结果的中心位置</mark>。
+            {{ end }}
+          </blockquote>
+          <div class="amd-example-note">
+            <strong
+              >{{ if $isEN }}My annotation{{ else }}我的注释{{ end }}</strong
+            >
+            <p>
+              {{ if $isEN }}
+                How does an outlier affect the mean? Please compare it with the
+                median.
+              {{ else }}
+                如果有异常值，均值会受到多大影响？请和中位数对比说明。
+              {{ end }}
+            </p>
           </div>
-        </section>
+          <p class="amd-example-result">
+            {{ if $isEN }}
+              Insert the quote and your note into the composer, then review and
+              send.
+            {{ else }}
+              把原文与注释插入输入框，检查后发送。
+            {{ end }}
+          </p>
+        </aside>
       {{ end }}
+    </div>
+  </section>
+{{ end }}
+<section class="amd-more-features amd-container">
+  <h2>{{ $copy.moreTitle }}</h2>
+  <div class="amd-more-grid">
+    {{ range $copy.more }}
+      <article>
+        <h3>
+          <a href="{{ printf "%s%s/" $manual .slug | relURL }}"
+            >{{ .title }}{{ partial "ai-markdone/icon.html" (dict "name" "arrow-up-right") }}</a
+          >
+        </h3>
+        <p>{{ .body }}</p>
+      </article>
     {{ end }}
   </div>
 </section>
-<section class="amd-signal-faq-preview amd-container">
-  <div><p class="amd-signal-eyebrow">AI-MarkDone</p><h2>{{ if $isEN }}FAQ{{ else }}常见问题{{ end }}</h2><a href="{{ $faq | relURL }}" class="amd-text-link">{{ if $isEN }}Read all answers{{ else }}查看全部问答{{ end }}{{ partial "ai-markdone/icon.html" (dict "name" "arrow-right") }}</a></div>
-  <div class="amd-signal-faq-list">
-    <details><summary>{{ if $isEN }}Which platforms does this extension support?{{ else }}这个插件都支持哪些平台？{{ end }}{{ partial "ai-markdone/icon.html" (dict "name" "plus") }}</summary><p>{{ if $isEN }}AI-MarkDone is focused on ChatGPT. The public installation links are the Chrome Web Store and Firefox Add-ons.{{ else }}AI-MarkDone 专注 ChatGPT。当前公开安装入口是 Chrome Web Store 和 Firefox Add-ons。{{ end }}</p></details>
-    <details><summary>{{ if $isEN }}Is the result always perfect?{{ else }}所有内容都能完美还原吗？{{ end }}{{ partial "ai-markdone/icon.html" (dict "name" "plus") }}</summary><p>{{ if $isEN }}No. AI-MarkDone tries to preserve complete Markdown units, but the final result still depends on the current ChatGPT page and the target editor.{{ else }}不能保证。AI-MarkDone 会尽量保留完整 Markdown 单元，但最终效果还取决于 ChatGPT 当前页面和目标编辑器。{{ end }}</p></details>
-    <details><summary>{{ if $isEN }}Does Reader save anything automatically?{{ else }}Reader 里的东西会自动保存吗？{{ end }}{{ partial "ai-markdone/icon.html" (dict "name" "plus") }}</summary><p>{{ if $isEN }}Reader is a workspace for the current answer. Sticky is temporary too. If you need the content later, save it as a bookmark, copy it, or export it.{{ else }}不会。Reader 是阅读和处理当前回答的工作区，Sticky 也是临时的。如果这条内容以后还要找回，请保存成书签；如果要带到别的软件里，请用复制或导出。{{ end }}</p></details>
+<section class="amd-plain-privacy amd-container">
+  <div>
+    <p class="amd-signal-eyebrow">
+      {{ if $isEN }}Privacy{{ else }}隐私{{ end }}
+    </p>
+    <h2>{{ $copy.privacyTitle }}</h2>
+  </div>
+  <div>
+    <p>{{ $copy.privacyBody }}</p>
+    <a class="amd-text-link" href="{{ printf "%sprivacy/" $base | relURL }}"
+      >{{ $copy.privacyLink }}{{ partial "ai-markdone/icon.html" (dict "name" "arrow-right") }}</a
+    >
   </div>
 </section>
-<section class="amd-signal-close"><div class="amd-container"><p class="amd-signal-eyebrow">Chrome · Firefox</p><h2>{{ if $isEN }}Install AI-MarkDone{{ else }}安装 AI-MarkDone{{ end }}</h2><div class="amd-actions"><a class="amd-button amd-button-primary" href="{{ $chrome }}" target="_blank" rel="noopener">{{ if $isEN }}Install AI-MarkDone{{ else }}安装 AI-MarkDone{{ end }}{{ partial "ai-markdone/icon.html" (dict "name" "arrow-up-right") }}</a><a class="amd-text-link" href="{{ printf "%sinstall/" $manual | relURL }}">{{ if $isEN }}Manual{{ else }}使用手册{{ end }}{{ partial "ai-markdone/icon.html" (dict "name" "arrow-right") }}</a></div></div></section>
-{{ partial "ai-markdone/supporters.html" . }}
+<section class="amd-guide-entry amd-container">
+  <h2>{{ $copy.helpTitle }}</h2>
+  <p>{{ $copy.helpBody }}</p>
+  <div class="amd-actions">
+    <a class="amd-text-link" href="{{ printf "%sworkflow/" $base | relURL }}"
+      >{{ $copy.workflow }}{{ partial "ai-markdone/icon.html" (dict "name" "arrow-right") }}</a
+    ><a class="amd-text-link" href="{{ $manual | relURL }}"
+      >{{ $copy.manual }}{{ partial "ai-markdone/icon.html" (dict "name" "arrow-right") }}</a
+    ><a class="amd-text-link" href="{{ printf "%ssettings/" $manual | relURL }}"
+      >{{ $copy.settings }}{{ partial "ai-markdone/icon.html" (dict "name" "arrow-right") }}</a
+    >
+  </div>
+</section>
+<section class="amd-signal-close">
+  <div class="amd-container">
+    <h2>{{ $copy.closeTitle }}</h2>
+    {{ partial "ai-markdone/browser-downloads.html" (dict "isEN" $isEN "variant" "inline") }}
+  </div>
+</section>

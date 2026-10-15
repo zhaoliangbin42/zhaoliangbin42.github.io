@@ -1,92 +1,58 @@
 ---
-title: "ChatGPT Reader mode in AI-MarkDone"
-description: "Read long ChatGPT answers in AI-MarkDone Reader with cleaner Markdown rendering, message switching, heading outline, Sticky excerpts, annotations, and follow-up send actions."
+title: "Reader"
+description: "Open a ChatGPT answer in Reader, adjust its layout, navigate headings and answers, then copy, keep excerpts, highlight, annotate, or ask a follow-up."
 type: "ai-markdone"
 amd_lang: "en"
 page_kind: "manual_feature"
 aliases: ["/ai-markdone/en/guide/reader/"]
 manual_feature: "reader"
 translation_url: "/ai-markdone/manual/reader/"
-prev_url: "/ai-markdone/en/manual/architecture/"
-prev_label: "Previous: Plugin architecture"
-next_url: "/ai-markdone/en/manual/partial-copy/"
-next_label: "Next: Partial copy"
 ---
 
-## What Reader does
+Reader opens one ChatGPT answer in a separate reading view, with formatted headings, paragraphs, lists, code, tables, and formulas. While reading a long answer, you can keep your place, collect earlier passages, record questions, and move between answers.
 
-ChatGPT is good at answering. Long answers can feel cramped on the original page. Reader moves the current answer into a quieter panel, so you can stay with the text and read with fewer interruptions.
+## Open an answer
 
-Reader keeps the common reading actions close at hand. You can annotate, copy, pin excerpts, and move between messages without breaking your reading rhythm.
+1. Wait for ChatGPT to finish the answer, then move the pointer to the AI-MarkDone toolbar below it.
+2. Expand the toolbar if it is collapsed, then click **Reader**.
+3. Reader opens in fullscreen by default. Use the fullscreen button at the top right to change the window size.
 
-1. A cleaner reading surface: the current answer is rendered as Markdown, so headings, paragraphs, code, tables, and formulas are easier to read continuously.
-2. Faster message switching: use the bottom pager, or Left / Right when enabled, to move through nearby answers.
-3. Quick jumps inside long answers: Reader detects headings and lets you jump inside the current message.
-4. Work in place: select text and copy Markdown, send it to Sticky, or annotate it from the same reading panel.
-5. Ask from Reader: use the lower-left send entry when a follow-up comes up while reading.
+An answer that is still generating cannot be opened directly. If the button is unavailable, wait for generation to finish and make sure the answer has loaded on the page.
 
-## How to open Reader
+## Move between answers
 
-Click **Reader** in the AI-MarkDone toolbar at the bottom of a ChatGPT message.
+Use the previous, next, and page controls at the bottom to move between collected answers. While reading the body, you can also use the left and right arrow keys to change answers, and the up and down arrow keys to scroll. Reader's arrow keys work independently of the arrow-key navigation setting for the original page.
 
-Reader opens the current answer. You can keep reading this message, or move to nearby messages.
+The page count reflects answers collected so far, rather than the entire conversation history. If an older answer is missing, return to ChatGPT and load that part of the conversation first. Reader remembers reading positions during the current page session; refreshing the page resets them.
 
-## Feature overview
+Use the locate button at the bottom to return to the current answer on the ChatGPT page. After a successful jump, the Reader overlay closes.
 
-1. **Markdown reading layout**
+## Jump to a section
 
-   Reader turns the answer into a more readable Markdown page. Long paragraphs, headings, lists, code blocks, tables, and formulas are easier to scan and follow. The longer the answer, the more this matters.
+Reader can show a heading outline when an answer contains at least two Markdown headings. Click a heading in the outline to jump to that section.
 
-2. **Message switching**
+If the outline is missing, check that the answer has enough headings, then check the heading outline option in Reader's top-right settings. A bold sentence is not necessarily a Markdown heading.
 
-   Use the bottom pager to move to the previous or next message. If arrow-key navigation is enabled, Left / Right can also move between messages. See [Message navigation](/ai-markdone/en/manual/message-navigation/).
+## Adjust the reading view
 
-3. **Outline jumps**
+Open **Settings** at the top right of Reader to adjust the opening mode, text size, reading width, syntax highlighting, and heading outline. Turning off syntax highlighting changes code coloring; it does not remove code.
 
-   When an answer contains several headings, Reader can show an outline. In long answers, click the heading you need and jump straight to that section. You can turn it on or off in Settings.
+If an answer changes on the original page, use the refresh button at the top of Reader to read it again. Refreshing requires the source ChatGPT page to remain available.
 
-4. **Partial copy**
+## Work with the current answer
 
-   Select a specific passage inside Reader when you only need part of an answer. AI-MarkDone tries to preserve Markdown hierarchy, code, tables, and formula boundaries. See [Partial copy](/ai-markdone/en/manual/partial-copy/).
+| What you need | Action and result |
+| --- | --- |
+| Copy the whole answer | Use the top copy button to copy the current answer as Markdown. |
+| Copy a passage | Select text and copy it. See [Partial copy](/ai-markdone/en/manual/partial-copy/) for formulas, code, and tables. |
+| Keep an earlier passage beside the answer | Select text and choose **Keep excerpt** to add it to the [Excerpt tray](/ai-markdone/en/manual/sticky/). |
+| Mark text to revisit | Choose a [highlight color](/ai-markdone/en/manual/highlights/). Highlights save in the current browser. |
+| Write a revision note or question | Select text and add an [annotation](/ai-markdone/en/manual/annotations/). Whether it survives a refresh depends on the annotation saving setting. |
+| Save the answer | Use the top bookmark button to save a snapshot of the answer and its corresponding question. See [Bookmarks and Library](/ai-markdone/en/manual/bookmarks/). |
+| Ask a follow-up | Open the lower-left send box, enter a question, and send it. You can also insert annotations, review the text, and then send. |
 
-5. **Sticky excerpts**
+## What remains after closing Reader
 
-   When you reach the later part of an answer and need something from earlier, send the key formula, assumption, or conclusion to Sticky. It stays beside the text while you keep reading. See [Sticky excerpts](/ai-markdone/en/manual/sticky/).
+Reader does not automatically bookmark every answer you open. Excerpts belong to the current page session, highlights save locally, and annotations follow **Save new annotations for later**. Create a bookmark when you need to keep a full answer.
 
-6. **Dynamic annotations**
-
-   Select an exact sentence or paragraph and write beside it. If a line is unclear, mark it, ask about it, or keep the note for later. See [Annotations](/ai-markdone/en/manual/annotations/).
-
-7. **Quick send**
-
-   Reader has a lower-left send entry. When a follow-up appears while reading, send it from Reader and keep the current passage in view.
-
-8. **Top-right tools**
-
-   The top-right area contains common Reader actions such as refresh, copy, settings, fullscreen, and close. The exact buttons depend on your settings.
-
-## Common questions
-
-### When is Reader worth opening?
-
-Open it for math derivations, experiment plans, code explanations, or multi-section answers. Short answers are usually fine on the original page. Reader is for the answers you actually need to sit with.
-
-### What should I ask from the Reader send entry?
-
-Use it for questions tied to the exact place you are reading: "Why does this formula simplify this way?", "Give an example for this section", or "Rewrite this paragraph in a paper style." When the question appears while reading, sending it from Reader feels much less disruptive.
-
-### What belongs in Sticky?
-
-Put material that matters right now but has not become a permanent note yet: assumptions from earlier in the answer, key formulas, intermediate conclusions, or options you want to compare. After reading, decide whether to copy, annotate, ask, or bookmark it.
-
-### Why does the outline sometimes not appear?
-
-The outline depends on Markdown headings in the answer. If the answer has no headings, or if the Reader heading outline is disabled in Settings, it will not appear. For a long unstructured answer, ask ChatGPT to rewrite it with sections.
-
-### How do I get cleaner copied Markdown?
-
-Select complete paragraphs, list items, code blocks, or formula blocks when possible. Avoid cutting through the middle of a structure. The copied Markdown is usually cleaner when the source boundary is clean.
-
-### Does Reader save anything automatically?
-
-Reader is a workspace for the current answer. Sticky is temporary too. If you need the content later, save it as a [bookmark](/ai-markdone/en/manual/bookmarks/), copy it, or export it.
+The page controls also include an experimental separate Reader entry. Refreshing, sending, and locating from the separate Reader still require the source ChatGPT tab, so keep that tab open while using it.

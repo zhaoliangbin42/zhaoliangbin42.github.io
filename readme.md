@@ -85,3 +85,9 @@ docs/                    生产构建产物
 6. 核实 GitHub Pages 构建成功，并检查线上页面的内容、资源和主要跳转。
 
 `static/.nojekyll` 随产物发布。不要手改 `docs/`，不要在产物目录初始化另一个 Git 仓库，也不要强制推送部署。编辑器数据库、侧车元数据、构建锁与旧 Tailwind 统计不属于发布内容。
+
+## AI-MarkDone 内容维护
+
+首页按功能解释具体用途；工作流提供完整任务步骤；手册按功能查找，并收录常见问题和配置总表。旧 FAQ、功能索引、架构和合并章节地址通过 Hugo aliases 跳转，导航只保留工作流、手册和联系。
+
+更新说明前应核对插件当前源码、实际控件和默认值，特别注意高亮选择条件、注释保存方式、公式输入与正文公式的区别，以及资料库与设置的备份范围。文案遵循 [Apple Writing for interfaces](https://developer.apple.com/videos/play/wwdc2022/10037/) 和 [Apple Style Guide](https://support.apple.com/guide/applestyleguide/welcome/web) 的清晰表达、上下文和术语一致性原则；信息组织参考 [Obsidian](https://obsidian.md/)。产品配图采用真实组件与中性示例内容，不使用私人对话或账号信息。

@@ -5,33 +5,145 @@
 {{ $isOverview := eq .Params.page_kind "manual" }}
 {{ $groups := hugo.Data.ai_markdone.manual_nav.groups }}
 {{ $flat := slice }}
-{{ range $groups }}{{ range .items }}{{ $flat = $flat | append . }}{{ end }}{{ end }}
+{{ range $groups }}
+  {{ range .items }}{{ $flat = $flat | append . }}{{ end }}
+{{ end }}
 {{ $currentIndex := -1 }}
-{{ range $index, $item := $flat }}{{ if eq $current (cond $isEN .enURL .zhURL) }}{{ $currentIndex = $index }}{{ end }}{{ end }}
-{{ $prev := false }}{{ if gt $currentIndex 0 }}{{ $prev = index $flat (sub $currentIndex 1) }}{{ end }}
-{{ $next := false }}{{ if and (ge $currentIndex 0) (lt (add $currentIndex 1) (len $flat)) }}{{ $next = index $flat (add $currentIndex 1) }}{{ end }}
+{{ range $index, $item := $flat }}
+  {{ if eq $current (cond $isEN .enURL .zhURL) }}
+    {{ $currentIndex = $index }}
+  {{ end }}
+{{ end }}
+{{ $prev := false }}{{ if gt $currentIndex 0 }}
+  {{ $prev = index $flat (sub $currentIndex 1) }}
+{{ end }}
+{{ $next := false }}{{ if and (ge $currentIndex 0) (lt (add $currentIndex 1) (len $flat)) }}
+  {{ $next = index $flat (add $currentIndex 1) }}
+{{ end }}
 <section class="amd-section amd-docs-section">
-  <div class="amd-container amd-docs-layout{{ if eq .Params.manual_feature "architecture" }} amd-docs-layout-wide{{ end }}">
-    <aside class="amd-docs-sidebar" aria-label="{{ if $isEN }}Manual navigation{{ else }}手册导航{{ end }}">
+  <div
+    class="amd-container amd-docs-layout{{ if eq .Params.manual_feature "architecture" }}
+      amd-docs-layout-wide
+    {{ end }}"
+  >
+    <aside
+      class="amd-docs-sidebar"
+      aria-label="{{ if $isEN }}
+        Manual navigation
+      {{ else }}
+        手册导航
+      {{ end }}"
+    >
       <details data-amd-docs-menu open>
-        <summary>{{ if $isEN }}Browse the manual{{ else }}浏览使用手册{{ end }}{{ partial "ai-markdone/icon.html" (dict "name" "chevron-down") }}</summary>
-        <nav class="amd-docs-nav-body" aria-label="{{ if $isEN }}Manual chapters{{ else }}手册章节{{ end }}">
-          <a class="amd-docs-overview-link{{ if $isOverview }} is-active{{ end }}" href="{{ $manual | relURL }}"{{ if $isOverview }} aria-current="page"{{ end }}>{{ if $isEN }}Manual overview{{ else }}手册总览{{ end }}</a>
-          {{ range $groups }}<div class="amd-docs-nav-group"><strong>{{ if $isEN }}{{ .en }}{{ else }}{{ .zh }}{{ end }}</strong>{{ range .items }}{{ $url := cond $isEN .enURL .zhURL }}<a href="{{ $url | relURL }}"{{ if eq $current $url }} class="is-active" aria-current="page"{{ end }}>{{ if $isEN }}{{ .en }}{{ else }}{{ .zh }}{{ end }}</a>{{ end }}</div>{{ end }}
+        <summary>
+          {{ if $isEN }}
+            Browse the manual
+          {{ else }}
+            浏览使用手册
+          {{ end }}{{ partial "ai-markdone/icon.html" (dict "name" "chevron-down") }}
+        </summary>
+        <nav
+          class="amd-docs-nav-body"
+          aria-label="{{ if $isEN }}
+            Manual chapters
+          {{ else }}
+            手册章节
+          {{ end }}"
+        >
+          <a
+            class="amd-docs-overview-link{{ if $isOverview }}is-active{{ end }}"
+            href="{{ $manual | relURL }}"
+            {{ if $isOverview }}aria-current="page"{{ end }}
+            >{{ if $isEN }}Manual overview{{ else }}手册总览{{ end }}</a
+          >
+          {{ range $groups }}
+            <div class="amd-docs-nav-group">
+              <strong
+                >{{ if $isEN }}{{ .en }}{{ else }}{{ .zh }}{{ end }}</strong
+              >{{ range .items }}
+                {{ $url := cond $isEN .enURL .zhURL }}<a
+                  href="{{ $url | relURL }}"
+                  {{ if eq $current $url }}
+                    class="is-active" aria-current="page"
+                  {{ end }}
+                  >{{ if $isEN }}{{ .en }}{{ else }}{{ .zh }}{{ end }}</a
+                >
+              {{ end }}
+            </div>
+          {{ end }}
         </nav>
       </details>
     </aside>
     <article class="amd-docs-article">
-      {{ if not .Params.hide_docs_title }}<header class="amd-docs-title"><p class="amd-signal-eyebrow">AI-MARKDONE / {{ if $isEN }}MANUAL{{ else }}使用手册{{ end }}</p><h1>{{ .Title }}</h1>{{ with .Description }}<p>{{ . }}</p>{{ end }}</header>{{ end }}
-      {{ if eq .Params.manual_feature "install" }}{{ partial "ai-markdone/browser-downloads.html" (dict "isEN" $isEN "variant" "inline") }}{{ end }}
-      {{ if findRE "<li>" .TableOfContents }}<details class="amd-docs-toc"><summary>{{ if $isEN }}On this page{{ else }}本页内容{{ end }}{{ partial "ai-markdone/icon.html" (dict "name" "chevron-down") }}</summary>{{ .TableOfContents }}</details>{{ end }}
-      <div class="amd-docs-content content">{{ .Content }}</div>
+      {{ if not .Params.hide_docs_title }}
+        <header class="amd-docs-title">
+          <p class="amd-signal-eyebrow">
+            AI-MARKDONE / {{ if $isEN }}MANUAL{{ else }}使用手册{{ end }}
+          </p>
+          <h1>{{ .Title }}</h1>
+          {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        </header>
+      {{ end }}
+      {{ if eq .Params.manual_feature "install" }}
+        {{ partial "ai-markdone/browser-downloads.html" (dict "isEN" $isEN "variant" "inline") }}
+      {{ end }}
+      {{ if findRE "<li>" .TableOfContents }}
+        <details class="amd-docs-toc">
+          <summary>
+            {{ if $isEN }}
+              On this page
+            {{ else }}
+              本页内容
+            {{ end }}{{ partial "ai-markdone/icon.html" (dict "name" "chevron-down") }}
+          </summary>
+          {{ .TableOfContents }}
+        </details>
+      {{ end }}
+      <div class="amd-docs-content content">
+        {{ partial "ai-markdone/document-content.html" . }}
+      </div>
       {{ partial "ai-markdone/manual-media.html" . }}
-      {{ if and (not $isOverview) (not .Params.hide_docs_next) }}<nav class="amd-docs-next" aria-label="{{ if $isEN }}Manual next steps{{ else }}手册下一步{{ end }}">
-        {{ with $prev }}<a href="{{ cond $isEN .enURL .zhURL | relURL }}"><span>{{ if $isEN }}Previous{{ else }}上一步{{ end }}</span>{{ if $isEN }}{{ .en }}{{ else }}{{ .zh }}{{ end }}</a>{{ else }}<a href="{{ $home | relURL }}"><span>AI-MarkDone</span>{{ if $isEN }}Product home{{ else }}产品首页{{ end }}</a>{{ end }}
-        <a href="{{ $manual | relURL }}"><span>{{ if $isEN }}Browse{{ else }}继续浏览{{ end }}</span>{{ if $isEN }}Manual overview{{ else }}手册总览{{ end }}</a>
-        {{ with $next }}<a href="{{ cond $isEN .enURL .zhURL | relURL }}"><span>{{ if $isEN }}Next{{ else }}下一步{{ end }}</span>{{ if $isEN }}{{ .en }}{{ else }}{{ .zh }}{{ end }}</a>{{ else }}<a href="{{ cond $isEN "/ai-markdone/en/contact/" "/ai-markdone/contact/" | relURL }}"><span>{{ if $isEN }}Need help?{{ else }}需要帮助？{{ end }}</span>{{ if $isEN }}Send feedback{{ else }}联系与反馈{{ end }}</a>{{ end }}
-      </nav>{{ end }}
+      {{ if and (not $isOverview) (not .Params.hide_docs_next) }}
+        <nav
+          class="amd-docs-next"
+          aria-label="{{ if $isEN }}
+            Manual next steps
+          {{ else }}
+            手册下一步
+          {{ end }}"
+        >
+          {{ with $prev }}
+            <a href="{{ cond $isEN .enURL .zhURL | relURL }}"
+              ><span>{{ if $isEN }}Previous{{ else }}上一步{{ end }}</span
+              >{{ if $isEN }}{{ .en }}{{ else }}{{ .zh }}{{ end }}</a
+            >
+          {{ else }}
+            <a href="{{ $home | relURL }}"
+              ><span>AI-MarkDone</span>{{ if $isEN }}
+                Product home
+              {{ else }}
+                产品首页
+              {{ end }}</a
+            >
+          {{ end }}
+          <a href="{{ $manual | relURL }}"
+            ><span>{{ if $isEN }}Browse{{ else }}继续浏览{{ end }}</span
+            >{{ if $isEN }}Manual overview{{ else }}手册总览{{ end }}</a
+          >
+          {{ with $next }}
+            <a href="{{ cond $isEN .enURL .zhURL | relURL }}"
+              ><span>{{ if $isEN }}Next{{ else }}下一步{{ end }}</span
+              >{{ if $isEN }}{{ .en }}{{ else }}{{ .zh }}{{ end }}</a
+            >
+          {{ else }}
+            <a
+              href="{{ cond $isEN "/ai-markdone/en/contact/" "/ai-markdone/contact/" | relURL }}"
+              ><span>{{ if $isEN }}Need help?{{ else }}需要帮助？{{ end }}</span
+              >{{ if $isEN }}Send feedback{{ else }}联系与反馈{{ end }}</a
+            >
+          {{ end }}
+        </nav>
+      {{ end }}
     </article>
   </div>
 </section>

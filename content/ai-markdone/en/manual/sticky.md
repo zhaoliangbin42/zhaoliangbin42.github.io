@@ -1,6 +1,6 @@
 ---
-title: "Sticky excerpts"
-description: "Pin selected passages to the Sticky panel in AI-MarkDone Reader for comparison, reordering, and follow-up preparation."
+title: "Excerpt tray"
+description: "Keep passages beside Reader, retain them while changing answers, and reorder or remove them during the current page session."
 type: "ai-markdone"
 amd_lang: "en"
 page_kind: "manual_feature"
@@ -8,28 +8,29 @@ manual_feature: "sticky"
 translation_url: "/ai-markdone/manual/sticky/"
 ---
 
-## Use this when
+The Excerpt tray is a temporary comparison area inside Reader. Keep an earlier assumption, formula, or conclusion beside the text while reading later sections, without scrolling back to find it. The feature previously called Sticky now appears as **Excerpt tray** in the interface.
 
-You are reading a long answer and a few passages may matter, but you have not decided what to save, copy, or ask about yet.
+## Keep a passage
 
-## Where to open it
+1. Open [Reader](/ai-markdone/en/manual/reader/) from a ChatGPT answer's toolbar.
+2. Select the content you want to keep.
+3. Choose **Keep excerpt** from the selection buttons.
+4. The tray opens automatically and adds the passage after existing excerpts.
 
-Open [Reader](/ai-markdone/en/manual/reader/), select a passage, then click Stick. The excerpt appears in the Sticky panel beside Reader.
+Continue adding passages as needed. Excerpts remain when you move to the previous or next answer, so you can compare proposals or steps from multiple answers.
 
-## How to use it
+## Arrange or collapse the tray
 
-1. Select a passage in Reader.
-2. Click Stick.
-3. Keep reading and pin the passages you want to compare.
-4. Drag excerpts into a better order, or delete the ones you no longer need.
-5. When the working set is clear, copy it, annotate it, ask a follow-up, or save a bookmark.
+Use an excerpt's drag handle to reorder it, or **Remove excerpt** to remove it. Drag the divider between the tray and the answer to adjust the tray's width.
 
-## Worth knowing
+The collapse control at the bottom of Reader hides the tray without deleting excerpts. Expand it again to continue reading them.
 
-- Sticky is temporary. It clears after a full page refresh.
-- It is for holding material while reading, not for long-term storage.
-- Use [Bookmarks](/ai-markdone/en/manual/bookmarks/) for material you need later.
+## How long excerpts remain
 
-## Next
+Excerpts remain in the current page's Reader session. Closing and reopening Reader on that same page can retain them. Do not rely on the tray to recover content after refreshing the page, closing the tab, or recreating Reader.
 
-When you want to write beside an exact source sentence, read [Annotations](/ai-markdone/en/manual/annotations/).
+The tray does not automatically add excerpts to Library or create bookmarks. For longer-term use, [highlight](/ai-markdone/en/manual/highlights/) the source text or save the full answer as a [bookmark](/ai-markdone/en/manual/bookmarks/). To take a passage to another editor, use [Partial copy](/ai-markdone/en/manual/partial-copy/).
+
+## Why the tray is sometimes unavailable
+
+The tray belongs to Reader opened from a conversation. It is not available when you open a bookmark preview from Library. Both views display content, but their available actions differ.

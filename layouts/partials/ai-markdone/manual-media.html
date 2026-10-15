@@ -1,17 +1,15 @@
 {{ $isEN := eq (.Params.amd_lang | default "zh") "en" }}
+{{ $lang := cond $isEN "en" "zh" }}
 {{ $media := dict
-  "install" (dict "path" "ai-markdone/images/home/ai-markdone-chatgpt-reader-toolbar.gif" "zh" "ChatGPT 消息下方的 AI-MarkDone 工具栏与 Reader 入口" "en" "The AI-MarkDone answer toolbar and Reader entry in ChatGPT")
-  "reader" (dict "path" "ai-markdone/images/signal/reader.png" "zh" "AI-MarkDone Reader 中的正文、标题大纲与消息切换" "en" "Text, heading outline, and message navigation in AI-MarkDone Reader")
-  "copy-markdown" (dict "path" "ai-markdone/images/home/ai-markdone-chatgpt-reader-toolbar.gif" "zh" "AI-MarkDone 消息工具栏中的内容操作" "en" "Content actions in the AI-MarkDone answer toolbar")
-  "partial-copy" (dict "path" "ai-markdone/images/home/copy-chatgpt-selection-to-markdown.gif" "zh" "在 Reader 中选取片段并复制 Markdown" "en" "Selecting a passage in Reader and copying it as Markdown")
-  "sticky" (dict "path" "ai-markdone/images/home/chatgpt-reader-sticky-excerpts-pin-important-content.png" "zh" "Reader Sticky 栏中用于临时对照的摘录" "en" "Temporary excerpts in the Reader Sticky panel")
-  "annotations" (dict "path" "ai-markdone/images/home/chatgpt-reader-dynamic-annotation-prompt.gif" "zh" "针对原句添加灵动注释" "en" "Adding a Dynamic Annotation to selected source text")
-  "message-position" (dict "path" "ai-markdone/images/home/chatgpt-reader-message-switching.png" "zh" "Reader 中的前后消息切换" "en" "Moving between messages in Reader")
-  "formulas" (dict "path" "ai-markdone/images/home/chatgpt-latex-formula-copy-export.png" "zh" "公式复制与导出菜单" "en" "Formula copy and export actions")
-  "bookmarks" (dict "path" "ai-markdone/images/home/chatgpt-bookmark-manager-folders-search.png" "zh" "书签文件夹、搜索与内容预览" "en" "Bookmark folders, search, and preview")
-  "export" (dict "path" "ai-markdone/images/home/export-chatgpt-markdown-pdf-png.png" "zh" "Markdown、PDF 与 PNG 消息导出" "en" "Exporting messages as Markdown, PDF, or PNG")
-  "settings" (dict "path" "ai-markdone/images/home/ai-markdone-chatgpt-extension-settings.png" "zh" "AI-MarkDone 扩展设置界面" "en" "The AI-MarkDone extension settings")
+  "reader" (dict "file" "reader" "zh" "阅读器中的正文、公式和消息切换" "en" "An example answer, formula, and message navigation in Reader")
+  "bookmarks" (dict "file" "library" "zh" "资料库中的文件夹和书签列表" "en" "Bookmark folders and saved answers in Library")
+  "export" (dict "file" "export" "zh" "消息范围、导出格式和图片处理选项" "en" "Message selection, export formats, and image options")
+  "composer" (dict "file" "composer" "zh" "输入中的 LaTeX 命令补全与公式预览" "en" "LaTeX completions and formula preview while writing")
+  "settings" (dict "file" "settings" "zh" "输入增强、公式辅助和提示词设置" "en" "Input enhancement, formula tools, and saved prompt settings")
 }}
 {{ with index $media (.Params.manual_feature | default "") }}
-  <figure class="amd-docs-media">{{ partial "ai-markdone/signal-image.html" (dict "path" .path "alt" (cond $isEN .en .zh) "width" 1600) }}<figcaption>{{ if $isEN }}{{ .en }}{{ else }}{{ .zh }}{{ end }}</figcaption></figure>
+  <figure class="amd-docs-media">
+    {{ partial "ai-markdone/signal-image.html" (dict "path" (printf "ai-markdone/images/guide/%s-%s.png" .file $lang) "alt" (cond $isEN .en .zh) "width" 1600) }}
+    <figcaption>{{ if $isEN }}{{ .en }}{{ else }}{{ .zh }}{{ end }}</figcaption>
+  </figure>
 {{ end }}

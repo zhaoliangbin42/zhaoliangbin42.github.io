@@ -1,0 +1,254 @@
+{
+  "zh": {
+    "eyebrow": "ChatGPT 浏览器扩展",
+    "headline": "阅读、批注、整理。\n直接在 ChatGPT 里完成。",
+    "intro": "AI-MarkDone 为 ChatGPT 添加阅读器、Markdown 复制、公式工具和资料库。读到重要内容，可以高亮、写注释或保存书签；需要带走时，导出为 Markdown、PDF 或图片。",
+    "install": "安装到 Chrome",
+    "firefox": "安装到 Firefox",
+    "note": "免费开源 · 支持 Chrome 与 Firefox",
+    "jump": "查看功能",
+    "sections": [
+      {
+        "id": "read",
+        "label": "阅读器",
+        "title": "长回答，按自己的节奏读。",
+        "body": "把一条回答放进独立的阅读窗口。通过标题大纲找到要看的部分，用上一条、下一条切换回答；需要对照前文时，把片段放进左侧摘录区。",
+        "points": [
+          "标题大纲：点击标题，跳到回答中的对应位置。",
+          "摘录区：暂存段落、公式或代码，边读边对照。",
+          "阅读设置：调整字号、宽度和打开方式。"
+        ],
+        "slug": "reader",
+        "link": "查看阅读器用法",
+        "image": "reader-zh.png",
+        "alt": "阅读器中的实验结果示例，包含公式、标题大纲和消息切换"
+      },
+      {
+        "id": "mark",
+        "label": "高亮与注释",
+        "title": "标出重点，把问题写在原文旁。",
+        "body": "在 ChatGPT 原页面或阅读器中选中内容，标记高亮，或者添加注释。想让 ChatGPT 继续解释时，把原文引用和注释一起整理到输入框，检查后再发送。",
+        "points": [
+          "高亮：为要复习的内容标记颜色，在资料库中集中查找。",
+          "注释：记录修改意见、疑问或自己的理解。",
+          "保存方式：高亮会保存；新建注释是否长期保存，由设置决定。"
+        ],
+        "slug": "annotations",
+        "link": "查看高亮与注释用法"
+      },
+      {
+        "id": "formulas",
+        "label": "公式工具",
+        "title": "写公式时看预览，用公式时直接导出。",
+        "body": "在 ChatGPT 输入框内输入 LaTeX，可以补全命令并查看公式预览。回答中的公式也能单独复制或保存，用于笔记、论文和演示文稿。",
+        "points": [
+          "输入公式：在 $…$ 或 $$…$$ 中输入反斜杠，选择补全项。",
+          "实时预览：随着文字光标移动，查看当前公式的排版。",
+          "复制与保存：按需使用 LaTeX、PNG、SVG 或 MathML。"
+        ],
+        "slug": "composer",
+        "link": "查看输入框公式用法",
+        "image": "composer-zh.png",
+        "alt": "输入框中的 LaTeX 命令补全和公式预览"
+      },
+      {
+        "id": "library",
+        "label": "资料库",
+        "title": "书签、注释和高亮，集中整理。",
+        "body": "保存需要反复查看的回答，在资料库中按文件夹组织、搜索和预览。高亮与已保存注释也有各自的列表，可以回到原对话继续阅读。",
+        "points": [
+          "书签：消息书签保存提问与回答快照；页面书签保存名称和网址。",
+          "查找：搜索资料，预览保存的内容。",
+          "返回原文：从条目回到 ChatGPT；原对话仍需可访问。"
+        ],
+        "slug": "bookmarks",
+        "link": "查看资料库用法",
+        "image": "library-zh.png",
+        "alt": "资料库中的文件夹与书签列表"
+      },
+      {
+        "id": "export",
+        "label": "复制与导出",
+        "title": "带走一段，也能保存多条回答。",
+        "body": "复制整条回答，或只复制选中的 Markdown 片段。需要归档或分享时，选择多条消息，导出为 Markdown、PDF 或 PNG。Markdown 离线 ZIP 可把支持的图表、卡片保存为静态附件。",
+        "points": [
+          "Markdown：保留标题、列表、代码与公式，方便继续编辑。",
+          "PDF 与 PNG：按所选范围导出，适合阅读和分享。",
+          "图表与卡片：在 PDF、PNG 中保留为图片，或使用文字占位。"
+        ],
+        "slug": "export",
+        "link": "查看导出选项",
+        "image": "export-zh.png",
+        "alt": "选择消息并配置 Markdown、PDF 和 PNG 导出"
+      }
+    ],
+    "moreTitle": "还有这些日常会用到的工具。",
+    "more": [
+      {
+        "title": "消息目录",
+        "body": "查看对话中的消息列表，跳到需要的回答。",
+        "slug": "message-navigation"
+      },
+      {
+        "title": "发送后保持位置",
+        "body": "发送消息后，按设置保留当前阅读位置。",
+        "slug": "message-navigation"
+      },
+      {
+        "title": "选择工具栏",
+        "body": "在选中文字旁打开复制、注释和高亮操作。",
+        "slug": "partial-copy"
+      },
+      {
+        "title": "工具按钮设置",
+        "body": "选择要显示的按钮，以及悬浮或常显方式。",
+        "slug": "settings"
+      },
+      {
+        "title": "提示词与注释模板",
+        "body": "复用常用提问方式，调整原文与注释的组合格式。",
+        "slug": "annotations"
+      },
+      {
+        "title": "资料库备份",
+        "body": "导出本地备份，或连接 Google Drive 后手动备份。",
+        "slug": "google-drive-backup"
+      }
+    ],
+    "privacyTitle": "资料保存在浏览器中。",
+    "privacyBody": "书签、高亮和已保存的注释存放在扩展的本地存储。需要换设备时，你可以导出资料库；也可以连接自己的 Google Drive 账号，再手动点击立即备份。",
+    "privacyLink": "查看隐私政策",
+    "helpTitle": "先看看怎么用。",
+    "helpBody": "工作流带你完成具体任务。手册按功能提供操作说明、设置总表和常见问题。",
+    "workflow": "查看工作流",
+    "manual": "打开使用手册",
+    "settings": "查看配置项总表",
+    "closeTitle": "安装后，刷新 ChatGPT 即可开始。"
+  },
+  "en": {
+    "eyebrow": "A browser extension for ChatGPT",
+    "headline": "Read, annotate, and organize.\nRight inside ChatGPT.",
+    "intro": "AI-MarkDone adds a reader, Markdown copying, formula tools, and a library to ChatGPT. Highlight useful passages, add notes, or save bookmarks. Export the answers you need as Markdown, PDF, or images.",
+    "install": "Install for Chrome",
+    "firefox": "Install for Firefox",
+    "note": "Free and open source · Chrome and Firefox",
+    "jump": "Explore the features",
+    "sections": [
+      {
+        "id": "read",
+        "label": "Reader",
+        "title": "Read long answers at your own pace.",
+        "body": "Open an answer in a separate reading window. Use its heading outline to find a section, move between answers, and keep earlier passages in the excerpts panel while you read.",
+        "points": [
+          "Heading outline: jump to a section of the answer.",
+          "Excerpts: keep passages, formulas, or code beside the text temporarily.",
+          "Reader settings: adjust text size, width, and how Reader opens."
+        ],
+        "slug": "reader",
+        "link": "Read the Reader guide",
+        "image": "reader-en.png",
+        "alt": "Reader showing an example answer, a formula, and message navigation"
+      },
+      {
+        "id": "mark",
+        "label": "Highlights and annotations",
+        "title": "Mark a passage. Leave your question beside it.",
+        "body": "Select text on the ChatGPT page or in Reader to highlight it or add a note. To ask a follow-up, insert the source text and annotations into the composer, review them, and send.",
+        "points": [
+          "Highlights: color passages to revisit and find them in Library.",
+          "Annotations: record edits, questions, or your own interpretation.",
+          "Saving: highlights are saved; a setting controls whether new annotations are kept permanently."
+        ],
+        "slug": "annotations",
+        "link": "Read about highlights and annotations"
+      },
+      {
+        "id": "formulas",
+        "label": "Formula tools",
+        "title": "Preview formulas as you write. Export them when you need them.",
+        "body": "Complete LaTeX commands and preview formulas in the ChatGPT composer. You can also copy or save individual formulas from answers for notes, papers, and presentations.",
+        "points": [
+          "Write: type a backslash inside $…$ or $$…$$ to choose a completion.",
+          "Preview: see the formula at the text cursor as you type or move through it.",
+          "Copy and save: use LaTeX, PNG, SVG, or MathML as needed."
+        ],
+        "slug": "composer",
+        "link": "Read the composer guide",
+        "image": "composer-en.png",
+        "alt": "LaTeX completions and formula previews in the composer"
+      },
+      {
+        "id": "library",
+        "label": "Library",
+        "title": "Keep bookmarks, annotations, and highlights together.",
+        "body": "Save answers you want to revisit. Organize them into folders, search, and preview their content. Highlights and saved annotations have their own lists, with links back to the original conversation.",
+        "points": [
+          "Bookmarks: message bookmarks keep a question-and-answer snapshot; page bookmarks keep a name and URL.",
+          "Find: search your library and preview saved content.",
+          "Return: open the original ChatGPT conversation, provided it is still accessible."
+        ],
+        "slug": "bookmarks",
+        "link": "Read the Library guide",
+        "image": "library-en.png",
+        "alt": "Bookmark folders and saved answers in Library"
+      },
+      {
+        "id": "export",
+        "label": "Copy and export",
+        "title": "Take a passage or save several answers.",
+        "body": "Copy a whole answer or a selected Markdown passage. For archiving or sharing, select messages and export Markdown, PDF, or PNG. Offline Markdown ZIP can include supported charts and cards as static attachments.",
+        "points": [
+          "Markdown: keep headings, lists, code, and formulas for further editing.",
+          "PDF and PNG: export the selected messages for reading or sharing.",
+          "Charts and cards: keep supported content as images in PDF and PNG, or use text placeholders."
+        ],
+        "slug": "export",
+        "link": "Read about export options",
+        "image": "export-en.png",
+        "alt": "Message selection and Markdown, PDF, and PNG export options"
+      }
+    ],
+    "moreTitle": "Tools for everyday work, too.",
+    "more": [
+      {
+        "title": "Message directory",
+        "body": "Browse the conversation and jump to the answer you need.",
+        "slug": "message-navigation"
+      },
+      {
+        "title": "Keep your reading position",
+        "body": "Choose to keep your current position after sending a message.",
+        "slug": "message-navigation"
+      },
+      {
+        "title": "Selection toolbar",
+        "body": "Copy, annotate, and highlight beside selected text.",
+        "slug": "partial-copy"
+      },
+      {
+        "title": "Button settings",
+        "body": "Choose visible buttons and whether they appear on hover or stay visible.",
+        "slug": "settings"
+      },
+      {
+        "title": "Prompts and annotation templates",
+        "body": "Reuse common requests and change how source text and notes are combined.",
+        "slug": "annotations"
+      },
+      {
+        "title": "Library backup",
+        "body": "Export a local backup or connect Google Drive and back up manually.",
+        "slug": "google-drive-backup"
+      }
+    ],
+    "privacyTitle": "Your library stays in your browser.",
+    "privacyBody": "Bookmarks, highlights, and saved annotations are stored locally by the extension. To move devices, export your library or connect your own Google Drive account and choose Back up now manually.",
+    "privacyLink": "Read the privacy policy",
+    "helpTitle": "See how it works.",
+    "helpBody": "Workflows walk you through complete tasks. The manual provides feature instructions, a settings reference, and answers to common questions.",
+    "workflow": "Explore workflows",
+    "manual": "Open the manual",
+    "settings": "Browse all settings",
+    "closeTitle": "Install, then refresh ChatGPT to begin."
+  }
+}

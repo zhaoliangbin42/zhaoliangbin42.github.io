@@ -1,0 +1,5 @@
+{{- $isEN := eq (.Params.amd_lang | default "zh") "en" -}}
+{{- $label := cond $isEN "Scrollable table" "可横向滚动的表格" -}}
+{{- $table := printf `<div class="amd-docs-table-wrap" tabindex="0" aria-label="%s"><table>` $label -}}
+{{- $html := replace .Content "<table>" $table -}}
+{{- replace $html "</table>" "</table></div>" | safeHTML -}}

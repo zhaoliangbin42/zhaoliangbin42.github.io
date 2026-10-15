@@ -1,6 +1,6 @@
 ---
-title: "Install and refresh ChatGPT"
-description: "Install AI-MarkDone from the Chrome Web Store or Firefox Add-ons, refresh ChatGPT, and confirm that the toolbar and settings entry are loaded."
+title: "Install and get started"
+description: "Install AI-MarkDone from Chrome Web Store or Firefox Add-ons, refresh ChatGPT, and find the reply toolbar, management panel, and settings."
 type: "ai-markdone"
 amd_lang: "en"
 page_kind: "manual_feature"
@@ -11,38 +11,38 @@ next_url: "/ai-markdone/en/manual/reader/"
 next_label: "Next: Reader"
 ---
 
-## What this solves
+AI-MarkDone is available as a desktop extension for Chrome and Firefox. Use it on ChatGPT after installation; you do not need a separate AI-MarkDone account.
 
-AI-MarkDone installs in the browser and adds its toolbar to the ChatGPT page. After installation, the extension needs the current page to load again so it can recognize the conversation and message positions.
+## Install from the official store
 
-If ChatGPT was already open when you installed the extension, the old page usually will not update until you refresh it.
+- [Chrome Web Store: AI-MarkDone](https://chromewebstore.google.com/detail/ai-markdone/bmdhdihdbhjbkfaaainidcjbgidkbeoh)
+- [Firefox Add-ons: AI-MarkDone](https://addons.mozilla.org/en-US/firefox/addon/ai-markdone/)
 
-## When to use it
+The current packages declare Chrome 111 and Firefox 128 as their minimum versions. Using your browser's current stable version is recommended. This site does not provide Safari or mobile-browser packages.
 
-- You installed AI-MarkDone for the first time.
-- The extension updated while ChatGPT was already open.
-- The toolbar is missing.
-- You re-enabled AI-MarkDone from the browser extension page.
+## Open it for the first time
 
-## Where to open it
+1. Add the extension from the matching store and confirm the installation prompt.
+2. Open ChatGPT, sign in, and enter a conversation with existing replies.
+3. If the tab was already open before installation, refresh it once.
+4. Look below a reply for the AI-MarkDone toolbar. Hover over **More** to expand actions that are not kept visible, such as **Reader**, **Bookmark**, and **Export**.
+5. Click the AI-MarkDone extension icon in the browser toolbar to open the management panel, then open **Settings** there.
 
-Chrome users should install from the Chrome Web Store. Firefox users should install from Firefox Add-ons. After installation, return to ChatGPT and refresh the tab.
+You can pin the extension icon to the browser toolbar for easier access to Library and Settings. New installations show the message directory by default. Input enhancement can also be adjusted in Settings.
 
-## Steps
+## Try one action
 
-1. Install AI-MarkDone from the Chrome Web Store or Firefox Add-ons.
-2. Return to your open ChatGPT tab.
-3. Refresh the page while staying signed in to ChatGPT.
-4. Wait for the conversation to load.
-5. Look for message actions such as Copy Markdown, Reader, bookmark, Save Messages, and Copy as PNG.
-6. If nothing appears, open the extension panel and check Settings.
+- Keep editable text: choose **Copy Markdown**, then paste into an editor.
+- Read a long reply: open **Reader**.
+- Keep something for later: add a bookmark.
+- Write a formula in the input box: see [Input formula assistance](/ai-markdone/en/manual/composer/).
 
-## Common questions
+## After an update, or when buttons are missing
 
-### Why did nothing change after installation?
+1. Confirm the extension is enabled in this browser profile and allowed to access ChatGPT.
+2. Refresh ChatGPT. A tab left open during an extension update may still be running older code.
+3. Wait for the reply to finish. Messages that are still loading, still generating, or are not ordinary replies may not have every action.
+4. Check **Settings → Buttons**, and look inside **More** for actions that are hidden or not kept visible.
+5. If the problem remains, record the browser and extension versions and follow [Troubleshooting](/ai-markdone/en/manual/troubleshooting/).
 
-Refresh ChatGPT first. Browser extensions usually attach to already-open pages after a refresh or navigation.
-
-### Do I need to sign in again?
-
-Usually you can stay signed in. AI-MarkDone only loads its toolbar into the browser page.
+Signing out of ChatGPT is usually unnecessary. Do not start by uninstalling the extension to troubleshoot buttons: uninstalling can remove the local Library. Make a [backup](/ai-markdone/en/manual/privacy-storage/) first.

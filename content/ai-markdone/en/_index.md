@@ -1,6 +1,6 @@
 ---
 title: "AI-MarkDone - ChatGPT Reader, Markdown Copy, LaTeX, Bookmarks, Export"
-description: "A ChatGPT browser extension for Reader mode, source-aware Markdown copy, LaTeX formula copy/export, annotations, bookmarks, Google Drive backup, and Markdown/PDF/PNG export."
+description: "Read long ChatGPT answers, copy Markdown, write and export formulas, add highlights and annotations, and organize bookmarks in Library."
 type: "ai-markdone"
 amd_lang: "en"
 page_kind: "home"

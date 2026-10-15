@@ -1,6 +1,6 @@
 ---
-title: "Export ChatGPT to Markdown, PDF, PNG, or ZIP"
-description: "Use AI-MarkDone Save Messages to export ChatGPT answers as editable Markdown, PDF documents, PNG images, or multi-image ZIP packages."
+title: "Export messages and offline files"
+description: "Select ChatGPT messages and export Markdown, an offline ZIP with attachments, PDF, or PNG, with options for charts and long content."
 type: "ai-markdone"
 amd_lang: "en"
 page_kind: "manual_feature"
@@ -12,40 +12,53 @@ next_url: "/ai-markdone/en/manual/settings/"
 next_label: "Next: settings"
 ---
 
-## What this solves
+Open **Export** from a reply toolbar or directory preview to save selected questions and replies locally. Text, code, formulas, and charts have different output needs. Choose a format and check the selected messages before saving.
 
-Some answers need to leave ChatGPT: notes, shared documents, archives, or images. Each destination needs a different format.
+## Select the messages to save
 
-AI-MarkDone keeps Markdown, PDF, PNG, and multi-image ZIP export in one flow, so you do not need to keep taking screenshots and fixing layout by hand.
+1. Expand the toolbar below the target reply and choose **Export**, or use Export in its directory preview.
+2. The dialog initially selects the current reply's entry. It does not automatically select the whole conversation.
+3. Click numbered entries to add or remove them. Use **Select all**, **Invert selection**, or **Deselect all** for batch selection.
+4. Check the selected count, choose a format, and click **Save**.
 
-## When to use it
+The file follows the original conversation order and includes the selected entries' available questions and replies. The numbers represent messages currently obtained by the extension, not a guarantee that every earlier message has loaded. If replies are missing, load more history in ChatGPT, then reopen Export and check the selection. See [Message navigation](/ai-markdone/en/manual/message-navigation/).
 
-- Markdown: you will keep editing.
-- PDF: you need a stable archive or document.
-- PNG: you need a visual share.
-- ZIP: you are exporting multiple message images.
-- Deep Research cleanup: the content is useful, but the copied structure is messy.
+## Choose a format
 
-## Where to open it
+| Format | What you receive | When to use it |
+|---|---|---|
+| Markdown | A `.md` file with editable text, code, and formula source. | Further editing, note-taking, or version control. |
+| Markdown offline bundle (ZIP) | `conversation.md` and supported image attachments in one ZIP. | Keeping supported charts and cards alongside the text. |
+| PDF | A document in the browser's print dialog. Choose **Save as PDF** there. | Reading, archiving, or sharing a fixed-layout document. |
+| PNG | One image, or a ZIP when the output needs multiple image files. | Sharing long images or placing content in presentations. |
 
-Use Save Messages or a related export action from the message toolbar. For a single visual copy, use Copy as PNG.
+**PNG packaging depends on the number of output images, not simply the number of selected messages.** One very long reply may need several images, while several short replies may fit in one.
 
-## Steps
+## Keep charts, cards, and other rich content
 
-1. Select the messages you want to export.
-2. Open Save Messages.
-3. Choose Markdown, PDF, or PNG.
-4. Wait for ZIP packaging when exporting several PNG files.
-5. Watch the progress panel for long PNG exports; cancel if needed.
-6. For messy Deep Research output, clean it into readable Markdown before saving or exporting.
-7. Open the exported file and check formulas, tables, and code blocks.
+Ordinary Markdown copy and `.md` export preserve readable labels, explanations, or available data for supported charts and cards. They do not turn every interactive component into executable code.
 
-## Common questions
+Choose **Markdown offline bundle (ZIP)** when you need supported visual attachments. Extract the archive and open `conversation.md`. Keep its relative location to the `assets` folder; moving only the Markdown file can break image references.
 
-### Which format should I export first?
+For PDF and PNG, **Charts and rich content** appears only when selected messages contain relevant rich blocks:
 
-If you are unsure, export Markdown first. It is the easiest format to edit later.
+- **Include images** attempts to preserve static visuals.
+- **Use text placeholders** substitutes readable descriptions.
 
-### Can long PNG export stall?
+Content that has not loaded, cannot be accessed, exceeds processing limits, or is not supported may use a text explanation. The completion message reports how many images were included and which content needed placeholders. Offline files do not retain chart interactions, buttons, or features requiring the website. Not every ordinary remote image is guaranteed to work offline either.
 
-Dense content can take time. AI-MarkDone splits tall rendered content into safer chunks and shows progress, but very complex answers may still need patience.
+## Adjust content and image size
+
+- **Settings → Reading & messages → Content to keep** controls reply links and code blocks. By default, link destinations are removed and code blocks retained. These options also apply to whole-message Markdown copy and Reader.
+- **Settings → Copy & export** controls formula formatting in Markdown output.
+- **Settings → Copy & export → Message PNG images** controls width presets, custom width, and pixel ratio. For oversized or difficult exports, reduce the width or ratio, or select fewer messages.
+
+You can inspect progress or choose **Cancel** while processing. PDF preparation eventually opens the browser's own print dialog; save or cancel there once it opens.
+
+## Copy only the current reply as an image
+
+Hover over **Copy Markdown** in the reply toolbar and choose **Copy as PNG** above it. This processes the current reply without opening the batch-selection dialog.
+
+If one image is generated, AI-MarkDone attempts to write it to the clipboard. An ordinary clipboard-write failure may fall back to downloading the image. If the browser explicitly lacks image-clipboard support, an error is shown; use **Export → PNG** instead. Multiple generated images are downloaded as a ZIP rather than copied as one image.
+
+Open saved files and inspect formulas, tables, code, and chart explanations. Keep a Markdown copy as well if you need an editable version.

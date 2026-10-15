@@ -69,6 +69,13 @@ The normal `npm run build` still creates `docs/` for an explicitly requested rel
 
 ## Author voice and hierarchy
 
-- Preserve the author's pre-refactor wording (Git baseline `44411eb`) in visible copy. Translate it faithfully; do not replace it with newly invented editorial slogans. Keep the later explicit removals of advisor details, detailed biography and production notes.
+- Preserve the personal blog's author voice and approved copy (Git baseline `44411eb`). AI-MarkDone copy follows the October 15 product-site brief: explain current actions and outcomes in plain language, based on the plugin source. Use Apple writing guidance for clear hierarchy, consistent control names, useful context, and complete instructions; avoid slogans and internal design-process wording. Keep the earlier removals of advisor details, detailed biography and production notes.
 - H1, section H2 and item H3 must form a consistent descending type scale. A featured item must never visually outrank its containing section.
 - Keep parallel entries distinct with separators and row spacing; keep their metadata, titles and descriptions close together. Manual links retain the group structure from their navigation data.
+
+## Product content
+
+- The product homepage explains features with examples; workflows teach complete tasks; the manual is a feature and settings reference. FAQ is integrated into the manual, with old URLs redirected.
+- Keep product navigation to Workflows, Manual, and Contact. Preserve a privacy policy link in the footer.
+- Product images use current UI components with neutral example data. Use simple frames and readable scale; no private chats, accounts, or decorative collage effects.
+- State persistence and selection conditions explicitly. Distinguish temporary excerpts, session annotations, saved annotations, highlights, bookmarks, and manual backups.

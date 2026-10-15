@@ -1,0 +1,5 @@
+<figure class="amd-guide-figure">
+  {{ partial "ai-markdone/signal-image.html" (dict "path" (printf "ai-markdone/images/guide/%s" (.Get "file")) "alt" (.Get "alt") "width" 1600) }}{{ with .Get "caption" }}
+    <figcaption>{{ . }}</figcaption>
+  {{ end }}
+</figure>

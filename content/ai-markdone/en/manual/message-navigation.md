@@ -1,43 +1,58 @@
 ---
-title: "Message navigation"
-description: "Use AI-MarkDone to move through long ChatGPT threads and return to your reading position after sending a new prompt."
+title: "Move through a long conversation"
+description: "Use the right-side message directory, Previous and Next controls, arrow keys, and reading-position restoration in ChatGPT."
 type: "ai-markdone"
 amd_lang: "en"
 page_kind: "manual_feature"
+aliases:
+  - "/ai-markdone/en/manual/directory/"
 manual_feature: "message-position"
 translation_url: "/ai-markdone/manual/message-navigation/"
 ---
 
-## Use this when
+The right-side directory helps you find a reply among many messages. **Previous / Next** at the lower right moves between adjacent replies. These controls navigate messages in a ChatGPT conversation; Reader's heading outline navigates sections inside one reply.
 
-You often read older answers inside a long ChatGPT thread. Once the thread gets long, scrolling becomes expensive. If you send a new prompt while reading, it is also easy to lose the exact spot you were using.
+## Move to the previous or next reply
 
-## Where to open it
+1. Open a ChatGPT conversation with existing replies.
+2. Click **Previous / Next**, above the AI-MarkDone brand button at the bottom right.
+3. If arrow-key navigation is enabled, leave the input box and use **Left / Right** instead.
 
-These features work directly on the ChatGPT page. To adjust them, open the AI-MarkDone extension panel, go to **Settings**, then find **ChatGPT page behavior**.
+The controls do not take over ordinary cursor movement inside inputs, editors, or other controls that need those keys. Arrow keys combined with Cmd, Ctrl, Alt, or Shift are not treated as ordinary message navigation either.
 
-## How to use it
+## Find a distant reply in the directory
 
-1. Open a long ChatGPT conversation.
-2. Use the lower-right Previous / Next buttons to move between nearby messages.
-3. If you prefer the keyboard, keep Use arrow keys to move between messages enabled in Settings.
-4. When reading an older message, send a new prompt when needed.
-5. With Restore position after sending enabled, AI-MarkDone tries to bring you back to the spot you were reading.
+Enable **Show the message directory on the right** under **Settings → Reading & messages**. New installations enable it by default; upgrades retain existing choices. A previously disabled directory is not automatically turned back on.
 
-## What each switch controls
+Hover over an entry to preview its reply, then click the entry to locate it. Move into the preview to use **Reader** or **Export**. Moving away or pressing Esc closes the preview. Replies containing only charts or cards may also appear; an ordinary text heading is not required.
 
-| Setting | Default | What it does |
-|---|---:|---|
-| Restore position after sending | On | When reading older messages, sending a new message brings you back to your reading position. |
-| Show lower-right message buttons | On | Show the small Previous and Next message buttons on ChatGPT conversation pages. |
-| Use arrow keys to move between messages | On | Left and Right move to the previous or next message when you are not typing. Inside the ChatGPT input box, they still move the cursor. |
+Adjust these options under **Settings → Reading & messages**:
 
-## Worth knowing
+| Setting | Effect |
+|---|---|
+| How the message directory opens | **Slim strip**, or **Expand titles on hover**. |
+| Show both ends of long message titles | Retains the start and end when expanded, making similar openings easier to distinguish. |
+| Characters in a message preview | Limits hover-preview length, from 200 to 2,000 characters. |
+| Message directory space from the right edge | Increase it if the directory overlaps the scrollbar. |
 
-- Arrow keys only switch messages when you are not typing. Inside the ChatGPT input box, they still move the cursor.
-- Restore position after sending tries to return quickly, but the page may briefly move while ChatGPT is rendering.
-- If you want the quietest page possible, you can hide the lower-right buttons and keep keyboard navigation.
+## Keep your reading position after sending
 
-## Next
+Enable **Restore reading position after sending** under **Settings → Reading & messages**. When you send a message while reading an older reply, AI-MarkDone attempts to retain the position you were reading rather than making you find it again after a jump to the latest content.
 
-If you often work with formulas, read [Formula copy/export](/ai-markdone/en/manual/formulas/). The full settings table lives in [Settings reference](/ai-markdone/en/manual/settings/#chatgpt-page-behavior).
+You can still scroll, use other navigation, or return to the bottom at any time. Your reading position may briefly change when ChatGPT rearranges the page or loads history.
+
+## When older replies are missing
+
+The directory and Export dialog may not yet have the entire history. Scroll upward, let older replies load, and check whether the directory and message numbers expand.
+
+The lower-right page drawer also has **Refresh message navigation**. It reopens the current conversation to attempt to update navigation. Keep a copy of unsent input before using it. Refreshing does not guarantee recovery of deleted replies or history the website does not provide.
+
+If location fails, follow the prompt to scroll through the conversation and try again. A message number is not a permanent address: loading history or regenerating replies can change numbers. Use bookmarks or exported files for content you want to keep.
+
+## Adjust controls and shortcuts
+
+- Directory visibility and appearance: **Settings → Reading & messages**.
+- Previous/Next visibility: **Settings → Buttons → Message directory**.
+- Left/Right shortcuts and long-distance navigation: search Settings for “arrow” or the navigation distance, or open **Advanced settings**.
+
+Hiding the buttons does not turn off keyboard navigation. For Enter, formula completion, and other input shortcuts, see [Writing formulas in the input box](/ai-markdone/en/manual/composer/).

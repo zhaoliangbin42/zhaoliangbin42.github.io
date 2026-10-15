@@ -1,6 +1,6 @@
 # AI-MarkDone
 
-AI-MarkDone is a focused ChatGPT browser extension for Reader mode, source-aware Markdown copy, LaTeX formula copy/export, Dynamic Annotation, bookmarks, Google Drive bookmark backup, and Markdown/PDF/PNG export without leaving the original ChatGPT workflow.
+AI-MarkDone is a free, open-source browser extension focused on ChatGPT. It provides Reader, Markdown copy, text highlights, annotations, bookmarks and Library, LaTeX composer completion and preview, formula export, message export, and manual library backups. Instructions are checked against the current plugin source.
 
 ## Personal Website
 
@@ -9,33 +9,48 @@ AI-MarkDone is a focused ChatGPT browser extension for Reader mode, source-aware
 - /writing/ and /en/writing/ - Technical notes and essays. Chinese articles retain /notes/ URLs; full English translations use /en/notes/.
 - /projects/ and /en/projects/ - AI-MarkDone and Mappamory. Mappamory (好友迹, 你的好友地图通讯录) links to its standalone website at https://mappamory.com.
 
-## Core Pages
+## Product pages
 
-- https://zhaoliangbin42.github.io/ai-markdone/ - Chinese independent product site for AI-MarkDone, a ChatGPT browser extension with a product interface composition, interactive Reader, copy/export, and bookmark workflow, grouped manual index, local-first trust notes, real user feedback and acknowledgements, and Chrome/Firefox install links.
-- https://zhaoliangbin42.github.io/ai-markdone/en/ - English independent product site for AI-MarkDone with the same ChatGPT positioning, Reader, copy/export, and bookmark workflow, real product imagery, grouped manual index, privacy disclosure, and install links.
-- https://zhaoliangbin42.github.io/ai-markdone/manual/ - Chinese manual overview introducing AI-MarkDone as a ChatGPT workbench, with four goal cards, a need-to-feature matrix, and Reader/settings CTAs before the detailed manual sections.
-- https://zhaoliangbin42.github.io/ai-markdone/en/manual/ - English manual overview with the same four goal cards, need-to-feature matrix, and Reader/settings CTAs before the detailed manual sections.
-- https://zhaoliangbin42.github.io/ai-markdone/manual/architecture/ - Chinese plugin architecture manual centered on one interactive workflow map that shows how AI-MarkDone discovers ChatGPT content, prepares shared answer data, and routes it into Reader, copy, bookmarks, export, formulas, settings, backup, and message navigation.
-- https://zhaoliangbin42.github.io/ai-markdone/en/manual/architecture/ - English plugin architecture manual with the same single interactive workflow map and no separate path index.
-- https://zhaoliangbin42.github.io/ai-markdone/manual/message-navigation/ - Chinese manual page for message navigation, lower-right message buttons, arrow-key switching, and restoring the reading position after sending.
-- https://zhaoliangbin42.github.io/ai-markdone/en/manual/message-navigation/ - English manual page for message navigation, lower-right message buttons, arrow-key switching, and restoring the reading position after sending.
-- https://zhaoliangbin42.github.io/ai-markdone/manual/copy-markdown/ - Chinese manual page for Copy Markdown, covering full-answer copy, Reader partial copy, the Markdown conversion path, cleanup rules, and supported Markdown syntax.
-- https://zhaoliangbin42.github.io/ai-markdone/en/manual/copy-markdown/ - English manual page for Copy Markdown, covering full-answer copy, Reader partial copy, the Markdown conversion path, cleanup rules, and supported Markdown syntax.
-- https://zhaoliangbin42.github.io/ai-markdone/features/ - Chinese feature reference page with quick links into the current manual.
-- https://zhaoliangbin42.github.io/ai-markdone/en/features/ - English feature reference page with quick links into the current manual.
-- https://zhaoliangbin42.github.io/ai-markdone/faq/ - Chinese FAQ covering ChatGPT support, Reader, partial Markdown copy, formulas, Dynamic Annotation, bookmarks, export, Google Drive backup, privacy, pricing, and settings.
-- https://zhaoliangbin42.github.io/ai-markdone/en/faq/ - English FAQ covering ChatGPT support, Reader mode, partial Markdown copy, formulas, Dynamic Annotation, bookmarks, export, Google Drive backup, privacy, pricing, and settings.
-- https://zhaoliangbin42.github.io/ai-markdone/privacy/ - Chinese privacy policy explaining local processing, browser extension storage, optional Google Drive bookmark backup, permissions, no owned server, no analytics, and Google API Limited Use commitments.
-- https://zhaoliangbin42.github.io/ai-markdone/en/privacy/ - English privacy policy with the same Google Drive backup, permissions, and Limited Use disclosures for review and user reference.
-- https://zhaoliangbin42.github.io/ai-markdone/contact/ - Chinese contact page for email feedback and GitHub Issues.
-- https://zhaoliangbin42.github.io/ai-markdone/en/contact/ - English contact page for email feedback and GitHub Issues.
+- https://zhaoliangbin42.github.io/ai-markdone/ - Chinese: Product overview with feature explanations and example interfaces.
+- https://zhaoliangbin42.github.io/ai-markdone/workflow/ - Chinese: Six task guides: reading, annotations, bookmarks, formulas, export, and backups.
+- https://zhaoliangbin42.github.io/ai-markdone/manual/ - Chinese: Feature reference, settings tables, and integrated questions and troubleshooting.
+- https://zhaoliangbin42.github.io/ai-markdone/privacy/ - Chinese: Actual storage, page permissions, content transmission, optional Google Drive and drive.file disclosure.
+- https://zhaoliangbin42.github.io/ai-markdone/contact/ - Chinese: Email and GitHub Issues.
+- https://zhaoliangbin42.github.io/ai-markdone/en/ - English: Product overview with feature explanations and example interfaces.
+- https://zhaoliangbin42.github.io/ai-markdone/en/workflow/ - English: Six task guides: reading, annotations, bookmarks, formulas, export, and backups.
+- https://zhaoliangbin42.github.io/ai-markdone/en/manual/ - English: Feature reference, settings tables, and integrated questions and troubleshooting.
+- https://zhaoliangbin42.github.io/ai-markdone/en/privacy/ - English: Actual storage, page permissions, content transmission, optional Google Drive and drive.file disclosure.
+- https://zhaoliangbin42.github.io/ai-markdone/en/contact/ - English: Email and GitHub Issues.
 
-- https://zhaoliangbin42.github.io/ai-markdone/workflow/ - Chinese guide to Reader, Markdown/formula copy and export, and bookmarks.
-- https://zhaoliangbin42.github.io/ai-markdone/en/workflow/ - Corresponding English workflow.
-- /ai-markdone/guide/install/ and /ai-markdone/guide/reader/ (also /ai-markdone/en/guide/...) redirect to the existing manual pages.
+## Manual chapters
 
-## External References
+- /ai-markdone/manual/install/ and /ai-markdone/en/manual/install/ - Installation.
+- /ai-markdone/manual/reader/ and /ai-markdone/en/manual/reader/ - Reader.
+- /ai-markdone/manual/message-navigation/ and /ai-markdone/en/manual/message-navigation/ - Messages and reading position.
+- /ai-markdone/manual/sticky/ and /ai-markdone/en/manual/sticky/ - Excerpts.
+- /ai-markdone/manual/copy-markdown/ and /ai-markdone/en/manual/copy-markdown/ - Copy an answer.
+- /ai-markdone/manual/partial-copy/ and /ai-markdone/en/manual/partial-copy/ - Copy a passage.
+- /ai-markdone/manual/formulas/ and /ai-markdone/en/manual/formulas/ - Formulas in answers.
+- /ai-markdone/manual/composer/ and /ai-markdone/en/manual/composer/ - Formulas in the composer.
+- /ai-markdone/manual/highlights/ and /ai-markdone/en/manual/highlights/ - Highlights.
+- /ai-markdone/manual/annotations/ and /ai-markdone/en/manual/annotations/ - Annotations.
+- /ai-markdone/manual/bookmarks/ and /ai-markdone/en/manual/bookmarks/ - Bookmarks and Library.
+- /ai-markdone/manual/privacy-storage/ and /ai-markdone/en/manual/privacy-storage/ - Local backup and restore.
+- /ai-markdone/manual/google-drive-backup/ and /ai-markdone/en/manual/google-drive-backup/ - Google Drive backup.
+- /ai-markdone/manual/settings/ and /ai-markdone/en/manual/settings/ - Settings reference.
+- /ai-markdone/manual/troubleshooting/ and /ai-markdone/en/manual/troubleshooting/ - Questions and troubleshooting.
 
-- https://github.com/zhaoliangbin42/AI-MarkDone - Open-source repository.
-- https://chromewebstore.google.com/detail/ai-markdone/bmdhdihdbhjbkfaaainidcjbgidkbeoh - Chrome Web Store listing.
-- https://addons.mozilla.org/en-US/firefox/addon/ai-markdone/ - Firefox Add-ons listing.
+## Important behavior
+
+- Highlights are saved locally. New annotations are temporary unless Save new annotations for later is enabled; existing saved annotations remain stored.
+- The excerpts panel is temporary and clears on page refresh.
+- Highlights can span paragraphs and table cells. Selections crossing code blocks, media, chart cards, reference controls, or editable regions keep surrounding text and skip those objects. Select formulas in full; mark them separately when a selection also crosses tables or skipped objects. Highlight, Markdown copy, and annotation selections use different rules.
+- Composer previews follow the text cursor. Answer-formula actions and composer-formula actions have separate settings.
+- Library backups include bookmarks, folders, highlights, and saved annotations. Settings are exported separately. Google Drive backup is manual, not continuous synchronization.
+- Legacy FAQ URLs redirect to manual/troubleshooting; legacy features and architecture URLs redirect to the manual overview. Directory and combined partial-copy/sticky URLs redirect to current chapters.
+
+## External links
+
+- https://github.com/zhaoliangbin42/AI-MarkDone - Source repository.
+- https://chromewebstore.google.com/detail/ai-markdone/bmdhdihdbhjbkfaaainidcjbgidkbeoh - Chrome installation.
+- https://addons.mozilla.org/en-US/firefox/addon/ai-markdone/ - Firefox installation.
