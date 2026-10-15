@@ -7,30 +7,34 @@ page_kind: "manual"
 translation_url: "/ai-markdone/en/manual/"
 ---
 
-AI-MarkDone 为 ChatGPT 提供阅读、复制、注释、书签和导出工具，适合处理长回答、公式与代码。
+AI-MarkDone 是一个 ChatGPT 浏览器插件。它围绕学习、科研、工作中反复出现的高频痛点而开发，目标很直接：让 ChatGPT 的使用效率得到极致提高。
 
-安装扩展并刷新 ChatGPT 后，从消息下方的工具栏开始使用。你可以按下面四类需求选择功能，也可以先阅读[安装与开始](/ai-markdone/manual/install/)。
+AI-MarkDone 不是一个玩具。它是一个精简、克制、美观的工作台，专门补足 ChatGPT 在阅读、复制、导出、保存、注释上的短板。装上它，刷新网页，你就能察觉到不同：一系列顺手的工具已经出现在消息页面中。你不需要一直想着它，但在需要的时候，你会自然想到它。
 
 AI-MarkDone 的核心功能可以分成四类：好读、好记、好问、好存。
+
+## 用途概览
 
 <div class="amd-manual-goal-grid">
   <article>
     <span>好读</span>
-    <p>用 Reader 阅读长回答、查看标题大纲和切换消息，在 Sticky 栏临时保留需要对照的片段。</p>
+    <p>提供干净的阅读器页面、翻页、消息内导航和 Sticky 栏，一切都为了让你进入心流状态，不受外部影响。</p>
   </article>
   <article>
     <span>好记</span>
-    <p>复制整条回答或选中片段为 Markdown，单独复制公式的 LaTeX 源码，或导出公式图片。</p>
+    <p>提供高效的内容提取方案：公式复制、消息分享、局部复制，让 ChatGPT 成为科研里的好帮手，不再为内容提取而卡壳。</p>
   </article>
   <article>
     <span>好问</span>
-    <p>对选中的原文写下注释，配合 Prompt 模板整理成下一轮追问。</p>
+    <p>提供灵动注释和 Prompt 模板。阅读内容时不用盯着输入框，看到哪里，批注到哪里，把提示词抛在脑后。</p>
   </article>
   <article>
     <span>好存</span>
-    <p>将回答保存为书签，按文件夹整理；需要归档或分享时，批量导出为 Markdown、PDF 或 PNG。</p>
+    <p>书签收藏、批量导出为 Markdown、PDF 或 PNG，一切只为了让重要的东西不再遗忘。</p>
   </article>
 </div>
+
+## 功能索引
 
 <div class="amd-manual-matrix-wrap">
   <table class="amd-manual-matrix">

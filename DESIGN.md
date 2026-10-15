@@ -39,7 +39,7 @@ Manrope is locally hosted for Latin letters. Chinese uses the system sans stack,
 - Use flat editorial rows, generous spacing, and simple rules. Avoid nested cards, decorative badges and heavy shadows.
 - Main navigation links to Research, Writing, Projects, and About pages, not homepage anchors.
 - Language switching goes to the corresponding page and preserves the topic. Do not present an untranslated body as an English article.
-- On scroll, the same home name moves into the header. The surname clears the first word before their baselines merge. The heading stays readable with JavaScript disabled.
+- On scroll, the same home name moves into the header. The surname clears the first word before their baselines merge. Position and scale ease continuously, and scroll frames only change transforms and opacity; sizes are measured outside the animation loop. The heading stays readable with JavaScript disabled.
 - The copper field is an approved image, displaced by scroll position only. No time-driven animation runs while idle. Reduced-motion mode keeps the field static and snaps the name between its two positions.
 - All interaction must work with keyboard focus, meaningful labels, and a visible focus outline. Mobile menus must fit the screen and close with Escape.
 
@@ -66,3 +66,9 @@ Keep the About page concise, without advisor details or a Chinese personal name.
 For source-only work, build with `npm run build -- --environment preview`; output goes to `/tmp/liangbin-site-preview` and build statistics are disabled. Run product and whole-site verification against that output, then inspect desktop and phone layouts, navigation, languages, article formulas, code copying, menus and reduced motion.
 
 The normal `npm run build` still creates `docs/` for an explicitly requested release. Never hand-edit it. Do not commit, push, or publish unless the user asks.
+
+## Author voice and hierarchy
+
+- Preserve the author's pre-refactor wording (Git baseline `44411eb`) in visible copy. Translate it faithfully; do not replace it with newly invented editorial slogans. Keep the later explicit removals of advisor details, detailed biography and production notes.
+- H1, section H2 and item H3 must form a consistent descending type scale. A featured item must never visually outrank its containing section.
+- Keep parallel entries distinct with separators and row spacing; keep their metadata, titles and descriptions close together. Manual links retain the group structure from their navigation data.

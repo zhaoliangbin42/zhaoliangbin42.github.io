@@ -305,7 +305,7 @@ const homePartial = read("layouts/partials/ai-markdone/home.html");
 for (const needle of ["amd-signal-hero", "ai-markdone/workflow.html", "amd-signal-feature-links", "ai-markdone/supporters.html", "ai-markdone-promo.png"]) {
   assert(homePartial.includes(needle), `Product homepage is missing ${needle}`);
 }
-assert(!homePartial.includes("武装到牙齿"), "Homepage copy must follow the new concise editorial direction");
+assert(homePartial.includes("武装到牙齿") && /颠覆你的\s*ChatGPT\s*使用范式/.test(homePartial), "Homepage must retain the author\'s original product phrasing");
 
 const featuresPartial = read("layouts/partials/ai-markdone/features.html");
 assert(featuresPartial.includes("功能索引") && featuresPartial.includes("Feature reference"), "Features partial must render a positive feature reference page");

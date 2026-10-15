@@ -85,7 +85,7 @@ The other reason is performance. Long ChatGPT threads can get sluggish fast. Rea
 
 Yes. That is one of the strongest Reader features.
 
-Select the content you need inside Reader and copy its Markdown. Headings, lists, formulas, code blocks, and tables are preserved where possible. Selecting complete paragraphs or content blocks usually gives a cleaner result.
+In practice, that means you can select almost any range inside Reader and copy it as source-aware Markdown instead of getting a flattened chunk of rendered text.
 
 If you take notes, quote paragraphs, revise drafts, or only want part of a formula, list, or code example, this is much more usable than copying from the original page.
 

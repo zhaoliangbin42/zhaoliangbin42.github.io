@@ -202,7 +202,7 @@ for (const entry of fs
   for (const lang of ["", "en/"]) {
     const html = readRoute(`${lang}notes/${slug}`);
     check(
-      html.includes("wp-prose") && html.includes("data-mapping=pathname"),
+      html.includes("wp-prose") && /\bdata-mapping=(?:"pathname"|'pathname'|pathname(?=[\s>]))/.test(html),
       `${lang}${slug}: reading surface or comment mapping missing`,
     );
     const compatibility = readRoute(`${lang}writing/${slug}`);

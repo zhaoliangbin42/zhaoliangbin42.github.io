@@ -6,7 +6,7 @@
       <span class="rp-eyebrow">ABOUT</span>
       <h1 id="rp-about-title">{{ range .Params.heading }}<span>{{ . }}</span>{{ end }}</h1>
       <div class="rp-about-description"><p class="rp-about-lead">{{ .Params.lead }}</p><p>{{ .Params.paragraph }}</p></div>
-      <figure class="rp-quote"><blockquote lang="en">What I cannot create, I do not understand.</blockquote><figcaption>Richard Feynman<span aria-hidden="true"> / </span><a href="https://calteches.library.caltech.edu/684/" target="_blank" rel="noopener noreferrer">{{ .Params.source_label }}{{ $arrow }}</a></figcaption></figure>
+      <figure class="rp-quote"><blockquote lang="{{ .Language.Locale }}">{{ .Params.quote }}</blockquote></figure>
     </section>
     <section class="rp-about-threads" aria-labelledby="rp-threads-title">
       <h2 id="rp-threads-title">{{ .Params.threads }}</h2>
@@ -15,7 +15,7 @@
       {{ end }}</div>
     </section>
     <section class="rp-contact" aria-labelledby="rp-contact-title">
-      <span class="rp-eyebrow">SAY HELLO</span><h2 id="rp-contact-title">{{ .Params.contact_title }}</h2><p>{{ .Params.contact_text }}</p>
+      <span class="rp-eyebrow">SAY HELLO</span><h2 id="rp-contact-title">{{ .Params.contact_title }}</h2>{{ with .Params.contact_text }}<p>{{ . }}</p>{{ end }}
       <a href="mailto:zhaoliangbin@bit.edu.cn" class="rp-email">zhaoliangbin@bit.edu.cn<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
       <div class="rp-elsewhere"><span>{{ .Params.elsewhere }}</span><a href="https://scholar.google.com/citations?user=O3RdaQ8AAAAJ" class="rp-link" target="_blank" rel="noopener noreferrer">Google Scholar{{ $arrow }}</a><a href="https://github.com/zhaoliangbin42" class="rp-link" target="_blank" rel="noopener noreferrer">GitHub{{ $arrow }}</a><a href="https://orcid.org/0009-0002-2902-4543" class="rp-link" target="_blank" rel="noopener noreferrer">ORCID{{ $arrow }}</a></div>
     </section>

@@ -1,15 +1,15 @@
 ---
 title: "About"
-description: "I’m Liangbin. I research wireless communications and signal processing. I also write and build useful software."
+description: "My main research areas are wireless communication, signal processing, and integrated sensing and communication (ISAC)."
 translationKey: "about"
 draft: false
-heading: ["Think it through.","Make it real."]
-lead: "I’m Liangbin. I research wireless communications and signal processing. I also write and build useful software."
-paragraph: "I’m interested in how communication signals help us understand our surroundings. This site also has room for curiosity beyond research: a derivation, a useful tool, or a question I want to work through."
-threads: "A few parallel threads."
-interests: [{"label":"Research","title":"From signals to surroundings.","text":"Wireless communications, signal processing, and integrated sensing and communication. Alongside papers, I try to share the code and the process.","to":"/research/","action":"Explore research"},{"label":"Writing","title":"Work it out. Write it down.","text":"Derivations, tool notes, and everyday observations. Writing is one way I check whether I really understand something.","to":"/writing/","action":"Read the writing"},{"label":"Projects","title":"Start with a real need.","text":"AI-MarkDone helps me work with conversations. Mappamory is my personal map of friends. Building software is another way of thinking.","to":"/projects/","action":"Explore projects"}]
-contact_title: "Have something in mind?"
-contact_text: "Research, software feedback, or an interesting question—send me a note."
-elsewhere: "Elsewhere"
-source_label: "Source"
+heading: ["Hey, I am Liangbin!"]
+lead: "My main research areas are wireless communication, signal processing, and integrated sensing and communication (ISAC)."
+paragraph: "Outside research, I spend my free time playing sports, eating, chatting, or writing on my blog."
+quote: "Communications, physics, computing—I want to learn them all; Coding, swimming, badminton—I'm not good at any of them."
+threads: "Research, writing & projects"
+interests: [{"label":"Research","title":"Research interests","text":"Exploring asynchronous integrated sensing and communication systems, using communication signals for high-precision parameter estimation. Exploring signal-processing techniques for new antenna architectures, such as holographic antennas and hybrid antenna arrays.","to":"/research/","action":"Research"},{"label":"Writing","title":"Thoughts & notes","text":"This is my little corner of the internet for lessons learned the hard way and random thoughts. I write whatever I feel like: a postmortem of a code error, or a few late-night ramblings. The rule here is simple: first, I write because I enjoy it. If these words also help you or strike a chord, that makes it even better.","to":"/writing/","action":"Read my notes"},{"label":"Projects","title":"My projects","text":"AI-MarkDone is a ChatGPT browser extension. Mappamory is your personal map of friends.","to":"/projects/","action":"View projects"}]
+contact_title: "Contact"
+contact_text: ""
+elsewhere: "Profiles"
 ---

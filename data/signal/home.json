@@ -19,11 +19,14 @@
         "label": "关于"
       }
     ],
-    "introLines": ["研究无线通信与信号处理。", "也写文章，做一些自己的软件。"],
-    "researchHeading": "研究",
-    "writingHeading": "写作",
+    "introLines": [
+      "通信物理计算机，样样都想学；",
+      "编程游泳羽毛球，样样学不好。"
+    ],
+    "researchHeading": "科研成果",
+    "writingHeading": "所思所想",
     "projectsHeading": "独立作品",
-    "aboutHeading": "关于",
+    "aboutHeading": "致我的朋友",
     "articles": [
       {
         "title": "定时同步算法",
@@ -51,22 +54,22 @@
       {
         "id": "ai-markdone",
         "name": "AI-MarkDone",
-        "summary": "让 ChatGPT 对话更好读，也更方便整理和保存。",
-        "detail": "为 ChatGPT 加入 Reader 阅读、Markdown 与 LaTeX 复制、注释、书签和导出，方便把对话中的内容继续用于学习、研究与写作。",
+        "summary": "ChatGPT Reader、Markdown 复制、LaTeX、书签与导出。",
+        "detail": "AI-MarkDone 是 ChatGPT 浏览器扩展，用于 Reader 阅读、Markdown/LaTeX 复制、灵动注释、书签、Google Drive 备份，以及 Markdown/PDF/PNG 导出。",
         "platform": "Chrome / Firefox 浏览器扩展"
       },
       {
         "id": "mappamory",
         "name": "好友迹",
         "summary": "你的好友地图通讯录",
-        "detail": "围绕人物、地点和时间整理记录，用笔记与照片留下上下文，再从地图回看那些经历。以本地存储为基础，为自己的记忆留一个位置。",
+        "detail": "围绕人物、地点和时间整理记录，用笔记与照片留下上下文，再从地图回看那些经历。",
         "platform": "iOS 应用"
       }
     ],
-    "about": "我关心通信信号如何帮助我们理解周围的世界。研究之外，我把学习过程、工具经验和日常观察写在这里，也把自己的需要做成软件。",
+    "about": "科研之外，我平时闲下来了会去打打球、吃吃饭、吹吹水，亦或者写写个人博客。\n\n这里是我用来存放“踩坑记录”和“胡思乱想”的赛博自留地。内容主打一个随心所欲，可能是一次代码报错的复盘，也可能是深夜的一点碎碎念。\n\n这里的原则很简单：首先是为了我自己爽，其次，如果这些文字能帮到你，或者让你深有同感，那我就更爽了。",
     "labels": {
-      "researchCta": "探索研究",
-      "writingCta": "阅读文章",
+      "researchCta": "科研成果",
+      "writingCta": "看看我的笔记",
       "paper": "论文",
       "code": "代码",
       "visit": "访问项目",
@@ -75,7 +78,10 @@
       "originalLanguage": "中文原文",
       "independentWork": "独立作品",
       "backToTop": "返回顶部"
-    }
+    },
+    "researchIntro": "探索异步通信与感知一体化系统，利用通信信号实现高精度参数估计。",
+    "writingIntro": "所思所感，唯笔为证。",
+    "projectsIntro": "AI-MarkDone 和好友迹。"
   },
   "en": {
     "name": "Liangbin Zhao",
@@ -98,13 +104,13 @@
       }
     ],
     "introLines": [
-      "I research wireless communications and signal processing.",
-      "I also write and build useful software."
+      "Communications, physics, computing—I want to learn them all;",
+      "Coding, swimming, badminton—I'm not good at any of them."
     ],
     "researchHeading": "Research",
-    "writingHeading": "Writing",
+    "writingHeading": "Thoughts & notes",
     "projectsHeading": "Independent projects",
-    "aboutHeading": "About",
+    "aboutHeading": "To my friends",
     "articles": [
       {
         "title": "Timing Synchronization Algorithms",
@@ -132,22 +138,22 @@
       {
         "id": "ai-markdone",
         "name": "AI-MarkDone",
-        "summary": "Read, organize, and save more from your ChatGPT conversations.",
-        "detail": "Reader mode, Markdown and LaTeX copying, annotations, bookmarks, and exports for ChatGPT. Built to make conversation content easier to use in study, research, and writing.",
+        "summary": "ChatGPT Reader, Markdown copy, LaTeX, bookmarks, and export.",
+        "detail": "A ChatGPT browser extension for Reader mode, source-aware Markdown copy, LaTeX formula copy/export, annotations, bookmarks, Google Drive backup, and Markdown/PDF/PNG export.",
         "platform": "Chrome / Firefox extension"
       },
       {
         "id": "mappamory",
         "name": "Mappamory",
         "summary": "Your personal map of friends.",
-        "detail": "Keep records of people, places, and time, add context with notes and photos, and revisit those experiences on a map. A local-first app for your own memories.",
+        "detail": "Keep records of people, places, and time, add context with notes and photos, and revisit those experiences on a map.",
         "platform": "iOS app"
       }
     ],
-    "about": "I am interested in how communication signals can help us understand the world around us. Beyond research, I write about what I learn, the tools I use, and everyday observations. I also build software from needs I encounter myself.",
+    "about": "Outside research, I spend my free time playing sports, eating, chatting, or writing on my blog.\n\nThis is my little corner of the internet for lessons learned the hard way and random thoughts. I write whatever I feel like: a postmortem of a code error, or a few late-night ramblings.\n\nThe rule here is simple: first, I write because I enjoy it. If these words also help you or strike a chord, that makes it even better.",
     "labels": {
       "researchCta": "Research",
-      "writingCta": "Writing",
+      "writingCta": "Read my notes",
       "paper": "Paper",
       "code": "Code",
       "visit": "Visit project",
@@ -156,6 +162,9 @@
       "originalLanguage": "Written in Chinese",
       "independentWork": "Independent projects",
       "backToTop": "Back to top"
-    }
+    },
+    "researchIntro": "Exploring asynchronous integrated sensing and communication systems, using communication signals for high-precision parameter estimation.",
+    "writingIntro": "What I think and feel, kept in writing.",
+    "projectsIntro": "AI-MarkDone and Mappamory."
   }
 }

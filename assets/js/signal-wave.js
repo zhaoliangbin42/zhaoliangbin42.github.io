@@ -100,19 +100,30 @@ void main() {
   const phaseUniform = gl.getUniformLocation(program, "u_phase");
   const focusUniform = gl.getUniformLocation(program, "u_focus");
   const image = new Image();
+  let width = 0;
+  let height = 0;
+  let focus = 0.5;
+  let density = 1;
+  const updateResolution = () => {
+    focus = window.innerWidth <= 760 ? 0.6 : 0.5;
+    density = Math.min(
+      window.devicePixelRatio || 1,
+      1.5,
+      Math.sqrt(1_800_000 / Math.max(1, width * height)),
+    );
+  };
   const draw = () => {
     frame = 0;
     if (
       disposed ||
       !loaded ||
       !visible ||
+      !width ||
+      !height ||
       reduced.matches ||
       gl.isContextLost()
     )
       return;
-    const width = canvas.clientWidth;
-    const height = canvas.clientHeight;
-    const density = Math.min(window.devicePixelRatio || 1, 1.75);
     if (
       canvas.width !== Math.round(width * density) ||
       canvas.height !== Math.round(height * density)
@@ -122,8 +133,7 @@ void main() {
     }
     gl.viewport(0, 0, canvas.width, canvas.height);
     gl.uniform2f(sizeUniform, width, height);
-    gl.uniform2f(sourceUniform, image.naturalWidth, image.naturalHeight);
-    gl.uniform1f(focusUniform, window.innerWidth <= 760 ? 0.6 : 0.5);
+    gl.uniform1f(focusUniform, focus);
     // Position, not elapsed time, drives phase. With no scroll there are no frames.
     gl.uniform1f(phaseUniform, window.scrollY * 0.018);
     gl.drawArrays(gl.TRIANGLES, 0, 6);
@@ -141,13 +151,27 @@ void main() {
     if (disposed) return;
     gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
+    gl.uniform2f(sourceUniform, image.naturalWidth, image.naturalHeight);
     loaded = true;
     schedule();
   };
   image.src = "/images/signal/signal-field.webp";
 
   window.addEventListener("scroll", schedule, { passive: true });
-  const resize = new ResizeObserver(schedule);
+  const resize = new ResizeObserver(([entry]) => {
+    width = entry.contentRect.width;
+    height = entry.contentRect.height;
+    updateResolution();
+    schedule();
+  });
+  window.addEventListener(
+    "resize",
+    () => {
+      updateResolution();
+      schedule();
+    },
+    { passive: true },
+  );
   resize.observe(canvas);
   const intersection = new IntersectionObserver((entries) => {
     visible = entries[0]?.isIntersecting ?? true;

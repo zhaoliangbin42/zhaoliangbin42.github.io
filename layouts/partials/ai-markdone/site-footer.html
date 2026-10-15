@@ -7,8 +7,8 @@
   <div class="amd-container amd-footer-grid">
     <div class="amd-footer-brand">
       <a class="amd-site-brand" href="{{ $home | relURL }}">{{ partial "ai-markdone/app-mark.html" . }}<strong>AI-MarkDone</strong></a>
-      <p>{{ if $isEN }}An independent project by Liangbin Zhao.{{ else }}一个来自 Liangbin Zhao 的独立作品。{{ end }}</p>
-      <span class="amd-footer-note">{{ if $isEN }}Free & open source. Local first.{{ else }}免费开源 · 本地优先{{ end }}</span>
+      <p>{{ if $isEN }}A ChatGPT-only browser extension for reading, saving, copying, annotating, and exporting long AI answers.{{ else }}专注 ChatGPT 的浏览器扩展，用来阅读、保存、复制、注释和导出长回答。{{ end }}</p>
+      <span class="amd-footer-note">{{ if $isEN }}Free and open source. Local-first by design.{{ else }}免费开源。本地优先。{{ end }}</span>
     </div>
     <nav class="amd-footer-links" aria-label="{{ if $isEN }}Product resources{{ else }}产品资源{{ end }}">
       <a href="{{ $manual | relURL }}">{{ if $isEN }}Manual{{ else }}手册{{ end }}</a>

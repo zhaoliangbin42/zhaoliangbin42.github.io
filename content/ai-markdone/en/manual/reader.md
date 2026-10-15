@@ -33,28 +33,36 @@ Reader opens the current answer. You can keep reading this message, or move to n
 
 ## Feature overview
 
-1. Markdown reading layout
+1. **Markdown reading layout**
+
    Reader turns the answer into a more readable Markdown page. Long paragraphs, headings, lists, code blocks, tables, and formulas are easier to scan and follow. The longer the answer, the more this matters.
 
-2. Message switching
+2. **Message switching**
+
    Use the bottom pager to move to the previous or next message. If arrow-key navigation is enabled, Left / Right can also move between messages. See [Message navigation](/ai-markdone/en/manual/message-navigation/).
 
-3. Outline jumps
+3. **Outline jumps**
+
    When an answer contains several headings, Reader can show an outline. In long answers, click the heading you need and jump straight to that section. You can turn it on or off in Settings.
 
-4. Partial copy
+4. **Partial copy**
+
    Select a specific passage inside Reader when you only need part of an answer. AI-MarkDone tries to preserve Markdown hierarchy, code, tables, and formula boundaries. See [Partial copy](/ai-markdone/en/manual/partial-copy/).
 
-5. Sticky excerpts
+5. **Sticky excerpts**
+
    When you reach the later part of an answer and need something from earlier, send the key formula, assumption, or conclusion to Sticky. It stays beside the text while you keep reading. See [Sticky excerpts](/ai-markdone/en/manual/sticky/).
 
-6. Dynamic annotations
+6. **Dynamic annotations**
+
    Select an exact sentence or paragraph and write beside it. If a line is unclear, mark it, ask about it, or keep the note for later. See [Annotations](/ai-markdone/en/manual/annotations/).
 
-7. Quick send
+7. **Quick send**
+
    Reader has a lower-left send entry. When a follow-up appears while reading, send it from Reader and keep the current passage in view.
 
-8. Top-right tools
+8. **Top-right tools**
+
    The top-right area contains common Reader actions such as refresh, copy, settings, fullscreen, and close. The exact buttons depend on your settings.
 
 ## Common questions

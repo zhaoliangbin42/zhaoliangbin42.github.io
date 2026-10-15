@@ -19,45 +19,45 @@
         "en": "Estimating angles, ranges, and velocities from millimeter-wave uplink signals."
       },
       "question": {
-        "zh": "一段上行信号，能告诉我们多少环境信息？",
-        "en": "What can an uplink signal tell us about its surroundings?"
+        "zh": "基于毫米波混合阵列的上行感知框架。",
+        "en": "An uplink sensing framework based on millimeter-wave hybrid arrays."
       },
       "overview": {
-        "zh": "混合阵列与收发端时钟不同步，会让毫米波上行感知变得复杂。这项研究结合频域平滑、参考信号构造与 AB2FM 算法，联合估计到达角、多普勒和时延，并保持参数之间的对应关系。",
-        "en": "Hybrid arrays and unsynchronized clocks complicate uplink sensing. This work combines frequency smoothing, reference-signal construction, and AB2FM to estimate arrival angles, Doppler shifts, and delays while preserving their association."
+        "zh": "代码仿真了一个基于毫米波混合阵列的上行感知框架，用于高精度目标参数估计。仿真场景包含具有不同距离、速度和到达角的静态目标与动态目标。系统首先进行高分辨率到达角估计，再利用基于到达角的二维 FFT-MUSIC（AB2FM）算法估计目标参数。",
+        "en": "The code simulates an uplink sensing framework based on millimeter-wave hybrid arrays, enabling high-precision target parameter estimation. The simulation generates a scene with static and dynamic targets, each with different distances, velocities, and angles of arrival (AoA). The system first performs high-resolution AoA estimation followed by AoA-based 2D-FFT-MUSIC (AB2FM) for target parameter estimation."
       },
       "steps": [
         {
           "label": "AoA",
           "title": {
-            "zh": "先分清方向",
-            "en": "Resolve the directions"
+            "zh": "到达角估计",
+            "en": "AoA estimation"
           },
           "text": {
-            "zh": "通过波束扫描和频域平滑，估计静态与动态路径的到达角。",
-            "en": "Beam scanning and frequency smoothing resolve arrival angles for static and moving paths."
+            "zh": "基于频域平滑的 MUSIC 算法进行高分辨率到达角估计。",
+            "en": "High-resolution AoA estimation using MUSIC based on frequency-domain smoothing."
           }
         },
         {
-          "label": "Reference",
+          "label": "Beamforming",
           "title": {
-            "zh": "处理时钟偏差",
-            "en": "Handle clock offsets"
+            "zh": "波束形成",
+            "en": "Beamforming"
           },
           "text": {
-            "zh": "构造参考信号，降低收发端时钟不同步对感知的影响。",
-            "en": "A constructed reference signal reduces the impact of unsynchronized transmitter and receiver clocks."
+            "zh": "支持 Bartlett、零空间、SINR 优化以及混合波束形成策略。",
+            "en": "Multiple beamforming strategies, including Bartlett, Null-Space, SINR optimization, and hybrid approaches."
           }
         },
         {
           "label": "AB2FM",
           "title": {
-            "zh": "再估计距离与速度",
-            "en": "Estimate delay and Doppler"
+            "zh": "多普勒与时延联合估计",
+            "en": "Joint Doppler–delay estimation"
           },
           "text": {
-            "zh": "结合到达角与二维 FFT-MUSIC，联合估计多普勒和时延。",
-            "en": "AoA-based 2D-FFT-MUSIC jointly estimates Doppler and delay."
+            "zh": "利用基于到达角的二维 FFT-MUSIC（AB2FM）算法，联合估计目标的多普勒与时延。",
+            "en": "AoA-based 2D-FFT-MUSIC (AB2FM) for joint Doppler–delay estimation."
           }
         }
       ],
@@ -87,45 +87,45 @@
         "en": "Sensing multiple vehicles in a bistatic system with unsynchronized clocks."
       },
       "question": {
-        "zh": "两个不同步的基站，怎样一起感知车辆？",
-        "en": "How can two unsynchronized base stations sense moving vehicles?"
+        "zh": "双基地通信感知一体化系统中的多车辆被动感知。",
+        "en": "Passive sensing of multiple vehicles in a bi-static ISAC system."
       },
       "overview": {
-        "zh": "双基地被动感知可以利用通信信号观察多辆车，但时钟偏差会干扰估计。这项研究通过快拍扩增、SWIP-MUSIC 时偏估计和残余相位对齐，再进行时延—多普勒联合估计。仿真考察了多目标场景下的方法表现。",
-        "en": "Bistatic passive sensing can observe multiple vehicles using communication signals, but clock offsets interfere with estimation. The method augments snapshots, estimates timing offsets with SWIP-MUSIC, and aligns residual phase before joint delay–Doppler estimation. Simulations examine its behavior with multiple targets."
+        "zh": "代码仿真了一个双基地通信感知一体化（ISAC）系统，用于对多辆车进行被动感知。主要包括用于快拍扩增的前后向平滑算法、结合周期图与 MUSIC 的 SWIP-MUSIC 时偏估计，以及基于周期图的多普勒与时延联合估计。",
+        "en": "The code simulates a bi-static Integrated Sensing and Communication (ISAC) system for passive sensing of multiple vehicles. It includes forward-backward smoothing for snapshot augmentation, SWIP-MUSIC combining periodogram and MUSIC methods for time-offset estimation, and periodogram-based joint Doppler–delay estimation."
       },
       "steps": [
         {
           "label": "Snapshots",
           "title": {
-            "zh": "扩增观测",
-            "en": "Augment observations"
+            "zh": "前后向平滑",
+            "en": "Forward-backward smoothing"
           },
           "text": {
-            "zh": "利用前后向平滑扩增快拍，支持协方差矩阵估计。",
-            "en": "Forward-backward smoothing augments snapshots for covariance estimation."
+            "zh": "利用前后向平滑（FBS）算法扩增快拍。",
+            "en": "FBS (Forward-Backward Smoothing) for snapshot augmentation."
           }
         },
         {
           "label": "SWIP-MUSIC",
           "title": {
-            "zh": "估计并对齐时偏",
-            "en": "Estimate and align offsets"
+            "zh": "时偏估计",
+            "en": "Time-offset estimation"
           },
           "text": {
-            "zh": "结合周期图与 MUSIC 估计复合时偏，再处理残余相位偏差。",
-            "en": "Periodogram and MUSIC estimates are combined to recover timing offsets, followed by residual phase alignment."
+            "zh": "SWIP-MUSIC 结合周期图与 MUSIC 方法进行时偏估计。",
+            "en": "SWIP-MUSIC combines periodogram and MUSIC methods for time-offset estimation."
           }
         },
         {
           "label": "Delay–Doppler",
           "title": {
-            "zh": "恢复车辆参数",
-            "en": "Recover vehicle parameters"
+            "zh": "多普勒与时延联合估计",
+            "en": "Joint Doppler–delay estimation"
           },
           "text": {
-            "zh": "通过基于周期图的方法，联合估计目标的时延与多普勒。",
-            "en": "A periodogram-based method jointly estimates target delays and Doppler shifts."
+            "zh": "利用基于周期图的算法，联合估计多普勒与时延。",
+            "en": "Joint Doppler–delay estimation using periodogram-based algorithms."
           }
         }
       ],
@@ -172,9 +172,11 @@
   "copy": {
     "zh": {
       "eyebrow": "RESEARCH",
-      "heading": ["信号里，", "还有更多信息。"],
-      "intro": "我研究无线通信与信号处理，关注如何让通信系统同时感知周围的世界。",
-      "collection": "论文与研究",
+      "heading": [
+        "科研成果"
+      ],
+      "intro": "目前主要研究方向为无线通信（wireless communication）、信号处理（signal processing）以及通信感知一体化（integrated sensing and communication, ISAC）。",
+      "collection": "发表论文",
       "topics": [
         {
           "id": "all",
@@ -190,35 +192,37 @@
         }
       ],
       "topicLabel": "按主题筛选论文",
-      "details": "研究详情",
+      "details": "查看详情",
       "readPaper": "阅读论文",
       "code": "代码",
       "preprint": "预印本",
       "allResearch": "全部研究",
       "overview": "研究概述",
-      "approach": "方法，分三步。",
-      "materials": "继续读，或动手跑。",
+      "approach": "主要方法",
+      "materials": "代码说明",
       "materialsLabel": "论文与代码",
       "repository": "打开 GitHub 仓库",
-      "citation": "引用这项研究",
+      "citation": "论文引用",
       "copy": "复制 BibTeX",
       "copied": "已复制",
       "copyFailed": "暂时无法复制，请选中下方文本手动复制。",
       "copiedStatus": "BibTeX 已复制到剪贴板。",
-      "related": "另一项研究",
+      "related": "其他论文",
       "publication": "发表信息",
       "authors": "作者",
       "notFound": "这项研究还没有详情页。",
       "scholar": "Google Scholar",
-      "scholarNote": "完整论文记录，也可以在这里找到。",
+      "scholarNote": "Google Scholar 论文列表。",
       "countUnit": "篇论文",
       "implementation": "实现与复现说明"
     },
     "en": {
       "eyebrow": "RESEARCH",
-      "heading": ["More to a signal", "than a message."],
-      "intro": "I study wireless communications and signal processing, exploring how communication systems can also sense the world around them.",
-      "collection": "Papers & research",
+      "heading": [
+        "Research"
+      ],
+      "intro": "My main research areas are wireless communication, signal processing, and integrated sensing and communication (ISAC).",
+      "collection": "Publications",
       "topics": [
         {
           "id": "all",
@@ -234,27 +238,27 @@
         }
       ],
       "topicLabel": "Filter papers by topic",
-      "details": "Explore the research",
+      "details": "View details",
       "readPaper": "Read paper",
       "code": "Code",
       "preprint": "Preprint",
       "allResearch": "All research",
       "overview": "Research overview",
-      "approach": "The method, in three steps.",
-      "materials": "Read further. Try the code.",
+      "approach": "Methods",
+      "materials": "Code notes",
       "materialsLabel": "Paper & code",
       "repository": "Open the GitHub repository",
-      "citation": "Cite this work",
+      "citation": "Citation",
       "copy": "Copy BibTeX",
       "copied": "Copied",
       "copyFailed": "Copying is unavailable. Select the text below to copy it manually.",
       "copiedStatus": "BibTeX copied to the clipboard.",
-      "related": "Another study",
+      "related": "Other papers",
       "publication": "Publication",
       "authors": "Authors",
       "notFound": "There is no detail page for this study yet.",
       "scholar": "Google Scholar",
-      "scholarNote": "You can also find my publication record here.",
+      "scholarNote": "Publication list on Google Scholar.",
       "countUnit": "papers",
       "implementation": "Implementation notes"
     }

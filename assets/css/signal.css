@@ -351,7 +351,7 @@ button {
 .section-heading h2,
 .about-section h2 {
   font-size: clamp(36px, 3.4vw, 54px);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.045em;
   line-height: 1.18;
 }
@@ -374,21 +374,21 @@ button {
   font-size: 12px;
   letter-spacing: 0.02em;
   color: var(--muted);
-  margin-bottom: 28px;
+  margin-bottom: 12px;
 }
 .paper {
   border-top: 1px solid var(--rule);
   padding-top: 20px;
 }
 .paper h3 {
-  font-size: clamp(26px, 2.35vw, 37px);
-  line-height: 1.3;
-  font-weight: 500;
-  letter-spacing: -0.045em;
+  font-size: clamp(24px, 2.1vw, 32px);
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: -0.025em;
   max-width: 24ch;
 }
 .paper > p {
-  margin-top: 22px;
+  margin-top: 18px;
   color: #6c6e6b;
   font-size: 17px;
   line-height: 1.9;
@@ -435,6 +435,8 @@ button {
 .article-title {
   font-size: clamp(20px, 1.7vw, 27px);
   letter-spacing: -0.025em;
+
+  font-weight: 600;
 }
 .article-title small {
   display: block;
@@ -478,10 +480,10 @@ button {
   font-size: 12px;
 }
 .project h3 {
-  margin-top: 17px;
+  margin-top: 12px;
   font-size: 34px;
   line-height: 1.3;
-  font-weight: 600;
+  font-weight: 650;
   letter-spacing: -0.045em;
 }
 .project > p {
@@ -514,10 +516,10 @@ button {
   background: #eeeee8;
 }
 .about-section > div > p {
-  font-size: clamp(22px, 2.2vw, 34px);
-  line-height: 1.75;
-  letter-spacing: -0.035em;
-  max-width: 40ch;
+  font-size: clamp(20px, 1.8vw, 26px);
+  line-height: 1.85;
+  letter-spacing: 0;
+  max-width: 42ch;
 }
 .about-section .social-links {
   margin-top: 36px;
@@ -809,11 +811,15 @@ html[lang="en"] .desktop-nav {
   letter-spacing: -0.015em;
 }
 .hero-intro .hero-subline {
-  margin-top: 7px;
-  font-size: 0.78em;
-  line-height: 1.7;
-  color: #575b57;
+  margin-top: 5px;
+  font-size: 1em;
+  line-height: inherit;
+  color: var(--ink);
   letter-spacing: 0;
+
+  font-weight: 500;
+
+  max-width: none;
 }
 .header-name-anchor {
   display: flex;
@@ -1083,4 +1089,68 @@ textarea {
 }
 .signal-archive-list svg {
   flex-shrink: 0;
+}
+
+/* Parallel items use rules and spacing; hierarchy stays legible without nested panels. */
+@media (min-width: 761px) {
+  .research-grid > .paper,
+  .projects-grid > .project {
+    position: relative;
+  }
+  .research-grid > .paper + .paper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -3.5vw;
+    border-left: 1px solid var(--rule);
+  }
+  .projects-grid > .project + .project::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -21px;
+    border-left: 1px solid var(--rule);
+  }
+}
+.about-section > div > p + p {
+  font-size: 18px;
+  margin-top: 20px;
+  max-width: 48ch;
+}
+.moving-name a:focus-visible {
+  outline: none;
+}
+.moving-name a:focus-visible .name-first,
+.moving-name a:focus-visible .name-second {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
+}
+@media (max-width: 760px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: max(730px, 100svh);
+  }
+  .hero-footer {
+    position: relative;
+    inset: auto;
+    margin-top: auto;
+    padding: 56px var(--gutter) 28px;
+  }
+  .hero-intro .hero-subline {
+    font-size: 1em;
+    max-width: none;
+  }
+  .paper h3 {
+    font-size: 26px;
+  }
+  .about-section > div > p {
+    font-size: 21px;
+  }
+  .about-section > div > p + p {
+    font-size: 17px;
+  }
 }

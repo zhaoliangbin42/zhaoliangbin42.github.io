@@ -337,7 +337,7 @@
   max-width: 570px;
   font-size: 19px;
   line-height: 1.85;
-  color: var(--amd-muted);
+  color: var(--color-text-secondary, var(--amd-muted));
   margin-top: 26px;
 }
 .amd-site .amd-signal-hero .amd-actions {
@@ -542,7 +542,7 @@
 }
 .amd-site .amd-signal-scenario-grid h3 {
   font-size: 23px;
-  font-weight: 500;
+  font-weight: 650;
   line-height: 1.5;
   letter-spacing: -0.03em;
   margin-top: 29px;
@@ -947,21 +947,25 @@
   line-height: 1.7;
 }
 .amd-site .amd-docs-nav-group {
-  margin-top: 23px;
+  margin-top: 25px;
+
+  padding-top: 19px;
+
+  border-top: 1px solid var(--amd-line);
 }
 .amd-site .amd-docs-nav-group > strong {
   display: block;
-  color: var(--amd-muted);
-  font-weight: 600;
-  font-size: 10px;
+  color: var(--amd-ink);
+  font-weight: 700;
+  font-size: 13px;
   letter-spacing: 0.05em;
   padding-inline: 12px;
-  margin-bottom: 7px;
+  margin-bottom: 9px;
 }
 .amd-site .amd-docs-nav-group > a {
   display: block;
   min-height: 39px;
-  padding: 8px 12px;
+  padding: 8px 12px 8px 22px;
   color: var(--amd-muted);
   font-size: 13px;
   line-height: 1.65;
@@ -985,7 +989,7 @@
   font-size: clamp(32px, 3.4vw, 49px);
   line-height: 1.4;
   letter-spacing: -0.045em;
-  font-weight: 500;
+  font-weight: 650;
   margin-top: 18px;
 }
 .amd-site .amd-docs-title p:last-child {
@@ -1028,17 +1032,21 @@
   margin-top: 35px;
 }
 .amd-site .amd-docs-content h2 {
-  font-size: 25px;
-  font-weight: 550;
+  font-size: 28px;
+  font-weight: 700;
   line-height: 1.5;
-  margin: 40px 0 19px;
+  margin: 48px 0 20px;
   letter-spacing: -0.025em;
   scroll-margin-top: 110px;
+
+  padding-top: 20px;
+
+  border-top: 1px solid var(--amd-line);
 }
 .amd-site .amd-docs-content h3 {
-  font-size: 20px;
+  font-size: 21px;
   line-height: 1.55;
-  font-weight: 550;
+  font-weight: 650;
   margin: 29px 0 14px;
   scroll-margin-top: 110px;
 }
@@ -2710,4 +2718,85 @@
   flex-wrap: wrap;
   gap: 10px 13px;
   margin-top: 20px;
+}
+
+/* Chapters, groups and their children have separate, consistent visual levels. */
+.amd-site .amd-signal-tagline {
+  font-size: clamp(22px, 2vw, 28px);
+  font-weight: 650;
+  line-height: 1.5;
+  color: var(--amd-ink);
+  margin-bottom: 16px;
+}
+.amd-site .amd-signal-section-heading h2 {
+  font-weight: 700;
+}
+.amd-site .amd-signal-feature-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 36px 56px;
+}
+.amd-site .amd-signal-feature-group {
+  border-top: 2px solid var(--amd-line);
+  padding-top: 20px;
+  min-width: 0;
+}
+.amd-site .amd-signal-feature-group h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.amd-site .amd-signal-feature-group .amd-signal-feature-links {
+  display: block;
+}
+.amd-site .amd-signal-feature-group .amd-signal-feature-links > a {
+  padding: 13px 0;
+  font-size: 15px;
+}
+.amd-site .amd-docs-content > h2:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+.amd-site .amd-docs-content li + li {
+  margin-top: 18px;
+}
+.amd-site .amd-docs-content li > p:first-child > strong {
+  font-size: 17px;
+  font-weight: 700;
+}
+.amd-site .amd-docs-content h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 24px 0 12px;
+}
+.amd-site .amd-docs-toc > nav > ul > li > a {
+  font-weight: 650;
+}
+.amd-site .amd-docs-toc ul ul {
+  margin: 6px 0 14px;
+  border-left: 1px solid var(--amd-line);
+}
+@media (min-width: 761px) {
+  .amd-site .amd-signal-scenario-grid article + article {
+    border-left: 1px solid var(--amd-line);
+    padding-left: 28px;
+  }
+}
+@media (max-width: 760px) {
+  .amd-site .amd-signal-feature-groups {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .amd-site .amd-signal-feature-group h3 {
+    font-size: 19px;
+  }
+  .amd-site .amd-docs-content h2 {
+    font-size: 25px;
+  }
+  .amd-site .amd-docs-content h3 {
+    font-size: 20px;
+  }
+  .amd-site .amd-signal-tagline {
+    font-size: 23px;
+  }
 }

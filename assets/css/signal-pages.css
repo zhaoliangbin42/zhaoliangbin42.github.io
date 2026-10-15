@@ -20,14 +20,14 @@
   font-size: clamp(42px, 5.4vw, 74px);
   line-height: 1.14;
   letter-spacing: -0.055em;
-  font-weight: 550;
+  font-weight: 650;
 }
 .rp-page h1 > span {
   display: block;
 }
 .rp-page h2 {
-  font-size: clamp(27px, 2.5vw, 38px);
-  font-weight: 550;
+  font-size: clamp(30px, 2.8vw, 42px);
+  font-weight: 700;
   letter-spacing: -0.035em;
   line-height: 1.3;
 }
@@ -206,14 +206,14 @@
   margin-bottom: 13px;
 }
 .rp-paper-body h3 {
-  font-size: clamp(23px, 2.35vw, 34px);
+  font-size: clamp(23px, 2vw, 29px);
   line-height: 1.32;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: -0.035em;
   max-width: 34ch;
 }
 .rp-paper-row-featured .rp-paper-body h3 {
-  font-size: clamp(27px, 2.7vw, 39px);
+  font-size: clamp(25px, 2.1vw, 30px);
 }
 .rp-paper-summary {
   color: var(--rp-muted);
@@ -767,7 +767,7 @@ html[lang^="zh"] .rp-page h2 {
     margin-bottom: 24px;
   }
   .rp-collection-heading h2 {
-    font-size: 26px;
+    font-size: 30px;
   }
   .rp-filters {
     margin-bottom: 24px;
@@ -798,7 +798,7 @@ html[lang^="zh"] .rp-page h2 {
   }
   .rp-paper-body h3,
   .rp-paper-row-featured .rp-paper-body h3 {
-    font-size: 27px;
+    font-size: 23px;
     line-height: 1.32;
     max-width: 37ch;
   }

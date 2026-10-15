@@ -12,7 +12,7 @@ prev_label: "Previous: export"
 
 ## Use this when
 
-Find each setting by its group in Settings, check its default value, and see how it changes reading and organizing content.
+You already know what AI-MarkDone can do and want to tune it to your habits.
 
 ## Where to open it
 

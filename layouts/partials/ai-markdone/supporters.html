@@ -1,7 +1,7 @@
 {{ $isEN := eq (.Params.amd_lang | default "zh") "en" }}
 {{ $sponsors := hugo.Data.ai_markdone.sponsors }}
 <section class="amd-signal-supporters amd-container">
-  <details><summary><span>{{ if $isEN }}From the people who use it.{{ else }}来自使用者的支持。{{ end }}</span>{{ partial "ai-markdone/icon.html" (dict "name" "plus") }}</summary>
+  <details><summary><span>{{ if $isEN }}User feedback{{ else }}用户好评{{ end }}</span>{{ partial "ai-markdone/icon.html" (dict "name" "plus") }}</summary>
     <div class="amd-signal-review-list">
       {{ range split (readFile "assets/ai-markdone/testimonials.md") "\n---\n" }}
         {{ $block := trim . " \n\r\t" }}
