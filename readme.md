@@ -23,7 +23,7 @@ node scripts/verify-site.mjs /tmp/liangbin-site-preview
 node scripts/verify-ai-markdone-site.mjs /tmp/liangbin-site-preview
 ```
 
-自动检查覆盖页面结构、图片与站内目标、语言对应关系、历史别名、产品能力边界和内部制作说明。发布前还需在浏览器检查桌面、手机、滚动动效、文章公式、代码复制、目录、研究筛选和产品工作流。
+自动检查覆盖页面结构、图片与站内目标、语言对应关系、历史别名、产品能力边界、内部制作说明和编号产物副本。发布前还需在浏览器检查桌面、手机、滚动动效、文章公式、代码复制、目录、研究筛选和产品工作流。
 
 ## 内容与路由
 
@@ -78,7 +78,7 @@ docs/                    生产构建产物
 源码维护在 `dev`；GitHub Pages 从 `dev` 分支的 `/docs` 发布。`master` 保留为旧部署历史，不再由脚本强制覆盖。
 
 1. 在功能分支完成修改与隔离验证。
-2. 执行 `npm run build -- --cleanDestinationDir`，生成完整 `docs/`。
+2. 执行 `npm run build`，自动清除旧产物并生成完整 `docs/`。
 3. 执行 `npm run verify:site` 与 `npm run verify:ai-markdone`，再检查生产构建的浏览器表现。
 4. 查看 `git status --short`，将本次源码和 `docs/` 一起提交。
 5. 将通过验收的提交合入并推送 `dev`。

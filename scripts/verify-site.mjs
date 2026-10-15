@@ -37,7 +37,14 @@ const readRoute = (route) => {
   }
   return fs.readFileSync(file, "utf8");
 };
-const htmlFiles = walk(output).filter((f) => f.endsWith(".html"));
+const outputFiles = walk(output);
+for (const file of outputFiles) {
+  check(
+    !/^(?:index|404) \d+\.(?:html|xml)$/.test(path.basename(file)),
+    `Stale numbered build output: ${path.relative(output, file)}`,
+  );
+}
+const htmlFiles = outputFiles.filter((f) => f.endsWith(".html"));
 const getAttr = (tag, name) => {
   const match = tag.match(
     new RegExp(

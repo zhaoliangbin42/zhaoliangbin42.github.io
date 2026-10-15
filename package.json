@@ -7,7 +7,7 @@
   "author": "Liangbin Zhao",
   "scripts": {
     "dev": "hugo server --environment preview --disableFastRender",
-    "build": "hugo --gc --minify --forceSyncStatic",
+    "build": "hugo --gc --minify --forceSyncStatic --cleanDestinationDir",
     "preview": "hugo server --environment preview --disableFastRender --minify",
     "verify:site": "node scripts/verify-site.mjs",
     "verify:ai-markdone": "node scripts/verify-ai-markdone-site.mjs",
