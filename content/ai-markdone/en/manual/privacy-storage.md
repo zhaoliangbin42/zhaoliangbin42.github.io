@@ -34,7 +34,7 @@ It excludes temporary annotations that have not been persistently saved, unsaved
 
 Normal merging adds new items from the file, retains local-only items, and skips duplicates. If the same item has conflicting content, the local version is kept rather than overwritten by the backup.
 
-Older bookmark JSON files can still be imported, but they restore only bookmarks. They cannot restore highlights, annotations, or folder content that the old file never contained. If the format is unsupported or the file is damaged, keep the original and inspect the error instead of deleting fields to force an import.
+Older bookmark JSON files can still be imported. They restore only the bookmarks saved in the file. If you encounter a format or file error, keep the original and follow the error message.
 
 ## Export only selected bookmarks
 

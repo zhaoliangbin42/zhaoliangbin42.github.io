@@ -195,8 +195,8 @@
   line-height: 1.2;
 }
 .amd-site .amd-site-mark {
-  display: block;
-  width: 32px;
+  display: inline-flex;
+  width: auto;
   height: 32px;
   border: 0;
   border-radius: 0;
@@ -205,8 +205,10 @@
   flex-shrink: 0;
 }
 .amd-site .amd-site-mark img {
-  width: 32px;
-  height: 32px;
+  width: auto;
+  height: 100%;
+  max-width: none;
+  flex-shrink: 0;
   object-fit: contain;
   border: 0;
   box-shadow: none;
@@ -568,9 +570,10 @@
 }
 .amd-site .amd-docs-layout {
   display: grid;
-  grid-template-columns: 220px minmax(0, 820px);
-  gap: clamp(35px, 5.5vw, 85px);
-  justify-content: space-between;
+  grid-template-columns: 208px minmax(0, 1fr);
+  gap: 24px;
+  max-width: 1360px;
+  justify-content: start;
   align-items: start;
 }
 .amd-site .amd-docs-layout-wide {
@@ -582,7 +585,8 @@
   max-height: calc(100svh - 135px);
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding-right: 15px;
+  padding-right: 18px;
+  border-right: 1px solid var(--amd-line);
   scrollbar-width: thin;
 }
 .amd-site .amd-docs-sidebar > details > summary {
@@ -881,8 +885,8 @@
 }
 .amd-site .amd-docs-media img {
   width: 100%;
-  outline: 1px solid #0000000c;
-  border-radius: 5px;
+  outline: 0;
+  border-radius: 0;
 }
 .amd-site .amd-docs-media figcaption {
   font-size: 11px;
@@ -1346,9 +1350,7 @@
   .amd-site .amd-site-brand strong {
     font-size: 17px;
   }
-  .amd-site .amd-site-mark,
-  .amd-site .amd-site-mark img {
-    width: 29px;
+  .amd-site .amd-site-mark {
     height: 29px;
   }
   .amd-site .amd-site-links {
@@ -1820,7 +1822,7 @@
 }
 .amd-site .amd-feature-layout {
   display: grid;
-  grid-template-columns: minmax(290px, 0.75fr) minmax(0, 1.25fr);
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: clamp(32px, 5vw, 76px);
   align-items: center;
 }
@@ -1851,52 +1853,15 @@
   margin-top: 12px;
 }
 .amd-site .amd-feature-visual {
-  overflow: hidden;
-  border: 1px solid var(--amd-line);
-  border-radius: 10px;
-  background: var(--amd-page);
+  width: 100%;
+  max-width: 720px;
+  justify-self: end;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
 .amd-site .amd-feature-visual img {
   width: 100%;
-}
-.amd-site .amd-feature-read .amd-feature-layout,
-.amd-site .amd-feature-library .amd-feature-layout {
-  grid-template-columns: minmax(0, 1fr);
-  gap: 36px;
-}
-.amd-site .amd-feature-read .amd-feature-copy,
-.amd-site .amd-feature-library .amd-feature-copy {
-  display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  column-gap: 70px;
-  align-items: start;
-}
-.amd-site .amd-feature-read .amd-feature-copy > .amd-signal-eyebrow,
-.amd-site .amd-feature-library .amd-feature-copy > .amd-signal-eyebrow {
-  grid-column: 1 / -1;
-}
-.amd-site .amd-feature-read .amd-feature-copy h2,
-.amd-site .amd-feature-library .amd-feature-copy h2 {
-  grid-column: 1;
-  grid-row: 2;
-}
-.amd-site .amd-feature-read .amd-feature-copy > p:not(.amd-signal-eyebrow),
-.amd-site .amd-feature-library .amd-feature-copy > p:not(.amd-signal-eyebrow) {
-  grid-column: 2;
-  grid-row: 2;
-  margin-top: 14px;
-}
-.amd-site .amd-feature-read .amd-feature-copy ul,
-.amd-site .amd-feature-library .amd-feature-copy ul {
-  grid-column: 2;
-  grid-row: 3 / 5;
-  margin-top: 0;
-}
-.amd-site .amd-feature-read .amd-feature-copy > a,
-.amd-site .amd-feature-library .amd-feature-copy > a {
-  grid-column: 1;
-  grid-row: 3;
-  justify-self: start;
 }
 .amd-site .amd-annotation-example {
   padding: clamp(24px, 4vw, 56px);
@@ -1994,14 +1959,6 @@
 .amd-site .amd-guide-entry .amd-actions {
   margin-top: 24px;
 }
-.amd-site .amd-workflow-article {
-  width: min(100%, 880px);
-  margin-inline: auto;
-  padding-block: 50px 86px;
-}
-.amd-site .amd-workflow-article h2 {
-  scroll-margin-top: 110px;
-}
 .amd-site .amd-docs-content table {
   min-width: 580px;
   font-size: 14px;
@@ -2021,8 +1978,8 @@
   margin-block: 36px;
 }
 .amd-site .amd-guide-figure img {
-  border: 1px solid var(--amd-line);
-  border-radius: 8px;
+  border: 0;
+  border-radius: 0;
 }
 .amd-site .amd-guide-figure figcaption {
   margin-top: 12px;
@@ -2035,14 +1992,6 @@
   }
   .amd-site .amd-feature-layout {
     grid-template-columns: 1fr;
-  }
-  .amd-site .amd-feature-read .amd-feature-copy,
-  .amd-site .amd-feature-library .amd-feature-copy {
-    display: block;
-  }
-  .amd-site .amd-feature-read .amd-feature-copy ul,
-  .amd-site .amd-feature-library .amd-feature-copy ul {
-    margin-top: 22px;
   }
   .amd-site .amd-feature-copy {
     max-width: 720px;
@@ -2106,21 +2055,6 @@
   font-size: clamp(29px, 2.7vw, 40px);
   line-height: 1.3;
 }
-.amd-site .amd-workflow-toc {
-  margin-bottom: 44px;
-  padding: 24px 28px;
-  background: var(--amd-soft);
-  border-block: 1px solid var(--amd-line);
-  font-size: 16px;
-  line-height: 1.9;
-}
-.amd-site .amd-workflow-toc ul {
-  padding-left: 22px;
-  margin: 0;
-}
-.amd-site .amd-workflow-toc a:hover {
-  color: var(--amd-copper);
-}
 .amd-site .amd-docs-content {
   min-width: 0;
 }
@@ -2145,4 +2079,65 @@
 .amd-site .amd-docs-content h3,
 .amd-site .amd-privacy-policy section {
   scroll-margin-top: 0;
+}
+
+/* Keep the navigation rail close to the reading column. */
+.amd-site .amd-docs-title,
+.amd-site .amd-docs-content,
+.amd-site .amd-docs-next {
+  max-width: 860px;
+}
+.amd-site .amd-docs-media,
+.amd-site .amd-guide-figure {
+  width: 100%;
+  max-width: 720px;
+  margin-inline: 0;
+}
+.amd-site .amd-image-zoom {
+  display: block;
+  cursor: zoom-in;
+}
+.amd-site .amd-feature-visual img,
+.amd-site .amd-docs-media img,
+.amd-site .amd-guide-figure img {
+  border: 0;
+  outline: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.amd-site .amd-workflow-nav {
+  grid-column: 1 / -1;
+  margin-top: 18px;
+  border-top: 1px solid var(--amd-line);
+  padding-top: 12px;
+}
+.amd-site .amd-workflow-nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.amd-site .amd-workflow-nav li {
+  margin: 0;
+}
+.amd-site .amd-workflow-nav a {
+  display: block;
+  padding: 10px 12px;
+  color: var(--amd-muted);
+  font-size: 14px;
+  line-height: 1.65;
+  border-left: 2px solid transparent;
+}
+.amd-site .amd-workflow-nav a:hover,
+.amd-site .amd-workflow-nav a[aria-current="location"] {
+  color: var(--amd-ink);
+  border-left-color: var(--amd-copper);
+  background: var(--amd-soft);
+}
+@media (max-width: 980px) {
+  .amd-site .amd-docs-sidebar {
+    border-right: 0;
+  }
+  .amd-site .amd-feature-visual {
+    justify-self: start;
+  }
 }

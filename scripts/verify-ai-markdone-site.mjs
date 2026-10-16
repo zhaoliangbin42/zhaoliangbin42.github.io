@@ -19,6 +19,25 @@ const productionNotes =
   /产品界面宣传图|宣传合成图|产品实拍|Actual product capture|example content in Chinese|promotional composition|Product interface composition|screenshot_title|screenshot_detail|截图建议|Screenshot notes|Show this later/;
 const staleClaims =
   /旧右侧目录栏已经退休|right-side directory rail is retired|把边界说清楚|效率成倍提升|让你进入心流|AI-MarkDone 不是一个玩具/;
+const guideImages = new Set(
+  ["reader", "library", "composer", "export", "settings"].map(
+    (name) => `${name}.png`,
+  ),
+);
+const localizedGuideImage =
+  /(?:reader|library|composer|export|settings)-(?:zh|en)(?:[._-]|$)/;
+const pngSignature = Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]);
+for (const image of guideImages) {
+  const file = path.join("assets/ai-markdone/images/guide", image);
+  assert(
+    fs.existsSync(file),
+    `Missing shared English-interface image: ${image}`,
+  );
+  assert(
+    fs.readFileSync(file).subarray(0, 8).equals(pngSignature),
+    `${image}: shared screenshots must contain PNG data`,
+  );
+}
 const nav = read("data/ai_markdone/manual_nav.toml");
 const chapters = [
   ...nav.matchAll(
@@ -63,6 +82,11 @@ assert(
   "Manual navigation must use the shared inventory",
 );
 const copy = JSON.parse(read("assets/ai-markdone/content/home.json"));
+const manualMedia = read("layouts/partials/ai-markdone/manual-media.html");
+assert(
+  !manualMedia.includes("%s-%s.png") && !manualMedia.includes("$lang"),
+  "Manual images must use shared filenames without language suffixes",
+);
 for (const lang of ["zh", "en"]) {
   assert(
     copy[lang].sections.length === 5,
@@ -75,11 +99,17 @@ for (const lang of ["zh", "en"]) {
     );
     if (section.image)
       assert(
-        fs.existsSync(`assets/ai-markdone/images/guide/${section.image}`),
-        `Missing current product image: ${section.image}`,
+        guideImages.has(section.image),
+        `Home must use shared English-interface images: ${lang}/${section.image}`,
       );
   }
 }
+for (const section of copy.zh.sections)
+  assert(
+    section.image ===
+      copy.en.sections.find((candidate) => candidate.id === section.id)?.image,
+    `Home screenshot must be shared across languages: ${section.id}`,
+  );
 for (const file of walk("content/ai-markdone").filter((f) =>
   f.endsWith(".md"),
 )) {
@@ -88,6 +118,15 @@ for (const file of walk("content/ai-markdone").filter((f) =>
     !productionNotes.test(source) && !staleClaims.test(source),
     `${file}: production notes or obsolete claims`,
   );
+  assert(
+    !localizedGuideImage.test(source),
+    `${file}: screenshot filenames must not have language suffixes`,
+  );
+  for (const [, image] of source.matchAll(/amd-guide-image\s+file="([^"]+)"/g))
+    assert(
+      guideImages.has(image),
+      `${file}: unknown shared screenshot ${image}`,
+    );
   const other = source.match(/^translation_url:\s*"([^"]+)"/m)?.[1];
   assert(
     other && fs.existsSync(path.join(output, other, "index.html")),
@@ -123,6 +162,10 @@ for (const chapter of chapters) {
     assert(
       !productionNotes.test(html) && !staleClaims.test(html),
       `${route}: outdated or internal wording`,
+    );
+    assert(
+      !localizedGuideImage.test(html),
+      `${route}: rendered page still uses a language-specific screenshot`,
     );
   }
 }
@@ -177,6 +220,10 @@ for (const prefix of ["ai-markdone/", "ai-markdone/en/"]) {
       !productionNotes.test(html) && !staleClaims.test(html),
       `${route}: internal or obsolete wording`,
     );
+    assert(
+      !localizedGuideImage.test(html),
+      `${route}: rendered page still uses a language-specific screenshot`,
+    );
   }
   for (const [old, target] of [
     ["faq/", "manual/troubleshooting/"],
@@ -211,5 +258,5 @@ const llms = read("static/llms.txt");
 for (const slug of ["highlights", "composer", "settings", "troubleshooting"])
   assert(llms.includes(`manual/${slug}/`), `llms.txt missing ${slug}`);
 console.log(
-  `AI-MarkDone site verification passed: ${chapters.length} paired manual chapters, distinct workflows, current images, complete settings tables, and legacy redirects (${output}).`,
+  `AI-MarkDone site verification passed: ${chapters.length} paired manual chapters, distinct workflows, five shared English-interface PNGs, complete settings tables, and legacy redirects (${output}).`,
 );

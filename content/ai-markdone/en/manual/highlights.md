@@ -20,18 +20,19 @@ Choosing another color for the same selection updates the existing highlight. Yo
 
 ## Which selections are supported
 
-A highlight stays within one answer. It can span paragraphs, lists, and tables, or keep only the locatable text in a selection that contains other content.
+A highlight stays within one answer. It can span paragraphs, lists, and tables, keeping locatable text and complete formulas in a mixed selection.
 
 | Selection | Saved result |
 | --- | --- |
 | Ordinary text | Select one sentence or several consecutive paragraphs. |
 | Table text | Select part of a cell, span cells or rows, or include the surrounding prose. The record keeps the selected text, not the full table layout. |
-| Complete inline code or a formula | Highlight the complete content on its own or together with adjacent ordinary text. When marking it on its own, select the whole unit instead of part of it. |
-| Prose with code blocks, images, chart cards, or controls between passages | These objects are skipped while the surrounding selected text is kept. Citation buttons and editable areas are also skipped. |
+| Inline code | Select any part of it to highlight that text. |
+| A complete formula | When reliable formula source is available, highlight it on its own or together with prose, tables, or other content. |
+| Prose with code blocks, images, chart cards, or controls between passages | These objects are skipped while selected text and eligible complete formulas are kept. Citation buttons and editable areas are also skipped. |
 | Only a code block, image, chart card, control, or editable area | No highlight is created. |
 | Text spanning two messages | Not supported. Highlight each answer separately. |
 
-When a selection spans a table or passes through content that must be skipped, the highlight is saved as text passages. Formulas in that mixed selection are skipped too. To mark a formula, select the complete formula separately and choose a color.
+Complete formulas with reliable source are retained in mixed selections. If only part of a formula is selected, that formula is skipped while surrounding selected text is kept. The selection is not expanded to include unselected symbols.
 
 For example, select from the explanation before a table to the conclusion after it, including an image between them. The highlight keeps the explanation, selected cell text, and conclusion, while skipping the image. Library lets you view and manage those passages as one highlight.
 
@@ -53,7 +54,7 @@ A highlight does not save a complete snapshot of the answer. Create a [message b
 
 ## Why the color buttons are missing
 
-First check that the selection comes from one completed answer and includes text that can be marked, rather than only a code block, image, or control. When highlighting inline code or a formula on its own, select the whole unit. If a selection is very large or cannot be saved, try a few paragraphs or table rows at a time.
+First check that the selection comes from one completed answer and includes text or a complete formula that can be marked, rather than only a code block, image, or control. Formulas must be fully selected and have reliable source available. If a selection is very large or cannot be saved, try a few paragraphs or table rows at a time.
 
 Then check the highlight option under **Settings → Buttons → After you select text**. On the original page, the option to show selection buttons on the ChatGPT page must also be enabled.
 

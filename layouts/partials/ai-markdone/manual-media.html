@@ -1,15 +1,14 @@
 {{ $isEN := eq (.Params.amd_lang | default "zh") "en" }}
-{{ $lang := cond $isEN "en" "zh" }}
 {{ $media := dict
-  "reader" (dict "file" "reader" "zh" "阅读器中的正文、公式和消息切换" "en" "An example answer, formula, and message navigation in Reader")
-  "bookmarks" (dict "file" "library" "zh" "资料库中的文件夹和书签列表" "en" "Bookmark folders and saved answers in Library")
-  "export" (dict "file" "export" "zh" "消息范围、导出格式和图片处理选项" "en" "Message selection, export formats, and image options")
-  "composer" (dict "file" "composer" "zh" "输入中的 LaTeX 命令补全与公式预览" "en" "LaTeX completions and formula preview while writing")
-  "settings" (dict "file" "settings" "zh" "输入增强、公式辅助和提示词设置" "en" "Input enhancement, formula tools, and saved prompt settings")
+  "reader" (dict "file" "reader" "zh" "阅读器中的 DFT 公式与 DFT、FFT 计算量对比表" "en" "The DFT formula and a table comparing DFT and FFT operation counts in Reader")
+  "bookmarks" (dict "file" "library" "zh" "资料库中的 FFT 示例书签与操作入口" "en" "An FFT example bookmark and its actions in Library")
+  "export" (dict "file" "export" "zh" "消息范围与导出格式选项" "en" "Message selection and export formats")
+  "composer" (dict "file" "composer" "zh" "输入框中的 LaTeX 命令补全候选" "en" "LaTeX command suggestions in the ChatGPT composer")
+  "settings" (dict "file" "settings" "zh" "公式命令补全、光标处公式预览和已保存提示词的设置" "en" "Settings for formula command suggestions, formula preview at the cursor, and saved prompts")
 }}
 {{ with index $media (.Params.manual_feature | default "") }}
   <figure class="amd-docs-media">
-    {{ partial "ai-markdone/signal-image.html" (dict "path" (printf "ai-markdone/images/guide/%s-%s.png" .file $lang) "alt" (cond $isEN .en .zh) "width" 1600) }}
+    {{ partial "ai-markdone/signal-image.html" (dict "path" (printf "ai-markdone/images/guide/%s.png" .file) "alt" (cond $isEN .en .zh) "width" 1600 "sizes" "(min-width: 1100px) 720px, calc(100vw - 48px)") }}
     <figcaption>{{ if $isEN }}{{ .en }}{{ else }}{{ .zh }}{{ end }}</figcaption>
   </figure>
 {{ end }}

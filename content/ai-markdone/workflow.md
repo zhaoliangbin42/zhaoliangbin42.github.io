@@ -1,6 +1,6 @@
 ---
 title: "工作流"
-description: "从一次具体任务开始：读长回答、整理追问、保存资料，或把公式和消息带到其他软件。"
+description: "按步骤使用阅读器、批注、书签和公式工具，并完成消息导出与资料库备份。"
 type: "ai-markdone"
 amd_lang: "zh"
 page_kind: "workflow"
@@ -9,7 +9,7 @@ translation_url: "/ai-markdone/en/workflow/"
 
 ## 读完一条长回答，整理阅读笔记
 
-例如，你让 ChatGPT 解释一个实验方法。回答很长，包含公式、代码和几个小节。
+例如，你让 ChatGPT 解释 FFT，回答里包含 DFT 公式、复杂度对比表和几个小节。
 
 1. 在这条回答的工具栏点击“阅读器”。
 2. 在右侧标题大纲中选择要读的小节。大纲来自回答里的 Markdown 标题；没有标题的回答不会自动生成完整章节。
@@ -19,7 +19,7 @@ translation_url: "/ai-markdone/en/workflow/"
 
 摘录区是临时的，刷新页面后会清空。需要长期保留整条回答，请[保存书签](/ai-markdone/manual/bookmarks/)；需要带走一部分，请[局部复制](/ai-markdone/manual/partial-copy/)。
 
-{{< amd-guide-image file="reader-zh.png" alt="阅读器中包含标题和公式的实验结果示例" caption="在独立窗口阅读，并用标题大纲和摘录区对照内容。" >}}
+{{< amd-guide-image file="reader.png" alt="阅读器中的 DFT 公式与 DFT、FFT 计算量对比表" caption="在阅读器中查看 DFT 公式和 DFT、FFT 的计算量对比。" >}}
 
 ## 标出疑问，带着原文继续追问
 
@@ -31,13 +31,13 @@ translation_url: "/ai-markdone/en/workflow/"
 4. 重复标注其他位置。在阅读器中，顶部“复制注释”整理的是当前回答的注释，选择提示词并复制后，需要自行粘贴到输入框；要整理整段对话，在原页面输入框旁打开“注释”，选择“当前对话”，再点击“插入到输入框”。
 5. 检查输入框里的原文与问题，再发送给 ChatGPT。常用的开场白和每条注释的组合格式，可以在提示词与注释模板中调整。
 
-如果只是想标出重点，使用[高亮](/ai-markdone/manual/highlights/)。它支持跨普通段落和表格单元格选择；跨过代码块、图片等对象时，会跳过对象、保留周围文字。公式请完整选择；如果与表格或其他特殊内容混选，请单独再标记公式。注释点击保存后是否长期保留，还取决于“保存新建的注释”设置；未开启时，它只保留在当前页面。详见[灵动注释](/ai-markdone/manual/annotations/)。
+如果只是想标出重点，使用[高亮](/ai-markdone/manual/highlights/)。它支持在同一条回答内跨段落、表格单元格选择，也可标记部分行内代码。完整且有可靠源码的公式可以随混合选区保存；未完整选中的公式、代码块、图片等不支持的内容会跳过，保留周围文字。注释点击保存后是否长期保留，还取决于“保存新建的注释”设置；未开启时，它只保留在当前页面。详见[灵动注释](/ai-markdone/manual/annotations/)。
 
 ## 保存回答，之后从资料库找回
 
-例如，你希望把某条实验建议留作参考，而不是下次再翻整段对话。
+例如，你想保存 FFT 与 DFT 的对比说明，下次查看时不用重新翻整段对话。
 
-1. 在回答的工具栏点击书签，在弹出的窗口中填写标题、选择文件夹，然后确认保存提问与回答的快照。
+1. 在回答的工具栏点击书签，在弹出的窗口中填写标题、选择文件夹，然后确认保存当时的提问和回答。
 2. 打开资料库，在书签列表中继续修改标题或移动文件夹。
 3. 下次打开资料库，按标题或内容搜索，选择条目预览已保存的内容。
 4. 需要接着讨论时，使用返回原文的操作打开原对话。对话仍需存在，且当前账号能够访问。
@@ -45,7 +45,7 @@ translation_url: "/ai-markdone/en/workflow/"
 
 资料库中的保存内容和返回原文是两件事。保存的回答可以预览，但原对话删除、账号切换或网页内容变化，可能使定位失败。详细说明见[书签与资料库](/ai-markdone/manual/bookmarks/)。
 
-{{< amd-guide-image file="library-zh.png" alt="资料库中的示例书签与内容预览" caption="用文件夹、搜索和预览找到保存过的内容。" >}}
+{{< amd-guide-image file="library.png" alt="资料库中的 FFT 示例书签与操作入口" caption="资料库中的 FFT 示例书签与操作入口。" >}}
 
 ## 输入公式，确认排版，再复制到文档
 
@@ -59,7 +59,7 @@ translation_url: "/ai-markdone/en/workflow/"
 
 输入中的公式和回答中的公式分别配置。点击回答中的公式可以直接复制源码；需要 PNG、SVG 或 MathML 悬浮操作时，再在设置中开启对应按钮。完整选项见[输入框公式](/ai-markdone/manual/composer/)和[回答中的公式](/ai-markdone/manual/formulas/)。
 
-{{< amd-guide-image file="composer-zh.png" alt="LaTeX 命令补全与公式预览示例" caption="补全命令并预览当前公式，也可以导出已经生成的公式。" >}}
+{{< amd-guide-image file="composer.png" alt="输入框中的 LaTeX 命令补全候选" caption="输入 LaTeX 命令时，选择需要的补全项。" >}}
 
 ## 把回答整理成 Markdown、PDF 或图片
 
@@ -73,7 +73,7 @@ translation_url: "/ai-markdone/en/workflow/"
 
 复制后的显示效果取决于目标软件的 Markdown 和数学公式支持。导出前，请确认勾选范围；PDF、PNG 的细节和图片加载条件见[批量导出](/ai-markdone/manual/export/)。
 
-{{< amd-guide-image file="export-zh.png" alt="消息导出的格式与范围选项" caption="先选消息，再选格式，并确认图片处理方式。" >}}
+{{< amd-guide-image file="export.png" alt="消息导出的格式与范围选项" caption="先选择消息，再确认导出格式与范围。" >}}
 
 ## 换设备前，备份资料库
 

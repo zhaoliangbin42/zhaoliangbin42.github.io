@@ -44,7 +44,7 @@ AI-MarkDone is a free, open-source browser extension focused on ChatGPT. It prov
 
 - Highlights are saved locally. New annotations are temporary unless Save new annotations for later is enabled; existing saved annotations remain stored.
 - The excerpts panel is temporary and clears on page refresh.
-- Highlights can span paragraphs and table cells. Selections crossing code blocks, media, chart cards, reference controls, or editable regions keep surrounding text and skip those objects. Select formulas in full; mark them separately when a selection also crosses tables or skipped objects. Highlight, Markdown copy, and annotation selections use different rules.
+- Highlights stay within one assistant answer and can span paragraphs, table cells, and partial inline code. Complete formulas with reliable source are retained in mixed selections. Partial formulas, code blocks, media, chart cards, reference controls, and editable regions are skipped while supported selected content is kept. Highlight, Markdown copy, and annotation selections use different rules.
 - Composer previews follow the text cursor. Answer-formula actions and composer-formula actions have separate settings.
 - Library backups include bookmarks, folders, highlights, and saved annotations. Settings are exported separately. Google Drive backup is manual, not continuous synchronization.
 - Legacy FAQ URLs redirect to manual/troubleshooting; legacy features and architecture URLs redirect to the manual overview. Directory and combined partial-copy/sticky URLs redirect to current chapters.

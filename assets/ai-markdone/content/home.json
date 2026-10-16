@@ -20,8 +20,8 @@
         ],
         "slug": "reader",
         "link": "查看阅读器用法",
-        "image": "reader-zh.png",
-        "alt": "阅读器中的实验结果示例，包含公式、标题大纲和消息切换"
+        "image": "reader.png",
+        "alt": "阅读器中的 DFT 公式与 DFT、FFT 计算量对比表"
       },
       {
         "id": "mark",
@@ -48,8 +48,8 @@
         ],
         "slug": "composer",
         "link": "查看输入框公式用法",
-        "image": "composer-zh.png",
-        "alt": "输入框中的 LaTeX 命令补全和公式预览"
+        "image": "composer.png",
+        "alt": "输入框中的 LaTeX 命令补全候选"
       },
       {
         "id": "library",
@@ -63,8 +63,8 @@
         ],
         "slug": "bookmarks",
         "link": "查看资料库用法",
-        "image": "library-zh.png",
-        "alt": "资料库中的文件夹与书签列表"
+        "image": "library.png",
+        "alt": "资料库中的 FFT 示例书签与操作入口"
       },
       {
         "id": "export",
@@ -78,7 +78,7 @@
         ],
         "slug": "export",
         "link": "查看导出选项",
-        "image": "export-zh.png",
+        "image": "export.png",
         "alt": "选择消息并配置 Markdown、PDF 和 PNG 导出"
       }
     ],
@@ -119,7 +119,7 @@
     "privacyBody": "书签、高亮和已保存的注释存放在扩展的本地存储。需要换设备时，你可以导出资料库；也可以连接自己的 Google Drive 账号，再手动点击立即备份。",
     "privacyLink": "查看隐私政策",
     "helpTitle": "先看看怎么用。",
-    "helpBody": "工作流带你完成具体任务。手册按功能提供操作说明、设置总表和常见问题。",
+    "helpBody": "工作流展示阅读、批注、保存和导出的完整操作。手册用于查找单项功能、配置与常见问题。",
     "workflow": "查看工作流",
     "manual": "打开使用手册",
     "settings": "查看配置项总表",
@@ -146,8 +146,8 @@
         ],
         "slug": "reader",
         "link": "Read the Reader guide",
-        "image": "reader-en.png",
-        "alt": "Reader showing an example answer, a formula, and message navigation"
+        "image": "reader.png",
+        "alt": "The DFT formula and a table comparing DFT and FFT operation counts in Reader"
       },
       {
         "id": "mark",
@@ -174,8 +174,8 @@
         ],
         "slug": "composer",
         "link": "Read the composer guide",
-        "image": "composer-en.png",
-        "alt": "LaTeX completions and formula previews in the composer"
+        "image": "composer.png",
+        "alt": "LaTeX command suggestions in the ChatGPT composer"
       },
       {
         "id": "library",
@@ -189,8 +189,8 @@
         ],
         "slug": "bookmarks",
         "link": "Read the Library guide",
-        "image": "library-en.png",
-        "alt": "Bookmark folders and saved answers in Library"
+        "image": "library.png",
+        "alt": "An FFT example bookmark and its actions in Library"
       },
       {
         "id": "export",
@@ -204,7 +204,7 @@
         ],
         "slug": "export",
         "link": "Read about export options",
-        "image": "export-en.png",
+        "image": "export.png",
         "alt": "Message selection and Markdown, PDF, and PNG export options"
       }
     ],
@@ -245,7 +245,7 @@
     "privacyBody": "Bookmarks, highlights, and saved annotations are stored locally by the extension. To move devices, export your library or connect your own Google Drive account and choose Back up now manually.",
     "privacyLink": "Read the privacy policy",
     "helpTitle": "See how it works.",
-    "helpBody": "Workflows walk you through complete tasks. The manual provides feature instructions, a settings reference, and answers to common questions.",
+    "helpBody": "Workflows show complete reading, annotation, saving, and export tasks. Use the manual to look up individual features, settings, and common questions.",
     "workflow": "Explore workflows",
     "manual": "Open the manual",
     "settings": "Browse all settings",

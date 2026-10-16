@@ -90,4 +90,6 @@ docs/                    生产构建产物
 
 首页按功能解释具体用途；工作流提供完整任务步骤；手册按功能查找，并收录常见问题和配置总表。旧 FAQ、功能索引、架构和合并章节地址通过 Hugo aliases 跳转，导航只保留工作流、手册和联系。
 
-更新说明前应核对插件当前源码、实际控件和默认值，特别注意高亮选择条件、注释保存方式、公式输入与正文公式的区别，以及资料库与设置的备份范围。文案遵循 [Apple Writing for interfaces](https://developer.apple.com/videos/play/wwdc2022/10037/) 和 [Apple Style Guide](https://support.apple.com/guide/applestyleguide/welcome/web) 的清晰表达、上下文和术语一致性原则；信息组织参考 [Obsidian](https://obsidian.md/)。产品配图采用真实组件与中性示例内容，不使用私人对话或账号信息。
+更新说明前应核对插件当前源码、实际控件和默认值，特别注意高亮选择条件、注释保存方式、公式输入与正文公式的区别，以及资料库与设置的备份范围。文案遵循 [Apple Writing for interfaces](https://developer.apple.com/videos/play/wwdc2022/10037/) 和 [Apple Style Guide](https://support.apple.com/guide/applestyleguide/welcome/web) 的清晰表达、上下文和术语一致性原则；信息组织参考 [Obsidian](https://obsidian.md/)。产品配图应来自 ChatGPT 实际问答和插件真实操作，使用不含个人信息的教学问题，不用示例组件冒充真实截图。
+
+中英文产品页面共用一套英文界面截图，位于 `assets/ai-markdone/images/guide/`：`reader.png`、`library.png`、`composer.png`、`export.png`、`settings.png`。图片使用实际 PNG 格式，不添加语言后缀；替代文本和图注仍分别提供中英文。更新时替换这五个文件，保持首页、工作流与手册的引用一致。

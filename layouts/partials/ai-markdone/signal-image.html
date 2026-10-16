@@ -1,7 +1,35 @@
-{{- $image := resources.Get .path -}}
-{{- with $image -}}
-  {{- $width := $.width | default 1600 -}}
-  {{- $rendered := . -}}
-  {{- if and (ne .MediaType.SubType "gif") (gt .Width $width) -}}{{- $rendered = .Resize (printf "%dx webp q86" $width) -}}{{- end -}}
-  <img src="{{ $rendered.RelPermalink }}" width="{{ $rendered.Width }}" height="{{ $rendered.Height }}" alt="{{ $.alt }}" loading="{{ $.loading | default "lazy" }}" decoding="async"{{ with $.class }} class="{{ . }}"{{ end }}>
+{{- with resources.Get .path -}}
+  {{- $source := . -}}
+  {{- $original := $source | resources.Fingerprint -}}
+  {{- $src := $original.RelPermalink -}}
+  {{- $srcset := slice -}}
+  {{- range slice 960 1920 2880 -}}
+    {{- if lt . $source.Width -}}
+      {{- $candidate := $source.Resize (printf "%dx png" .) -}}
+      {{- $srcset = $srcset | append (printf "%s %dw" $candidate.RelPermalink $candidate.Width) -}}
+      {{- if eq . 1920 -}}
+        {{- $src = $candidate.RelPermalink -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $srcset = $srcset | append (printf "%s %dw" $original.RelPermalink $source.Width) -}}
+  <a
+    class="amd-image-zoom"
+    href="{{ $original.RelPermalink }}"
+    target="_blank"
+    rel="noopener"
+    aria-label="{{ $.alt }}"
+  >
+    <img
+      src="{{ $src }}"
+      srcset="{{ delimit $srcset ", " }}"
+      sizes="{{ $.sizes | default "(min-width: 1600px) 720px, (min-width: 981px) 48vw, calc(100vw - 48px)" }}"
+      width="{{ $source.Width }}"
+      height="{{ $source.Height }}"
+      alt="{{ $.alt }}"
+      loading="{{ $.loading | default "lazy" }}"
+      decoding="async"
+      {{ with $.class }}class="{{ . }}"{{ end }}
+    />
+  </a>
 {{- end -}}

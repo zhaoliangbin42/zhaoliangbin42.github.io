@@ -55,7 +55,7 @@ Manrope is locally hosted for Latin letters. Chinese uses the system sans stack,
 
 ## Assets and content
 
-Approved hero and product compositions live under `static/images/signal/`; AI product assets remain under `assets/ai-markdone/`. Use the real logos. Product images are promotional compositions, not claimed to be raw application screenshots. Actual manual captures remain identified separately.
+Approved hero artwork and portfolio compositions live under `static/images/signal/`; AI-MarkDone assets remain under `assets/ai-markdone/`. Use the real logos. AI-MarkDone homepage and manual images come from actual ChatGPT conversations and extension operations.
 
 `data/signal/research.json` is the publication metadata source of truth. Home copy is in `data/signal/home.json`. Product manual navigation is in `data/ai_markdone/manual_nav.toml`. Do not reproduce these inventories in JavaScript.
 
@@ -77,5 +77,13 @@ The normal `npm run build` still creates `docs/` for an explicitly requested rel
 
 - The product homepage explains features with examples; workflows teach complete tasks; the manual is a feature and settings reference. FAQ is integrated into the manual, with old URLs redirected.
 - Keep product navigation to Workflows, Manual, and Contact. Preserve a privacy policy link in the footer.
-- Product images use current UI components with neutral example data. Use simple frames and readable scale; no private chats, accounts, or decorative collage effects.
+- Product images use actual ChatGPT conversations and extension operations with harmless educational content. Keep images unframed at a readable scale; no private chats, accounts, or decorative collage effects.
 - State persistence and selection conditions explicitly. Distinguish temporary excerpts, session annotations, saved annotations, highlights, bookmarks, and manual backups.
+
+## Product layout and capture quality
+
+- Product marks retain the original wide aspect ratio; never resize them to a square.
+- Workflows and manuals share the same navigation rail and article shell, with a 24px desktop column gap.
+- Homepage feature explanations use text beside screenshots on desktop. Do not stretch reading or Library screenshots across the whole page.
+- Use actual ChatGPT conversations with harmless educational content for product captures. Capture at high pixel density, crop out unrelated UI, and keep lossless responsive images with an original-size viewing link. Remove added gray picture frames.
+- Both Chinese and English product pages share English-interface screenshots: `reader.png`, `library.png`, `composer.png`, `export.png`, and `settings.png` under `assets/ai-markdone/images/guide/`. Localize alt text and captions, not screenshot files; do not add language suffixes.

@@ -28,7 +28,7 @@ Defaults describe a new configuration; upgrades preserve existing preferences. M
 
 ## Reading & messages {#chatgpt-page-behavior}
 
-**The message directory is currently available.** A new installation with no saved settings enables it. Upgrades preserve the previous value; an older configuration missing this preference may still leave it off.
+A new installation with no saved settings enables the message directory. Upgrades preserve the previous value; an older configuration missing this preference may still leave it off.
 
 | Setting | Default | Options or range | Effect and requirements |
 |---|---|---|---|
@@ -196,4 +196,4 @@ Open Reader and click its top-right settings button. These options are grouped u
 
 Save new annotations for later is also available in the annotation manager; both controls share the same preference. Window mode supports dragging and resizing and remembers its size. Its initial width is approximately 72% of the viewport and height 82%; body width remains limited by the maximum above.
 
-See [Reader](/ai-markdone/en/manual/reader/) for the workflow and [Highlights and annotations](/ai-markdone/en/manual/annotations/) for saving, copying, and restoring annotations.
+See [Reader](/ai-markdone/en/manual/reader/) for step-by-step instructions and [Annotations](/ai-markdone/en/manual/annotations/) to learn how to save, copy, and restore annotations.

@@ -1,8 +1,10 @@
 {{ $isEN := eq (.Params.amd_lang | default "zh") "en" }}
+{{ $isWorkflow := eq .Params.page_kind "workflow" }}
 {{ $manual := cond $isEN "/ai-markdone/en/manual/" "/ai-markdone/manual/" }}
 {{ $home := cond $isEN "/ai-markdone/en/" "/ai-markdone/" }}
 {{ $current := .RelPermalink }}
-{{ $isOverview := eq .Params.page_kind "manual" }}
+{{ $isOverview := or (eq .Params.page_kind "manual") $isWorkflow }}
+{{ $overview := cond $isWorkflow (cond $isEN "/ai-markdone/en/workflow/" "/ai-markdone/workflow/") $manual }}
 {{ $groups := hugo.Data.ai_markdone.manual_nav.groups }}
 {{ $flat := slice }}
 {{ range $groups }}
@@ -21,55 +23,67 @@
   {{ $next = index $flat (add $currentIndex 1) }}
 {{ end }}
 <section class="amd-section amd-docs-section">
-  <div
-    class="amd-container amd-docs-layout{{ if eq .Params.manual_feature "architecture" }}
-      amd-docs-layout-wide
-    {{ end }}"
-  >
+  <div class="amd-container amd-docs-layout">
     <aside
       class="amd-docs-sidebar"
       aria-label="{{ if $isEN }}
-        Manual navigation
+        {{ if $isWorkflow }}
+          Workflow navigation
+        {{ else }}
+          Manual navigation
+        {{ end }}
       {{ else }}
-        手册导航
+        {{ if $isWorkflow }}工作流导航{{ else }}手册导航{{ end }}
       {{ end }}"
     >
       <details data-amd-docs-menu open>
         <summary>
           {{ if $isEN }}
-            Browse the manual
+            {{ if $isWorkflow }}
+              Choose a task
+            {{ else }}
+              Browse the manual
+            {{ end }}
           {{ else }}
-            浏览使用手册
+            {{ if $isWorkflow }}选择任务{{ else }}浏览使用手册{{ end }}
           {{ end }}{{ partial "ai-markdone/icon.html" (dict "name" "chevron-down") }}
         </summary>
         <nav
           class="amd-docs-nav-body"
           aria-label="{{ if $isEN }}
-            Manual chapters
+            {{ if $isWorkflow }}Tasks{{ else }}Manual chapters{{ end }}
           {{ else }}
-            手册章节
+            {{ if $isWorkflow }}任务列表{{ else }}手册章节{{ end }}
           {{ end }}"
         >
           <a
-            class="amd-docs-overview-link{{ if $isOverview }}is-active{{ end }}"
-            href="{{ $manual | relURL }}"
+            class="{{ cond $isOverview "amd-docs-overview-link is-active" "amd-docs-overview-link" }}"
+            href="{{ $overview | relURL }}"
             {{ if $isOverview }}aria-current="page"{{ end }}
-            >{{ if $isEN }}Manual overview{{ else }}手册总览{{ end }}</a
+            >{{ if $isWorkflow }}
+              {{ if $isEN }}Workflow overview{{ else }}工作流总览{{ end }}
+            {{ else }}
+              {{ if $isEN }}Manual overview{{ else }}手册总览{{ end }}
+            {{ end }}</a
           >
-          {{ range $groups }}
-            <div class="amd-docs-nav-group">
-              <strong
-                >{{ if $isEN }}{{ .en }}{{ else }}{{ .zh }}{{ end }}</strong
-              >{{ range .items }}
-                {{ $url := cond $isEN .enURL .zhURL }}<a
-                  href="{{ $url | relURL }}"
-                  {{ if eq $current $url }}
-                    class="is-active" aria-current="page"
-                  {{ end }}
-                  >{{ if $isEN }}{{ .en }}{{ else }}{{ .zh }}{{ end }}</a
-                >
-              {{ end }}
-            </div>
+          {{ if $isWorkflow }}
+            <div class="amd-workflow-nav">{{ .TableOfContents }}</div>
+          {{ else }}
+            {{ range $groups }}
+              <div class="amd-docs-nav-group">
+                <strong
+                  >{{ if $isEN }}{{ .en }}{{ else }}{{ .zh }}{{ end }}</strong
+                >{{ range .items }}
+                  {{ $url := cond $isEN .enURL .zhURL }}<a
+                    href="{{ $url | relURL }}"
+                    {{ if eq $current $url }}
+                      class="is-active" aria-current="page"
+                    {{ end }}
+                    >{{ if $isEN }}{{ .en }}{{ else }}{{ .zh }}{{ end }}</a
+                  >
+                {{ end }}
+              </div>
+            {{ end }}
           {{ end }}
         </nav>
       </details>
@@ -78,7 +92,12 @@
       {{ if not .Params.hide_docs_title }}
         <header class="amd-docs-title">
           <p class="amd-signal-eyebrow">
-            AI-MARKDONE / {{ if $isEN }}MANUAL{{ else }}使用手册{{ end }}
+            AI-MARKDONE /
+            {{ if $isWorkflow }}
+              {{ if $isEN }}WORKFLOWS{{ else }}工作流{{ end }}
+            {{ else }}
+              {{ if $isEN }}MANUAL{{ else }}使用手册{{ end }}
+            {{ end }}
           </p>
           <h1>{{ .Title }}</h1>
           {{ with .Description }}<p>{{ . }}</p>{{ end }}
@@ -87,7 +106,7 @@
       {{ if eq .Params.manual_feature "install" }}
         {{ partial "ai-markdone/browser-downloads.html" (dict "isEN" $isEN "variant" "inline") }}
       {{ end }}
-      {{ if findRE "<li>" .TableOfContents }}
+      {{ if and (not $isWorkflow) (findRE "<li>" .TableOfContents) }}
         <details class="amd-docs-toc">
           <summary>
             {{ if $isEN }}
